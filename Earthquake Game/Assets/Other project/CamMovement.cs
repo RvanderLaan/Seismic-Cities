@@ -61,5 +61,5 @@ public class CamMovement : MonoBehaviour {
 
 
         previousMousePosition = Input.mousePosition;
-	}
+    }
 }
