@@ -20,4 +20,10 @@ public class Soil : MonoBehaviour {
         Wave wave = collider.gameObject.GetComponent<Wave>();
         wave.speed *= speedCoefficient;
     }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        Wave wave = collider.gameObject.GetComponent<Wave>();
+        wave.speed /= speedCoefficient;
+    }
 }
