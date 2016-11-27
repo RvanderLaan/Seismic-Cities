@@ -6,7 +6,8 @@ public class Wave : MonoBehaviour {
     public Vector3 direction;
     public float speed;
 
-   
+    private float timeSinceLastCollision = float.MaxValue;
+    private bool currentlyInCollision = true;
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +16,6 @@ public class Wave : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        // find out soil type
-        // get soil type speed coefficient
-        
         transform.position = transform.position + direction * speed * Time.deltaTime;
 	}
-
-
 }

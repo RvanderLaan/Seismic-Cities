@@ -16,14 +16,21 @@ public class Soil : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D collider) {
-        Debug.Log("Hit");
         Wave wave = collider.gameObject.GetComponent<Wave>();
-        wave.speed *= speedCoefficient;
+        if (wave != null) {
+            wave.speed *= speedCoefficient;
+        }
+        
     }
 
-    void OnTriggerExit2D(Collider2D collider)
-    {
+    void OnTriggerExit2D(Collider2D collider) {
         Wave wave = collider.gameObject.GetComponent<Wave>();
-        wave.speed /= speedCoefficient;
+        if (wave != null) {
+            wave.speed /= speedCoefficient;
+
+            if (gameObject.tag.Equals("Bottom") || gameObject.tag.Equals("Surface")) {
+                wave.gameObject.SetActive(false);
+            }
+        }        
     }
 }

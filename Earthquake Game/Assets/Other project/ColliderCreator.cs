@@ -8,6 +8,7 @@ public class ColliderCreator : MonoBehaviour
     private List<Edge> edges = new List<Edge>();
     private List<Vector2> points = new List<Vector2>();
     private Vector3[] vertices;
+    public bool isTrigger = false;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class ColliderCreator : MonoBehaviour
         if (polygonCollider == null) {
             polygonCollider = gameObject.AddComponent<PolygonCollider2D>();
         }
-		polygonCollider.isTrigger = true;
+		polygonCollider.isTrigger = isTrigger;
         
         // Get the mesh's vertices for use later
         vertices = GetComponent<MeshFilter>().mesh.vertices;

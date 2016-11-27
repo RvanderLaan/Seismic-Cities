@@ -8,6 +8,9 @@ public class CamMovement : MonoBehaviour {
     private Vector3 mouseDownPos = Vector3.zero;
     private bool movedSinceMouseDown = false;
 
+    public float closeZoomLimit = 1f;
+    public float farZoomLimit = 20f;
+
     public GameObject target;
 
     private SeismicWaveEffect effect;
@@ -35,7 +38,9 @@ public class CamMovement : MonoBehaviour {
         Vector3 pos = transform.position;
         // Zoom
         if (Input.mouseScrollDelta.y != 0) {
-            pos.z += Input.mouseScrollDelta.y;
+            float newPosZ = pos.z + Input.mouseScrollDelta.y;
+            if (-newPosZ > closeZoomLimit && -newPosZ < farZoomLimit)
+                pos.z = newPosZ;
         }
 
         // Pan
