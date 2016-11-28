@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveAmount: 64
-  startSpeed: 0.2
+  startSpeed: 1
   instance: {fileID: 11422972, guid: 367970396b2929b439946eb8a4e22e12, type: 2}
   lineWidth: 0.01
 --- !u!120 &12009080

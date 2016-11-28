@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Effect
-  m_Shader: {fileID: 4800000, guid: 323c75e82f31c4744b5483795ef9f47a, type: 3}
+  m_Name: unnamed
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -83,11 +83,14 @@ Material:
         name: _DstBlend
       second: 0
     - first:
-        name: _Gap
-      second: 2
+        name: _GlossMapScale
+      second: 1
     - first:
         name: _Glossiness
       second: 0.5
+    - first:
+        name: _GlossyReflections
+      second: 1
     - first:
         name: _Metallic
       second: 0
@@ -101,39 +104,24 @@ Material:
         name: _Parallax
       second: 0.02
     - first:
-        name: _Range
-      second: 423
+        name: _SmoothnessTextureChannel
+      second: 0
     - first:
-        name: _Speed
-      second: 30
+        name: _SpecularHighlights
+      second: 1
     - first:
         name: _SrcBlend
       second: 1
     - first:
-        name: _Start
-      second: 0
-    - first:
-        name: _StartTime
-      second: 0
-    - first:
-        name: _Time
-      second: 0
-    - first:
         name: _UVSec
       second: 0
-    - first:
-        name: _Width
-      second: 5
     - first:
         name: _ZWrite
       second: 1
     m_Colors:
     - first:
-        name: _Center
-      second: {r: 689.83997, g: 468.54, b: 26.16, a: 0}
-    - first:
         name: _Color
-      second: {r: 0.6838235, g: 0.18604024, b: 0.18604024, a: 0.5019608}
+      second: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}

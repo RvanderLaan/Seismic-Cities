@@ -5,6 +5,7 @@ using System.Collections;
 public class SeismicWaveEffect : MonoBehaviour {
     public Material material;
     public GameObject target;
+    public float width = 5;
 
     private float pressTime = float.MaxValue;
 
@@ -29,7 +30,7 @@ public class SeismicWaveEffect : MonoBehaviour {
 
         material.SetVector("_Center", relTargetPos);
 
-        material.SetFloat("_Width", 5 * -10 / Camera.main.transform.position.z);
+        material.SetFloat("_Width", width / Camera.main.orthographicSize);
         Graphics.Blit(source, destination, material);
     }
 }
