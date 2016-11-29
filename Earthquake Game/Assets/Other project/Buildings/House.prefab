@@ -90,7 +90,7 @@ GameObject:
   - 114: {fileID: 114000014057241598}
   m_Layer: 8
   m_Name: House
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

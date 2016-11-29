@@ -11,11 +11,18 @@ public class WaveGenerator : MonoBehaviour {
     LineRenderer lr;
     public float lineWidth = 0.05f;
 
+    private GameObject[] buildings;
+    public Wave damageParticle;
+
     // Use this for initialization
     void Start() {
+        //get the buildings gameObjects
+        buildings = GameObject.FindGameObjectsWithTag("Building");
+
         lr = GetComponent<LineRenderer>();
         lr.SetVertexCount(waveAmount + 1);
 
+        //generate the wave objects
         waves = new Wave[waveAmount];
         for (int i = 0; i < waveAmount; i++) {
             Wave w = (Wave) GameObject.Instantiate(instance, transform.position, Quaternion.identity);
@@ -25,7 +32,15 @@ public class WaveGenerator : MonoBehaviour {
             waves[i] = w;
         }
 
-        
+        //generate the damaging particles, one for each building
+        for (int i = 0; i < buildings.Length; i++)
+        {
+            Wave particle = (Wave) GameObject.Instantiate(
+                                                    damageParticle, transform.position, Quaternion.identity);
+            particle.transform.SetParent(transform);
+            particle.direction = buildings[i].transform.position - transform.position;
+            particle.speed = startSpeed;
+        }
 
 	}
 	
