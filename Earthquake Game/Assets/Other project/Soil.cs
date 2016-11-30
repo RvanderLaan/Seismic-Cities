@@ -28,7 +28,7 @@ public class Soil : MonoBehaviour {
         if (wave != null) {
             wave.speed /= speedCoefficient;
 
-            if (gameObject.tag.Equals("Bottom") || gameObject.tag.Equals("Surface")) {
+            if (!collider.gameObject.tag.Equals("DamageParticle") && (gameObject.tag.Equals("Bottom") || gameObject.tag.Equals("Surface"))) {
                 wave.gameObject.SetActive(false);
             }
         }        

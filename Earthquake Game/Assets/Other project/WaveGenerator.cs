@@ -35,11 +35,14 @@ public class WaveGenerator : MonoBehaviour {
         //generate the damaging particles, one for each building
         for (int i = 0; i < buildings.Length; i++)
         {
-            Wave particle = (Wave) GameObject.Instantiate(
-                                                    damageParticle, transform.position, Quaternion.identity);
+            Wave particle = (Wave) GameObject.Instantiate(damageParticle, transform.position, Quaternion.identity);
             particle.transform.SetParent(transform);
-            particle.direction = buildings[i].transform.position - transform.position;
+            particle.direction = (buildings[i].transform.position - transform.position).normalized;
             particle.speed = startSpeed;
+            particle.GetComponent<DamageParticleController>().buildingID = buildings[i].GetInstanceID();
+            //the cosineDegreeFactor is 1 if the direction of the damage particle is vertical (orthogonal to the ground)
+            //and is 0 if the direction is horizontal
+            particle.GetComponent<DamageParticleController>().cosineDegreeFactor = Mathf.Pow(particle.direction.y, 2);
         }
 
 	}

@@ -25,7 +25,7 @@ GameObject:
   - 212: {fileID: 212000010636491136}
   m_Layer: 0
   m_Name: DamageParticle
-  m_TagString: Untagged
+  m_TagString: DamageParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ef7d00b6162af4694cbe467df4c0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingID: 0
 --- !u!212 &212000010636491136
 SpriteRenderer:
   m_ObjectHideFlags: 1
