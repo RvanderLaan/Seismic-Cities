@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Surface
-  - Bottom
+  - Border
   - Building
   - DamageParticle
+  - Wave
   layers:
   - Default
   - TransparentFX
