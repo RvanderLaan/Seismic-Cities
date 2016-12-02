@@ -9,10 +9,9 @@ public class Wave : MonoBehaviour {
     private float timeSinceLastCollision = float.MaxValue;
     private bool currentlyInCollision = true;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    // Use this for initialization
+    void Start () {
+    }
 	
 	// Update is called once per frame
 	void Update () {

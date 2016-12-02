@@ -3,8 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class BuildingHealth : MonoBehaviour {
-    public int startingHealth = 100;
-    public int currentHealth;
+    public float startingHealth = 100;
+    public float currentHealth;
     public Slider healthSlider;
 
     // Use this for initialization
@@ -19,7 +19,7 @@ public class BuildingHealth : MonoBehaviour {
     {
     }
 
-    public void takeDamage(int amount)
+    public void takeDamage(float amount)
     {
         currentHealth -= amount;
         healthSlider.value = currentHealth;

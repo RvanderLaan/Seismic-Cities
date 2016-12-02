@@ -41,10 +41,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3eb9a02bc7b3d4984776cd900e7a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveAmount: 64
+  waveAmount: 100
   startSpeed: 1
   instance: {fileID: 11422972, guid: 367970396b2929b439946eb8a4e22e12, type: 2}
-  lineWidth: 0.01
+  lineWidth: 0.05
   damageParticle: {fileID: 114000010258608370, guid: 5cd3fc27cd6f1d445a7122595aa89f1f,
     type: 2}
 --- !u!120 &12009080
