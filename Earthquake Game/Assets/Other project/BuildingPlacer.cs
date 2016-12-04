@@ -21,10 +21,11 @@ public class BuildingPlacer : MonoBehaviour {
 	}
 
     public bool mouseMoved() {
-        return (clickPosition - Input.mousePosition).sqrMagnitude >= 1;
+        return (clickPosition - Input.mousePosition).sqrMagnitude >= 4;
     }
 
     public void startPreview(GameObject prefab) {
+        GameObject.Destroy(previewInstance);
         previewPrefab = prefab;
         preview = true;
         previewInstance = GameObject.Instantiate(previewPrefab);
@@ -59,7 +60,7 @@ public class BuildingPlacer : MonoBehaviour {
 
             // Raycast downwards to 2d collider
             RaycastHit2D hit = Physics2D.Raycast(worldPos, -Vector2.up);
-            if (hit.collider != null && hit.collider.gameObject.tag == "Surface") {
+            if (hit.collider != null && (hit.collider.gameObject.tag == "Surface" || hit.collider.gameObject.tag == "Border")) {
                 // Preview building on collision location
                 Vector2 hitPoint = hit.point;
                 hitPoint.y += size.y / 2;

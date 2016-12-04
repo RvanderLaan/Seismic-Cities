@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using UnityEngine.EventSystems;
+
 public class ModeManager : MonoBehaviour {
 
     public List<GameObject> buildingObjects, destructionObjects;
@@ -12,7 +14,7 @@ public class ModeManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        isDestructionMode = startInDestructionMode;
+        isDestructionMode = !startInDestructionMode;
         switchModes();
 	}
 
@@ -37,6 +39,10 @@ public class ModeManager : MonoBehaviour {
             foreach (GameObject go in destructionObjects)
                 go.SetActive(false);
         }
+
+
+        // Deselect button, else pressing space will press it again
+        EventSystem.current.SetSelectedGameObject(null, null);
     }
 	
 	// Update is called once per frame
