@@ -5,8 +5,6 @@ public class CamMovement : MonoBehaviour {
 
     // Positioning/mouse stuff
     private Vector3 previousMousePosition;
-    private bool mouseDown = false;
-    private Vector3 mouseDownPos = Vector3.zero;
     private bool movedSinceMouseDown = false;
     public float keyMoveSpeed = 1f;
 
@@ -19,38 +17,19 @@ public class CamMovement : MonoBehaviour {
     public float zoomSmoothness = 0.1f;
     private float zoomVelocity;
 
-
-    public GameObject target;
-
-    private SeismicWaveEffect effect;
-
     // Use this for initialization
     void Start () {
         previousMousePosition = Input.mousePosition;
-        effect = Camera.main.GetComponent<SeismicWaveEffect>();
         zoomTarget = Camera.main.orthographicSize;
 	}
 
     // Update is called once per frame
     void Update () {
-        // Init stuff before rest of update
-        if (!mouseDown && Input.GetMouseButtonDown(0)) {
-            mouseDown = true;
-            mouseDownPos = Input.mousePosition;
-            movedSinceMouseDown = false;
 
-            // Reset mouse position after clicking when coming outside of the screen, else it jumps when panning the first time
-            if (previousMousePosition.x < 0 || previousMousePosition.x > Screen.width || previousMousePosition.y < 0 || previousMousePosition.y > Screen.height)
-                previousMousePosition = Input.mousePosition;
-        }
-        if (Input.GetMouseButtonUp(0)) {
-            mouseDown = false;
-        }
-        if (mouseDown && !movedSinceMouseDown && (mouseDownPos - Input.mousePosition).sqrMagnitude > 1)
-            movedSinceMouseDown = true;
+        // Reset mouse position after clicking when coming outside of the screen, else it jumps when panning the first time
+        if (Input.GetMouseButtonDown(0) && (previousMousePosition.x < 0 || previousMousePosition.x > Screen.width || previousMousePosition.y < 0 || previousMousePosition.y > Screen.height))
+            previousMousePosition = Input.mousePosition;
 
-
-        
         // Zoom
         if (Input.mouseScrollDelta.y != 0) {
             float scale = Camera.main.orthographicSize - Input.mouseScrollDelta.y * scrollSpeed;
@@ -60,7 +39,7 @@ public class CamMovement : MonoBehaviour {
         Camera.main.orthographicSize = Mathf.SmoothDamp(Camera.main.orthographicSize, zoomTarget, ref zoomVelocity, zoomSmoothness);
         
 
-        // Pan
+        // Pan using mouse
         Vector3 pos = transform.position;
         if (Input.GetMouseButton(0)) {
             Vector3 dMouse = previousMousePosition - Input.mousePosition;
@@ -69,6 +48,7 @@ public class CamMovement : MonoBehaviour {
             pos += dMouse;
             
         }
+        // Pan using keys
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             pos.x -= Time.deltaTime * keyMoveSpeed;
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
@@ -79,16 +59,7 @@ public class CamMovement : MonoBehaviour {
             pos.y += Time.deltaTime * keyMoveSpeed;
         transform.position = pos;
 
-        // Place marker
-        if (Input.GetMouseButtonUp(0) && !movedSinceMouseDown) {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = -Camera.main.transform.position.z;
-            Vector3 targetPos = Camera.main.ScreenToWorldPoint(mousePos);
-            targetPos.z = -0.01f;
-            target.transform.position = targetPos;
 
-            effect.reset();
-        }
         previousMousePosition = Input.mousePosition;
     }
 }
