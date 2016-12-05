@@ -15,9 +15,12 @@ public class BuildingPlacer : MonoBehaviour {
 
     private Vector3 clickPosition;
 
+    public AudioClip select, place;
+    private AudioSource audioSource;
+
 	// Use this for initialization
 	void Start () {
-
+        audioSource = GetComponent<AudioSource>();
 	}
 
     public bool mouseMoved() {
@@ -35,6 +38,10 @@ public class BuildingPlacer : MonoBehaviour {
         previewInstance.GetComponent<Rigidbody2D>().isKinematic = true;
         previewSR = previewInstance.GetComponent<SpriteRenderer>();
         previewSR.color = goodColor;
+
+        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.clip = select;
+        audioSource.Play();
     }
 
     public void stopPreview() {
@@ -72,6 +79,10 @@ public class BuildingPlacer : MonoBehaviour {
                 if (!mouseMoved() && Input.GetMouseButtonUp(0)) {
                     GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
                     instance.transform.position = hitPoint;
+
+                    audioSource.pitch = Random.Range(0.5f, 1.5f);
+                    audioSource.clip = place;
+                    audioSource.Play();
                 }
 
             } else {

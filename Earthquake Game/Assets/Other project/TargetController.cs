@@ -8,9 +8,11 @@ public class TargetController : MonoBehaviour {
 
     private Vector3 clickPosition;
 
+    private AudioSource audioSource;
+
 	// Use this for initialization
 	void Start () {
-	    
+        audioSource = GetComponent<AudioSource>();
 	}
 
     public bool mouseMoved() {
@@ -38,6 +40,9 @@ public class TargetController : MonoBehaviour {
             WaveGenerator wg = (WaveGenerator) GameObject.Instantiate(instance, transform.position, Quaternion.identity);
             wg.startSpeed = sc.getTimingScore() * wg.startSpeed * .8f + wg.startSpeed * .2f;
             // wg.transform.SetParent(transform);
+
+            audioSource.pitch = Random.Range(0.5f, 1f);
+            audioSource.Play();
          }
     }
 
