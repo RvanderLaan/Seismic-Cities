@@ -20,7 +20,7 @@ public class ScoringManager : MonoBehaviour {
         //display in the UI
         scoreText.canvasRenderer.SetAlpha(1);
         scoreText.text = "Score: " + (int) score;
-        scoreText.CrossFadeAlpha(0, 3.5f, true);
+        scoreText.CrossFadeAlpha(0, 5f, true);
     }
 
     private float computeScore()

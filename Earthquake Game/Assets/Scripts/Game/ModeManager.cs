@@ -29,6 +29,8 @@ public class ModeManager : MonoBehaviour {
                 go.SetActive(true);
             foreach (GameObject go in buildingObjects) 
                 go.SetActive(false);
+
+            GetComponent<EarthquakeSimulator>().enabled = false;
         } else {
             // Custom switching
 
@@ -38,6 +40,8 @@ public class ModeManager : MonoBehaviour {
                 go.SetActive(true);
             foreach (GameObject go in destructionObjects)
                 go.SetActive(false);
+
+            GetComponent<EarthquakeSimulator>().enabled = true;
         }
 
 

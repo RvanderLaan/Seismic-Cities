@@ -20,8 +20,9 @@ public class WaveGenerator : MonoBehaviour {
         buildings = GameObject.FindGameObjectsWithTag("Building");
 
         lr = GetComponent<LineRenderer>();
-        lr.SetVertexCount(waveAmount + 1);
-        lr.SetWidth(lineWidth, lineWidth);
+        lr.numPositions = waveAmount + 1;
+        lr.startWidth = lineWidth;
+        lr.endWidth = lineWidth;
 
         //generate the wave objects
         waves = new Wave[waveAmount];
