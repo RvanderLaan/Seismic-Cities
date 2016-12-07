@@ -7,17 +7,31 @@ public class CountrySelection : MonoBehaviour {
     public Canvas hoverDialog;
     public Canvas levelDetails;
 
-    private void OnMouseEnter()
-    {
-        hoverDialog.gameObject.SetActive(true);
+
+    private Renderer renderer;
+
+    void Start() {
+        renderer = GetComponent<Renderer>();
     }
 
-    private void OnMouseExit()
-    {
-        hoverDialog.gameObject.SetActive(false);
+    void Update() {
+        hoverDialog.transform.rotation = Quaternion.identity;
     }
 
-    private void OnMouseDown()
+    public void OnMouseEnter()
+    {
+        // hoverDialog.gameObject.SetActive(true);
+        renderer.material.color = Color.green;
+
+    }
+
+    public void OnMouseExit()
+    {
+        // hoverDialog.gameObject.SetActive(false);
+        renderer.material.color = Color.yellow;
+    }
+
+    public void OnMouseDown()
     {
         levelDetails.gameObject.SetActive(true);
     }
