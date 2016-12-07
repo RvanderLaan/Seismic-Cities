@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CountryDetailsManager : MonoBehaviour {
 
@@ -19,8 +20,8 @@ public class CountryDetailsManager : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    public void play()
+    public void play(string sceneName)
     {
-        //Load level scene
+        SceneManager.LoadScene(sceneName);
     }
 }

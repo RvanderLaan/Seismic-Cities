@@ -18,20 +18,20 @@ public class CountrySelection : MonoBehaviour {
         hoverDialog.transform.rotation = Quaternion.identity;
     }
 
-    private void OnMouseEnter()
+    public void OnMouseEnter()
     {
         // hoverDialog.gameObject.SetActive(true);
         renderer.material.color = Color.green;
 
     }
 
-    private void OnMouseExit()
+    public void OnMouseExit()
     {
         // hoverDialog.gameObject.SetActive(false);
         renderer.material.color = Color.yellow;
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         levelDetails.gameObject.SetActive(true);
     }
