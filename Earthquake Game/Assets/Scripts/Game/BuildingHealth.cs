@@ -14,15 +14,19 @@ public class BuildingHealth : MonoBehaviour {
         healthSlider.value = currentHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void takeDamage(float amount)
     {
-        currentHealth -= amount;
+        currentHealth = (currentHealth - amount < 0)? 0 : currentHealth - amount;
         healthSlider.value = currentHealth;
+    }
 
+    public float getHealthPercentage()
+    {
+        return currentHealth / startingHealth;
+    }
+
+    public float getDamagePercentage()
+    {
+        return 1 - getHealthPercentage();
     }
 }

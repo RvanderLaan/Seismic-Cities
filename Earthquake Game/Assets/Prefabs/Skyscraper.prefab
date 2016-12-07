@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 61000011652508370}
   - component: {fileID: 50000011130657806}
   - component: {fileID: 114000010641018910}
+  - component: {fileID: 114517465856049880}
   m_Layer: 8
   m_Name: Skyscraper
   m_TagString: Building
@@ -314,6 +315,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114517465856049880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011161503232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14aabcead7a0314ab35b01bbc5df47f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 20
+  population: 5
 --- !u!212 &212000011399546198
 SpriteRenderer:
   m_ObjectHideFlags: 1

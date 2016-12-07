@@ -18,9 +18,12 @@ public class BuildingPlacer : MonoBehaviour {
     public AudioClip select, place;
     private AudioSource audioSource;
 
+    private BudgetManager budgetManager;
+
 	// Use this for initialization
 	void Start () {
         audioSource = GetComponent<AudioSource>();
+        budgetManager = GetComponent<BudgetManager>();
 	}
 
     public bool mouseMoved() {
@@ -65,24 +68,33 @@ public class BuildingPlacer : MonoBehaviour {
             mousePos.y = Screen.height; // Only x pos matters
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
+            BuildingInfo previewInfo = previewPrefab.GetComponent<BuildingInfo>();
+
             // Raycast downwards to 2d collider
             RaycastHit2D hit = Physics2D.Raycast(worldPos, -Vector2.up);
             if (hit.collider != null && (hit.collider.gameObject.tag == "Surface" || hit.collider.gameObject.tag == "Border")) {
                 // Preview building on collision location
                 Vector2 hitPoint = hit.point;
                 hitPoint.y += size.y / 2;
-                Debug.Log(size);
+                //Debug.Log(size);
                 previewInstance.transform.position = hitPoint;
-                previewSR.color = goodColor;
+                if (budgetManager.enoughMoney(previewInfo.cost))
+                    previewSR.color = goodColor;
+                else
+                    previewSR.color = badColor;
 
                 // Place prefab when release
-                if (!mouseMoved() && Input.GetMouseButtonUp(0)) {
+                if (!mouseMoved() && Input.GetMouseButtonUp(0) && budgetManager.enoughMoney(previewInfo.cost)) {
                     GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
                     instance.transform.position = hitPoint;
 
                     audioSource.pitch = Random.Range(0.5f, 1.5f);
                     audioSource.clip = place;
                     audioSource.Play();
+
+                    budgetManager.newBuilding(previewInfo.cost, previewInfo.population);
+                } else if (!mouseMoved() && Input.GetMouseButtonUp(0) && !budgetManager.enoughMoney(previewInfo.cost)){
+                    budgetManager.notEnoughMoneyMessage();
                 }
 
             } else {
