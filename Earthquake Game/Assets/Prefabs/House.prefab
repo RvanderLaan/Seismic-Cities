@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 61000012387279584}
   - component: {fileID: 50000010796159916}
   - component: {fileID: 114000014057241598}
+  - component: {fileID: 114354170907142546}
   m_Layer: 8
   m_Name: House
   m_TagString: Building
@@ -314,6 +315,19 @@ MonoBehaviour:
   startingHealth: 100
   currentHealth: 0
   healthSlider: {fileID: 114000011715947406}
+--- !u!114 &114354170907142546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013726159040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14aabcead7a0314ab35b01bbc5df47f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 10
+  population: 3
 --- !u!212 &212000011175253034
 SpriteRenderer:
   m_ObjectHideFlags: 1
