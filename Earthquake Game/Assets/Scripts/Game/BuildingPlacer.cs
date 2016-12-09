@@ -44,6 +44,7 @@ public class BuildingPlacer : MonoBehaviour {
         previewInstance.GetComponent<Rigidbody2D>().isKinematic = true;
         previewSR = previewInstance.GetComponent<SpriteRenderer>();
         previewSR.color = goodColor;
+        previewInstance.tag = "";
 
         audioSource.pitch = Random.Range(0.8f, 1.2f);
         audioSource.clip = select;
@@ -118,7 +119,6 @@ public class BuildingPlacer : MonoBehaviour {
     bool checkAllowPlacement(RaycastHit2D hit) {
         // Only allow angle between -10 and 10 degrees steep
         float angle = Mathf.Atan2(hit.normal.y, hit.normal.x) * Mathf.Rad2Deg;
-        Debug.Log(angle + ", " + (angle > 60 ) + ", " + (angle < 120));
         if (!(angle > 80 && angle < 100))
             return false;
 
