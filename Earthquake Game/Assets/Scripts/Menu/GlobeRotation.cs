@@ -9,6 +9,8 @@ public class GlobeRotation : MonoBehaviour {
 
     public bool horizontal = true, vertical = false;
 
+    public float clickDrag = 5, normalDrag = 2;
+
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
@@ -20,6 +22,8 @@ public class GlobeRotation : MonoBehaviour {
 	void Update () {
 
         if (Input.GetMouseButton(0)) {
+            rigidBody.angularDrag = clickDrag;
+
             Vector3 dMouse = (prevMousePosition - Input.mousePosition);
 
             Vector3 rotVector = Vector3.zero;
@@ -29,7 +33,8 @@ public class GlobeRotation : MonoBehaviour {
                 rotVector.x = -dMouse.y;
 
             rigidBody.angularVelocity += rotVector * Time.deltaTime;
-        }
+        } else
+            rigidBody.angularDrag = normalDrag;
 
         prevMousePosition = Input.mousePosition;
 	}

@@ -35,7 +35,8 @@ public class WaveGenerator : MonoBehaviour {
         for (int i = 0; i < waveAmount; i++) {
             Wave w = (Wave) GameObject.Instantiate(instance, transform.position, Quaternion.identity);
             w.transform.SetParent(transform);
-            w.direction = new Vector3(Mathf.Cos(Mathf.PI * 2 * i / waveAmount), Mathf.Sin(Mathf.PI * 2 * i / waveAmount), 0).normalized;
+            float angle = Mathf.PI * 2 * i / waveAmount - Mathf.PI / 2; // + 45 deg so that the seam is at the bottom
+            w.direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0).normalized;
             w.speed = startSpeed;
             waves[i] = w;
         }

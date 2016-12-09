@@ -9,6 +9,8 @@ public class CamMovement : MonoBehaviour {
     private bool movedSinceMouseDown = false;
     public float keyMoveSpeed = 1f;
 
+    public Vector4 limits = new Vector4(0, 20, -6, 6);
+
     // Zoom stuff
     public float minScale = 0.1f;
     public float maxScale = 10f;
@@ -62,8 +64,11 @@ public class CamMovement : MonoBehaviour {
             pos.y -= Time.deltaTime * keyMoveSpeed;
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             pos.y += Time.deltaTime * keyMoveSpeed;
-        transform.position = pos;
+        
+        pos.x = Mathf.Clamp(pos.x, limits.x, limits.y);
+        pos.y = Mathf.Clamp(pos.y, limits.z, limits.w);
 
+        transform.position = pos;
 
         previousMousePosition = Input.mousePosition;
     }
