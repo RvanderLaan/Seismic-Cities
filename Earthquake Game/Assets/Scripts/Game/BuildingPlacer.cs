@@ -44,7 +44,7 @@ public class BuildingPlacer : MonoBehaviour {
         previewInstance.GetComponent<Rigidbody2D>().isKinematic = true;
         previewSR = previewInstance.GetComponent<SpriteRenderer>();
         previewSR.color = goodColor;
-        previewInstance.tag = "";
+        previewInstance.tag = "Untagged";
 
         audioSource.pitch = Random.Range(0.8f, 1.2f);
         audioSource.clip = select;
@@ -126,7 +126,6 @@ public class BuildingPlacer : MonoBehaviour {
         // Check budget
         // TODO: GetComponent is slow, only call when building changes
         BuildingInfo previewInfo = previewPrefab.GetComponent<BuildingInfo>();
-        Debug.Log(budgetManager.enoughMoney(previewInfo.cost));
         if (!budgetManager.enoughMoney(previewInfo.cost)) {
             budgetManager.notEnoughMoneyMessage();
             return false;

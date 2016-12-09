@@ -3,10 +3,15 @@ using System.Collections;
 
 public class WaveGenerator : MonoBehaviour {
 
+    public float lifeTime = 15;
+    private float startTime = float.MinValue;
+
     public int waveAmount = 128;
     public float startSpeed = .1f;
     public Wave instance;
     private Wave[] waves;
+
+    public float intensity = 1;
 
     LineRenderer lr;
     public float lineWidth = 0.05f;
@@ -14,10 +19,11 @@ public class WaveGenerator : MonoBehaviour {
     private GameObject[] buildings;
     public Wave damageParticle;
 
+    public Color bestColor = Color.red, worstColor = Color.blue;
+
     // Use this for initialization
-    void Start() {
-        //get the buildings gameObjects
-        buildings = GameObject.FindGameObjectsWithTag("Building");
+    void Awake() {
+        
 
         lr = GetComponent<LineRenderer>();
         lr.numPositions = waveAmount + 1;
@@ -33,25 +39,53 @@ public class WaveGenerator : MonoBehaviour {
             w.speed = startSpeed;
             waves[i] = w;
         }
+	}
 
+    public void reset() {
+        // Reset positions
+        for (int i = 0; i < waveAmount; i++) {
+            waves[i].transform.position = transform.position;
+            waves[i].speed = startSpeed;
+            lr.SetPosition(i, transform.position);
+        }
+        lr.SetPosition(waveAmount, waves[0].transform.position);
+    }
+
+    public bool isDone() {
+        return Time.time > (startTime + lifeTime);
+    }
+
+    public void startWave() {
+        //get the buildings gameObjects
+        buildings = GameObject.FindGameObjectsWithTag("Building");
+
+        startTime = Time.time;
+
+        // Change color based on intensity
+        Color col = Color.Lerp(worstColor, bestColor, intensity);
+        GetComponent<Renderer>().material.color = col;
+
+        gameObject.SetActive(true);
         //generate the damaging particles, one for each building
-        for (int i = 0; i < buildings.Length; i++)
-        {
-            Wave particle = (Wave) GameObject.Instantiate(damageParticle, transform.position, Quaternion.identity);
+        for (int i = 0; i < buildings.Length; i++) {
+            Wave particle = (Wave)GameObject.Instantiate(damageParticle, transform.position, Quaternion.identity);
             particle.transform.SetParent(transform);
             particle.direction = (buildings[i].transform.position - transform.position).normalized;
             particle.speed = startSpeed;
-            particle.GetComponent<DamageParticleController>().buildingID = buildings[i].GetInstanceID();
+
+            DamageParticleController dpg = particle.GetComponent<DamageParticleController>();
+            dpg.buildingID = buildings[i].GetInstanceID();
             //the cosineDegreeFactor is 1 if the direction of the damage particle is vertical (orthogonal to the ground)
             //and is 0 if the direction is horizontal
-            particle.GetComponent<DamageParticleController>().cosineDegreeFactor = Mathf.Pow(particle.direction.y, 2);
-            particle.GetComponent<DamageParticleController>().distance = (buildings[i].transform.position - transform.position).magnitude;
+            dpg.cosineDegreeFactor = Mathf.Pow(particle.direction.y, 2);
+            dpg.distance = (buildings[i].transform.position - transform.position).magnitude;
         }
-
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        if (isDone())
+            gameObject.SetActive(false);
         for (int i = 0; i < waveAmount; i++) {
             lr.SetPosition(i, waves[i].transform.position);
         }

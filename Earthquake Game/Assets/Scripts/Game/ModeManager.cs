@@ -48,9 +48,17 @@ public class ModeManager : MonoBehaviour {
         // Deselect button, else pressing space will press it again
         EventSystem.current.SetSelectedGameObject(null, null);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public bool isInDestructionMode() {
+        return isDestructionMode;
+    }
+
+    public bool isInBuildingMode() {
+        return !isDestructionMode;
+    }
+
+    // Update is called once per frame
+    void Update () {
 
 	}
 }

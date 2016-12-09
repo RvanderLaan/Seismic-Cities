@@ -41,12 +41,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3eb9a02bc7b3d4984776cd900e7a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 10
   waveAmount: 64
   startSpeed: 1
   instance: {fileID: 11422972, guid: 367970396b2929b439946eb8a4e22e12, type: 2}
-  lineWidth: 0.1
+  intensity: 1
+  lineWidth: 0.4
   damageParticle: {fileID: 114000010258608370, guid: 5cd3fc27cd6f1d445a7122595aa89f1f,
     type: 2}
+  bestColor: {r: 1, g: 0, b: 0, a: 1}
+  worstColor: {r: 1, g: 0.49264705, b: 0.6291076, a: 0.39215687}
 --- !u!120 &12009080
 LineRenderer:
   m_ObjectHideFlags: 1
