@@ -1,0 +1,49 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 740M (ID=0xfdf)
+    Vendor:   NVIDIA
+    VRAM:     2019 MB
+    Driver:   21.21.13.7619
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\2D Sky FREE.dll (this message is harmless)
+Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\2D Sky FREE.dll into Unity Child Domain
+- Completed reload, in  0.235 seconds
+Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+ConvexHullBuilder::CreateTrianglesFromPolygons: convex hull has a polygon with less than 3 vertices!
+ 
+(Filename: ..\..\PhysXCooking\src\convex\ConvexHullBuilder.cpp Line: 1116)
+
+Gu::ConvexMesh::loadConvexHull: convex hull init failed! Try to use the PxConvexFlag::eINFLATE_CONVEX flag. (see PxToolkit::createConvexMeshSafe)
+ 
+(Filename: ..\..\PhysXCooking\src\convex\ConvexMeshBuilder.cpp Line: 253)
+
+Failed to create Convex Mesh from source mesh "Netherlands". Source mesh is likely have too many smooth surface regions. Please reduce the surface smoothness of the source mesh. Alternatively turn on Inflate Mesh and increase the Skin Width sufficiently for this mesh.
+ 
+(Filename:  Line: 54)
+
+UnloadTime: 1.718067 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.308460 ms
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 905.
+Total: 0.801354 ms (FindLiveObjects: 0.105095 ms CreateObjectMapping: 0.032021 ms MarkObjects: 0.481141 ms  DeleteObjects: 0.181864 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2a88 -> priority: 1 
