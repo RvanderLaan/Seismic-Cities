@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d1e6f26e499cb52479acde99684904d5
+timeCreated: 1481314346
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Aquatico
+  fontNames:
+  - Aquatico
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -114,7 +114,7 @@ Material:
       second: 0
     - first:
         name: _StartTime
-      second: 72.99748
+      second: 28.884485
     - first:
         name: _Time
       second: 0
@@ -123,14 +123,14 @@ Material:
       second: 0
     - first:
         name: _Width
-      second: 5.6999993
+      second: 10
     - first:
         name: _ZWrite
       second: 1
     m_Colors:
     - first:
         name: _Center
-      second: {r: 664.5231, g: 356.83923, b: 26.16, a: 0}
+      second: {r: 1876.6791, g: 1640.9895, b: 26.16, a: 0}
     - first:
         name: _Color
       second: {r: 0.6838235, g: 0.18604024, b: 0.18604024, a: 0.5019608}

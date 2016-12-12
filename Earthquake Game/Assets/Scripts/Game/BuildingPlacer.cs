@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildingPlacer : MonoBehaviour {
 
@@ -19,6 +20,8 @@ public class BuildingPlacer : MonoBehaviour {
     private AudioSource audioSource;
 
     private BudgetManager budgetManager;
+
+    public LayerMask placementMask;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +44,7 @@ public class BuildingPlacer : MonoBehaviour {
         previewInstance.GetComponent<Rigidbody2D>().isKinematic = true;
         previewSR = previewInstance.GetComponent<SpriteRenderer>();
         previewSR.color = goodColor;
+        previewInstance.tag = "Untagged";
 
         audioSource.pitch = Random.Range(0.8f, 1.2f);
         audioSource.clip = select;
@@ -56,10 +60,13 @@ public class BuildingPlacer : MonoBehaviour {
 	void Update () {
         // On hover, show tooltip with building properties (maybe in separate script)
 
-        if (Input.GetMouseButtonDown(0))
-            clickPosition = Input.mousePosition;
-        if (Input.GetMouseButtonUp(1))
-            stopPreview();
+        // When not using the GUI
+        if (!EventSystem.current.IsPointerOverGameObject()) {
+            if (Input.GetMouseButtonDown(0))
+                clickPosition = Input.mousePosition;
+            if (Input.GetMouseButtonUp(1))
+                stopPreview();
+        }
 
         if (preview) {
             // Input mouse position to world space
@@ -68,39 +75,62 @@ public class BuildingPlacer : MonoBehaviour {
             mousePos.y = Screen.height; // Only x pos matters
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-            BuildingInfo previewInfo = previewPrefab.GetComponent<BuildingInfo>();
-
             // Raycast downwards to 2d collider
-            RaycastHit2D hit = Physics2D.Raycast(worldPos, -Vector2.up);
-            if (hit.collider != null && (hit.collider.gameObject.tag == "Surface" || hit.collider.gameObject.tag == "Border")) {
-                // Preview building on collision location
+            RaycastHit2D hit = Physics2D.Raycast(worldPos, -Vector2.up, float.MaxValue, placementMask);
+            bool allowPlacement = false;
+            if (hit.collider != null) {
+                // Move preview building to collision location
                 Vector2 hitPoint = hit.point;
                 hitPoint.y += size.y / 2;
-                //Debug.Log(size);
                 previewInstance.transform.position = hitPoint;
-                if (budgetManager.enoughMoney(previewInfo.cost))
-                    previewSR.color = goodColor;
-                else
-                    previewSR.color = badColor;
 
+                // Check if placement is allowed
+                allowPlacement = checkAllowPlacement(hit);
+                
                 // Place prefab when release
-                if (!mouseMoved() && Input.GetMouseButtonUp(0) && budgetManager.enoughMoney(previewInfo.cost)) {
-                    GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
-                    instance.transform.position = hitPoint;
-
-                    audioSource.pitch = Random.Range(0.5f, 1.5f);
-                    audioSource.clip = place;
-                    audioSource.Play();
-
-                    budgetManager.newBuilding(previewInfo.cost, previewInfo.population);
-                } else if (!mouseMoved() && Input.GetMouseButtonUp(0) && !budgetManager.enoughMoney(previewInfo.cost)){
-                    budgetManager.notEnoughMoneyMessage();
+                if (!mouseMoved() && Input.GetMouseButtonUp(0)) {
+                    if (allowPlacement)
+                        placeBuilding(hitPoint);
                 }
-
-            } else {
-                previewSR.color = badColor;
             }
+
+            // Change preview color
+            if (allowPlacement)
+                previewSR.color = goodColor;
+            else
+                previewSR.color = badColor;
         }
         
+    }
+
+    void placeBuilding(Vector2 pos) {
+        GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
+        instance.transform.position = pos;
+
+        audioSource.pitch = Random.Range(0.5f, 1.5f);
+        audioSource.clip = place;
+        audioSource.Play();
+
+        // TODO: GetComponent is slow, only call when building changes
+        BuildingInfo previewInfo = previewPrefab.GetComponent<BuildingInfo>();
+        budgetManager.newBuilding(previewInfo.cost, previewInfo.population);
+    }
+
+    bool checkAllowPlacement(RaycastHit2D hit) {
+        // Only allow angle between -10 and 10 degrees steep
+        float angle = Mathf.Atan2(hit.normal.y, hit.normal.x) * Mathf.Rad2Deg;
+        if (!(angle > 80 && angle < 100))
+            return false;
+
+        
+        // Check budget
+        // TODO: GetComponent is slow, only call when building changes
+        BuildingInfo previewInfo = previewPrefab.GetComponent<BuildingInfo>();
+        if (!budgetManager.enoughMoney(previewInfo.cost)) {
+            budgetManager.notEnoughMoneyMessage();
+            return false;
+        }
+
+        return true;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class CamMovement : MonoBehaviour {
 
@@ -7,6 +8,8 @@ public class CamMovement : MonoBehaviour {
     private Vector3 previousMousePosition;
     private bool movedSinceMouseDown = false;
     public float keyMoveSpeed = 1f;
+
+    public Vector4 limits = new Vector4(0, 20, -6, 6);
 
     // Zoom stuff
     public float minScale = 0.1f;
@@ -25,29 +28,33 @@ public class CamMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
         // Reset mouse position after clicking when coming outside of the screen, else it jumps when panning the first time
         if (Input.GetMouseButtonDown(0) && (previousMousePosition.x < 0 || previousMousePosition.x > Screen.width || previousMousePosition.y < 0 || previousMousePosition.y > Screen.height))
             previousMousePosition = Input.mousePosition;
 
-        // Zoom
-        if (Input.mouseScrollDelta.y != 0) {
-            float scale = Camera.main.orthographicSize - Input.mouseScrollDelta.y * scrollSpeed;
-            zoomTarget = Mathf.Clamp(scale, minScale, maxScale);
-        }
-        // Camera.main.orthographicSize = Mathf.Lerp(zoomSource, zoomTarget, dZoom);
-        Camera.main.orthographicSize = Mathf.SmoothDamp(Camera.main.orthographicSize, zoomTarget, ref zoomVelocity, zoomSmoothness);
-        
-
-        // Pan using mouse
+       
         Vector3 pos = transform.position;
-        if (Input.GetMouseButton(0)) {
-            Vector3 dMouse = previousMousePosition - Input.mousePosition;
-            dMouse.x *= Camera.main.orthographicSize * 2 * Camera.main.aspect / Screen.width;
-            dMouse.y *= Camera.main.orthographicSize * 2 / Screen.height;
-            pos += dMouse;
-            
+
+        // When not using the GUI
+        if (!EventSystem.current.IsPointerOverGameObject()) {
+            // Zoom
+            if (Input.mouseScrollDelta.y != 0) {
+                float scale = Camera.main.orthographicSize - Input.mouseScrollDelta.y * scrollSpeed;
+                zoomTarget = Mathf.Clamp(scale, minScale, maxScale);
+            }
+            // Camera.main.orthographicSize = Mathf.Lerp(zoomSource, zoomTarget, dZoom);
+            Camera.main.orthographicSize = Mathf.SmoothDamp(Camera.main.orthographicSize, zoomTarget, ref zoomVelocity, zoomSmoothness);
+
+            // Pan using mouse
+            if (Input.GetMouseButton(0)) {
+                Vector3 dMouse = previousMousePosition - Input.mousePosition;
+                dMouse.x *= Camera.main.orthographicSize * 2 * Camera.main.aspect / Screen.width;
+                dMouse.y *= Camera.main.orthographicSize * 2 / Screen.height;
+                pos += dMouse;
+
+            }
         }
+       
         // Pan using keys
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             pos.x -= Time.deltaTime * keyMoveSpeed;
@@ -57,8 +64,11 @@ public class CamMovement : MonoBehaviour {
             pos.y -= Time.deltaTime * keyMoveSpeed;
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             pos.y += Time.deltaTime * keyMoveSpeed;
-        transform.position = pos;
+        
+        pos.x = Mathf.Clamp(pos.x, limits.x, limits.y);
+        pos.y = Mathf.Clamp(pos.y, limits.z, limits.w);
 
+        transform.position = pos;
 
         previousMousePosition = Input.mousePosition;
     }

@@ -8,8 +8,7 @@ public class EarthquakeSimulator : MonoBehaviour {
     public int numberOfWaves;
     public float intensityOfWaves;
 
-    public GameObject epicenter;
-    public WaveGenerator waveGenerator;
+    public TargetController targetController;
 
     // Use this for initialization
     void Start () {
@@ -27,8 +26,7 @@ public class EarthquakeSimulator : MonoBehaviour {
         for (int i = 0; i < numberOfWaves; i++)
         {
             //spawn a wave
-            WaveGenerator wg = Instantiate(waveGenerator, epicenter.transform.position, Quaternion.identity);
-            wg.startSpeed = 1;
+            targetController.createWave(Random.Range(0.5f, 1f));
             yield return new WaitForSeconds(intervalBetweenWaves);
         }
         yield return new WaitForSeconds(3);
