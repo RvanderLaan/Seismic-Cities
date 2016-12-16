@@ -47,7 +47,7 @@ public class BuildingPlacer : MonoBehaviour {
             previewInstance.GetComponent<Rigidbody2D>().isKinematic = true;
         }
 
-        // Deactivate collider and rigidbody of the building blocks
+        // Deactivate collider and rigidbody of the building blocks. Later there will be only building blocks.
         Collider2D[] colliders = previewInstance.GetComponentsInChildren<BoxCollider2D>();
         Rigidbody2D[] rigBodies = previewInstance.GetComponentsInChildren<Rigidbody2D>();
         for (int i = 0; i < colliders.Length; i++)
@@ -113,6 +113,7 @@ public class BuildingPlacer : MonoBehaviour {
             }
 
             // Change preview color
+            //TODO: don't call GetComponent each time, but call only once. Later thare will be only building blocks
             if (allowPlacement)
             {
                 if (previewSR != null)
