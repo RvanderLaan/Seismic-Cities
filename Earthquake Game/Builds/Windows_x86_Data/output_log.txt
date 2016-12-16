@@ -9,6 +9,8 @@ Direct3D:
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.UI.dll (this message is harmless)
@@ -19,7 +21,7 @@ Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Eart
 Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
 Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\2D Sky FREE.dll (this message is harmless)
 Loading C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\2D Sky FREE.dll into Unity Child Domain
-- Completed reload, in  0.235 seconds
+- Completed reload, in  0.052 seconds
 Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Andrea\Documents\Unity Projects\Earthquake-Game\Earthquake Game\Builds\Windows_x86_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
@@ -38,12 +40,24 @@ Failed to create Convex Mesh from source mesh "Netherlands". Source mesh is like
  
 (Filename:  Line: 54)
 
-UnloadTime: 1.718067 ms
+UnloadTime: 1.490630 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.308460 ms
+UnloadTime: 8.237263 ms
 
-Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 905.
-Total: 0.801354 ms (FindLiveObjects: 0.105095 ms CreateObjectMapping: 0.032021 ms MarkObjects: 0.481141 ms  DeleteObjects: 0.181864 ms)
+Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 1177.
+Total: 0.800531 ms (FindLiveObjects: 0.091547 ms CreateObjectMapping: 0.030789 ms MarkObjects: 0.479087 ms  DeleteObjects: 0.198285 ms)
+
+a
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+a
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+a
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2a88 -> priority: 1 
+  Thread -> id: e34 -> priority: 1 

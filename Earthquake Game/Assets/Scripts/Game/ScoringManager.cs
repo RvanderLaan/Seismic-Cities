@@ -18,9 +18,11 @@ public class ScoringManager : MonoBehaviour {
     {
         float score = computeScore();
         //display in the UI
+        /*
         scoreText.canvasRenderer.SetAlpha(1);
         scoreText.text = "Score: " + (int) score;
         scoreText.CrossFadeAlpha(0, 5f, true);
+        */
     }
 
     private float computeScore()

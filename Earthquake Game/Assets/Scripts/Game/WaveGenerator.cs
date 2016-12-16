@@ -16,7 +16,7 @@ public class WaveGenerator : MonoBehaviour {
     LineRenderer lr;
     public float lineWidth = 0.05f;
 
-    private GameObject[] buildings;
+    private GameObject[] platforms;
     public Wave damageParticle;
 
     public Color bestColor = Color.red, worstColor = Color.blue;
@@ -58,7 +58,7 @@ public class WaveGenerator : MonoBehaviour {
 
     public void startWave() {
         //get the buildings gameObjects
-        buildings = GameObject.FindGameObjectsWithTag("Building");
+        platforms = GameObject.FindGameObjectsWithTag("BuildingPlatform");
 
         startTime = Time.time;
 
@@ -68,18 +68,19 @@ public class WaveGenerator : MonoBehaviour {
 
         gameObject.SetActive(true);
         //generate the damaging particles, one for each building
-        for (int i = 0; i < buildings.Length; i++) {
+        for (int i = 0; i < platforms.Length; i++) {
             Wave particle = (Wave)GameObject.Instantiate(damageParticle, transform.position, Quaternion.identity);
             particle.transform.SetParent(transform);
-            particle.direction = (buildings[i].transform.position - transform.position).normalized;
+            particle.direction = (platforms[i].transform.position - transform.position).normalized;
             particle.speed = startSpeed;
 
             DamageParticleController dpg = particle.GetComponent<DamageParticleController>();
-            dpg.buildingID = buildings[i].GetInstanceID();
+            dpg.platformID = platforms[i].GetInstanceID();
             //the cosineDegreeFactor is 1 if the direction of the damage particle is vertical (orthogonal to the ground)
             //and is 0 if the direction is horizontal
-            dpg.cosineDegreeFactor = Mathf.Pow(particle.direction.y, 2);
-            dpg.distance = (buildings[i].transform.position - transform.position).magnitude;
+            dpg.cosineDegreeFactor = Mathf.Pow(particle.direction.y, 0.7f);
+            dpg.distance = (platforms[i].transform.position - transform.position).magnitude;
+            dpg.intensity = intensity;
         }
     }
 	
