@@ -9,6 +9,7 @@ TagManager:
   - Building
   - DamageParticle
   - Wave
+  - BuildingPlatform
   layers:
   - Default
   - TransparentFX

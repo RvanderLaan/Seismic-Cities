@@ -27,6 +27,7 @@ public class BuildingPlacer : MonoBehaviour {
 	void Start () {
         audioSource = GetComponent<AudioSource>();
         budgetManager = GetComponent<BudgetManager>();
+
 	}
 
     public bool mouseMoved() {
@@ -39,11 +40,28 @@ public class BuildingPlacer : MonoBehaviour {
         preview = true;
         previewInstance = GameObject.Instantiate(previewPrefab);
         Collider2D c2d = previewInstance.GetComponent<Collider2D>();
-        size = c2d.bounds.size;
-        c2d.enabled = false;
-        previewInstance.GetComponent<Rigidbody2D>().isKinematic = true;
+        if (c2d != null)
+        {
+            size = c2d.bounds.size;
+            c2d.enabled = false;
+            previewInstance.GetComponent<Rigidbody2D>().isKinematic = true;
+        }
+
+        // Deactivate collider and rigidbody of the building blocks
+        Collider2D[] colliders = previewInstance.GetComponentsInChildren<BoxCollider2D>();
+        Rigidbody2D[] rigBodies = previewInstance.GetComponentsInChildren<Rigidbody2D>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Debug.Log("a");
+            colliders[i].enabled = false;
+            rigBodies[i].isKinematic = true;
+        }
+
+        //The container of the building doesn't have the sprite renderer, 
+        //every single block of the building has one sprite renderer
         previewSR = previewInstance.GetComponent<SpriteRenderer>();
-        previewSR.color = goodColor;
+        if (previewSR != null)
+            previewSR.color = goodColor;
         previewInstance.tag = "Untagged";
 
         audioSource.pitch = Random.Range(0.8f, 1.2f);
@@ -90,23 +108,52 @@ public class BuildingPlacer : MonoBehaviour {
                 // Place prefab when release
                 if (!mouseMoved() && Input.GetMouseButtonUp(0)) {
                     if (allowPlacement)
-                        placeBuilding(hitPoint);
+                        placeBuilding(hitPoint, hit);
                 }
             }
 
             // Change preview color
             if (allowPlacement)
-                previewSR.color = goodColor;
+            {
+                if (previewSR != null)
+                    previewSR.color = goodColor;
+                else
+                {
+                    SpriteRenderer[] spriteRenderers = previewInstance.GetComponentsInChildren<SpriteRenderer>();
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                        sr.color = goodColor;
+                }
+            }
             else
-                previewSR.color = badColor;
+            {
+                if (previewSR != null)
+                    previewSR.color = badColor;
+                else
+                {
+                    SpriteRenderer[] spriteRenderers = previewInstance.GetComponentsInChildren<SpriteRenderer>();
+                    foreach (SpriteRenderer sr in spriteRenderers)
+                        sr.color = badColor;
+                }
+            }
         }
         
     }
 
-    void placeBuilding(Vector2 pos) {
+    void placeBuilding(Vector2 pos, RaycastHit2D hit) {
         GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
         instance.transform.position = pos;
 
+        //Set the fixed joints of the children to the Building Platform
+        FixedJoint2D[] childrenJoints = instance.GetComponentsInChildren<FixedJoint2D>();
+        foreach (FixedJoint2D f in childrenJoints)
+        {
+            f.connectedBody = hit.rigidbody;
+        }
+
+        // Set the platform as unavailable
+        hit.collider.GetComponent<BuildingPlatformController>().isBuilt = true;
+
+        // Play the audio
         audioSource.pitch = Random.Range(0.5f, 1.5f);
         audioSource.clip = place;
         audioSource.Play();
@@ -122,7 +169,6 @@ public class BuildingPlacer : MonoBehaviour {
         if (!(angle > 80 && angle < 100))
             return false;
 
-        
         // Check budget
         // TODO: GetComponent is slow, only call when building changes
         BuildingInfo previewInfo = previewPrefab.GetComponent<BuildingInfo>();
@@ -130,6 +176,14 @@ public class BuildingPlacer : MonoBehaviour {
             budgetManager.notEnoughMoneyMessage();
             return false;
         }
+
+        // Only allow placement in building zones
+        if (!hit.collider.tag.Equals("BuildingPlatform"))
+            return false;
+
+        // Only one building can be built for each platform
+        if (hit.collider.GetComponent<BuildingPlatformController>().isBuilt)
+            return false;
 
         return true;
     }

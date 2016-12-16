@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class ApplyForce : MonoBehaviour {
 
+    public float upForce;
+    public float sideForce;
+
+    private Rigidbody2D rigidBody;
+
 	// Use this for initialization
 	void Start () {
         //GetComponent<Rigidbody2D>().AddForce(Vector2.left * 60, ForceMode2D.Impulse);
         //GetComponent<Rigidbody2D>().AddForce(Vector2.right * 60, ForceMode2D.Impulse);
+        rigidBody = GetComponent<Rigidbody2D>();
         StartCoroutine("shake");
     }
 	
 	// Update is called once per frame
 	void Update () {
-        
-        
     }
 
     IEnumerator shake()
@@ -22,15 +26,15 @@ public class ApplyForce : MonoBehaviour {
         int i = 0;
         while(true)
         {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * 30 * Random.Range(0.8f, 1), ForceMode2D.Impulse);
+            rigidBody.AddForce(Vector2.up * upForce * Random.Range(0.8f, 1), ForceMode2D.Impulse);
             if (i == 0)
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.left * 40 * Random.Range(0.8f, 1), ForceMode2D.Impulse);
+                rigidBody.AddForce(Vector2.left * sideForce * Random.Range(0.8f, 1), ForceMode2D.Impulse);
                 i = 1;
             }
             else
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.right * 40 * Random.Range(.8f, 1), ForceMode2D.Impulse);
+                rigidBody.AddForce(Vector2.right * sideForce * Random.Range(.8f, 1), ForceMode2D.Impulse);
                 i = 0;
             }
             yield return new WaitForSeconds(.2f);

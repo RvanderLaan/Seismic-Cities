@@ -3,11 +3,13 @@ using System.Collections;
 
 public class DamageParticleController : MonoBehaviour {
 
-    public int buildingID;
+    public int platformID;
     //Factor used in the damage computation. The damage is maximum if the direction of the wave is vertical,
     //so orthogonal to the ground where the building is placed
     public float cosineDegreeFactor;
     public float distance;
+
+    public float intensity;
 
 	// Use this for initialization
 	void Start () {
@@ -21,10 +23,19 @@ public class DamageParticleController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        /*
         if (collider.gameObject.tag == "Building" && collider.gameObject.GetInstanceID() == buildingID)
         {
             float speed = gameObject.GetComponent<Wave>().speed;
             collider.gameObject.GetComponent<BuildingHealth>().takeDamage(cosineDegreeFactor * 100 / speed / distance);
+            Destroy(gameObject);
+        }
+        */
+
+        //TODO: Check that the other object is the right platform for which this particle was created
+        if (collider.gameObject.CompareTag("BuildingPlatform") && collider.gameObject.GetInstanceID() == platformID)
+        {
+            collider.gameObject.GetComponent<BuildingPlatformController>().startShaking(cosineDegreeFactor, distance, intensity);
             Destroy(gameObject);
         }
     }
