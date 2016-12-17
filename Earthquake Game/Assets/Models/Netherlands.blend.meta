@@ -1,0 +1,131 @@
+fileFormatVersion: 2
+guid: 4c4dc167e793b2d459c5a8e782944ad4
+timeCreated: 1481977867
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bedrock
+    100004: Clay
+    100006: Empty
+    100008: Everything
+    100010: Salt_clay_stone
+    100012: Sand
+    100014: Sandstone
+    100016: SandTop
+    100018: Outside
+    100020: Separated
+    100022: SandTop_005
+    400000: //RootNode
+    400002: Bedrock
+    400004: Clay
+    400006: Empty
+    400008: Everything
+    400010: Salt_clay_stone
+    400012: Sand
+    400014: Sandstone
+    400016: SandTop
+    400018: Outside
+    400020: Separated
+    400022: SandTop_005
+    2300000: //RootNode
+    2300002: Bedrock
+    2300004: Clay
+    2300006: Everything
+    2300008: Salt_clay_stone
+    2300010: Sand
+    2300012: Sandstone
+    2300014: SandTop
+    2300016: Outside
+    2300018: SandTop_005
+    3300000: //RootNode
+    3300002: Bedrock
+    3300004: Clay
+    3300006: Everything
+    3300008: Salt_clay_stone
+    3300010: Sand
+    3300012: Sandstone
+    3300014: SandTop
+    3300016: Outside
+    3300018: SandTop_005
+    4300000: Plane
+    4300002: Everything
+    4300004: SandTop
+    4300006: Sandstone
+    4300008: Salt_clay_stone
+    4300010: Clay
+    4300012: Sand
+    4300014: Bedrock
+    4300016: Outside
+    4300018: SandTop_005
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Sand
+  m_Name: Clay
   m_Shader: {fileID: 4800000, guid: 71d0b1887f156244ca0a6e25b4bfda8c, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -48,7 +48,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: e34560e9a45d6ae4ebd2265d49389001, type: 3}
+        m_Texture: {fileID: 2800000, guid: f50394ccbd0caee43af45cec83b7a374, type: 3}
         m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -124,7 +124,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.7254902, g: 0.6784314, b: 0.2901961, a: 1}
+      second: {r: 0.28365597, g: 0.39705884, b: 0.35703433, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
