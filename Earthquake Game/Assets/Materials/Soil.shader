@@ -3,7 +3,7 @@
 	{
 		_MainTex("Texture", 2D) = "white" {}
 		_Color("Color", Color) = (1,1,1,1)
-		_TexAlpha("Texture opacity", Range(0, 1)) = 0.5
+		_TexAlpha("Texture opacity", Range(0, 1)) = 0.2
 		_Glossiness("Smoothness", Range(0,1)) = 0.5
 		_Metallic("Metallic", Range(0,1)) = 0.0
 	}

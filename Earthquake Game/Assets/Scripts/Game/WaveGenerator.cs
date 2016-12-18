@@ -33,14 +33,40 @@ public class WaveGenerator : MonoBehaviour {
         //generate the wave objects
         waves = new Wave[waveAmount];
         for (int i = 0; i < waveAmount; i++) {
-            Wave w = (Wave) GameObject.Instantiate(instance, transform.position, Quaternion.identity);
-            w.transform.SetParent(transform);
             float angle = Mathf.PI * 2 * i / waveAmount - Mathf.PI / 2; // + 45 deg so that the seam is at the bottom
-            w.direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0).normalized;
-            w.speed = startSpeed;
-            waves[i] = w;
+            instantiateWaveObj(i, angle);
         }
-	}
+
+        // Attemept at better distribution of wave objects
+        // Generate more objects to the top left and top right, and very few to the bottom
+        /*
+        int quarter = waveAmount / 4;
+        // One quarter of the objects on the bottom half (but the seam should be in at the bottom of the circle, so start at the bottom right quarter with 1/8)
+        for (int i = 0; i < quarter / 2; i++)
+            instantiateWaveObj(i, Mathf.PI / 2 * i / (quarter / 2) - Mathf.PI / 2);
+        // One quarter at the top right 1/8th of the circle (0 to PI / 4)
+        for (int i = 0; i < quarter; i++)
+            instantiateWaveObj(i + quarter / 2, Mathf.PI / 4 * i / quarter);
+        // One quarter at the top 1/4th of the circle (PI / 4 to 3/4 PI)
+        for (int i = 0; i < quarter; i++)
+            instantiateWaveObj(i + quarter + quarter / 2, Mathf.PI / 2 * i / quarter + Mathf.PI / 4);
+        // One quarter at the top left 1/8th of the circle (3/4 PI to PI)
+        for (int i = 0; i < quarter; i++)
+            instantiateWaveObj(i + 2 * quarter + quarter / 2, Mathf.PI / 4 * i / quarter + Mathf.PI * 3/4);
+        // And finally the last 1/8th of the circle at the bottom left
+        for (int i = 0; i < quarter / 2; i++)
+            instantiateWaveObj(i + 3 * quarter + quarter / 2, Mathf.PI / 2 * i / (quarter / 2) + Mathf.PI);
+        */
+
+    }
+
+    void instantiateWaveObj(int i, float angle) {
+        Wave w = (Wave)GameObject.Instantiate(instance, transform.position, Quaternion.identity);
+        w.transform.SetParent(transform);
+        w.direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0).normalized;
+        w.speed = startSpeed;
+        waves[i] = w;
+    }
 
     public void reset() {
         // Reset positions

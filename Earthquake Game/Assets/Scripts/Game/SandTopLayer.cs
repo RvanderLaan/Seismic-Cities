@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This behaviour will move its gameobject downwards for the specified time and distance, 
+/// only once a Wave object collides with it
+/// </summary>
 public class SandTopLayer : MonoBehaviour {
 
     public float fallDistance = 0.5f;
@@ -9,8 +13,6 @@ public class SandTopLayer : MonoBehaviour {
 
     private bool falling = false, finished = false;
     private float startFallTime = 0;
-
-
 
     private Vector3 startPos;
 
@@ -41,8 +43,7 @@ public class SandTopLayer : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D c2d) {
-        Debug.Log(c2d.gameObject.name);
-        if (!finished && c2d.gameObject.tag == "Wave")
-            falling = true;
+        if (!falling && !finished && c2d.gameObject.tag == "Wave")
+            StartFalling();
     }
 }

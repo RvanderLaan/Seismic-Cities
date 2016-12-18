@@ -22,7 +22,10 @@ public class ParallaxObject : MonoBehaviour {
             newPos.x = levelBounds.y;
         else if (newPos.x > levelBounds.y)
             newPos.x = levelBounds.x;
-        startPos = newPos;
+
+        // Only update position if moving
+        if (moveDirection.magnitude > 0.01f)
+            startPos = newPos;
 
 		// Move background images relative to camera
 		float relativePosX = (Camera.main.transform.position.x / transform.position.z);
