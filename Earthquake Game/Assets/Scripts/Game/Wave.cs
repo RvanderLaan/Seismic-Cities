@@ -9,5 +9,10 @@ public class Wave : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.position = transform.position + direction * speed * Time.deltaTime;
+
+        // float width = (maxspeed - speed) / maxspeed;
+        // speed -= Time.time * constant;
 	}
+
+
 }
