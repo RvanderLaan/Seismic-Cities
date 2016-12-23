@@ -4753,9 +4753,7 @@ MonoBehaviour:
   waitTime: 0.5
   sc: {fileID: 1770006584}
   modeManager: {fileID: 1784929233}
-  minScale: 1.5
-  maxScale: 2.5
-  scaleCycleTime: 2
+  epicenterZone: {fileID: 681892396}
 --- !u!82 &1370538539
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6039,6 +6037,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   period: 2
+  tutorial: {fileID: 0}
+  unpressed: {fileID: 0}
+  pressed: {fileID: 0}
 --- !u!114 &1770006585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6245,9 +6246,11 @@ MonoBehaviour:
   - {fileID: 1333107159}
   - {fileID: 491429317}
   - {fileID: 1772092417}
-  destructionObjects:
-  - {fileID: 1902565653}
-  startInDestructionMode: 0
+  testObjects: []
+  simulationObjects: []
+  finishObjects: []
+  targetController: {fileID: 1370538538}
+  earthquakeSimulator: {fileID: 1784929238}
 --- !u!114 &1784929234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7413,7 +7416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1902565654
 RectTransform:
   m_ObjectHideFlags: 0

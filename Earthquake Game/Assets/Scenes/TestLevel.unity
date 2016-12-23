@@ -1381,6 +1381,26 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 255808225227260440, guid: 3c5e38ebec42d5349b2ff319e1b493fe,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.2819991
+      objectReference: {fileID: 0}
+    - target: {fileID: 255808225227260440, guid: 3c5e38ebec42d5349b2ff319e1b493fe,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: 2.4999933
+      objectReference: {fileID: 0}
+    - target: {fileID: 231155114444620498, guid: 3c5e38ebec42d5349b2ff319e1b493fe,
+        type: 2}
+      propertyPath: m_Distance
+      value: 0.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 231786835820842932, guid: 3c5e38ebec42d5349b2ff319e1b493fe,
+        type: 2}
+      propertyPath: m_Distance
+      value: 0.20000005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c5e38ebec42d5349b2ff319e1b493fe, type: 2}
   m_IsPrefabParent: 0
@@ -8063,15 +8083,15 @@ MonoBehaviour:
   buildingPlacer: {fileID: 1784929234}
   buildingItems:
   - name: House
-    prefab: {fileID: 1000013726159040, guid: 5d193ca4270d62c46b4e8c1a1fe553ea, type: 2}
+    prefab: {fileID: 1192434329122292, guid: dbdbfe97e6b8e1141b0503fe2becc3f7, type: 2}
     amount: 3
     image: {fileID: 21300000, guid: 614c1e5f1311fff4e837c531c8f1b291, type: 3}
   - name: Flat
-    prefab: {fileID: 1000011161503232, guid: dbe71f069537c144d868a19004318c8a, type: 2}
+    prefab: {fileID: 1406902933044582, guid: 3c5e38ebec42d5349b2ff319e1b493fe, type: 2}
     amount: 3
     image: {fileID: 21300000, guid: 2a5cd0f9aeb675d41b22979030ab5224, type: 3}
   - name: Tower of Pisa
-    prefab: {fileID: 1406902933044582, guid: 3c5e38ebec42d5349b2ff319e1b493fe, type: 2}
+    prefab: {fileID: 1022580637655086, guid: 35d7f3b2fe55a1943b6251104bad3683, type: 2}
     amount: 1
     image: {fileID: 21300000, guid: bbedaab5f6ec05047810c00f98dbdac7, type: 3}
   - name: Colloseum
