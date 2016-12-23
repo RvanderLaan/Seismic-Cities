@@ -3859,6 +3859,7 @@ GameObject:
   - component: {fileID: 1370538536}
   - component: {fileID: 1370538538}
   - component: {fileID: 1370538539}
+  - component: {fileID: 1370538540}
   m_Layer: 0
   m_Name: EpicenterTarget
   m_TagString: Untagged
@@ -4010,6 +4011,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1370538540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1370538535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651455b27dbe9864fadf6d92004fc215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minScale: 1.5
+  maxScale: 2.5
+  scaleCycleTime: 2
 --- !u!1001 &1397907885
 Prefab:
   m_ObjectHideFlags: 0
@@ -5017,8 +5032,10 @@ MonoBehaviour:
   - {fileID: 1333107159}
   - {fileID: 491429317}
   - {fileID: 1772092417}
-  destructionObjects:
+  testObjects:
   - {fileID: 1902565653}
+  simulationObjects: []
+  finishObjects: []
   startInDestructionMode: 0
 --- !u!114 &1784929234
 MonoBehaviour:
@@ -5160,8 +5177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf9a050b6f6c044e80eba0b08f6775f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervalBetweenWaves: 1.5
-  numberOfWaves: 3
+  intervalBetweenWaves: 1
+  numberOfWaves: 5
   intensityOfWaves: 1
   shakeMagnitude: 0.8
   shakeRoughness: 5
@@ -5207,6 +5224,10 @@ MonoBehaviour:
     prefab: {fileID: 1406902933044582, guid: 3c5e38ebec42d5349b2ff319e1b493fe, type: 2}
     amount: 1
     image: {fileID: 21300000, guid: bbedaab5f6ec05047810c00f98dbdac7, type: 3}
+  - name: Colloseum
+    prefab: {fileID: 1406902933044582, guid: 3c5e38ebec42d5349b2ff319e1b493fe, type: 2}
+    amount: 1
+    image: {fileID: 21300000, guid: fbcf94b382ee1814fa1fe00b7ee67cf3, type: 3}
 --- !u!1 &1789389776 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 4c4dc167e793b2d459c5a8e782944ad4, type: 3}

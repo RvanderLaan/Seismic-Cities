@@ -6,10 +6,56 @@ using UnityEngine.EventSystems;
 
 public class ModeManager : MonoBehaviour {
 
-    public List<GameObject> buildingObjects, destructionObjects;
+    public enum GameMode { Building, Test, Simulation, Finish };
+    public List<GameObject> buildingObjects, testObjects, simulationObjects, finishObjects;
+
+    // TODO: List components vs list objects? or both
 
     public bool startInDestructionMode = false;
     private bool isDestructionMode;
+
+    public GameMode mode {
+        get { return mode;  }
+        set { setGameMode(value); }
+    }
+    
+    private void setGameMode(GameMode gm) {
+        // Exceptions
+        if (mode == GameMode.Building && gm == GameMode.Test) {
+            // Test mode -> copy all buildings so they can be restored
+        }
+
+
+        if (gm == mode)
+            return;
+        List<GameObject> oldObjs = getModeObjects(mode);
+        List<GameObject> newObjs = getModeObjects(gm);
+        mode = gm;
+
+        foreach (GameObject go in oldObjs)
+            go.SetActive(false);
+        foreach (GameObject go in newObjs)
+            go.SetActive(true);
+    }
+
+    private List<GameObject> getModeObjects(GameMode gm) {
+        switch (mode) {
+            case GameMode.Building:
+                return buildingObjects;
+            case GameMode.Test:
+                return testObjects;
+            case GameMode.Simulation:
+                return simulationObjects;
+            case GameMode.Finish:
+                return finishObjects;
+        }
+        return null;
+    }
+
+    // Start in tutorial mode
+    // Switch to building mode
+    //      Switch to test mode (and back)
+    // Switch to simulation mode (and back?)
     
 
     // Use this for initialization
@@ -25,7 +71,7 @@ public class ModeManager : MonoBehaviour {
             GetComponent<BuildingPlacer>().stopPreview();
 
             // General disabling
-            foreach (GameObject go in destructionObjects) 
+            foreach (GameObject go in testObjects) 
                 go.SetActive(true);
             foreach (GameObject go in buildingObjects) 
                 go.SetActive(false);
@@ -38,7 +84,7 @@ public class ModeManager : MonoBehaviour {
             // General disabling
             foreach (GameObject go in buildingObjects)
                 go.SetActive(true);
-            foreach (GameObject go in destructionObjects)
+            foreach (GameObject go in testObjects)
                 go.SetActive(false);
 
             GetComponent<EarthquakeSimulator>().enabled = true;

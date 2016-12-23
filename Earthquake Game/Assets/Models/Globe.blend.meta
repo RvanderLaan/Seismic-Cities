@@ -11,27 +11,37 @@ ModelImporter:
     100006: Japan
     100008: Plane
     100010: Netherlands
+    100012: FaultLines
+    100014: Stylized
     400000: //RootNode
     400002: Globe
     400004: Italy
     400006: Japan
     400008: Plane
     400010: Netherlands
+    400012: FaultLines
+    400014: Stylized
     2300000: Globe
     2300002: Italy
     2300004: Japan
     2300006: Plane
     2300008: Netherlands
+    2300010: FaultLines
+    2300012: Stylized
     3300000: Globe
     3300002: Italy
     3300004: Japan
     3300006: Plane
     3300008: Netherlands
+    3300010: FaultLines
+    3300012: Stylized
     4300000: Japan
     4300002: Italy
     4300004: Globe
     4300006: Plane
     4300008: Netherlands
+    4300010: FaultLines
+    4300012: Stylized
     7400000: Default Take
     9500000: //RootNode
   materials:
