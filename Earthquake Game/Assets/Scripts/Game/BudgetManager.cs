@@ -21,7 +21,7 @@ public class BudgetManager : MonoBehaviour {
 	void Start () {
         actualMoney = startingMoney;
         actualPopulation = 0;
-        updateGUI();
+        //updateGUI();
 
         notEnoughMoneyText.canvasRenderer.SetAlpha(0);
     }
@@ -32,7 +32,7 @@ public class BudgetManager : MonoBehaviour {
         {
             actualMoney -= cost;
             actualPopulation += people;
-            updateGUI();
+            //updateGUI();
         }
     }
 

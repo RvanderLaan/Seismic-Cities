@@ -20,10 +20,14 @@ public class TargetController : MonoBehaviour {
 
     public ModeManager modeManager;
 
+    public GameObject epicenterZone;
+    private Collider2D epicenterZoneCollider;
+
 	// Use this for initialization
 	void Start () {
         audioSource = GetComponent<AudioSource>();
         waveGenerators = new Queue<WaveGenerator>();
+        epicenterZoneCollider = epicenterZone.GetComponent<Collider2D>();
 
         // Create a few wave generators: More load time but smoother run time
         for (int i = 0; i < initialWaveGenerators; i++) {
@@ -37,6 +41,22 @@ public class TargetController : MonoBehaviour {
     public bool mouseMoved() {
         return (clickPosition - Input.mousePosition).sqrMagnitude >= 1;
     }
+
+    bool isInsideAllowedZone(Vector3 position)
+    {
+        Vector3 center;
+        Vector3 direction;
+        Vector3 pos = Camera.main.ScreenToWorldPoint(position);
+
+        // Use collider bounds to get the center of the collider. May be inaccurate
+        // for some colliders (i.e. MeshCollider with a 'plane' mesh)
+        center = epicenterZoneCollider.bounds.center;
+
+        // Cast a ray from point to center
+        direction = center - pos;
+        RaycastHit2D hit = Physics2D.Raycast(pos, direction);
+        return hit.collider.gameObject.GetInstanceID() == epicenterZone.GetInstanceID();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -48,7 +68,7 @@ public class TargetController : MonoBehaviour {
         }
 
         // Place marker
-        if (Input.GetMouseButtonUp(0) && !mouseMoved()) {
+        if (Input.GetMouseButtonUp(0) && !mouseMoved() && isInsideAllowedZone(clickPosition)) {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = -Camera.main.transform.position.z;
             Vector3 targetPos = Camera.main.ScreenToWorldPoint(mousePos);
