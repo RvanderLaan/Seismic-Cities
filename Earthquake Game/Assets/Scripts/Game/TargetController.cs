@@ -35,7 +35,6 @@ public class TargetController : MonoBehaviour {
             wg.gameObject.SetActive(false);
             waveGenerators.Enqueue(wg);
         }
-            
 	}
 
     public bool mouseMoved() {
@@ -103,6 +102,12 @@ public class TargetController : MonoBehaviour {
 
         audioSource.pitch = Random.Range(0.5f, 1f);
         audioSource.Play();
+    }
+
+    public void stopWaves() {
+        if (waveGenerators != null)
+            foreach (WaveGenerator wg in waveGenerators)
+                wg.gameObject.SetActive(false);
     }
 
 }

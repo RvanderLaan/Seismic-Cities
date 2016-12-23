@@ -12,7 +12,7 @@ public class LevelStarter : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-		// Add to GUI
+		// Add buttons to GUI
         foreach(BuildingItem bi in buildingItems) {
             GameObject buttonInstance = GameObject.Instantiate(buildingButton);
             buttonInstance.transform.SetParent(buildingItemContainer.transform);
@@ -21,15 +21,12 @@ public class LevelStarter : MonoBehaviour {
             b.GetComponent<Image>().sprite = bi.image;
 
             b.GetComponentInChildren<Text>().text = bi.name;
-            buttonInstance.transform.FindChild("Amount").GetComponentInChildren<Text>().text = bi.amount + "";
+
+            Text amount = buttonInstance.transform.FindChild("Amount").GetComponentInChildren<Text>();
+            amount.text = bi.amount + "";
             // Todo: Update amount when clicking
 
-            b.onClick.AddListener(() => buildingPlacer.startPreview(bi.prefab));
+            b.onClick.AddListener(() => buildingPlacer.startPreview(bi.prefab, amount));
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

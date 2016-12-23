@@ -11,6 +11,8 @@ public class GlobeRotation : MonoBehaviour {
 
     public float clickDrag = 5, normalDrag = 2;
 
+    public GameObject tutorial;
+
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody>();
@@ -33,6 +35,9 @@ public class GlobeRotation : MonoBehaviour {
                 rotVector.x = -dMouse.y;
 
             rigidBody.angularVelocity += rotVector * Time.deltaTime;
+
+            if (Mathf.Abs(rotVector.magnitude) > 1)
+                tutorial.SetActive(false);
         } else
             rigidBody.angularDrag = normalDrag;
 

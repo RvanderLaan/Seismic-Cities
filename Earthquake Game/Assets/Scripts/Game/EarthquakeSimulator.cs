@@ -20,7 +20,6 @@ public class EarthquakeSimulator : MonoBehaviour {
 
     public void simulateEarthquake()
     {
-        GetComponent<BuildingPlacer>().enabled = false;
         StartCoroutine("SpawnWaves");
     }
 
@@ -35,7 +34,7 @@ public class EarthquakeSimulator : MonoBehaviour {
             yield return new WaitForSeconds(intervalBetweenWaves);
         }
         yield return new WaitForSeconds(5);
-        GetComponent<ScoringManager>().displayScore();
+        // GetComponent<ScoringManager>().displayScore();
         GetComponent<BuildingPlacer>().enabled = true;
 
         c.StartFadeOut(shakeFadeOut);

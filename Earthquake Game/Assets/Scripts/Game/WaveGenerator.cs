@@ -79,6 +79,8 @@ public class WaveGenerator : MonoBehaviour {
     }
 
     public bool isDone() {
+        if (!gameObject.activeSelf)
+            return false;
         return Time.time > (startTime + lifeTime);
     }
 

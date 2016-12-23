@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class BuildingPlacer : MonoBehaviour {
@@ -8,6 +9,7 @@ public class BuildingPlacer : MonoBehaviour {
     public bool preview = false;
     private GameObject previewPrefab;
     private GameObject previewInstance;
+    private Text previewAmountText;
     private SpriteRenderer previewSR;
     private Vector3 size;
     public GameObject buildingContainer;
@@ -23,18 +25,25 @@ public class BuildingPlacer : MonoBehaviour {
 
     public LayerMask placementMask;
 
+    // public List<BuildingPlatformController> buildingPlatformControllers;
+
 	// Use this for initialization
 	void Start () {
         audioSource = GetComponent<AudioSource>();
         budgetManager = GetComponent<BudgetManager>();
-
 	}
 
     public bool mouseMoved() {
         return (clickPosition - Input.mousePosition).sqrMagnitude >= 4;
     }
 
-    public void startPreview(GameObject prefab) {
+    public void startPreview(GameObject prefab, Text amountText) {
+        previewAmountText = amountText;
+
+        int currentAmount = int.Parse(previewAmountText.text);
+        if (currentAmount <= 0)
+            return;
+
         GameObject.Destroy(previewInstance);
         previewPrefab = prefab;
         preview = true;
@@ -52,7 +61,6 @@ public class BuildingPlacer : MonoBehaviour {
         Rigidbody2D[] rigBodies = previewInstance.GetComponentsInChildren<Rigidbody2D>();
         for (int i = 0; i < colliders.Length; i++)
         {
-            Debug.Log("a");
             colliders[i].enabled = false;
             rigBodies[i].isKinematic = true;
         }
@@ -162,6 +170,13 @@ public class BuildingPlacer : MonoBehaviour {
         // TODO: GetComponent is slow, only call when building changes
         BuildingInfo previewInfo = previewPrefab.GetComponent<BuildingInfo>();
         // budgetManager.newBuilding(previewInfo.cost, previewInfo.population);
+
+        // Decrease amount in GUI
+        int newAmount = int.Parse(previewAmountText.text) - 1;
+        previewAmountText.text = newAmount + "";
+
+        if (newAmount <= 0)
+            stopPreview();
     }
 
     bool checkAllowPlacement(RaycastHit2D hit) {

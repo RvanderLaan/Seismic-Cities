@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class StrengthController : MonoBehaviour {
 
@@ -8,6 +9,9 @@ public class StrengthController : MonoBehaviour {
     public float period = 2;
 
     private float startTime;
+
+    public Image tutorial;
+    public Sprite unpressed, pressed;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +28,13 @@ public class StrengthController : MonoBehaviour {
         Vector2 oldPos = self.anchoredPosition;
         oldPos.y = pos;
         self.anchoredPosition = oldPos;
+
+        float score = getTimingScore();
+        if (score > 0.8)
+            tutorial.sprite = pressed;
+        else
+            tutorial.sprite = unpressed;
+
 	}
 
     // Returns score for this specific time between 0 and 1 (where 1 is good)
