@@ -161,7 +161,7 @@ public class BuildingPlacer : MonoBehaviour {
 
         // TODO: GetComponent is slow, only call when building changes
         BuildingInfo previewInfo = previewPrefab.GetComponent<BuildingInfo>();
-        budgetManager.newBuilding(previewInfo.cost, previewInfo.population);
+        // budgetManager.newBuilding(previewInfo.cost, previewInfo.population);
     }
 
     bool checkAllowPlacement(RaycastHit2D hit) {
@@ -173,10 +173,10 @@ public class BuildingPlacer : MonoBehaviour {
         // Check budget
         // TODO: GetComponent is slow, only call when building changes
         BuildingInfo previewInfo = previewPrefab.GetComponent<BuildingInfo>();
-        if (!budgetManager.enoughMoney(previewInfo.cost)) {
-            budgetManager.notEnoughMoneyMessage();
-            return false;
-        }
+        //if (!budgetManager.enoughMoney(previewInfo.cost)) {
+        //    budgetManager.notEnoughMoneyMessage();
+        //    return false;
+        //}
 
         // Only allow placement in building zones
         if (!hit.collider.tag.Equals("BuildingPlatform"))

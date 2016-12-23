@@ -40,7 +40,7 @@ public class TargetController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (modeManager.isInBuildingMode())
+        if (modeManager.Mode != ModeManager.GameMode.Test)
             return;
 
         if (Input.GetMouseButtonDown(0)) {

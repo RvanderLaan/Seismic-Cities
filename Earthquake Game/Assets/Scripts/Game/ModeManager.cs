@@ -9,37 +9,58 @@ public class ModeManager : MonoBehaviour {
     public enum GameMode { Building, Test, Simulation, Finish };
     public List<GameObject> buildingObjects, testObjects, simulationObjects, finishObjects;
 
-    // TODO: List components vs list objects? or both
-
-    public bool startInDestructionMode = false;
-    private bool isDestructionMode;
-
-    public GameMode mode {
-        get { return mode;  }
-        set { setGameMode(value); }
-    }
     
-    private void setGameMode(GameMode gm) {
+    private GameMode mode;
+    public GameMode Mode {
+        get { return mode; }
+        set {
+            setGameMode(value);
+            mode = value;
+        }
+    }
+
+    void Start() {
+        Mode = GameMode.Building;
+    }
+
+    public void setGameMode(GameMode newMode) {
+        Debug.Log(mode + " -> " + newMode);
         // Exceptions
-        if (mode == GameMode.Building && gm == GameMode.Test) {
-            // Test mode -> copy all buildings so they can be restored
+        if (mode == GameMode.Building && newMode == GameMode.Test) {
+            // Test mode -> copy all buildings so they can be restored after testing
+
+        }
+        
+        // Generally, switch all objects
+        List<GameObject> oldObjs = getModeObjects(mode);
+        List<GameObject> newObjs = getModeObjects(newMode);
+
+        foreach (GameObject go in oldObjs) {
+            go.SetActive(false);
+        }
+        foreach (GameObject go in newObjs) {
+            go.SetActive(true);
         }
 
+        mode = newMode;
+    }
 
-        if (gm == mode)
-            return;
-        List<GameObject> oldObjs = getModeObjects(mode);
-        List<GameObject> newObjs = getModeObjects(gm);
-        mode = gm;
-
-        foreach (GameObject go in oldObjs)
-            go.SetActive(false);
-        foreach (GameObject go in newObjs)
-            go.SetActive(true);
+    // Function with string so you can do it via button click
+    public void setGameMode(string newMode) {
+        bool match = false;
+        foreach (GameMode val in GameMode.GetValues(typeof(GameMode))) {
+            if (newMode.Equals(val.ToString())) {
+                setGameMode(val);
+                match = true;
+                break;
+            }
+        }
+        if (!match)
+            Debug.Log("Mode not recognized: " + newMode);
     }
 
     private List<GameObject> getModeObjects(GameMode gm) {
-        switch (mode) {
+        switch (gm) {
             case GameMode.Building:
                 return buildingObjects;
             case GameMode.Test:
@@ -51,60 +72,4 @@ public class ModeManager : MonoBehaviour {
         }
         return null;
     }
-
-    // Start in tutorial mode
-    // Switch to building mode
-    //      Switch to test mode (and back)
-    // Switch to simulation mode (and back?)
-    
-
-    // Use this for initialization
-    void Start () {
-        isDestructionMode = !startInDestructionMode;
-        switchModes();
-	}
-
-    public void switchModes() {
-        isDestructionMode = !isDestructionMode;
-        if (isDestructionMode) {
-            // Custom switching
-            GetComponent<BuildingPlacer>().stopPreview();
-
-            // General disabling
-            foreach (GameObject go in testObjects) 
-                go.SetActive(true);
-            foreach (GameObject go in buildingObjects) 
-                go.SetActive(false);
-
-            GetComponent<EarthquakeSimulator>().enabled = false;
-        } else {
-            // Custom switching
-
-
-            // General disabling
-            foreach (GameObject go in buildingObjects)
-                go.SetActive(true);
-            foreach (GameObject go in testObjects)
-                go.SetActive(false);
-
-            GetComponent<EarthquakeSimulator>().enabled = true;
-        }
-
-
-        // Deselect button, else pressing space will press it again
-        EventSystem.current.SetSelectedGameObject(null, null);
-    }
-
-    public bool isInDestructionMode() {
-        return isDestructionMode;
-    }
-
-    public bool isInBuildingMode() {
-        return !isDestructionMode;
-    }
-
-    // Update is called once per frame
-    void Update () {
-
-	}
 }
