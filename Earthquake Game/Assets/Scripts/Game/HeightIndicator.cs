@@ -10,8 +10,7 @@ public class HeightIndicator : MonoBehaviour {
     public string[] entries = { "0 m", "10 m", "100 m", "1 km", "10 km", "100 km" };
     public int startIndex = 0;
 
-    [Range(0.0f, 1.0f)]
-    public float smoothFactor = 0.9f;
+    public int heightScale = 20;
 
     private RectTransform rectTransform;
 
@@ -39,12 +38,7 @@ public class HeightIndicator : MonoBehaviour {
         // Note: Orthographic size is half of the vertical camera size
         // This loop positions every text element where its 'absolute' position would be
         for (int i = 0; i < texts.Length; i++) {
-            Vector2 relativePos = getRelativePosition(i);
-
-            // Smoothly change position: Interpolete between old position and new position
-            // Todo: Even better, slightly overshoot new position
-            relativePos.y = (texts[i].rectTransform.position.y * smoothFactor + relativePos.y * (1 - smoothFactor));
-            texts[i].rectTransform.position = relativePos;
+            texts[i].rectTransform.position = getRelativePosition(i);
         }
     }
 
@@ -55,7 +49,7 @@ public class HeightIndicator : MonoBehaviour {
     /// <returns>The relative position on the screen of the text component</returns>
     private Vector2 getRelativePosition(int i) {
         Vector2 pos = texts[i].rectTransform.position;
-        float absoluteHeight = (i - startIndex) + Camera.main.transform.position.y - Camera.main.orthographicSize;
+        float absoluteHeight = (i - startIndex) * heightScale + Camera.main.transform.position.y - Camera.main.orthographicSize;
         pos.y = absoluteHeight / (Camera.main.orthographicSize) * rectTransform.rect.y;
         return pos;
     }

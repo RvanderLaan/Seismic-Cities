@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ApplyForce : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class ApplyForce : MonoBehaviour {
 
     private Rigidbody2D rigidBody;
 
+    public Text sideText, upText;
+
 	// Use this for initialization
 	void Start () {
         //GetComponent<Rigidbody2D>().AddForce(Vector2.left * 60, ForceMode2D.Impulse);
@@ -16,10 +19,19 @@ public class ApplyForce : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody2D>();
         StartCoroutine("shake");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void setUpForce(float value) {
+        upText.text = value + "";
+        upForce = value;
     }
+    public void setSideForce(float value) {
+        sideText.text = value + "";
+        sideForce = value;
+    }
+    public void restart() {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
 
     IEnumerator shake()
     {

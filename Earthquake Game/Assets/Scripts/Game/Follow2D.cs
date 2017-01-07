@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Follows a 2d object (may not work correctly, used by building tooltips to follow the list item locations)
+/// </summary>
 [RequireComponent(typeof(RectTransform))]
 public class Follow2D : MonoBehaviour {
 
@@ -22,8 +25,6 @@ public class Follow2D : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        // Todo: Local rect transform to global position???
         Vector2 globalPos = target.transform.position;
         if (!lockX && !lockY)
             transform.position = startPos + globalPos;

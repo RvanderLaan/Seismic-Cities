@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Specifications for a level
+/// 
+/// Currently not used, would cost too much time/effort to do everything in the same scene for just a few levels.
+/// Multiple scenes is properly better
 /// </summary>
 public class Level : MonoBehaviour {
 
