@@ -13,6 +13,7 @@ public class BuildingItem {
     public GameObject prefab;
     public int amount;
     public Sprite image;
+    public string tooltipText;
 
 	public BuildingItem() {
 

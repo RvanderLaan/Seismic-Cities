@@ -13,7 +13,7 @@
 
 		// Only draw where stencil buffer = 1 (where the terrain is, see WaveMask shader)
 		Stencil {
-			Ref 1
+			Ref 2
 			Comp Equal
 		}
 

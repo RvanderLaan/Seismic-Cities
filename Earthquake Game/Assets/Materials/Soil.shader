@@ -12,7 +12,7 @@
 		Tags { "Queue" = "Geometry-1" "RenderType" = "Opaque" }
 		// Write '1' to the stencil buffer where this material is rendered
 		Stencil {
-			Ref 1
+			Ref 2
 			Comp Always
 			Pass Replace
 		}

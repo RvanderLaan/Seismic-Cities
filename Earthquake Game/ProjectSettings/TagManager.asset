@@ -10,6 +10,7 @@ TagManager:
   - DamageParticle
   - Wave
   - BuildingPlatform
+  - Canvas
   layers:
   - Default
   - TransparentFX
