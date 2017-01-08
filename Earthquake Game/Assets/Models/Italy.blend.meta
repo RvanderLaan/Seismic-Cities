@@ -13,6 +13,7 @@ ModelImporter:
     100010: Separate
     100012: Everything_001
     100014: Outside
+    100016: Grass
     400000: Bedrock
     400002: Everything
     400004: //RootNode
@@ -21,24 +22,28 @@ ModelImporter:
     400010: Separate
     400012: Everything_001
     400014: Outside
+    400016: Grass
     2300000: Bedrock
     2300002: Everything
     2300004: Limestone
     2300006: Marl
     2300008: Everything_001
     2300010: Outside
+    2300012: Grass
     3300000: Bedrock
     3300002: Everything
     3300004: Limestone
     3300006: Marl
     3300008: Everything_001
     3300010: Outside
+    3300012: Grass
     4300000: Everything
     4300002: Marl
     4300004: Limestone
     4300006: Bedrock
     4300008: Everything_001
     4300010: Outside
+    4300012: Grass
     6400000: Bedrock
     6400002: Everything
     6400004: Limestone

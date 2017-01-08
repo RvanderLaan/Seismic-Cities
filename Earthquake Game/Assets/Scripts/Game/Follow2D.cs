@@ -20,7 +20,6 @@ public class Follow2D : MonoBehaviour {
 	void Start () {
         rectTransform = GetComponent<RectTransform>();
         startPos = new Vector2(-target.rect.width / 2, 0);
-        Debug.Log(startPos);
     }
 	
 	// Update is called once per frame

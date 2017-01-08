@@ -6,7 +6,7 @@ public class ParallaxObject : MonoBehaviour {
 	Vector3 startPos;
 
     public Vector3 moveDirection = Vector3.zero;
-    public Vector2 levelBounds = new Vector2(-5, 20);
+    public Vector2 levelBounds = new Vector2(-150, 150);
 
 	// Use this for initialization
 	void Start () {

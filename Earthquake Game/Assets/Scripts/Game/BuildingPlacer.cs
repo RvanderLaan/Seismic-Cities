@@ -126,6 +126,7 @@ public class BuildingPlacer : MonoBehaviour {
 
     void placeBuilding(Vector2 pos, RaycastHit2D hit) {
         GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
+        instance.tag = "Building";
         instance.transform.position = pos;
 
         // Set the fixed joints of the children to the Building Platform
