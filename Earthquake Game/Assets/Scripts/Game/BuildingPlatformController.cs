@@ -5,17 +5,22 @@ using UnityEngine;
 public class BuildingPlatformController : MonoBehaviour
 {
 
-    public float defaultUpForce;
-    public float defaultSideForce;
-
+    public SoilType soilType;
     public bool isBuilt;
+    public LayerMask terrainLayer;
 
+    private float[] defaultForces;
     private float upForce, sideForce;
-
     private Rigidbody2D rigidBody;
 
     private bool isShaking;
     private int shakeTimes;
+
+    public enum SoilType {
+        Marl, Limestone, Sand, Sandstone, Clay, Bedrock, Quicksand,
+    }
+
+
 
     // Use this for initialization
     void Start()
@@ -23,16 +28,36 @@ public class BuildingPlatformController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         isShaking = false;
         isBuilt = false;
-        //StartCoroutine("shake");
+
+        // Get force values for this soil type (defined below)
+        defaultForces = getValues(soilType);
+
+        // Raycast downwards to terrain and assign joint anchor
+        RaycastHit2D terrainHit = Physics2D.Raycast(transform.position + Vector3.up * 10, -Vector2.up, float.MaxValue, terrainLayer);
+        if (terrainHit.collider != null) {
+            Vector2 hitPoint = terrainHit.point;
+            
+            Joint2D joint = GetComponent<Joint2D>();
+            joint.connectedBody = terrainHit.collider.GetComponent<Rigidbody2D>();
+
+            gameObject.name = gameObject.name + " of " + soilType + " on " + terrainHit.collider.gameObject.name;
+            if (!soilType.Equals(terrainHit.collider.gameObject.name)) {
+                Debug.Log("WARNING: Soil type property name of building zone do not equal terrain name: " + soilType + " != " + terrainHit.collider.gameObject.name);
+            }
+        } else {
+            Debug.Log("WARNING: NO RIGID BODY FOUND TO ANCHOR THIS BUILDING PLATFORM TO!");
+        }
     }
 
     public void startShaking(float cosineDegreeFactor, float distance, float intensity)
     {        
         shakeTimes = 0;
-        sideForce = defaultSideForce * cosineDegreeFactor * intensity / distance * 10;
-        upForce = defaultUpForce * cosineDegreeFactor * intensity / distance * 10;
+        sideForce = defaultForces[0] * cosineDegreeFactor * intensity / distance;
+        upForce = defaultForces[1] * cosineDegreeFactor * intensity / distance;
 
-        if (!isShaking)
+        Debug.Log(sideForce + ", " + upForce);
+
+        // if (!isShaking)
         {
             isShaking = true;
             StartCoroutine("shake");
@@ -58,5 +83,53 @@ public class BuildingPlatformController : MonoBehaviour
             yield return new WaitForSeconds(.2f);
         }
         isShaking = false;
+    }
+
+    float[] getValues(SoilType type) {
+        float[] values = new float[2];
+
+        switch (type) {
+            case SoilType.Bedrock: {
+                    values[0] = 1;
+                    values[1] = 0;
+                    break;
+                }
+            case SoilType.Marl: {
+                    values[0] = 1;
+                    values[1] = 0;
+                    break;
+                }
+            case SoilType.Limestone: {
+                    values[0] = 1;
+                    values[1] = 0;
+                    break;
+                }
+            case SoilType.Sand: {
+                    values[0] = 1;
+                    values[1] = 0;
+                    break;
+                }
+            case SoilType.Sandstone: {
+                    values[0] = 1;
+                    values[1] = 0;
+                    break;
+                }
+            case SoilType.Clay: {
+                    values[0] = 1;
+                    values[1] = 0;
+                    break;
+                }
+            case SoilType.Quicksand: {
+                    values[0] = 1;
+                    values[1] = 0;
+                    break;
+                }
+            default: {
+                    values[0] = 0;
+                    values[1] = 0;
+                    break;
+                }
+        }
+        return values;
     }
 }

@@ -32,7 +32,8 @@ public class DamageParticleController : MonoBehaviour {
         }
         */
 
-        //TODO: Check that the other object is the right platform for which this particle was created
+        Debug.Log("Collliding: " + collider.gameObject.name);
+
         if (collider.gameObject.CompareTag("BuildingPlatform") && collider.gameObject.GetInstanceID() == platformID)
         {
             collider.gameObject.GetComponent<BuildingPlatformController>().startShaking(cosineDegreeFactor, distance, intensity);

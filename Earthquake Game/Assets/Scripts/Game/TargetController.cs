@@ -81,21 +81,20 @@ public class TargetController : MonoBehaviour {
             lastWave = Time.time;
             createWave(sc.getTimingScore());
         }
-
-        
     }
 
     public void createWave(float intensity) {
         WaveGenerator wg;
 
         // If the last wave generator is done, reuse it
+        Debug.Log(waveGenerators.Count + ", " + waveGenerators.Peek().isDone());
         if (waveGenerators.Peek().isDone()) {
             wg = waveGenerators.Dequeue();
             wg.reset();
         } else {
             wg = (WaveGenerator)GameObject.Instantiate(instance, transform.position, Quaternion.identity);
         }
-        wg.intensity = intensity;
+        wg.intensity = intensity * 5000;
         waveGenerators.Enqueue(wg);
         wg.startWave();
         wg.transform.position = transform.position;

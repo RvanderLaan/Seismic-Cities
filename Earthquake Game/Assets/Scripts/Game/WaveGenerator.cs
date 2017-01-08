@@ -23,7 +23,6 @@ public class WaveGenerator : MonoBehaviour {
 
     // Use this for initialization
     void Awake() {
-        
 
         lr = GetComponent<LineRenderer>();
         lr.numPositions = waveAmount + 1;
@@ -37,7 +36,10 @@ public class WaveGenerator : MonoBehaviour {
             instantiateWaveObj(i, angle);
         }
 
-        // Attemept at better distribution of wave objects
+        //get the buildings gameObjects
+        platforms = GameObject.FindGameObjectsWithTag("BuildingPlatform");
+
+        // Attempt at better distribution of wave objects
         // Generate more objects to the top left and top right, and very few to the bottom
         /*
         int quarter = waveAmount / 4;
@@ -79,15 +81,12 @@ public class WaveGenerator : MonoBehaviour {
     }
 
     public bool isDone() {
-        if (!gameObject.activeSelf)
+        if (gameObject.activeSelf)
             return false;
         return Time.time > (startTime + lifeTime);
     }
 
     public void startWave() {
-        //get the buildings gameObjects
-        platforms = GameObject.FindGameObjectsWithTag("BuildingPlatform");
-
         startTime = Time.time;
 
         // Change color based on intensity
