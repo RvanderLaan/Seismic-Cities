@@ -105,7 +105,7 @@ public class WaveGenerator : MonoBehaviour {
             dpg.platformID = platforms[i].GetInstanceID();
             //the cosineDegreeFactor is 1 if the direction of the damage particle is vertical (orthogonal to the ground)
             //and is 0 if the direction is horizontal
-            dpg.cosineDegreeFactor = Mathf.Pow(particle.direction.y, 0.7f);
+            dpg.cosineDegreeFactor = 1; //  Mathf.Pow(particle.direction.y, 0.5f);
             dpg.distance = (platforms[i].transform.position - transform.position).magnitude;
             dpg.intensity = intensity;
         }
