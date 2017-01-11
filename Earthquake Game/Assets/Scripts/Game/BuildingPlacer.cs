@@ -127,17 +127,12 @@ public class BuildingPlacer : MonoBehaviour {
     void placeBuilding(Vector2 pos, RaycastHit2D hit) {
         GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
         instance.tag = "Building";
-        instance.transform.position = pos;
+        BuildingPlatformController bpc = hit.collider.GetComponent<BuildingPlatformController>();
 
-        // Set the fixed joints of the children to the Building Platform
-        FixedJoint2D[] childrenJoints = instance.GetComponentsInChildren<FixedJoint2D>();
-        foreach (FixedJoint2D f in childrenJoints)
-        {
-            f.connectedBody = hit.rigidbody;
-        }
+        instance.transform.position = bpc.transform.position; // Snap to platform position
+        bpc.isBuilt = true; // Set the platform as unavailable
 
-        // Set the platform as unavailable
-        hit.collider.GetComponent<BuildingPlatformController>().isBuilt = true;
+        // Todo: Set building type in platform
 
         // Play the audio
         audioSource.pitch = Random.Range(0.5f, 1.5f);

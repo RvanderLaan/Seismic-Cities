@@ -6,15 +6,16 @@ using UnityEngine.EventSystems;
 
 public class ModeManager : MonoBehaviour {
 
-    public enum GameMode { Building, Test, Simulation, Finish };
-    public List<GameObject> buildingObjects, testObjects, simulationObjects, finishObjects;
+    public enum GameMode { Building, Upgrade, Simulation, Finish };
+    public List<GameObject> buildingObjects, upgradeObjects, simulationObjects, finishObjects;
 
-    GameObject buildingContainerBackup = null;
     GameObject buildingContainer;
 
     public TargetController targetController;
     public EarthquakeSimulator earthquakeSimulator;
-    
+    public BuildingList buildingList;
+    public UpgradeList upgradeList;
+
     private GameMode mode;
     public GameMode Mode {
         get { return mode; }
@@ -36,27 +37,33 @@ public class ModeManager : MonoBehaviour {
     public void setGameMode(GameMode newMode) {
         Debug.Log(mode + " -> " + newMode);
         // Exceptions
-        if (mode == GameMode.Building && newMode == GameMode.Test) {
-            // Test mode -> copy all buildings so they can be restored after testing
-            buildingContainerBackup = GameObject.Instantiate(buildingContainer);
-            buildingContainerBackup.SetActive(false);
-
-        } else if (mode == GameMode.Test && newMode == GameMode.Building) {
-            // Reset buildings
-            foreach (Transform child in buildingContainer.transform) 
-                GameObject.DestroyImmediate(child.gameObject);
-
-            foreach (Transform child in buildingContainerBackup.transform) {
-                child.transform.SetParent(buildingContainer.transform);
-                child.gameObject.name = "YES";
+        if (mode == GameMode.Building && newMode == GameMode.Upgrade || newMode == GameMode.Simulation) {
+            // Todo: Check if all buildings have been set
+            if (!buildingList.finishedPlacing()) {
+                Debug.Log("Place all buildings before continuing");
+                return;
             }
-            // Todo: Stop shaking of platforms
+
+        } else if (mode == GameMode.Upgrade && newMode == GameMode.Building) {
+            // Todo: Remove/reset upgrades
+
+        } else if (mode == GameMode.Upgrade && newMode == GameMode.Simulation) {
+            // Check if all foundations have been set
+            if (!upgradeList.finishedPlacing()) {
+                Debug.Log("Place all upgrades before continuing");
+                return;
+            }
+
         } else if (newMode == GameMode.Simulation) {
-            // Set position of epicenter
-
-
             earthquakeSimulator.simulateEarthquake();
             StartCoroutine(setGameMode(GameMode.Finish, 15));
+
+            // Todo: Check damage
+            GameObject[] platforms = GameObject.FindGameObjectsWithTag("BuildingPlatform");
+
+            /*
+                
+            */
         }
 
         // In every case, switch all objects
@@ -99,8 +106,8 @@ public class ModeManager : MonoBehaviour {
         switch (gm) {
             case GameMode.Building:
                 return buildingObjects;
-            case GameMode.Test:
-                return testObjects;
+            case GameMode.Upgrade:
+                return upgradeObjects;
             case GameMode.Simulation:
                 return simulationObjects;
             case GameMode.Finish:

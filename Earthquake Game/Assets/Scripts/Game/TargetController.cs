@@ -59,6 +59,8 @@ public class TargetController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // Deprecated: This used to move the epicenter on click
+        /*
         if (modeManager.Mode != ModeManager.GameMode.Test)
             return;
 
@@ -81,6 +83,7 @@ public class TargetController : MonoBehaviour {
             lastWave = Time.time;
             createWave(sc.getTimingScore());
         }
+        */
     }
 
     public void createWave(float intensity) {
