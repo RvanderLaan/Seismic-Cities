@@ -1091,8 +1091,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -309, y: -24}
-  m_SizeDelta: {x: 155, y: 136.17}
+  m_AnchoredPosition: {x: -193.25, y: -24}
+  m_SizeDelta: {x: 386.5, y: 136.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &275643863
 MonoBehaviour:
@@ -1115,7 +1115,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: e90c719d8707abd42b464c621e70d2b8, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2525,7 +2525,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: ef7184749a4c6964a82cb0d754dfca21, type: 3}
-    m_FontSize: 20
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -6171,7 +6171,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   - characterName: 0
-    dialogText: Ahahahahah! You will never defeat me!
+    dialogText: Hahaha! You will never defeat me!
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -6182,9 +6182,9 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  levelFailedDialog:
-    characterName: 0
-    dialogText: Bad!!
+  levelFailedList:
+  - characterName: 0
+    dialogText: Haha! My earthquake was again close enough to your weak buildings!
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -6195,9 +6195,36 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  levelPassedDialog:
-    characterName: 1
-    dialogText: Good!!
+  - characterName: 1
+    dialogText: The larger the distance from the epicentre, the strength of the earthquake
+      decreases.
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  levelPassedList:
+  - characterName: 0
+    dialogText: Why did the buildings not crumble?! You have put them too far away
+      from my earthquake!
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 1
+    dialogText: The larger the distance from the epicentre, the strength of the earthquake
+      decreases.
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -6677,10 +6704,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -7167,8 +7194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 301, y: -23.915}
-  m_SizeDelta: {x: 159, y: 136}
+  m_AnchoredPosition: {x: 190.25, y: -23.915}
+  m_SizeDelta: {x: 380.5, y: 136}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911179515
 MonoBehaviour:
@@ -7191,7 +7218,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: ba1fef78143825c46994fbe06015ba82, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
