@@ -21,6 +21,8 @@ public class WaveGenerator : MonoBehaviour {
 
     public Color bestColor = Color.red, worstColor = Color.blue;
 
+    private Color renderColor;
+
     // Use this for initialization
     void Awake() {
 
@@ -28,6 +30,8 @@ public class WaveGenerator : MonoBehaviour {
         lr.numPositions = waveAmount + 1;
         lr.startWidth = lineWidth;
         lr.endWidth = lineWidth;
+
+        renderColor = lr.material.color;
 
         //generate the wave objects
         waves = new Wave[waveAmount];
@@ -92,6 +96,7 @@ public class WaveGenerator : MonoBehaviour {
         // Change color based on intensity
         Color col = Color.Lerp(worstColor, bestColor, intensity);
         GetComponent<Renderer>().material.color = col;
+        renderColor = col;
 
         gameObject.SetActive(true);
         //generate the damaging particles, one for each building
@@ -119,5 +124,8 @@ public class WaveGenerator : MonoBehaviour {
             lr.SetPosition(i, waves[i].transform.position);
         }
         lr.SetPosition(waveAmount, waves[0].transform.position);
+
+        renderColor.a = Mathf.SmoothStep(1, 0, (Time.time - startTime) / lifeTime);
+        lr.material.color = renderColor;
 	}
 }

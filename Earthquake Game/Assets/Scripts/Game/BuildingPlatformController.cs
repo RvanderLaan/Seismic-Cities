@@ -26,6 +26,8 @@ public class BuildingPlatformController : MonoBehaviour
 
     // Todo: Frequency build up of multiple waves (using list) and a distance falloff
 
+    // List<Upgrade>
+
     private float epicenterDistance;
 
     public enum SoilType {

@@ -13,19 +13,19 @@ public class Soil : MonoBehaviour {
 	void Start () {
         switch (type) {
             case SoilType.Bedrock:
-                speedCoefficient = 0.5f;
+                speedCoefficient = 1.5f;
                 break;
             case SoilType.Rock:
-                speedCoefficient = 0.9f;
+                speedCoefficient = 1.25f;
                 break;
             case SoilType.SoftRock:
-                speedCoefficient = 1.1f;
+                speedCoefficient = 1f;
                 break;
             case SoilType.Clay:
-                speedCoefficient = 1.3f;
+                speedCoefficient = 0.75f;
                 break;
             case SoilType.Sand:
-                speedCoefficient = 1.5f;
+                speedCoefficient = 0.5f;
                 break;
         }
     }
