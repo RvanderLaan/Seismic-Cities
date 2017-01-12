@@ -16,6 +16,10 @@ public class ModeManager : MonoBehaviour {
     public BuildingList buildingList;
     public UpgradeList upgradeList;
 
+    public UserFeedback userFeedback;
+
+    private Solutions solutions;
+
     private GameMode mode;
     public GameMode Mode {
         get { return mode; }
@@ -28,6 +32,7 @@ public class ModeManager : MonoBehaviour {
     void Start() {
         Mode = GameMode.Building;
         buildingContainer = GameObject.Find("BuildingContainer");
+        solutions = GetComponent<Solutions>();
 
         targetController.gameObject.SetActive(false);
     }
@@ -40,9 +45,19 @@ public class ModeManager : MonoBehaviour {
         if (mode == GameMode.Building && newMode == GameMode.Upgrade || newMode == GameMode.Simulation) {
             // Todo: Check if all buildings have been set
             if (!buildingList.finishedPlacing()) {
-                Debug.Log("Place all buildings before continuing");
+                userFeedback.setText("You should place all buildings before continuing");
                 return;
             }
+
+            earthquakeSimulator.simulateEarthquake();
+            StartCoroutine(setGameMode(GameMode.Finish, 15));
+
+            // Todo: Check damage
+            
+
+            /*
+                
+            */
 
         } else if (mode == GameMode.Upgrade && newMode == GameMode.Building) {
             // Todo: Remove/reset upgrades
@@ -50,20 +65,16 @@ public class ModeManager : MonoBehaviour {
         } else if (mode == GameMode.Upgrade && newMode == GameMode.Simulation) {
             // Check if all foundations have been set
             if (!upgradeList.finishedPlacing()) {
-                Debug.Log("Place all upgrades before continuing");
+                userFeedback.setText("Place all upgrades before continuing");
                 return;
             }
 
-        } else if (newMode == GameMode.Simulation) {
-            earthquakeSimulator.simulateEarthquake();
-            StartCoroutine(setGameMode(GameMode.Finish, 15));
-
-            // Todo: Check damage
-            GameObject[] platforms = GameObject.FindGameObjectsWithTag("BuildingPlatform");
-
-            /*
-                
-            */
+        } else if (newMode == GameMode.Finish) {
+            if (solutions.hasPassed()) {
+                userFeedback.setText("YOU WON");
+            } else {
+                userFeedback.setText("YOU LOST");
+            }
         }
 
         // In every case, switch all objects

@@ -90,7 +90,6 @@ public class TargetController : MonoBehaviour {
         WaveGenerator wg;
 
         // If the last wave generator is done, reuse it
-        Debug.Log(waveGenerators.Count + ", " + waveGenerators.Peek().isDone());
         if (waveGenerators.Peek().isDone()) {
             wg = waveGenerators.Dequeue();
             wg.reset();

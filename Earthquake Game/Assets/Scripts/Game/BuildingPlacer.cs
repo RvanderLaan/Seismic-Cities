@@ -24,6 +24,8 @@ public class BuildingPlacer : MonoBehaviour {
 
     public LayerMask placementMask, terrainMask;
 
+    public GameObject controlInfo;
+
     // public List<BuildingPlatformController> buildingPlatformControllers;
 
 	// Use this for initialization
@@ -37,6 +39,7 @@ public class BuildingPlacer : MonoBehaviour {
     }
 
     public void startPreview(GameObject prefab, Text amountText) {
+        controlInfo.SetActive(true);
         previewAmountText = amountText;
         
         // Check if all buildings of this type have been placed (directly from GUI text)
@@ -70,6 +73,7 @@ public class BuildingPlacer : MonoBehaviour {
     }
 
     public void stopPreview() {
+        controlInfo.SetActive(false);
         preview = false;
         GameObject.Destroy(previewInstance);
     }
@@ -133,6 +137,7 @@ public class BuildingPlacer : MonoBehaviour {
         bpc.isBuilt = true; // Set the platform as unavailable
 
         // Todo: Set building type in platform
+        bpc.building = instance.GetComponent<Building>();
 
         // Play the audio
         audioSource.pitch = Random.Range(0.5f, 1.5f);

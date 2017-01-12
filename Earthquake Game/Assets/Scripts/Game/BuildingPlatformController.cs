@@ -12,10 +12,12 @@ public class BuildingPlatformController : MonoBehaviour
     public LayerMask terrainLayer;
 
     // List<Upgrade>
-    public GameObject building;
-    public GameObject upgrade;
+    public Building building;
+    public Upgrade upgrade;
 
     private float epicenterDistance;
+
+    private Solutions solutions;
 
     public enum SoilType {
         Marl, Limestone, Sand, Sandstone, Clay, Bedrock, Quicksand,
@@ -24,6 +26,7 @@ public class BuildingPlatformController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        solutions = GameObject.Find("_GM").GetComponent<Solutions>();
 
         // Raycast downwards to terrain and assign joint anchor
         RaycastHit2D terrainHit = Physics2D.Raycast(transform.position + Vector3.up * 10, -Vector2.up, float.MaxValue, terrainLayer);
@@ -52,6 +55,9 @@ public class BuildingPlatformController : MonoBehaviour
     }
 
     public void startShaking() {
-        // Todo: if !solutions.correctPlacement() { explode() }
+        if (!solutions.correctPlacement(this)) {
+            if (building != null)
+                building.Collapse();
+        }
     }
 }
