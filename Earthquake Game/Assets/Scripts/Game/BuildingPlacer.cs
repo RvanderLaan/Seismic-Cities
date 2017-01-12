@@ -20,8 +20,6 @@ public class BuildingPlacer : MonoBehaviour {
     public AudioClip select, place;
     private AudioSource audioSource;
 
-    private BudgetManager budgetManager;
-
     public LayerMask placementMask, terrainMask;
 
     public GameObject controlInfo;
@@ -31,7 +29,6 @@ public class BuildingPlacer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         audioSource = GetComponent<AudioSource>();
-        budgetManager = GetComponent<BudgetManager>();
 	}
 
     public bool mouseMoved() {
@@ -133,11 +130,7 @@ public class BuildingPlacer : MonoBehaviour {
         instance.tag = "Building";
         BuildingPlatformController bpc = hit.collider.GetComponent<BuildingPlatformController>();
 
-        instance.transform.position = bpc.transform.position; // Snap to platform position
-        bpc.isBuilt = true; // Set the platform as unavailable
-
-        // Todo: Set building type in platform
-        bpc.building = instance.GetComponent<Building>();
+        bpc.place(instance.GetComponent<Building>());               // Set the building
 
         // Play the audio
         audioSource.pitch = Random.Range(0.5f, 1.5f);

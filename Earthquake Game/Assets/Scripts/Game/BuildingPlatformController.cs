@@ -7,7 +7,7 @@ public class BuildingPlatformController : MonoBehaviour
 {
 
     public SoilType soilType;
-    public bool isBuilt;
+    public bool isBuilt, isUpgraded;
 
     public LayerMask terrainLayer;
 
@@ -19,14 +19,21 @@ public class BuildingPlatformController : MonoBehaviour
 
     private Solutions solutions;
 
+    private BuildingList buildingList;
+    private UpgradeList upgradeList;
+
     public enum SoilType {
         Marl, Limestone, Sand, Sandstone, Clay, Bedrock, Quicksand,
     }
+
+    public GameObject undoButton;
 
     // Use this for initialization
     void Start()
     {
         solutions = GameObject.Find("_GM").GetComponent<Solutions>();
+        buildingList = GameObject.Find("_GM").GetComponent<BuildingList>();
+        upgradeList = GameObject.Find("_GM").GetComponent<UpgradeList>();
 
         // Raycast downwards to terrain and assign joint anchor
         RaycastHit2D terrainHit = Physics2D.Raycast(transform.position + Vector3.up * 10, -Vector2.up, float.MaxValue, terrainLayer);
@@ -59,5 +66,28 @@ public class BuildingPlatformController : MonoBehaviour
             if (building != null)
                 building.Collapse();
         }
+    }
+
+    public void place(Building b) {
+        building = b;
+        undoButton.SetActive(true);
+
+        isBuilt = true;                                         // Set the platform as unavailable
+        GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false); // Hide green sprite
+        building.transform.position = transform.position;       // Snap building to position of this platform
+    }
+
+    public void placeUpgrade(Upgrade u) {
+        upgrade = u;
+        undoButton.SetActive(true);
+
+        isUpgraded = true;
+        upgrade.transform.position = transform.position;       // Snap building to position of this platform
+    }
+
+    public void undoPlacement() {
+        // Remove building and upgrade
+
+        undoButton.SetActive(false);
     }
 }

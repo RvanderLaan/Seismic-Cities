@@ -22,6 +22,7 @@ public class Building : MonoBehaviour {
 	}
 
     public void Collapse() {
+        Debug.Log("Collapsing " + gameObject.name);
         for (int i = 0; i < children.Length; i++) {
             children[i].bodyType = RigidbodyType2D.Dynamic;
             children[i].AddForce(new Vector2((Random.Range(1, 3) * 2 - 3), 1) * intensity);

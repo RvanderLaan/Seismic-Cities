@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: fbcf94b382ee1814fa1fe00b7ee67cf3
-timeCreated: 1484253221
+guid: fededd6043fdbf3429f9e5a946371f3f
+timeCreated: 1484255152
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -50,6 +50,53 @@ TextureImporter:
     21300086: ColloseumBroken_77
     21300088: ColloseumBroken_78
     21300090: ColloseumBroken_79
+    21300092: ColloseumBroken 1_20
+    21300094: ColloseumBroken 1_21
+    21300096: ColloseumBroken 1_22
+    21300098: ColloseumBroken 1_23
+    21300100: ColloseumBroken 1_24
+    21300102: ColloseumBroken 1_30
+    21300104: ColloseumBroken 1_31
+    21300106: ColloseumBroken 1_32
+    21300108: ColloseumBroken 1_33
+    21300110: ColloseumBroken 1_34
+    21300112: ColloseumBroken 1_40
+    21300114: ColloseumBroken 1_41
+    21300116: ColloseumBroken 1_42
+    21300118: ColloseumBroken 1_43
+    21300120: ColloseumBroken 1_44
+    21300122: ColloseumBroken 1_45
+    21300124: ColloseumBroken 1_46
+    21300126: ColloseumBroken 1_50
+    21300128: ColloseumBroken 1_51
+    21300130: ColloseumBroken 1_52
+    21300132: ColloseumBroken 1_53
+    21300134: ColloseumBroken 1_54
+    21300136: ColloseumBroken 1_55
+    21300138: ColloseumBroken 1_56
+    21300140: ColloseumBroken 1_57
+    21300142: ColloseumBroken 1_58
+    21300144: ColloseumBroken 1_59
+    21300146: ColloseumBroken 1_60
+    21300148: ColloseumBroken 1_61
+    21300150: ColloseumBroken 1_62
+    21300152: ColloseumBroken 1_63
+    21300154: ColloseumBroken 1_64
+    21300156: ColloseumBroken 1_65
+    21300158: ColloseumBroken 1_66
+    21300160: ColloseumBroken 1_67
+    21300162: ColloseumBroken 1_68
+    21300164: ColloseumBroken 1_69
+    21300166: ColloseumBroken 1_70
+    21300168: ColloseumBroken 1_71
+    21300170: ColloseumBroken 1_72
+    21300172: ColloseumBroken 1_73
+    21300174: ColloseumBroken 1_74
+    21300176: ColloseumBroken 1_75
+    21300178: ColloseumBroken 1_76
+    21300180: ColloseumBroken 1_77
+    21300182: ColloseumBroken 1_78
+    21300184: ColloseumBroken 1_79
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -86,7 +133,7 @@ TextureImporter:
   alignment: 7
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 48
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -132,600 +179,613 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ColloseumBroken_20
+      name: ColloseumBroken 1_20
       rect:
         serializedVersion: 2
         x: 16
         y: 240
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_21
+      name: ColloseumBroken 1_21
       rect:
         serializedVersion: 2
         x: 64
         y: 240
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_22
+      name: ColloseumBroken 1_22
       rect:
         serializedVersion: 2
         x: 112
         y: 240
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_23
+      name: ColloseumBroken 1_23
       rect:
         serializedVersion: 2
         x: 160
         y: 240
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_24
+      name: ColloseumBroken 1_24
       rect:
         serializedVersion: 2
         x: 208
         y: 240
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_30
+      name: ColloseumBroken 1_30
       rect:
         serializedVersion: 2
         x: 16
         y: 192
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_31
+      name: ColloseumBroken 1_31
       rect:
         serializedVersion: 2
         x: 64
         y: 192
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_32
+      name: ColloseumBroken 1_32
       rect:
         serializedVersion: 2
         x: 112
         y: 192
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_33
+      name: ColloseumBroken 1_33
       rect:
         serializedVersion: 2
         x: 160
         y: 192
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_34
+      name: ColloseumBroken 1_34
       rect:
         serializedVersion: 2
         x: 208
         y: 192
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_40
+      name: ColloseumBroken 1_40
       rect:
         serializedVersion: 2
         x: 16
         y: 144
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_41
+      name: ColloseumBroken 1_41
       rect:
         serializedVersion: 2
         x: 64
         y: 144
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_42
+      name: ColloseumBroken 1_42
       rect:
         serializedVersion: 2
         x: 112
         y: 144
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_43
+      name: ColloseumBroken 1_43
       rect:
         serializedVersion: 2
         x: 160
         y: 144
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_44
+      name: ColloseumBroken 1_44
       rect:
         serializedVersion: 2
         x: 208
         y: 144
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_45
+      name: ColloseumBroken 1_45
       rect:
         serializedVersion: 2
         x: 256
         y: 144
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_50
+      name: ColloseumBroken 1_46
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 144
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColloseumBroken 1_50
       rect:
         serializedVersion: 2
         x: 16
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_51
+      name: ColloseumBroken 1_51
       rect:
         serializedVersion: 2
         x: 64
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_52
+      name: ColloseumBroken 1_52
       rect:
         serializedVersion: 2
         x: 112
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_53
+      name: ColloseumBroken 1_53
       rect:
         serializedVersion: 2
         x: 160
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_54
+      name: ColloseumBroken 1_54
       rect:
         serializedVersion: 2
         x: 208
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_55
+      name: ColloseumBroken 1_55
       rect:
         serializedVersion: 2
         x: 256
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_56
+      name: ColloseumBroken 1_56
       rect:
         serializedVersion: 2
         x: 304
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_57
+      name: ColloseumBroken 1_57
       rect:
         serializedVersion: 2
         x: 352
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_58
+      name: ColloseumBroken 1_58
       rect:
         serializedVersion: 2
         x: 400
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_59
+      name: ColloseumBroken 1_59
       rect:
         serializedVersion: 2
         x: 448
         y: 96
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_60
+      name: ColloseumBroken 1_60
       rect:
         serializedVersion: 2
         x: 16
         y: 48
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_61
+      name: ColloseumBroken 1_61
       rect:
         serializedVersion: 2
         x: 64
         y: 48
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_62
+      name: ColloseumBroken 1_62
       rect:
         serializedVersion: 2
         x: 112
         y: 48
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_63
+      name: ColloseumBroken 1_63
       rect:
         serializedVersion: 2
         x: 160
         y: 48
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_64
+      name: ColloseumBroken 1_64
       rect:
         serializedVersion: 2
         x: 208
         y: 48
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_65
+      name: ColloseumBroken 1_65
       rect:
         serializedVersion: 2
         x: 256
         y: 48
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_66
+      name: ColloseumBroken 1_66
       rect:
         serializedVersion: 2
         x: 304
         y: 48
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_67
+      name: ColloseumBroken 1_67
       rect:
         serializedVersion: 2
         x: 352
         y: 48
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_68
+      name: ColloseumBroken 1_68
       rect:
         serializedVersion: 2
         x: 400
         y: 48
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_69
+      name: ColloseumBroken 1_69
       rect:
         serializedVersion: 2
         x: 448
         y: 48
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_70
+      name: ColloseumBroken 1_70
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_71
+      name: ColloseumBroken 1_71
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_72
+      name: ColloseumBroken 1_72
       rect:
         serializedVersion: 2
         x: 112
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_73
+      name: ColloseumBroken 1_73
       rect:
         serializedVersion: 2
         x: 160
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_74
+      name: ColloseumBroken 1_74
       rect:
         serializedVersion: 2
         x: 208
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_75
+      name: ColloseumBroken 1_75
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_76
+      name: ColloseumBroken 1_76
       rect:
         serializedVersion: 2
         x: 304
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_77
+      name: ColloseumBroken 1_77
       rect:
         serializedVersion: 2
         x: 352
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_78
+      name: ColloseumBroken 1_78
       rect:
         serializedVersion: 2
         x: 400
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ColloseumBroken_79
+      name: ColloseumBroken 1_79
       rect:
         serializedVersion: 2
         x: 448
         y: 0
         width: 48
         height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
