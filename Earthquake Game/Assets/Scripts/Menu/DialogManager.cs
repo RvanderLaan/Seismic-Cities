@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour {
 
+    public bool showTutorialAfterDialog = false;
+
     public GameObject poseidonImage;
     public GameObject aphroditeImage;
     public GameObject dialogPanel;
@@ -45,6 +47,11 @@ public class DialogManager : MonoBehaviour {
             dialogPanel.SetActive(false);
             poseidonImage.SetActive(false);
             aphroditeImage.SetActive(false);
+            
+            if (showTutorialAfterDialog)
+            {
+                GetComponent<TutorialManager>().startTutorial();
+            }
         }
     }
 
