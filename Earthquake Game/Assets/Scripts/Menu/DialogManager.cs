@@ -38,21 +38,30 @@ public class DialogManager : MonoBehaviour {
 
     public void showDialog()
     {
+        
+
         if (currentDialogItem < currentList.Count)
         {
+            
+            currentList[currentDialogItem].enterEvent.Invoke();
+
             dialogPanel.SetActive(true);
-            fillDialog(currentList[currentDialogItem++]);
+            fillDialog(currentList[currentDialogItem]);
         } else
         {
             dialogPanel.SetActive(false);
             poseidonImage.SetActive(false);
             aphroditeImage.SetActive(false);
             
-            if (showTutorialAfterDialog)
-            {
-                GetComponent<TutorialManager>().startTutorial();
-            }
+            //if (showTutorialAfterDialog)
+            //{
+            //    GetComponent<TutorialManager>().startTutorial();
+            //}
         }
+        if (currentDialogItem - 1 >= 0)
+            currentList[currentDialogItem - 1].leaveEvent.Invoke();
+
+        currentDialogItem++;
     }
 
     public void levelSuccessfull()
