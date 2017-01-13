@@ -34,8 +34,6 @@ public class EarthquakeSimulator : MonoBehaviour {
             yield return new WaitForSeconds(intervalBetweenWaves);
         }
         yield return new WaitForSeconds(5);
-        // GetComponent<ScoringManager>().displayScore();
-        GetComponent<BuildingPlacer>().enabled = true;
 
         c.StartFadeOut(shakeFadeOut);
     }

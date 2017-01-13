@@ -11,19 +11,22 @@ public class BuildingList : MonoBehaviour {
     public BuildingPlacer buildingPlacer;
     public List<BuildingItem> buildingItems;
     public GameObject tooltipPrefab;
+
+    private List<Text> amountTexts = new List<Text>();
     
 	// Use this for initialization
 	void Start () {
 		// Add buttons to GUI
         foreach(BuildingItem bi in buildingItems) {
             GameObject buttonInstance = GameObject.Instantiate(buildingButton, buildingItemContainer.transform);
-
+            
             // Clicky stuff
             Button b = buttonInstance.GetComponentInChildren<Button>();
             b.GetComponent<Image>().sprite = bi.image;
             b.GetComponentInChildren<Text>().text = bi.name;
 
             Text amount = buttonInstance.transform.FindChild("Amount").GetComponentInChildren<Text>();
+            amountTexts.Add(amount);
             amount.text = bi.amount + "";
             // Add onclick listener. The amount is changed in the building placer
             b.onClick.AddListener(() => buildingPlacer.startPreview(bi.prefab, amount));
@@ -52,4 +55,12 @@ public class BuildingList : MonoBehaviour {
             tooltip.GetComponent<Follow2D>().target = buttonInstance.GetComponent<RectTransform>();
         }
 	}
+
+    public bool finishedPlacing() {
+        foreach (Text t in amountTexts) {
+            if (t.text != "0")
+                return false;
+        }
+        return true;
+    }
 }

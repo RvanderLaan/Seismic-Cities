@@ -20,16 +20,15 @@ public class BuildingPlacer : MonoBehaviour {
     public AudioClip select, place;
     private AudioSource audioSource;
 
-    private BudgetManager budgetManager;
-
     public LayerMask placementMask, terrainMask;
+
+    public GameObject controlInfo;
 
     // public List<BuildingPlatformController> buildingPlatformControllers;
 
 	// Use this for initialization
 	void Start () {
         audioSource = GetComponent<AudioSource>();
-        budgetManager = GetComponent<BudgetManager>();
 	}
 
     public bool mouseMoved() {
@@ -37,6 +36,7 @@ public class BuildingPlacer : MonoBehaviour {
     }
 
     public void startPreview(GameObject prefab, Text amountText) {
+        controlInfo.SetActive(true);
         previewAmountText = amountText;
         
         // Check if all buildings of this type have been placed (directly from GUI text)
@@ -70,6 +70,7 @@ public class BuildingPlacer : MonoBehaviour {
     }
 
     public void stopPreview() {
+        controlInfo.SetActive(false);
         preview = false;
         GameObject.Destroy(previewInstance);
     }
@@ -127,17 +128,9 @@ public class BuildingPlacer : MonoBehaviour {
     void placeBuilding(Vector2 pos, RaycastHit2D hit) {
         GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
         instance.tag = "Building";
-        instance.transform.position = pos;
+        BuildingPlatformController bpc = hit.collider.GetComponent<BuildingPlatformController>();
 
-        // Set the fixed joints of the children to the Building Platform
-        FixedJoint2D[] childrenJoints = instance.GetComponentsInChildren<FixedJoint2D>();
-        foreach (FixedJoint2D f in childrenJoints)
-        {
-            f.connectedBody = hit.rigidbody;
-        }
-
-        // Set the platform as unavailable
-        hit.collider.GetComponent<BuildingPlatformController>().isBuilt = true;
+        bpc.place(instance.GetComponent<Building>());               // Set the building
 
         // Play the audio
         audioSource.pitch = Random.Range(0.5f, 1.5f);

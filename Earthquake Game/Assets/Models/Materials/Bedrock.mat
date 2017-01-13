@@ -48,8 +48,8 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 162dca05b98944c4faf715590e18ec26, type: 3}
-        m_Scale: {x: 200, y: 200}
+        m_Texture: {fileID: 2800000, guid: 1e0561902d3a1834eaeb6f904fee7653, type: 3}
+        m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _MetallicGlossMap
@@ -124,7 +124,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.214, g: 0.214, b: 0.214, a: 1}
+      second: {r: 0.3455882, g: 0.3455882, b: 0.3455882, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
