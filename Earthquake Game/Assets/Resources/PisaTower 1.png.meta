@@ -1,17 +1,23 @@
 fileFormatVersion: 2
-guid: d27308cbf65cc5f4c94b7cd50b4a87d1
-timeCreated: 1483825144
+guid: 5df4a30bb6b087940b2509282717b4f0
+timeCreated: 1484300062
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Skyscraper_split_0
-    21300002: Skyscraper_split_1
-    21300004: Skyscraper_split_2
-    21300006: Skyscraper_split_3
-    21300008: Skyscraper_split_4
-    21300010: Skyscraper_split_5
-    21300012: Skyscraper_split_6
-    21300014: Skyscraper_split_7
+    21300000: PisaTower 1_0
+    21300002: PisaTower 1_1
+    21300004: PisaTower 1_2
+    21300006: PisaTower 1_3
+    21300008: PisaTower 1_4
+    21300010: PisaTower 1_5
+    21300012: PisaTower 1_6
+    21300014: PisaTower 1_7
+    21300016: PisaTower 1_8
+    21300018: PisaTower 1_9
+    21300020: PisaTower 1_10
+    21300022: PisaTower 1_11
+    21300024: PisaTower 1_12
+    21300026: PisaTower 1_13
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -45,10 +51,10 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
+  alignment: 7
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 36
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -94,104 +100,182 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skyscraper_split_0
+      name: PisaTower 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 448
-        width: 256
-        height: 64
+        x: 28
+        y: 216
+        width: 36
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skyscraper_split_1
+      name: PisaTower 1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
-        width: 256
-        height: 64
+        x: 64
+        y: 216
+        width: 36
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skyscraper_split_2
+      name: PisaTower 1_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 320
-        width: 256
-        height: 64
+        x: 28
+        y: 180
+        width: 36
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skyscraper_split_3
+      name: PisaTower 1_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 256
-        height: 64
+        x: 64
+        y: 180
+        width: 36
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skyscraper_split_4
+      name: PisaTower 1_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
-        width: 256
-        height: 64
+        x: 28
+        y: 144
+        width: 36
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skyscraper_split_5
+      name: PisaTower 1_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 256
-        height: 64
+        x: 64
+        y: 144
+        width: 36
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skyscraper_split_6
+      name: PisaTower 1_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 256
-        height: 64
+        x: 28
+        y: 108
+        width: 36
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Skyscraper_split_7
+      name: PisaTower 1_7
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
+        y: 108
+        width: 36
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PisaTower 1_8
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 72
+        width: 36
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PisaTower 1_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 72
+        width: 36
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PisaTower 1_10
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 36
+        width: 36
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PisaTower 1_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 36
+        width: 36
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PisaTower 1_12
+      rect:
+        serializedVersion: 2
+        x: 28
         y: 0
-        width: 256
-        height: 64
+        width: 36
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PisaTower 1_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 36
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

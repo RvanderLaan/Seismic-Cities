@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using UnityEngine.Events;
+
 using UnityEngine.EventSystems;
 
 public class ModeManager : MonoBehaviour {
@@ -17,6 +19,8 @@ public class ModeManager : MonoBehaviour {
     public UpgradeList upgradeList;
 
     public UserFeedback userFeedback;
+
+    public UnityEvent onPass, onFail;
 
     private Solutions solutions;
 
@@ -72,8 +76,10 @@ public class ModeManager : MonoBehaviour {
         } else if (newMode == GameMode.Finish) {
             if (solutions.hasPassed()) {
                 userFeedback.setText("YOU WON");
+                onPass.Invoke();
             } else {
                 userFeedback.setText("YOU LOST");
+                onFail.Invoke();
             }
         }
 
