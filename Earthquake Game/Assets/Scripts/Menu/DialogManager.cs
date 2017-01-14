@@ -7,6 +7,8 @@ public class DialogManager : MonoBehaviour {
 
     public bool showTutorialAfterDialog = false;
 
+    public GameObject background;
+    public GameObject skipButton;
     public GameObject poseidonImage;
     public GameObject aphroditeImage;
     public GameObject dialogPanel;
@@ -30,28 +32,21 @@ public class DialogManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            levelSuccessfull();
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-            levelFailed();
+        
     }
 
     public void showDialog()
     {
-        
-
         if (currentDialogItem < currentList.Count)
         {
-            
             currentList[currentDialogItem].enterEvent.Invoke();
-
+            background.SetActive(true);
+            skipButton.SetActive(true);
             dialogPanel.SetActive(true);
             fillDialog(currentList[currentDialogItem]);
         } else
         {
-            dialogPanel.SetActive(false);
-            poseidonImage.SetActive(false);
-            aphroditeImage.SetActive(false);
+            deactivateUI();
             
             //if (showTutorialAfterDialog)
             //{
@@ -78,6 +73,12 @@ public class DialogManager : MonoBehaviour {
         showDialog();
     }
 
+    public void skipDialog()
+    {
+        currentDialogItem = currentList.Count;
+        showDialog();
+    }
+
 
     private void fillDialog(DialogItem item)
     {
@@ -93,5 +94,14 @@ public class DialogManager : MonoBehaviour {
         }
         characterName.text = item.characterName.ToString();
         dialogText.text = item.dialogText;
+    }
+
+    private void deactivateUI()
+    {
+        background.SetActive(false);
+        skipButton.SetActive(false);
+        dialogPanel.SetActive(false);
+        poseidonImage.SetActive(false);
+        aphroditeImage.SetActive(false);
     }
 }
