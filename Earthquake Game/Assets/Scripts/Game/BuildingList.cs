@@ -66,5 +66,11 @@ public class BuildingList : MonoBehaviour {
 
     public void undo(Building.BuildingType bt) {
         // for each buttons, if it equal bt then increment
+        for (int i = 0; i < buildingItems.Count; i++) {
+            if (bt.Equals(buildingItems[i].prefab.type)) {
+                amountTexts[i].text = (int.Parse(amountTexts[i].text) + 1) + "";
+                return;
+            }
+        }
     }
 }

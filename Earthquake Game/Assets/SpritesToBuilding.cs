@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Converts a texture with multiple sprites to a rigidbody in the same order as the sprites were defined
+/// </summary>
 [ExecuteInEditMode]
 public class SpritesToBuilding : MonoBehaviour {
 
