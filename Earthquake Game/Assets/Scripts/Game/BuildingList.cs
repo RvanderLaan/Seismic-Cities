@@ -29,7 +29,7 @@ public class BuildingList : MonoBehaviour {
             amountTexts.Add(amount);
             amount.text = bi.amount + "";
             // Add onclick listener. The amount is changed in the building placer
-            b.onClick.AddListener(() => buildingPlacer.startPreview(bi.prefab, amount));
+            b.onClick.AddListener(() => buildingPlacer.startPreview(bi.prefab.gameObject, amount));
 
             // Tooltip
             GameObject tooltip = Instantiate(tooltipPrefab, GameObject.FindGameObjectWithTag("Canvas").transform);
@@ -62,5 +62,9 @@ public class BuildingList : MonoBehaviour {
                 return false;
         }
         return true;
+    }
+
+    public void undo(Building.BuildingType bt) {
+        // for each buttons, if it equal bt then increment
     }
 }

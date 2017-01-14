@@ -3878,7 +3878,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1475032511097212, guid: 44cb445a950fc3443afa457772e713c2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44cb445a950fc3443afa457772e713c2, type: 2}
@@ -10349,7 +10349,7 @@ MonoBehaviour:
   buildingPlacer: {fileID: 1784929234}
   buildingItems:
   - name: House
-    prefab: {fileID: 1935850192462870, guid: d08a803ddb9a1bd4d80b52df5a88b998, type: 2}
+    prefab: {fileID: 0}
     amount: 2
     image: {fileID: 21300000, guid: 614c1e5f1311fff4e837c531c8f1b291, type: 3}
     tooltipText: House description

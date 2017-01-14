@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class BuildingItem {
 
     public string name;
-    public GameObject prefab;
+    public Building prefab;
     public int amount;
     public Sprite image;
     public string tooltipText;
