@@ -33,9 +33,10 @@ public class BuildingPlatformController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        solutions = GameObject.Find("_GM").GetComponent<Solutions>();
-        buildingList = GameObject.Find("_GM").GetComponent<BuildingList>();
-        upgradeList = GameObject.Find("_GM").GetComponent<UpgradeList>();
+        GameObject _GM = GameObject.Find("_GM");
+        solutions = _GM.GetComponent<Solutions>();
+        buildingList = _GM.GetComponent<BuildingList>();
+        upgradeList = _GM.GetComponent<UpgradeList>();
 
         sprite = GetComponentInChildren<SpriteRenderer>();
 
@@ -92,7 +93,8 @@ public class BuildingPlatformController : MonoBehaviour
     public void undoPlacement() {
         // Remove building and upgrade
         buildingList.undo(building.type);
-        upgradeList.undo(upgrade.type);
+        if (isUpgraded)
+            upgradeList.undo(upgrade.type);
 
         GameObject.Destroy(building.gameObject);
         if (isUpgraded) GameObject.Destroy(upgrade.gameObject);
