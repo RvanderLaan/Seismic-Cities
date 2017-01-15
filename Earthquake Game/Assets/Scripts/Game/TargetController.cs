@@ -23,6 +23,8 @@ public class TargetController : MonoBehaviour {
     public GameObject epicenterZone;
     private Collider2D epicenterZoneCollider;
 
+    public float magnitude = 1, radius = 120;
+
 	// Use this for initialization
 	void Start () {
         audioSource = GetComponent<AudioSource>();

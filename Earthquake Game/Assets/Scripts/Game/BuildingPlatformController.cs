@@ -69,7 +69,10 @@ public class BuildingPlatformController : MonoBehaviour
     public void startShaking() {
         if (!solutions.correctPlacement(this)) {
             if (building != null)
-                building.Collapse();
+                if (soilType == SoilType.Sand)
+                    building.Sink();
+                else
+                    building.Collapse();
         }
     }
 
@@ -79,7 +82,7 @@ public class BuildingPlatformController : MonoBehaviour
 
         isBuilt = true;                                         // Set the platform as unavailable
         sprite.gameObject.SetActive(false); // Hide green sprite
-        building.transform.position = transform.position;       // Snap building to position of this platform
+        building.transform.position = transform.position + Vector3.forward;       // Snap building to position of this platform
     }
 
     public void placeUpgrade(Upgrade u) {
