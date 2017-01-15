@@ -752,6 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5461ac6aad57a6d4dbef48154f814294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraContainer: {fileID: 0}
   background: {fileID: 1592830434320738}
   skipButton: {fileID: 1706287779862362}
   tutorialInstructions:
