@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class UpgradeItem {
 
     public string name;
-    public GameObject prefab;
+    public Upgrade prefab;
     public int amount;
     public Sprite image;
     public string tooltipText;

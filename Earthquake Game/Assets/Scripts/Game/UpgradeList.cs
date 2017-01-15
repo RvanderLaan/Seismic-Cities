@@ -29,7 +29,7 @@ public class UpgradeList : MonoBehaviour {
             amountTexts.Add(amount);
             amount.text = ui.amount + "";
             // Add onclick listener. The amount is changed in the upgrade placer
-            b.onClick.AddListener(() => upgradePlacer.startPreview(ui.prefab, amount));
+            b.onClick.AddListener(() => upgradePlacer.startPreview(ui.prefab.gameObject, amount));
 
             // Tooltip
             GameObject tooltip = Instantiate(tooltipPrefab, GameObject.FindGameObjectWithTag("Canvas").transform);
@@ -62,5 +62,15 @@ public class UpgradeList : MonoBehaviour {
                 return false;
         }
         return true;
+    }
+
+    public void undo(Upgrade.UpgradeType ut) {
+        // for each buttons, if it equal bt then increment
+        for (int i = 0; i < upgradeItems.Count; i++) {
+            if (ut.Equals(upgradeItems[i].prefab.type)) {
+                amountTexts[i].text = (int.Parse(amountTexts[i].text) + 1) + "";
+                return;
+            }
+        }
     }
 }

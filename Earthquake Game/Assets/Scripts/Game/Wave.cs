@@ -14,5 +14,4 @@ public class Wave : MonoBehaviour {
         // speed -= Time.time * constant;
 	}
 
-
 }

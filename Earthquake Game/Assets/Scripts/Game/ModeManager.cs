@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine.Events;
-
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class ModeManager : MonoBehaviour {
 
-    public enum GameMode { Building, Upgrade, Simulation, Finish };
-    public List<GameObject> buildingObjects, upgradeObjects, simulationObjects, finishObjects;
+    public enum GameMode { Building, Upgrade, Simulation, Pass, Fail };
+    public List<GameObject> buildingObjects, upgradeObjects, simulationObjects, passObjects, failObjects;
 
     GameObject buildingContainer;
 
@@ -23,6 +23,8 @@ public class ModeManager : MonoBehaviour {
     public UnityEvent onPass, onFail;
 
     private Solutions solutions;
+
+    public int finishWaitTime = 15;
 
     private GameMode mode;
     public GameMode Mode {
@@ -53,18 +55,24 @@ public class ModeManager : MonoBehaviour {
                 return;
             }
 
-            earthquakeSimulator.simulateEarthquake();
-            StartCoroutine(setGameMode(GameMode.Finish, 15));
-
-            // Todo: Check damage
-            
-
-            /*
+            // Disable all undo buttons
+            GameObject[] platforms = GameObject.FindGameObjectsWithTag("BuildingPlatform");
+            foreach (GameObject go in platforms) {
+                Button b = go.GetComponentInChildren<Button>();
+                if (b != null)
+                    b.gameObject.SetActive(false);
+            }
                 
-            */
 
+            earthquakeSimulator.simulateEarthquake();
+
+            if (solutions.hasPassed()) {
+                StartCoroutine(setGameMode(GameMode.Pass, finishWaitTime));
+            } else {
+                StartCoroutine(setGameMode(GameMode.Fail, finishWaitTime));
+            }
         } else if (mode == GameMode.Upgrade && newMode == GameMode.Building) {
-            // Todo: Remove/reset upgrades
+            // Todo: Remove/reset upgrades when going back?
 
         } else if (mode == GameMode.Upgrade && newMode == GameMode.Simulation) {
             // Check if all foundations have been set
@@ -73,14 +81,10 @@ public class ModeManager : MonoBehaviour {
                 return;
             }
 
-        } else if (newMode == GameMode.Finish) {
-            if (solutions.hasPassed()) {
-                userFeedback.setText("YOU WON");
-                onPass.Invoke();
-            } else {
-                userFeedback.setText("YOU LOST");
-                onFail.Invoke();
-            }
+        } else if (newMode == GameMode.Pass) {
+            onPass.Invoke();
+        } else if (newMode == GameMode.Fail) {
+             onFail.Invoke();
         }
 
         // In every case, switch all objects
@@ -127,8 +131,10 @@ public class ModeManager : MonoBehaviour {
                 return upgradeObjects;
             case GameMode.Simulation:
                 return simulationObjects;
-            case GameMode.Finish:
-                return finishObjects;
+            case GameMode.Pass:
+                return passObjects;
+            case GameMode.Fail:
+                return failObjects;
         }
         return null;
     }

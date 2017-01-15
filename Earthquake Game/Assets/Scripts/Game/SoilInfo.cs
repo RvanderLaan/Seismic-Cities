@@ -13,7 +13,7 @@ public class SoilInfo : MonoBehaviour {
     private Button button;
 
     public enum SoilType {
-        Marl, Limestone, Sand, Sandstone, Clay, Bedrock, Quicksand,
+        Marl, Limestone, Sand, Sandstone, Clay, Bedrock, Quicksand, SaltStone,
     }
 
     public SoilType soilType;
@@ -96,6 +96,14 @@ Limestone is a <b>sedimentary</b> rock, which means that it is formed in water. 
                     info[1] = "Drijfzand";
                     info[2] = @"
 
+                    ";
+                    break;
+                }
+            case SoilType.SaltStone: {
+                    info[0] = "Saltstone";
+                    info[1] = "Zoutsteen";
+                    info[2] = @"
+Saltstone traps the gas of the layer below it.
                     ";
                     break;
                 }
