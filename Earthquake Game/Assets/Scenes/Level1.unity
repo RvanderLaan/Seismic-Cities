@@ -3454,8 +3454,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1784929239}
-        m_MethodName: play
+      - m_Target: {fileID: 1784929243}
+        m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10196,21 +10196,41 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114815646954236674, guid: 634761828ae80f2499cf4e484f17df30,
-        type: 2}
-      propertyPath: follow
-      value: 
-      objectReference: {fileID: 1337422167}
-    - target: {fileID: 114234825075075474, guid: 634761828ae80f2499cf4e484f17df30,
-        type: 2}
-      propertyPath: follow
-      value: 
-      objectReference: {fileID: 1370538535}
     - target: {fileID: 114140880517472526, guid: 634761828ae80f2499cf4e484f17df30,
         type: 2}
       propertyPath: follow
       value: 
       objectReference: {fileID: 794288967}
+    - target: {fileID: 114234825075075474, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: follow
+      value: 
+      objectReference: {fileID: 1370538535}
+    - target: {fileID: 114815646954236674, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: follow
+      value: 
+      objectReference: {fileID: 1337422167}
+    - target: {fileID: 114234434311253882, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: cameraContainer
+      value: 
+      objectReference: {fileID: 1305973378}
+    - target: {fileID: 224540498866785706, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612134321325284, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224218407360604050, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 634761828ae80f2499cf4e484f17df30, type: 2}
   m_IsPrefabParent: 0
@@ -11724,9 +11744,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1784929239}
-        m_MethodName: play
-        m_Mode: 5
+      - m_Target: {fileID: 1784929243}
+        m_MethodName: Restart
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
