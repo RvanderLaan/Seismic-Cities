@@ -5396,8 +5396,7 @@ MonoBehaviour:
   sc: {fileID: 0}
   modeManager: {fileID: 1784929233}
   epicenterZone: {fileID: 1638428668}
-  magnitude: 1
-  radius: 120
+  lifeTime: 5
 --- !u!82 &1370538539
 AudioSource:
   m_ObjectHideFlags: 0

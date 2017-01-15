@@ -23,7 +23,7 @@ public class TargetController : MonoBehaviour {
     public GameObject epicenterZone;
     private Collider2D epicenterZoneCollider;
 
-    public float magnitude = 1, radius = 120;
+    public float lifeTime = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +34,7 @@ public class TargetController : MonoBehaviour {
         // Create a few wave generators: More load time but smoother run time
         for (int i = 0; i < initialWaveGenerators; i++) {
             WaveGenerator wg = (WaveGenerator)GameObject.Instantiate(instance, transform.position, Quaternion.identity);
+            wg.lifeTime = lifeTime;
             wg.gameObject.SetActive(false);
             waveGenerators.Enqueue(wg);
         }
