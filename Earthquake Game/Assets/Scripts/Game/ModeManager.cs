@@ -48,10 +48,18 @@ public class ModeManager : MonoBehaviour {
     public void setGameMode(GameMode newMode) {
         Debug.Log(mode + " -> " + newMode);
         // Exceptions
-        if (mode == GameMode.Building && newMode == GameMode.Upgrade || newMode == GameMode.Simulation) {
+        if (mode == GameMode.Building && newMode == GameMode.Upgrade) {
+            if (!buildingList.finishedPlacing()) {
+                userFeedback.setText("You should place all buildings before continuing");
+                return;
+            }
+        } else if ((mode == GameMode.Building || mode == GameMode.Upgrade) && newMode == GameMode.Simulation) {
             // Todo: Check if all buildings have been set
             if (!buildingList.finishedPlacing()) {
                 userFeedback.setText("You should place all buildings before continuing");
+                return;
+            } else if (!upgradeList.finishedPlacing()) {
+                userFeedback.setText("You should place all upgrades before continuing");
                 return;
             }
 
