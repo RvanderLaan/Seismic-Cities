@@ -23,9 +23,13 @@ public class DialogManager : MonoBehaviour {
     public List<DialogItem> levelFailedList;
     public List<DialogItem> levelPassedList;
 
+    private CamMovement camMovementScript;
+
 
     // Use this for initialization
     void Start () {
+        camMovementScript = Camera.main.GetComponentInParent<CamMovement>();
+        camMovementScript.enabled = false;
         currentList = dialogList;
         showDialog();
 	}
@@ -47,6 +51,7 @@ public class DialogManager : MonoBehaviour {
         } else
         {
             deactivateUI();
+            camMovementScript.enabled = true;
             
             //if (showTutorialAfterDialog)
             //{
