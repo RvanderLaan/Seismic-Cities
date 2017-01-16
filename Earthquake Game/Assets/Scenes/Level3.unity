@@ -8052,7 +8052,7 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -8162,7 +8162,9 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[0].dialogText
-      value: I'm sure you're SHAKING with fear, get it? Muwhaha!
+      value: 'Now POSEIDON is really mad, this time his earthquake will be even stronger.
+        But I will provide you with this technology to re-enforce your buildings:
+        Foundation.'
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -8222,27 +8224,27 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[0].characterName
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelFailedList.Array.data[0].dialogText
-      value: Got you! Ha, this is fun!
+      value: Finally I have done it! You could not withstand this massive earthquake!
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelFailedList.Array.data[1].dialogText
-      value: 'Hmm, the wood seems more flexible than bricks. '
+      value: You should use the technology on the building that needs it the most!
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelPassedList.Array.data[0].dialogText
-      value: What?! Hmm, it seems I will have to go all in...
+      value: "<b> #&%^&#@</b> You are too smart! \u2026."
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelPassedList.Array.data[1].dialogText
-      value: Good work!
+      value: You should use the technology on the building that needs it the most!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}

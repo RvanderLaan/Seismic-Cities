@@ -8306,7 +8306,8 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[0].dialogText
-      value: Mwuaha, let's see if you can handle this!
+      value: Since you made POSEIDON even more angry, he added a soft soil with his
+        divine powers!
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -8366,28 +8367,28 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[0].characterName
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelFailedList.Array.data[0].dialogText
-      value: Ha! You're no match for me.
+      value: Mhuahaha! You could not withstand my powers!
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelFailedList.Array.data[1].dialogText
-      value: It seems the clay amplifies the intensity of the earthquake, we need
-        a different strategy!
+      value: Heavy buildings need hard soils to stand on.
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelPassedList.Array.data[0].dialogText
-      value: What?! Hmm, it seems I will have to go all in...
+      value: <b>#$%@!!</b> You were very smart to place the lightest building on the
+        softest soil!
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelPassedList.Array.data[1].dialogText
-      value: Good work!
+      value: Heavy buildings need hard soils to stand on.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}
