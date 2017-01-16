@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df51d587d8ecbff40adfbe4f5c29ede3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
 --- !u!1001 &162481631
 Prefab:
   m_ObjectHideFlags: 0
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df51d587d8ecbff40adfbe4f5c29ede3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!224 &327553429 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224321716470970650, guid: 51f3be985c5e9c7498927a0bb86348bf,
@@ -1897,7 +1897,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1603902331404710, guid: 51f3be985c5e9c7498927a0bb86348bf, type: 2}
       propertyPath: m_Name
-      value: Sand
+      value: Quicksand
       objectReference: {fileID: 0}
     - target: {fileID: 114860337407417272, guid: 51f3be985c5e9c7498927a0bb86348bf,
         type: 2}
@@ -1916,7 +1916,7 @@ Prefab:
     - target: {fileID: 114860337407417272, guid: 51f3be985c5e9c7498927a0bb86348bf,
         type: 2}
       propertyPath: soilType
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224321716470970650, guid: 51f3be985c5e9c7498927a0bb86348bf,
         type: 2}
@@ -2111,7 +2111,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level Selection Menu
+          m_StringArgument: Level5
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3526,7 +3526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df51d587d8ecbff40adfbe4f5c29ede3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 4
 --- !u!1 &910841766 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1774518498736650, guid: 44cb445a950fc3443afa457772e713c2,
@@ -6843,12 +6843,7 @@ MonoBehaviour:
   upgradeButton: {fileID: 1574821546360454, guid: e7648175a2771f447b5098409a6d2c75,
     type: 2}
   upgradePlacer: {fileID: 1784929241}
-  upgradeItems:
-  - name: Pole foundation
-    prefab: {fileID: 114798141173557250, guid: 2eaefbf22e9c70e4988f0e053be30eac, type: 2}
-    amount: 1
-    image: {fileID: 21300000, guid: 17b089c027fbcaf4d8d6ae4c9ed77904, type: 3}
-    tooltipText: A foundation absorbs most of the vibrations of an earthquake.
+  upgradeItems: []
   tooltipPrefab: {fileID: 1813651079379322, guid: d9fd1bc4e84988c428ab9bb5eb5992eb,
     type: 2}
 --- !u!114 &1784929243
@@ -7667,7 +7662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df51d587d8ecbff40adfbe4f5c29ede3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
 --- !u!1 &2023216719 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1475032511097212, guid: 44cb445a950fc3443afa457772e713c2,

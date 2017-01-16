@@ -632,7 +632,7 @@ Transform:
   m_GameObject: {fileID: 1566412858095952}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 86.3, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4200960016150060}
   - {fileID: 4564805955360030}
@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32789f053adc332478316c55bf3b4925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 200
+  intensity: 300
   type: 3
 --- !u!212 &212028212020438352
 SpriteRenderer:

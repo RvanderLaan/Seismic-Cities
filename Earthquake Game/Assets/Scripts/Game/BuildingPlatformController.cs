@@ -69,7 +69,7 @@ public class BuildingPlatformController : MonoBehaviour
     public void startShaking() {
         if (!solutions.correctPlacement(this)) {
             if (building != null)
-                if (soilType == SoilType.Sand)
+                if (soilType == SoilType.Quicksand)
                     building.Sink();
                 else
                     building.Collapse();
@@ -90,7 +90,7 @@ public class BuildingPlatformController : MonoBehaviour
         undoButton.SetActive(true);
 
         isUpgraded = true;
-        upgrade.transform.position = transform.position;       // Snap building to position of this platform
+        upgrade.transform.position = transform.position + Vector3.back * 2;       // Snap building to position of this platform
     }
 
     public void undoPlacement() {
