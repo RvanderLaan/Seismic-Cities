@@ -4768,7 +4768,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1305973373}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100, y: -10, z: -25}
+  m_LocalPosition: {x: 100, y: -34, z: -25}
   m_LocalScale: {x: 26.181164, y: 26.181164, z: 2.6181164}
   m_Children:
   - {fileID: 1797638232}
@@ -5243,6 +5243,106 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1435334265}
+--- !u!1001 &1472623829
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1480537617 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4272789109387708, guid: db63f67b8290c7a4dbb457f938d80701,
@@ -5993,6 +6093,72 @@ Prefab:
       propertyPath: cameraContainer
       value: 
       objectReference: {fileID: 1305973378}
+    - target: {fileID: 1127450462016102, guid: 634761828ae80f2499cf4e484f17df30, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399648349831198, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_Text
+      value: 'You can <color=blue>move</color> the camera by <color=green>clicking
+        and dragging</color> with the mouse or by using the <color=green>arrow keys</color>.
+
+        You can <color=blue>zoom</color> using the <color=green>scroll wheel</color>'
+      objectReference: {fileID: 0}
+    - target: {fileID: 224373781515978940, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 224106787227115562, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 224373781515978940, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 224373781515978940, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 35.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224106787227115562, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 84.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224106787227115562, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 114736571575303626, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_Text
+      value: You can select buildings from the list on the right. By hovering over
+        them you can see some info
+      objectReference: {fileID: 0}
+    - target: {fileID: 114619164357533674, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_Text
+      value: You can view useful info of a soil type by clicking on this button. Click
+        it to see how the soil reacts to earthquakes
+      objectReference: {fileID: 0}
+    - target: {fileID: 114763963678290986, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_Text
+      value: The hypocenter of the earthquake, the position when the it originates,
+        will be in the area where the tectonic plates collide.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114501533149870326, guid: 634761828ae80f2499cf4e484f17df30,
+        type: 2}
+      propertyPath: m_Text
+      value: When you are ready, click here to see if you can withstand Poseidon's
+        fury!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 634761828ae80f2499cf4e484f17df30, type: 2}
   m_IsPrefabParent: 0
@@ -6495,11 +6661,12 @@ MonoBehaviour:
     type: 2}
   buildingPlacer: {fileID: 1784929234}
   buildingItems:
-  - name: House
+  - name: Brick house
     prefab: {fileID: 114947300232902414, guid: d08a803ddb9a1bd4d80b52df5a88b998, type: 2}
     amount: 2
     image: {fileID: 21300000, guid: 614c1e5f1311fff4e837c531c8f1b291, type: 3}
-    tooltipText: House description
+    tooltipText: 'These houses are made out of bricks and cement, which are robust
+      but not flexible materials. '
   tooltipPrefab: {fileID: 1813651079379322, guid: d9fd1bc4e84988c428ab9bb5eb5992eb,
     type: 2}
 --- !u!114 &1784929241
@@ -7762,7 +7929,7 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.size
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -7772,12 +7939,12 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[4].leaveEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[5].leaveEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -7887,8 +8054,8 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[3].dialogText
-      value: "To get started, let\u2019s take a good look around. Click and drag with
-        the <b>left mouse button</b> to move around."
+      value: "I am <b>Athena</b>, the goddess of wisdom, and I will give you the knowledge
+        to rebuild the world and save civilization. So let\u2019s get started!"
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -7930,8 +8097,7 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[4].dialogText
-      value: "Do you see those soil layers? You can click on their names to get useful
-        information, but for now I will explain it myself: \u2026"
+      value: You dare to challenge me mortal?! Build your buildings and feel my wrath!
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -7973,7 +8139,7 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[5].dialogText
-      value: Now we should get to work. Select a building from the list on the right.
+      value: Hahaha! You will never defeat me!
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -8057,15 +8223,14 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[0].dialogText
-      value: Welcome! How fortunate that you have come here, we could really use your
-        help. Let me explain the situation for you.
+      value: "Welcome! How fortunate that you have come here, I could really use your
+        help. \r"
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[1].dialogText
-      value: It is the year 2031, ten years after the <b>Poseidon</b> descended from
-        the heavens and released his wrath on modern society. To this day, earthquakes
-        still occur frequently and destroy all new buildings.
+      value: When <b>Poseidon</b> descended from the heavens and released his wrath
+        on modern society he shook the earth to destroy what mankind had built.
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -8080,18 +8245,18 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[2].dialogText
-      value: You are our only hope to rebuild the world, so I, <b>Aphrodite</b>, will
-        guide you in achieving this goal.
+      value: "To this day, his earthquakes occur frequently and destroy buildings
+        all over the planet.\r"
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[4].characterName
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[5].characterName
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -8112,6 +8277,28 @@ Prefab:
         type: 2}
       propertyPath: dialogList.Array.data[2].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelFailedList.Array.data[1].dialogText
+      value: "Think! Increasing the distance from the epicenter decreases the force
+        of Poseidon! \r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelFailedList.Array.data[0].dialogText
+      value: 'Haha! You are no match for me! '
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[0].dialogText
+      value: You got lucky this time, mortal!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].dialogText
+      value: "You didn\u2019t get lucky, you used your head! By placing the buildings
+        far away from the epicenter the earthquake couldn\u2019t reach them. "
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}

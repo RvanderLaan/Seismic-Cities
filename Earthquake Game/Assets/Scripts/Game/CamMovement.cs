@@ -26,6 +26,22 @@ public class CamMovement : MonoBehaviour {
         zoomTarget = Camera.main.orthographicSize;
 	}
 
+    public void OnGUI() {
+        if (!EventSystem.current.IsPointerOverGameObject() && Event.current.type == EventType.ScrollWheel) {
+            // do stuff with  Event.current.delta
+            // Debug.Log(Event.current.delta);
+
+            float scroll = Event.current.delta.y;
+            // Zoom
+            if (scroll != 0) {
+                float scale = Camera.main.orthographicSize + scroll * scrollSpeed;
+                zoomTarget = Mathf.Clamp(scale, minScale, maxScale);
+            }
+            // Camera.main.orthographicSize = Mathf.Lerp(zoomSource, zoomTarget, dZoom);
+            Camera.main.orthographicSize = Mathf.SmoothDamp(Camera.main.orthographicSize, zoomTarget, ref zoomVelocity, zoomSmoothness);
+        }
+    }
+
     // Update is called once per frame
     void Update () {
         // Reset mouse position after clicking when coming outside of the screen, else it jumps when panning the first time
@@ -37,14 +53,6 @@ public class CamMovement : MonoBehaviour {
 
         // When not using the GUI
         if (!EventSystem.current.IsPointerOverGameObject()) {
-            // Zoom
-            if (Input.mouseScrollDelta.y != 0) {
-                float scale = Camera.main.orthographicSize - Input.mouseScrollDelta.y * scrollSpeed;
-                zoomTarget = Mathf.Clamp(scale, minScale, maxScale);
-            }
-            // Camera.main.orthographicSize = Mathf.Lerp(zoomSource, zoomTarget, dZoom);
-            Camera.main.orthographicSize = Mathf.SmoothDamp(Camera.main.orthographicSize, zoomTarget, ref zoomVelocity, zoomSmoothness);
-
             // Pan using mouse
             if (Input.GetMouseButton(0)) {
                 Vector3 dMouse = previousMousePosition - Input.mousePosition;

@@ -4948,7 +4948,7 @@ MonoBehaviour:
   keyMoveSpeed: 50
   limits: {x: 0, y: 150, z: -80, w: 60}
   minScale: 20
-  maxScale: 80
+  maxScale: 60
   scrollSpeed: 7.5
   zoomSmoothness: 0.1
 --- !u!4 &1305973378
@@ -6915,7 +6915,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1797638227}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1305973378}
@@ -8047,7 +8047,7 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -8157,20 +8157,18 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[0].dialogText
-      value: 'Now POSEIDON is really mad, this time his earthquake will be even stronger.
-        But I will provide you with this technology to re-enforce your buildings:
-        Foundation.'
+      value: This area needs to house more people but I only have two stone houses
+        left. You will have to do with a wooden one too, use it wisely!
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[1].characterName
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[1].dialogText
-      value: This area needs more houses for people to live in, but I only had two
-        brick ones. You will have to work with a wooden one too, sorry!
+      value: I'm sure you're SHAKING with fear, get it? Hahaha!
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -8229,17 +8227,18 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelFailedList.Array.data[1].dialogText
-      value: You should use the technology on the building that needs it the most!
+      value: Take a good look at that wood. It seems to be more flexible than stone.
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelPassedList.Array.data[0].dialogText
-      value: "<b> #&%^&#@</b> You are too smart! \u2026."
+      value: WHAAAAT?! How did you do that? The clay should strengthen my force! I
+        will be back...
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelPassedList.Array.data[1].dialogText
-      value: You should use the technology on the building that needs it the most!
+      value: "What\u2019s this? He seems to be leaving. We should follow him! "
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}

@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32789f053adc332478316c55bf3b4925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 200
+  intensity: 300
   type: 2
 --- !u!212 &212010710303631364
 SpriteRenderer:
