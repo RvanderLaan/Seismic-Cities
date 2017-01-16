@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.3529412}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -440,9 +440,8 @@ MonoBehaviour:
   dialogText: {fileID: 114314132732297882}
   dialogList:
   - characterName: 1
-    dialogText: It is the year 2030, ten years after the Greek god <b>Poseidon</b>
-      descended from the heavens and released his wrath on modern society. To this
-      day, earthquakes still occur frequently and destroy all new buildings.
+    dialogText: Welcome! How fortunate that you have come here, we could really use
+      your help. Let me explain the situation for you.
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -454,8 +453,61 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   - characterName: 1
-    dialogText: 'You are our only hope to rebuild the world, so I, Aphrodite, will
-      guide you in achieving this goal. '
+    dialogText: It is the year 2031, ten years after the <b>Poseidon</b> descended
+      from the heavens and released his wrath on modern society. To this day, earthquakes
+      still occur frequently and destroy all new buildings.
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 1
+    dialogText: You are our only hope to rebuild the world, so I, <b>Aphrodite</b>,
+      will guide you in achieving this goal.
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 1
+    dialogText: "To get started, let\u2019s take a good look around. Click and drag
+      with the <b>left mouse button</b> to move around."
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 1
+    dialogText: "Do you see those soil layers? You can click on their names to get
+      useful information, but for now I will explain it myself: \u2026"
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 1
+    dialogText: Now we should get to work. Select a building from the list on the
+      right.
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -512,7 +564,18 @@ MonoBehaviour:
         PublicKeyToken=null
     leaveEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: activateGameObject
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   levelPassedList:
@@ -539,7 +602,29 @@ MonoBehaviour:
         PublicKeyToken=null
     leaveEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: activateGameObject
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_MethodName: activateGameObject
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
 --- !u!114 &114684334817469876

@@ -6295,11 +6295,8 @@ MonoBehaviour:
   - {fileID: 1005232353}
   simulationObjects:
   - {fileID: 1370538535}
-  passObjects:
-  - {fileID: 485525500}
-  - {fileID: 1875317317}
-  failObjects:
-  - {fileID: 1875317317}
+  passObjects: []
+  failObjects: []
   targetController: {fileID: 1370538538}
   earthquakeSimulator: {fileID: 1784929238}
   buildingList: {fileID: 1784929240}
@@ -7759,36 +7756,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 835119258}
     m_Modifications:
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[3].leaveEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[4].leaveEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[5].leaveEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[6].leaveEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[2].leaveEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -7881,238 +7848,39 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
-      propertyPath: dialogList.Array.data[2].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1748326217}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[3].dialogText
-      value: "To get started, let\u2019s take a good look around. Click and drag with
-        the <b>left mouse button</b> to move around."
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[3].enterEvent.m_TypeName
-      value: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[3].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1748326217}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[3].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: startTutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[3].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[3].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[3].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[3].leaveEvent.m_TypeName
-      value: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[4].dialogText
-      value: "Do you see those soil layers? You can click on their names to get useful
-        information, but for now I will explain it myself: \u2026"
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[4].enterEvent.m_TypeName
-      value: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[4].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1748326217}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[4].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: startTutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[4].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[4].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[4].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[4].leaveEvent.m_TypeName
-      value: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[5].dialogText
-      value: Now we should get to work. Select a building from the list on the right.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[5].enterEvent.m_TypeName
-      value: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[5].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1748326217}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[5].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: startTutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[5].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[5].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[5].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[5].leaveEvent.m_TypeName
-      value: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[6].dialogText
-      value: Hahaha! You will never defeat me!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[6].enterEvent.m_TypeName
-      value: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
       propertyPath: dialogList.Array.data[6].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1748326217}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
-      propertyPath: dialogList.Array.data[6].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: startTutorial
-      objectReference: {fileID: 0}
+      propertyPath: levelFailedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1784929243}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
-      propertyPath: dialogList.Array.data[6].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: levelFailedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1875317317}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
-      propertyPath: dialogList.Array.data[6].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1784929243}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
-      propertyPath: dialogList.Array.data[6].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 485525500}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
-      propertyPath: dialogList.Array.data[6].leaveEvent.m_TypeName
-      value: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1784929243}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
-      propertyPath: dialogList.Array.data[0].dialogText
-      value: Welcome! How fortunate that you have come here, we could really use your
-        help. Let me explain the situation for you.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[1].dialogText
-      value: It is the year 2031, ten years after the <b>Poseidon</b> descended from
-        the heavens and released his wrath on modern society. To this day, earthquakes
-        still occur frequently and destroy all new buildings.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[3].characterName
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[2].characterName
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[2].dialogText
-      value: You are our only hope to rebuild the world, so I, <b>Aphrodite</b>, will
-        guide you in achieving this goal.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[4].characterName
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[5].characterName
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[2].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: startTutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[2].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[2].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
-        type: 2}
-      propertyPath: dialogList.Array.data[2].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1875317317}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}
   m_IsPrefabParent: 0

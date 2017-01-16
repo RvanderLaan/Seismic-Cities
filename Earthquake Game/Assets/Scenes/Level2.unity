@@ -8385,6 +8385,51 @@ Prefab:
       propertyPath: levelPassedList.Array.data[1].dialogText
       value: Heavy buildings need hard soils to stand on.
       objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelFailedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1784929243}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelFailedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: activateGameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1784929243}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: activateGameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1784929243}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: activateGameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelFailedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1875317317}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 485525500}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1875317317}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}
   m_IsPrefabParent: 0
