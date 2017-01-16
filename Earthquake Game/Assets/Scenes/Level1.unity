@@ -5993,21 +5993,6 @@ Prefab:
       propertyPath: cameraContainer
       value: 
       objectReference: {fileID: 1305973378}
-    - target: {fileID: 224540498866785706, guid: 634761828ae80f2499cf4e484f17df30,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224612134321325284, guid: 634761828ae80f2499cf4e484f17df30,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224218407360604050, guid: 634761828ae80f2499cf4e484f17df30,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 634761828ae80f2499cf4e484f17df30, type: 2}
   m_IsPrefabParent: 0
