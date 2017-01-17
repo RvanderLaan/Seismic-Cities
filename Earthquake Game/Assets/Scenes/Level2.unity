@@ -5391,7 +5391,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 527d68d9b4f637b4b9bcbfbc98971b7c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7539,7 +7539,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b2c74d196102986479f1d49171246978, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8310,7 +8310,7 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[0].dialogText
-      value: "Well mortal, let\u2019s see how you will fair now!"
+      value: "Well mortal, let\u2019s see how you will fare now!"
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -8386,7 +8386,7 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelPassedList.Array.data[0].dialogText
-      value: <b>#$%@!!</b> You outsmarted me!
+      value: You... You outsmarted me!
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}

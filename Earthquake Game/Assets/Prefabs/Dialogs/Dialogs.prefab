@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 224158227130222854}
   - component: {fileID: 222332443029931278}
   - component: {fileID: 114216733482033986}
+  - component: {fileID: 114734001376104392}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -439,23 +440,9 @@ MonoBehaviour:
   characterName: {fileID: 114377414514905236}
   dialogText: {fileID: 114314132732297882}
   dialogList:
-  - characterName: 1
-    dialogText: It is the year 2030, ten years after the Greek god <b>Poseidon</b>
-      descended from the heavens and released his wrath on modern society. To this
-      day, earthquakes still occur frequently and destroy all new buildings.
-    enterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-    leaveEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - characterName: 1
-    dialogText: 'You are our only hope to rebuild the world, so I, Aphrodite, will
-      guide you in achieving this goal. '
+  - characterName: 0
+    dialogText: "Welcome! How fortunate that you have come here, I could really use
+      your help. \r"
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -467,7 +454,47 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   - characterName: 0
-    dialogText: Hahaha! You will never defeat me!
+    dialogText: When <b>Poseidon</b> descended from the heavens and released his wrath
+      on modern society he shook the earth to destroy what mankind had built.
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 1
+    dialogText: "To this day, his earthquakes occur frequently and destroy buildings
+      all over the planet.\r"
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 1
+    dialogText: "I am <b>Athena</b>, the goddess of wisdom, and I will give you the
+      knowledge to rebuild the world and save civilization. So let\u2019s get started!"
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 0
+    dialogText: You dare to challenge me mortal?! Build your buildings and feel my
+      wrath!
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -491,7 +518,7 @@ MonoBehaviour:
         PublicKeyToken=null
   levelFailedList:
   - characterName: 0
-    dialogText: Haha! My earthquake was again close enough to your weak buildings!
+    dialogText: 'Haha! You are no match for me! '
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -503,8 +530,8 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   - characterName: 1
-    dialogText: The larger the distance from the epicentre, the strength of the earthquake
-      decreases.
+    dialogText: "Think! Increasing the distance from the epicenter decreases the force
+      of Poseidon! \r"
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -512,13 +539,23 @@ MonoBehaviour:
         PublicKeyToken=null
     leaveEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   levelPassedList:
   - characterName: 0
-    dialogText: Why did the buildings not crumble?! You have put them too far away
-      from my earthquake!
+    dialogText: You got lucky this time, mortal!
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -526,20 +563,29 @@ MonoBehaviour:
         PublicKeyToken=null
     leaveEvent:
       m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - characterName: 1
-    dialogText: The larger the distance from the epicentre, the strength of the earthquake
-      decreases.
-    enterEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-    leaveEvent:
-      m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
 --- !u!114 &114684334817469876
@@ -588,7 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -602,6 +648,36 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114734001376104392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636869137913172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114667083868424224}
+          m_MethodName: showDialog
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &114834203641561696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -794,10 +870,10 @@ RectTransform:
   m_Father: {fileID: 224568319032094794}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.5, y: 141}
-  m_SizeDelta: {x: 65, y: 30}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -25}
+  m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224568319032094794
 RectTransform:

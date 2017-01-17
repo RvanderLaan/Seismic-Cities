@@ -11,7 +11,9 @@ public class Building : MonoBehaviour {
 
     Rigidbody2D[] children;
 
-    private bool sinking = false;
+    private bool sinking = false, collapsing = false;
+
+    public AudioClip[] collapseSounds, sinkingSounds;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +27,14 @@ public class Building : MonoBehaviour {
 
     public void Collapse() {
         Debug.Log("Collapsing " + gameObject.name);
+        if (!collapsing) {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = collapseSounds[Random.Range(0, collapseSounds.Length)];
+            audio.pitch = Random.Range(0.9f, 1.1f);
+            audio.Play();
+            collapsing = true;
+        }        
+
         for (int i = 0; i < children.Length; i++) {
             children[i].bodyType = RigidbodyType2D.Dynamic;
             children[i].AddForce(new Vector2((Random.Range(1, 3) * 2 - 3), 1) * intensity);
@@ -35,6 +45,11 @@ public class Building : MonoBehaviour {
         if (!sinking) {
             sinking = true;
             StartCoroutine(SinkMovement(transform, transform.position + Vector3.down * 2, Quaternion.AngleAxis(Random.Range(-20, 20), Vector3.forward), 10));
+
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = sinkingSounds[Random.Range(0, sinkingSounds.Length)];
+            audio.pitch = Random.Range(0.9f, 1.1f);
+            audio.Play();
         }
     }
 
