@@ -2348,6 +2348,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224305305908932536, guid: 44cb445a950fc3443afa457772e713c2,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.00000011920929
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44cb445a950fc3443afa457772e713c2, type: 2}
   m_IsPrefabParent: 0
@@ -6085,7 +6090,7 @@ Prefab:
     - target: {fileID: 114763963678290986, guid: 634761828ae80f2499cf4e484f17df30,
         type: 2}
       propertyPath: m_Text
-      value: The hypocenter of the earthquake, the position when it originates, will
+      value: The hypocenter of the earthquake, the position where it originates, will
         be in the area where the tectonic plates collide.
       objectReference: {fileID: 0}
     - target: {fileID: 114501533149870326, guid: 634761828ae80f2499cf4e484f17df30,
