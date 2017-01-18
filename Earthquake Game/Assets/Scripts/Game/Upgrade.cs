@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Upgrade : MonoBehaviour {
 
-    public enum UpgradeType { None, Foundation, Counterweight }
+    public enum UpgradeType { None, Foundation, Counterweight, Any }
     public UpgradeType type;
 
     // Use this for initialization

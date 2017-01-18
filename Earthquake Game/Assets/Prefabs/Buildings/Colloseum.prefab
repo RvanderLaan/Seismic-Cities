@@ -3251,7 +3251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intensity: 200
-  type: 3
+  type: 5
   collapseSounds:
   - {fileID: 8300000, guid: 03445f0dabc5ead43923ef089c30aa90, type: 3}
   - {fileID: 8300000, guid: 72732f9651b1faf4f9b3f366a3eb39d4, type: 3}

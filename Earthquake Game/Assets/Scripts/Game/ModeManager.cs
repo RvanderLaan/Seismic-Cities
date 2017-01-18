@@ -74,7 +74,20 @@ public class ModeManager : MonoBehaviour {
 
             earthquakeSimulator.simulateEarthquake();
 
-            if (solutions.hasPassed()) {
+            // Check if passed
+            bool passed = true;
+            foreach (GameObject go in platforms) {
+                BuildingPlatformController bpc = go.GetComponent<BuildingPlatformController>();
+                if (bpc.building != null && bpc.building.type == Building.BuildingType.Thematic)
+                    continue;
+                else if (!bpc.isCorrect()) {
+                    Debug.Log(bpc.building);
+                    passed = false;
+                    break;
+                }
+            }
+
+            if (passed) {
                 StartCoroutine(setGameMode(GameMode.Pass, finishWaitTime));
             } else {
                 StartCoroutine(setGameMode(GameMode.Fail, finishWaitTime));

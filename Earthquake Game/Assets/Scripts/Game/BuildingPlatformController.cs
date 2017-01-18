@@ -11,7 +11,6 @@ public class BuildingPlatformController : MonoBehaviour
 
     public LayerMask terrainLayer;
 
-    // List<Upgrade>
     public Building building;
     public Upgrade upgrade;
 
@@ -21,6 +20,8 @@ public class BuildingPlatformController : MonoBehaviour
 
     private BuildingList buildingList;
     private UpgradeList upgradeList;
+
+    public List<AllowedPlacement> allowedPlacements;
 
     private SpriteRenderer sprite;
 
@@ -67,7 +68,7 @@ public class BuildingPlatformController : MonoBehaviour
     }
 
     public void startShaking() {
-        if (!solutions.correctPlacement(this)) {
+        if (!isCorrect()) {
             if (building != null)
                 if (soilType == SoilType.Quicksand)
                     building.Sink();
@@ -107,4 +108,31 @@ public class BuildingPlatformController : MonoBehaviour
         sprite.gameObject.SetActive(true);
         undoButton.SetActive(false);
     }
+
+    /// <summary>
+    /// Whether the building/upgrade placed here are allowed
+    /// </summary>
+    /// <returns></returns>
+    public bool isCorrect() {
+        Building.BuildingType thisBType = Building.BuildingType.None;
+        if (building != null)
+            thisBType = building.type;
+        Upgrade.UpgradeType thisUType = Upgrade.UpgradeType.None;
+        if (upgrade != null)
+            thisUType = upgrade.type;
+
+        foreach (AllowedPlacement ap in allowedPlacements) {
+            if ((ap.building == thisBType || ap.building == Building.BuildingType.Any)
+                && (ap.upgrade == thisUType || ap.upgrade == Upgrade.UpgradeType.Any))
+                return true;
+        }
+        Debug.Log(thisBType + ", " + thisUType);
+        return thisBType == Building.BuildingType.None && thisUType == Upgrade.UpgradeType.None;
+    }
+}
+
+[Serializable]
+public class AllowedPlacement {
+    public Building.BuildingType building;
+    public Upgrade.UpgradeType upgrade;
 }
