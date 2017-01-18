@@ -65,6 +65,7 @@ public class BuildingPlacer : MonoBehaviour {
         previewInstance.tag = "Untagged";
 
         audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.volume = 0.6f;
         audioSource.clip = select;
         audioSource.Play();
     }
@@ -134,6 +135,7 @@ public class BuildingPlacer : MonoBehaviour {
 
         // Play the audio
         audioSource.pitch = Random.Range(0.5f, 1.5f);
+        audioSource.volume = 0.9f;
         audioSource.clip = place;
         audioSource.Play();
 
