@@ -104,8 +104,8 @@ public class TargetController : MonoBehaviour {
         wg.startWave();
         wg.transform.position = transform.position;
 
-        audioSource.pitch = Random.Range(0.5f, 1f);
-        audioSource.Play();
+        //audioSource.pitch = Random.Range(0.5f, 1f);
+        //audioSource.Play();
     }
 
     public void stopWaves() {

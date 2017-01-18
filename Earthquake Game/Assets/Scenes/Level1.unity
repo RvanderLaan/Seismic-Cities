@@ -4953,7 +4953,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 527d68d9b4f637b4b9bcbfbc98971b7c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6805,6 +6805,7 @@ MonoBehaviour:
   shakeRoughness: 5
   shakeFadeIn: 3
   shakeFadeOut: 15
+  earthquakeSound: {fileID: 8300000, guid: c685ff9aa0b5cdb4e85e7438bf668447, type: 3}
   targetController: {fileID: 1370538538}
 --- !u!114 &1784929240
 MonoBehaviour:
