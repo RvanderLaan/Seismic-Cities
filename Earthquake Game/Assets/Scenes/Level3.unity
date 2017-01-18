@@ -2068,7 +2068,7 @@ Prefab:
     - target: {fileID: 114791564997958432, guid: db63f67b8290c7a4dbb457f938d80701,
         type: 2}
       propertyPath: allowedPlacements.Array.data[0].building
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db63f67b8290c7a4dbb457f938d80701, type: 2}
@@ -8128,7 +8128,7 @@ Prefab:
     - target: {fileID: 114791564997958432, guid: db63f67b8290c7a4dbb457f938d80701,
         type: 2}
       propertyPath: allowedPlacements.Array.data[0].building
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db63f67b8290c7a4dbb457f938d80701, type: 2}
