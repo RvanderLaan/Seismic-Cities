@@ -126,7 +126,6 @@ public class BuildingPlatformController : MonoBehaviour
                 && (ap.upgrade == thisUType || ap.upgrade == Upgrade.UpgradeType.Any))
                 return true;
         }
-        Debug.Log(thisBType + ", " + thisUType);
         return thisBType == Building.BuildingType.None && thisUType == Upgrade.UpgradeType.None;
     }
 }
