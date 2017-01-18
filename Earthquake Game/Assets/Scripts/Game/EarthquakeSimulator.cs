@@ -11,16 +11,25 @@ public class EarthquakeSimulator : MonoBehaviour {
 
     public float shakeMagnitude = 0.8f, shakeRoughness = 5, shakeFadeIn = 3, shakeFadeOut = 15;
 
+    public AudioClip earthquakeSound;
+
     public TargetController targetController;
+
+    private AudioSource audioSource;
 
     // Use this for initialization
     void Start () {
-		
+        audioSource = GetComponent<AudioSource>();
 	}
 
     public void simulateEarthquake()
     {
         StartCoroutine("SpawnWaves");
+
+        //audioSource.pitch = Random.Range(0.5f, 1f);
+        audioSource.volume = 1;
+        audioSource.clip = earthquakeSound;
+        audioSource.Play();
     }
 
     IEnumerator SpawnWaves()
