@@ -98,7 +98,7 @@ public class UpgradePlacer : MonoBehaviour {
             if (terrainHit.collider != null) {
                 // Move preview building to collision location
                 Vector2 hitPoint = terrainHit.point;
-                previewInstance.transform.position = hitPoint;
+                previewInstance.transform.position = new Vector3(hitPoint.x, hitPoint.y, -1);
             }
 
             RaycastHit2D placementHit = Physics2D.Raycast(worldPos, -Vector2.up, float.MaxValue, placementMask);

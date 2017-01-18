@@ -1924,6 +1924,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1179927356}
     m_Modifications:
+    - target: {fileID: 114791564997958432, guid: db63f67b8290c7a4dbb457f938d80701,
+        type: 2}
+      propertyPath: allowedPlacements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4272789109387708, guid: db63f67b8290c7a4dbb457f938d80701, type: 2}
       propertyPath: m_LocalPosition.x
       value: 55
@@ -1978,6 +1983,11 @@ Prefab:
         type: 2}
       propertyPath: isUpgraded
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114791564997958432, guid: db63f67b8290c7a4dbb457f938d80701,
+        type: 2}
+      propertyPath: allowedPlacements.Array.data[0].building
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db63f67b8290c7a4dbb457f938d80701, type: 2}
@@ -2074,6 +2084,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1179927356}
     m_Modifications:
+    - target: {fileID: 114791564997958432, guid: db63f67b8290c7a4dbb457f938d80701,
+        type: 2}
+      propertyPath: allowedPlacements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4272789109387708, guid: db63f67b8290c7a4dbb457f938d80701, type: 2}
       propertyPath: m_LocalPosition.x
       value: 25
@@ -2105,6 +2120,11 @@ Prefab:
     - target: {fileID: 4272789109387708, guid: db63f67b8290c7a4dbb457f938d80701, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114791564997958432, guid: db63f67b8290c7a4dbb457f938d80701,
+        type: 2}
+      propertyPath: allowedPlacements.Array.data[0].building
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db63f67b8290c7a4dbb457f938d80701, type: 2}
@@ -6962,7 +6982,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1784929231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b781106662696fc4e8f3506a29836b90, type: 3}
   m_Name: 
