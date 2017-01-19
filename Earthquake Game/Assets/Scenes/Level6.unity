@@ -6583,17 +6583,21 @@ MonoBehaviour:
     prefab: {fileID: 114947300232902414, guid: d08a803ddb9a1bd4d80b52df5a88b998, type: 2}
     amount: 1
     image: {fileID: 21300000, guid: 614c1e5f1311fff4e837c531c8f1b291, type: 3}
-    tooltipText: House description
+    tooltipText: These houses are made out of bricks and cement, which are robust
+      but not flexible materials.
   - name: Wooden House
     prefab: {fileID: 114745262537583544, guid: 583afffe9d04c0f41b5e7b2af9402426, type: 2}
     amount: 1
     image: {fileID: 21300000, guid: 9cea633ff8bcb6d47a3b8185662542a5, type: 3}
-    tooltipText: House description
+    tooltipText: These houses are mainly made of wood, which can bend more than most
+      building materials. This makes these houses more flexible.
   - name: Flat
     prefab: {fileID: 114721963816472948, guid: e9c7162951afe194f95654cb6508c57b, type: 2}
     amount: 2
     image: {fileID: 21300000, guid: 44821f4160366294f88f7700661be863, type: 3}
-    tooltipText: Flat
+    tooltipText: Flats are buildings that a lot of people can live in. Flats are built
+      of concrete. This is strengthened with metal beams to support it and make it
+      a bit more flexible.
   tooltipPrefab: {fileID: 1813651079379322, guid: d9fd1bc4e84988c428ab9bb5eb5992eb,
     type: 2}
 --- !u!114 &1784929241
@@ -6640,7 +6644,7 @@ MonoBehaviour:
     prefab: {fileID: 114798141173557250, guid: 2eaefbf22e9c70e4988f0e053be30eac, type: 2}
     amount: 2
     image: {fileID: 21300000, guid: 17b089c027fbcaf4d8d6ae4c9ed77904, type: 3}
-    tooltipText: AAAAAA
+    tooltipText: A concrete foundation can help buildings stay in place.
   tooltipPrefab: {fileID: 1813651079379322, guid: d9fd1bc4e84988c428ab9bb5eb5992eb,
     type: 2}
 --- !u!114 &1784929243
