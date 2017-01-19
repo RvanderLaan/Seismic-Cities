@@ -6806,6 +6806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeOutTexture: {fileID: 2800000, guid: f22003beaec30924e9b0725a3051a063, type: 3}
   fadeSpeed: 0.8
+  fadeDir: -1
 --- !u!114 &1784929238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8189,6 +8190,12 @@ Prefab:
         type: 2}
       propertyPath: levelPassedList.Array.data[0].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: dialogList.Array.data[1].dialogText
+      value: When <b>Poseidon</b> descended from the heavens and released his wrath
+        on modern society, he shook the earth to destroy what mankind had built.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}

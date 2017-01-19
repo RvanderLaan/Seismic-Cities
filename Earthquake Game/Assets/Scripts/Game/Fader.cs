@@ -8,9 +8,21 @@ public class Fader : MonoBehaviour {
 
     private int drawDepth = -1000;  // the texture's order in the draw hierarchy: a low number means it renders on top
     private float alpha = 1.0f;   // the texture's alpha value between 0 and 1
-    private int fadeDir = -1;   // the direction to fade: in = -1 or out = 1
+    public int fadeDir = -1;   // the direction to fade: in = -1 or out = 1
+
+    bool fading = false;
+
+    void Start() {
+        if (fadeDir == -1) {
+            alpha = 1;
+        } else
+            alpha = 0;
+    }
 
     void OnGUI() {
+        if (!fading)
+            return;
+
         // fade out/in the alpha value using a direction, a speed and Time.deltaTime to convert the operation to seconds
         alpha += fadeDir * fadeSpeed * Time.deltaTime;
         // force (clamp) the number to be between 0 and 1 because GUI.color uses Alpha values between 0 and 1
@@ -23,14 +35,15 @@ public class Fader : MonoBehaviour {
     }
 
     // sets fadeDir to the direction parameter making the scene fade in if -1 and out if 1
-    public float BeginFade(int direction) {
-        fadeDir = direction;
+    public float BeginFade() {
+        fading = true;
         return (fadeSpeed);
     }
 
     // OnLevelWasLoaded is called when a level is loaded. It takes loaded level index (int) as a parameter so you can limit the fade in to certain scenes.
     void OnLevelWasLoaded() {
         // alpha = 1;  // use this if the alpha is not set to 1 by default
-        BeginFade(-1);  // call the fade in function
+        if (fadeDir == -1)
+            BeginFade();  // call the fade in function
     }
 }
