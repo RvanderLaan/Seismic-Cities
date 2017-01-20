@@ -75,7 +75,8 @@ Limestone is a <b>sedimentary</b> rock, which means that it is formed in water. 
 This is a soft rock layer, which slows down the waves but increases intensity."
 ;
                     info[3] = @"
-Kalksteen is een <b>rotslaag</b> die is opgebouwd van natuurlijke stoffen die zijn gevormd in het water. Het bestaat uit schelpen, mineralen en koraal. Deze deeltjes zijn zo hard op elkaar gedrukt dat ze een gesteente zijn geworden. Het is een zachte soort rotslaag, waar de snelheid van de aardbeving door wordt afgenomen, maar die de intensiteit nog hoger maakt, doordat de deeltjes nog dichter op elkaar gaan zitten.";
+Kalksteen is een <b>rotslaag</b> die is opgebouwd van natuurlijke stoffen die zijn gevormd in het water. Het bestaat uit schelpen, mineralen en koraal.
+Deze deeltjes zijn zo hard op elkaar gedrukt dat ze een gesteente zijn geworden. Het is een zachte soort rotslaag, waar de snelheid van de aardbeving door wordt afgenomen, maar die de intensiteit nog hoger maakt.";
                     break;
                 }
             case SoilType.Sand: {
