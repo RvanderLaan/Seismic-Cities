@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 224293862477453542}
   - component: {fileID: 222747400176469958}
   - component: {fileID: 114727028268804162}
+  - component: {fileID: 95521875410408006}
   m_Layer: 5
   m_Name: AphroditeImage
   m_TagString: Untagged
@@ -107,6 +108,7 @@ GameObject:
   - component: {fileID: 224492315994707004}
   - component: {fileID: 222564616363066968}
   - component: {fileID: 114116004458597262}
+  - component: {fileID: 95529567105670686}
   m_Layer: 5
   m_Name: PoseidonImage
   m_TagString: Untagged
@@ -183,6 +185,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95521875410408006
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275840696059670}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ea9e1832f83edf48a24c5ee2228d856, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95529567105670686
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1503647396818092}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfbfd74db161d0646a40c8e8ae45f92a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114011229284222458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,7 +476,7 @@ MonoBehaviour:
   characterName: {fileID: 114377414514905236}
   dialogText: {fileID: 114314132732297882}
   dialogList:
-  - characterName: 0
+  - characterName: 1
     dialogText: "Welcome! How fortunate that you have come here, I could really use
       your help. \r"
     enterEvent:
@@ -453,9 +489,9 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  - characterName: 0
+  - characterName: 1
     dialogText: When <b>Poseidon</b> descended from the heavens and released his wrath
-      on modern society he shook the earth to destroy what mankind had built.
+      on modern society, he shook the earth to destroy what mankind had built.
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -556,6 +592,19 @@ MonoBehaviour:
   levelPassedList:
   - characterName: 0
     dialogText: You got lucky this time, mortal!
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 1
+    dialogText: "You didn\u2019t get lucky, you used your head. By placing the buildings
+      far away from the epicenter the earthquake couldn\u2019t reach them. "
     enterEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -817,7 +866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -42}
+  m_AnchoredPosition: {x: 19, y: -42}
   m_SizeDelta: {x: 0, y: -170}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224385229586022366

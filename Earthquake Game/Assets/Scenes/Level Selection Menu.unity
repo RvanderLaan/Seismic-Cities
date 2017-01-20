@@ -7674,6 +7674,7 @@ MonoBehaviour:
 
     Lead story writer, game design
 
+
 '
 --- !u!222 &1875852274
 CanvasRenderer:
@@ -7753,9 +7754,8 @@ MonoBehaviour:
     thank our commissioner, Jules Dadok, for always helping us to find the right direction
     and for his honest feedback, without which this game would never have seen the
     light of day.\r\n\r\nAdditionally our thanks goes out to our professor R. Bidarra
-    and his assistant Nestor Salamon, for their guidance and feedback, and most of
-    all, their everlasting presence during the scheduled working hours.\r\n\r\nThank
-    you for playing,\r\n\r\n- The Seismic Cities Team\r\n     Andrea Donati            \r\n
+    and his assistant Nestor Salamon, for their guidance and feedback.\n\nThank you
+    for playing,\r\n\r\n- The Seismic Cities Team\r\n     Andrea Donati            \r\n
     \    Fabian van Gent       \r\n     Joris Bouwens             \r\n     Remi van
     der Laan      \r\n     Sander Kats   "
 --- !u!222 &1888487577

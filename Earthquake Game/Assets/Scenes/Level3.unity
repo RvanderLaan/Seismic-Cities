@@ -5017,7 +5017,7 @@ MonoBehaviour:
   keyMoveSpeed: 50
   limits: {x: 0, y: 150, z: -80, w: 60}
   minScale: 20
-  maxScale: 60
+  maxScale: 80
   scrollSpeed: 7.5
   zoomSmoothness: 0.1
 --- !u!4 &1305973378
@@ -5248,7 +5248,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1370538535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.1, y: -92.9, z: -5.7}
+  m_LocalPosition: {x: 7.6, y: -90.2, z: -5.7}
   m_LocalScale: {x: 20, y: 20, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5829,7 +5829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 71.2, y: -90.1}
+  m_AnchoredPosition: {x: 39.7, y: -90.1}
   m_SizeDelta: {x: 64, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1628420010
@@ -6917,6 +6917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeOutTexture: {fileID: 2800000, guid: f22003beaec30924e9b0725a3051a063, type: 3}
   fadeSpeed: 0.8
+  fadeDir: -1
 --- !u!1 &1797638227
 GameObject:
   m_ObjectHideFlags: 0
@@ -7375,7 +7376,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 890c314257ee04648b361ff5cac0c67e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.97
+      value: 2.18
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 890c314257ee04648b361ff5cac0c67e, type: 3}
       propertyPath: m_LocalPosition.y

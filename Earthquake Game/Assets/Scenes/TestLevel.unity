@@ -5229,6 +5229,7 @@ MonoBehaviour:
   sc: {fileID: 1770006584}
   modeManager: {fileID: 1784929233}
   epicenterZone: {fileID: 1638428668}
+  lifeTime: 10
 --- !u!82 &1370538539
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6429,14 +6430,24 @@ MonoBehaviour:
   upgradeObjects: []
   simulationObjects:
   - {fileID: 1370538535}
-  finishObjects:
-  - {fileID: 984367905}
-  - {fileID: 485525500}
+  passObjects: []
+  failObjects: []
   targetController: {fileID: 1370538538}
   earthquakeSimulator: {fileID: 1784929238}
   buildingList: {fileID: 0}
   upgradeList: {fileID: 0}
   userFeedback: {fileID: 0}
+  onPass:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onFail:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  finishWaitTime: 15
 --- !u!114 &1784929234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6571,6 +6582,7 @@ MonoBehaviour:
   shakeRoughness: 5
   shakeFadeIn: 3
   shakeFadeOut: 15
+  earthquakeSound: {fileID: 0}
   targetController: {fileID: 1370538538}
 --- !u!114 &1784929239
 MonoBehaviour:
@@ -6600,22 +6612,22 @@ MonoBehaviour:
   buildingPlacer: {fileID: 1784929234}
   buildingItems:
   - name: House
-    prefab: {fileID: 1935850192462870, guid: d08a803ddb9a1bd4d80b52df5a88b998, type: 2}
+    prefab: {fileID: 0}
     amount: 3
     image: {fileID: 21300000, guid: 614c1e5f1311fff4e837c531c8f1b291, type: 3}
     tooltipText: House description
   - name: Skyscraper
-    prefab: {fileID: 1854066435823254, guid: 3b8fc2831df77b349890a3ae4dff796f, type: 2}
+    prefab: {fileID: 0}
     amount: 3
     image: {fileID: 21300000, guid: 2a5cd0f9aeb675d41b22979030ab5224, type: 3}
     tooltipText: Skyscraper description
   - name: Tower of Pisa
-    prefab: {fileID: 1028514076243056, guid: 1087dae0ebc653a46b31233331cb19d4, type: 2}
+    prefab: {fileID: 0}
     amount: 1
     image: {fileID: 21300000, guid: bbedaab5f6ec05047810c00f98dbdac7, type: 3}
     tooltipText: Tower of Pisa description
   - name: Collosseum
-    prefab: {fileID: 1570790142470054, guid: 53c665facecaef049a4b1c9c2a5743a4, type: 2}
+    prefab: {fileID: 0}
     amount: 1
     image: {fileID: 21300000, guid: fbcf94b382ee1814fa1fe00b7ee67cf3, type: 3}
     tooltipText: Collosseum description
@@ -7748,6 +7760,72 @@ Prefab:
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 212800818314785056, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300014, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
+    - target: {fileID: 212659745980377062, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
+    - target: {fileID: 212025284386445178, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
+    - target: {fileID: 212166289627922708, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
+    - target: {fileID: 212216024934308168, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
+    - target: {fileID: 212299238351026884, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
+    - target: {fileID: 212463211934940324, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
+    - target: {fileID: 212970850264382076, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
+    - target: {fileID: 212091543937221624, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
+    - target: {fileID: 212478849534885234, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
+    - target: {fileID: 212703956347148560, guid: 1087dae0ebc653a46b31233331cb19d4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 8ed6047a11564e34e939c515999222c2,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1087dae0ebc653a46b31233331cb19d4, type: 2}
   m_IsPrefabParent: 0
