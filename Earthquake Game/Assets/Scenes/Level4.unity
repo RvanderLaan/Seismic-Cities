@@ -2075,6 +2075,58 @@ Transform:
   m_PrefabParentObject: {fileID: 4093134186096226, guid: c4dff09ac6f7ac74fae857158487b197,
     type: 2}
   m_PrefabInternal: {fileID: 793098287}
+--- !u!1001 &476046217
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4439952744581216, guid: 76b3d9d418f4ee54dbce133616ed00ef, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 390.46902
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439952744581216, guid: 76b3d9d418f4ee54dbce133616ed00ef, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 200.36905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439952744581216, guid: 76b3d9d418f4ee54dbce133616ed00ef, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439952744581216, guid: 76b3d9d418f4ee54dbce133616ed00ef, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439952744581216, guid: 76b3d9d418f4ee54dbce133616ed00ef, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439952744581216, guid: 76b3d9d418f4ee54dbce133616ed00ef, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439952744581216, guid: 76b3d9d418f4ee54dbce133616ed00ef, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439952744581216, guid: 76b3d9d418f4ee54dbce133616ed00ef, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 76b3d9d418f4ee54dbce133616ed00ef, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &476046218 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1882075966474664, guid: 76b3d9d418f4ee54dbce133616ed00ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 476046217}
+--- !u!1 &476046219 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1488599238167210, guid: 76b3d9d418f4ee54dbce133616ed00ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 476046217}
 --- !u!1001 &478839630
 Prefab:
   m_ObjectHideFlags: 0
@@ -6666,8 +6718,10 @@ MonoBehaviour:
   - {fileID: 1005232353}
   simulationObjects:
   - {fileID: 1370538535}
-  passObjects: []
-  failObjects: []
+  passObjects:
+  - {fileID: 476046219}
+  failObjects:
+  - {fileID: 476046218}
   targetController: {fileID: 1370538538}
   earthquakeSimulator: {fileID: 1784929238}
   buildingList: {fileID: 1784929240}
