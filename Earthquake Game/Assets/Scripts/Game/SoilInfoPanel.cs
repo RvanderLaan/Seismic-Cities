@@ -19,7 +19,12 @@ public class SoilInfoPanel : MonoBehaviour {
     public void show(string title, string dutch, string description, string dutchDescription) {
         this.title.text = title;
         this.dutch.text = dutch;
-        this.description.text = description;
+        
+
+        if (PlayerPrefs.GetString("Language").Equals("Dutch"))
+            this.description.text = dutchDescription;
+        else
+            this.description.text = description;
 
         englishDescription = description;
         this.dutchDescription = dutchDescription;
@@ -33,11 +38,13 @@ public class SoilInfoPanel : MonoBehaviour {
 
     public void setDutchDescription()
     {
+        PlayerPrefs.SetString("Language", "Dutch");
         description.text = dutchDescription;
     }
 
     public void setEnglishDescription()
     {
+        PlayerPrefs.SetString("Language", "English");
         description.text = englishDescription;
     }
 

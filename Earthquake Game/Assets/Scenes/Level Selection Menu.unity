@@ -3937,11 +3937,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!223 &493208182 stripped
-Canvas:
-  m_PrefabParentObject: {fileID: 223450385297392656, guid: 3d805ef07de72dd459c4c012e22c8c78,
-    type: 2}
-  m_PrefabInternal: {fileID: 535927183}
 --- !u!1001 &535927183
 Prefab:
   m_ObjectHideFlags: 0
@@ -5548,19 +5543,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: 731f810faf6d8f94890221089acf1e39, type: 3}
   m_PrefabInternal: {fileID: 1220188618}
---- !u!114 &1064001314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1064001310}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e57f6a74791a0554da16049566b99c4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverDialog: {fileID: 809025146}
-  levelDetails: {fileID: 493208182}
 --- !u!54 &1064001315
 Rigidbody:
   m_ObjectHideFlags: 0
