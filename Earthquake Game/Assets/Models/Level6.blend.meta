@@ -11,27 +11,37 @@ ModelImporter:
     100006: Saltstone
     100008: Sand
     100010: Sandstone
+    100012: Quicksand
+    100014: Rocksalt
     400000: Bedrock
     400002: Clay
     400004: //RootNode
     400006: Saltstone
     400008: Sand
     400010: Sandstone
+    400012: Quicksand
+    400014: Rocksalt
     2300000: Bedrock
     2300002: Clay
     2300004: Saltstone
     2300006: Sand
     2300008: Sandstone
+    2300010: Quicksand
+    2300012: Rocksalt
     3300000: Bedrock
     3300002: Clay
     3300004: Saltstone
     3300006: Sand
     3300008: Sandstone
+    3300010: Quicksand
+    3300012: Rocksalt
     4300000: Sandstone
     4300002: Saltstone
     4300004: Clay
     4300006: Sand
     4300008: Bedrock
+    4300010: Quicksand
+    4300012: Rocksalt
     7400000: Default Take
     9500000: //RootNode
   materials:

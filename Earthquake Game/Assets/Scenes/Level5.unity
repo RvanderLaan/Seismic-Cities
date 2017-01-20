@@ -6856,6 +6856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeOutTexture: {fileID: 2800000, guid: f22003beaec30924e9b0725a3051a063, type: 3}
   fadeSpeed: 0.8
+  fadeDir: -1
 --- !u!1 &1797638227
 GameObject:
   m_ObjectHideFlags: 0
@@ -7794,12 +7795,17 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelPassedList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: dialogList.Array.data[2].leaveEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224568319032094794, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -7975,8 +7981,8 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelFailedList.Array.data[1].dialogText
-      value: "On this unstable soil, heavy buildings need the foundations more than
-        lighter buildings. This is a <b>well-founded</b> building principle!\r"
+      value: "On this unstable soil, buildings need foundations to stay keep them
+        in position. This is a <b>well-founded</b> building principle!\r"
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -7987,7 +7993,8 @@ Prefab:
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
       propertyPath: levelPassedList.Array.data[1].dialogText
-      value: Good work!
+      value: You got it right again! Those foundations are placed on a layer made
+        of rock, which prevents buildings from sinking.
       objectReference: {fileID: 0}
     - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
         type: 2}
@@ -8036,6 +8043,56 @@ Prefab:
       propertyPath: levelPassedList.Array.data[0].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 748479959}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667083868424224, guid: cbf17b335720dbb47989a2b008e3823d,
+        type: 2}
+      propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1898179675}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}
   m_IsPrefabParent: 0
