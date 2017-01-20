@@ -23,23 +23,25 @@ public class SoilInfo : MonoBehaviour {
         ownText = GetComponentInChildren<Text>();
         button = GetComponentInChildren<Button>();
 
+        string[] info = getInfo(soilType);
+        ownText.text = info[0];
+        gameObject.name = info[0];
+
+
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() => soilInfoPanel.show(info[0], info[1], info[2], info[3]));
+
         if (soilInfoPanel == null)
             soilInfoPanel = GameObject.Find("SoilInfoPanel").GetComponent<SoilInfoPanel>();
 	}
 	
 	void Update () {
         // Update own name and onclick behaviour (-> show popup)
-        string[] info = getInfo(soilType);
-        ownText.text = info[0];
-        gameObject.name = info[0];
-
         
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(() => soilInfoPanel.show(info[0], info[1], info[2]));
     }
 
     string[] getInfo(SoilType type) {
-        string[] info = new string[3];
+        string[] info = new string[4];
 
         switch (type) {
             case SoilType.Bedrock: {
@@ -49,6 +51,8 @@ public class SoilInfo : MonoBehaviour {
 Bedrock is the hardest layer, that normally lies underneath the more softer soils. It has been <b>compressed</b> into one by the pressure of the layers above. 
 This is a kind of stiffest soil where an earthquake can easily pass through. 
 ";
+                    info[3] = @"
+                        Rotsbodem is de hardste laag, die normaal gesproken onder de zachtere lagen ligt. Het is in elkaar gedrukt door de druk van de lagen die er bovenop liggen. De aardbeving kan makkelijker door deze grondlaag heen bewegen.";
                     break;
                 }
             case SoilType.Marl: {
@@ -58,6 +62,10 @@ This is a kind of stiffest soil where an earthquake can easily pass through.
 Marl consists mostly of <b>mud</b> or mudstone, which contains variable amounts of clays and silt. 
 This is a kind of stiff soil where an earthquake can easily pass through, with little amplification effects .
                     ";
+                    info[3] = @"
+Mergel​ ​bestaat​ ​voor​ ​het​ ​grootste​ ​deel​ ​uit​ ​<b>modder</b>,​ ​wat​ ​bestaat​ ​uit​ ​verschillende​ ​lagen 
+van​ ​klei​ ​en​ ​silt.​ ​Dit​ ​is​ ​een​ ​stevige​ ​bodemlaag​ ​waar​ ​een​ ​aardbeving​ ​makkelijk​ ​doorheen 
+beweegt,​ ​met​ ​weinig​ ​versterkende​ ​effecten.";
                     break;
                 }
             case SoilType.Limestone: {
@@ -67,6 +75,8 @@ This is a kind of stiff soil where an earthquake can easily pass through, with l
 Limestone is a <b>sedimentary</b> rock, which means that it is formed in water. It consists of shells, minerals and coral. 
 This is a soft rock layer, which slows down the waves but increases intensity."
 ;
+                    info[3] = @"
+Kalksteen is een <b>rotslaag</b> die is opgebouwd van natuurlijke stoffen die zijn gevormd in het water. Het bestaat uit schelpen, mineralen en koraal. Deze deeltjes zijn zo hard op elkaar gedrukt dat ze een gesteente zijn geworden. Het is een zachte soort rotslaag, waar de snelheid van de aardbeving door wordt afgenomen, maar die de intensiteit nog hoger maakt, doordat de deeltjes nog dichter op elkaar gaan zitten.";
                     break;
                 }
             case SoilType.Sand: {
@@ -75,6 +85,7 @@ This is a soft rock layer, which slows down the waves but increases intensity."
                     info[2] = @"
 
                     ";
+                    info[3] = "";
                     break;
                 }
             case SoilType.Sandstone: {
@@ -84,6 +95,8 @@ This is a soft rock layer, which slows down the waves but increases intensity."
 Sandstone is a bit more porous compared to rocksalt. Therefore gas has been able to develop in between the layer. 
 The gas is contained by a denser soil layer on top of it. This layer therefore intensifies the earthquake, as the gas releases, the soil becomes more unstable. 
                     ";
+                    info[3] = @"
+                        Zandsteen is wat poreuzer dan Zoutsteen. Daardoor kan het gas dat zich heeft ontwikkelt in de laag gevangen blijven, omdat het niet kan ontsnappen door de Zoutsteenlaag. De gassen die hier zijn gewonnen laten ruimtes over in de grondlaag. Als er een aardbeving doorheen gaat, zullen deze instorten, waardoor de intensiteit van de aardbeving wordt versterkt.";
                     break;
                 }
             case SoilType.Clay: {
@@ -93,6 +106,11 @@ The gas is contained by a denser soil layer on top of it. This layer therefore i
 Clay is a <b>fine-grained</b> natural soil material. Combined with the groundwater it acts elastic. 
 This means that the earthquake will be amplified when it passes through. 
                     ";
+                    info[3] = @"
+Klei​ ​is​ ​een​ ​natuurlijke​ ​grondlaag​ ​​ ​met​ ​een<b>fijnkorrelige​ ​structuur​ ​</b>.​ ​Gecombineerd​ ​met 
+het​ ​grondwater,​ ​zorgt​ ​dit​ ​ervoor​ ​dat​ ​het​ ​elastisch​ ​wordt​ ​als​ ​er​ ​een​ ​aardbeving​ ​is​ ​veroorzaakt. 
+Dit​ ​betekent​ ​dat​ ​het​ ​effect​ ​van​ ​de​ ​aardbeving​ ​wordt​ ​versterkt​ ​als​ ​het​ ​door​ ​de​ ​kleilaag​ ​heen 
+beweegt.";
                     break;
                 }
             case SoilType.Quicksand: {
@@ -102,6 +120,11 @@ This means that the earthquake will be amplified when it passes through.
 Quicksand is a <b>water saturated</b> layer. A special effect occurs here when an earthquake hits, called liquefaction. 
 Liquefaction means that the ground will start to act like a liquid, that will cause heavy objects like buildings and cars to sink. 
                     ";
+                    info[3] = @"
+Drijfzand​ ​is​ ​een​ ​<b>​ ​water​ ​verzadigde​ ​</b>​ ​grondlaag.​ ​Als​ ​er​ ​een​ ​aardbeving​ ​wordt 
+veroorzaakt,​ ​heeft​ ​deze​ ​grond​ ​een​ ​speciaal​ ​effect,​ ​wat​ ​bodemvervloeiing​ ​heet.​ ​Dit​ ​betekent
+dat​ ​de​ ​grond​ ​zich​ ​als​ ​een​ ​vloeistof​ ​zal​ ​gaan​ ​gedragen,​ ​waardoor​ ​zwaardere​ ​objecten​ ​als
+huizen​ ​en​ ​auto’s​ ​in​ ​de​ ​grond​ ​zullen​ ​zinken.";
                     break;
                 }
             case SoilType.RockSalt: {
@@ -111,12 +134,15 @@ Liquefaction means that the ground will start to act like a liquid, that will ca
 Rock salt occurs in vast beds of sedimentary evaporite minerals that result from the drying up of enclosed lakes, playas, and seas. 
 It is a stiff layer, and has a little damping effect on the earthquake.
                     ";
+                    info[3] = @"
+                        Zoutsteen komt voor in plaatsen waar grote hoeveelheden mineralen zijn neergedaald, nadat een meer of zee is verdampt. Het is een harde laag die weinig effect heeft op de aardbeving.";
                     break;
                 }
             default: {
                     info[0] = "?";
                     info[1] = "?";
                     info[2] = "?";
+                    info[3] = "?";
                     break;
                 }
         }
