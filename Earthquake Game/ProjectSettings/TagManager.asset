@@ -11,6 +11,7 @@ TagManager:
   - Wave
   - BuildingPlatform
   - Canvas
+  - _GM
   layers:
   - Default
   - TransparentFX

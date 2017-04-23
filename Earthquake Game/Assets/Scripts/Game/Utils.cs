@@ -16,7 +16,19 @@ public class Utils : MonoBehaviour {
 
     public void activateGameObject(GameObject go)
     {
-        Debug.Log("aaaa");
         go.SetActive(true);
+    }
+
+    public void openURL(string url) {
+        Application.OpenURL(url);
+    }
+
+
+    public void setLanguage(int lan) {
+        PlayerPrefs.SetInt("Language", (int) lan);
+
+        TextInserter[] textInserters = Object.FindObjectsOfType<TextInserter>();
+        foreach (TextInserter ti in textInserters)
+            ti.updateText();
     }
 }
