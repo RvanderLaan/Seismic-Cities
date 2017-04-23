@@ -1,0 +1,72 @@
+﻿{
+	"$schema": "http://json-schema.org/draft-04/schema",
+	"title": "JSON Schema for my Level file format",
+
+	"type": "object",
+
+	"properties": {
+		"name": {
+			"type": "string",
+			"description": "This shows up in tooltips for the 'name' property."
+		},
+    "versions": {
+      "type": "array",
+      "description": "An array of version numbers.",
+      "minItems": 1,
+      "items": {
+        "type": "number"
+      }
+    },
+    "terrain": {
+      "type": "array",
+      /* 
+      As Text: 
+      
+      AAAAA           BBBBBB
+      AAAAAAAAAABBBBBBBBBBBB
+      AAAAAAABBBBBBBBBBBBBBB
+      CCCCCCCCCCCCCCCCCCCCCC
+      CCCCCCCCCCCCCCCCCCCCCC
+      DDDDDDDDDDDDDDDDDDDDDD
+
+      Collection of shapes:
+      { type: square, size: 4x4, position: 12, 4 }
+
+      */
+    },
+    "zones": {
+      "type":  "array",
+    },
+    "epicenter": {
+      "type": "vector"
+    },
+    "buildings": {
+      "type": "array"
+    },
+    "upgrades": {
+      "type": "array"
+    },
+    "scenery": {
+      "array",
+      "items": {
+        "location": {
+          "type": "vector"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "dialogue": {
+      "introduction": {
+        // Text, character, (onEnter, onExit/cameraFocus)
+      },
+      "pass": {
+
+      },
+      "fail": {
+
+      }
+    }
+	}
+}

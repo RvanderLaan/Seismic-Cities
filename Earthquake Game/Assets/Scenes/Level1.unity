@@ -2471,6 +2471,11 @@ Prefab:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224731419201747494, guid: 44cb445a950fc3443afa457772e713c2,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44cb445a950fc3443afa457772e713c2, type: 2}
   m_IsPrefabParent: 0
@@ -7147,6 +7152,7 @@ GameObject:
   - component: {fileID: 1784929242}
   - component: {fileID: 1784929243}
   - component: {fileID: 1784929237}
+  - component: {fileID: 1784929239}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -7384,6 +7390,17 @@ MonoBehaviour:
   shakeFadeOut: 15
   earthquakeSound: {fileID: 8300000, guid: c685ff9aa0b5cdb4e85e7438bf668447, type: 3}
   targetController: {fileID: 1370538538}
+--- !u!114 &1784929239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1784929231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdd79df4af6cf34b9997f50711d1bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1784929240
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class ModeManager : MonoBehaviour {
     public BuildingList buildingList;
     public UpgradeList upgradeList;
 
+    private string feedback;
+
     public UserFeedback userFeedback;
 
     public UnityEvent onPass, onFail;
@@ -74,6 +76,8 @@ public class ModeManager : MonoBehaviour {
 
             earthquakeSimulator.simulateEarthquake();
 
+            
+
             // Check if passed
             bool passed = true;
             foreach (GameObject go in platforms) {
@@ -83,6 +87,10 @@ public class ModeManager : MonoBehaviour {
                 else if (!bpc.isCorrect()) {
                     Debug.Log(bpc.building);
                     passed = false;
+
+                    feedback = SolutionChecker.getFeedback(null, bpc);
+                    
+                    Debug.Log(feedback);
                     break;
                 }
             }
@@ -105,7 +113,8 @@ public class ModeManager : MonoBehaviour {
         } else if (newMode == GameMode.Pass) {
             onPass.Invoke();
         } else if (newMode == GameMode.Fail) {
-             onFail.Invoke();
+            userFeedback.setText(feedback);
+            onFail.Invoke();
         }
 
         // In every case, switch all objects
