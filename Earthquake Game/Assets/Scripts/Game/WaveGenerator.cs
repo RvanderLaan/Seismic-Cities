@@ -27,7 +27,7 @@ public class WaveGenerator : MonoBehaviour {
     void Awake() {
 
         lr = GetComponent<LineRenderer>();
-        lr.numPositions = waveAmount + 1;
+        lr.positionCount = waveAmount + 1;
         lr.startWidth = lineWidth;
         lr.endWidth = lineWidth;
 
