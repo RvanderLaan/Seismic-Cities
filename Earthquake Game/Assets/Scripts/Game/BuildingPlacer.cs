@@ -36,6 +36,7 @@ public class BuildingPlacer : MonoBehaviour {
     }
 
     public void startPreview(GameObject prefab, Text amountText) {
+        EventManager.TriggerEvent("BuildingSelect");
         controlInfo.SetActive(true);
         previewAmountText = amountText;
         
@@ -127,6 +128,8 @@ public class BuildingPlacer : MonoBehaviour {
     }
 
     void placeBuilding(Vector2 pos, RaycastHit2D hit) {
+        EventManager.TriggerEvent("BuildingPlace");
+
         GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
         instance.tag = "Building";
         BuildingPlatformController bpc = hit.collider.GetComponent<BuildingPlatformController>();

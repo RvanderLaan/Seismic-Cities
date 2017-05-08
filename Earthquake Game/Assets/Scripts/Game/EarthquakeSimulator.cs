@@ -24,6 +24,7 @@ public class EarthquakeSimulator : MonoBehaviour {
 
     public void simulateEarthquake()
     {
+        EventManager.TriggerEvent("SimulateEarthquake");
         StartCoroutine("SpawnWaves");
 
         //audioSource.pitch = Random.Range(0.5f, 1f);

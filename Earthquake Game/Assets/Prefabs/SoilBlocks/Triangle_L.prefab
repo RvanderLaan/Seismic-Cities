@@ -23,7 +23,9 @@ GameObject:
   - component: {fileID: 23238034633689206}
   - component: {fileID: 114448590755240450}
   - component: {fileID: 114476214818853736}
-  m_Layer: 0
+  - component: {fileID: 50450502268411778}
+  - component: {fileID: 114157223474004620}
+  m_Layer: 10
   m_Name: Triangle_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,6 +75,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33682252954429618
 MeshFilter:
@@ -81,6 +84,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1333793863679276}
   m_Mesh: {fileID: 4300004, guid: b8b3ec0518cc61a4cb261df71f7c17f9, type: 3}
+--- !u!50 &50450502268411778
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333793863679276}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &114157223474004620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333793863679276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddc36719a8ee5942ad87645bc3f4d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrigger: 0
 --- !u!114 &114448590755240450
 MonoBehaviour:
   m_ObjectHideFlags: 1
