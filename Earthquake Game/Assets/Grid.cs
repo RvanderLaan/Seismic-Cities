@@ -6,7 +6,7 @@ using UnityEditor;
 [ExecuteInEditMode]
 public class Grid : MonoBehaviour {
 
-    public float size = 32f;
+    public readonly float size = 16f;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +20,7 @@ public class Grid : MonoBehaviour {
 
     private void OnDrawGizmos()
     {
-
+        if (UnityEditor.Selection.activeGameObject != this.gameObject) return;
         
         Vector3 pos = Camera.current.transform.position;
         Gizmos.color = Color.green;

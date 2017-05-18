@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 50177231479458988}
   - component: {fileID: 114012611701846954}
   m_Layer: 10
-  m_Name: Triangle_R_f
+  m_Name: TriangleLeftBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
