@@ -14,7 +14,7 @@ public class ModeManager : MonoBehaviour {
     GameObject buildingContainer;
 
     public TargetController targetController;
-    public EarthquakeSimulator earthquakeSimulator;
+    public Earthquake earthquakeSimulator;
     public BuildingList buildingList;
     public UpgradeList upgradeList;
 
@@ -77,7 +77,7 @@ public class ModeManager : MonoBehaviour {
             // Check if passed
             bool passed = true;
             foreach (GameObject go in platforms) {
-                BuildingPlatformController bpc = go.GetComponent<BuildingPlatformController>();
+                BuildingZone bpc = go.GetComponent<BuildingZone>();
                 if (bpc.building != null && bpc.building.type == Building.BuildingType.Thematic)
                     continue;
                 else if (!bpc.isCorrect()) {

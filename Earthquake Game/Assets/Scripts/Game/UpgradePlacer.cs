@@ -127,7 +127,7 @@ public class UpgradePlacer : MonoBehaviour {
     void placeUpgrade(Vector2 pos, RaycastHit2D hit) {
         GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
         instance.tag = "Building";
-        BuildingPlatformController bpc = hit.collider.GetComponent<BuildingPlatformController>();
+        BuildingZone bpc = hit.collider.GetComponent<BuildingZone>();
 
         bpc.placeUpgrade(instance.GetComponent<Upgrade>());
 
@@ -155,7 +155,7 @@ public class UpgradePlacer : MonoBehaviour {
             return false;
 
         // Only one building can be built for each platform
-        BuildingPlatformController bpc = hit.collider.GetComponent<BuildingPlatformController>();
+        BuildingZone bpc = hit.collider.GetComponent<BuildingZone>();
         if (!bpc.isBuilt || bpc.isUpgraded)
             return false;
 

@@ -6,16 +6,16 @@ using UnityEditor;
 [ExecuteInEditMode]
 public class Grid : MonoBehaviour {
 
-    public readonly float size = 16f;
+    public readonly float size = 8f;
+
+    public static Rect dimensions = new Rect(-32, -48, 128, 64);
+
+    public SoilBlock[,] blocks = new SoilBlock[(int) dimensions.width, (int) dimensions.height];
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		// Convert soil blocks to appropriate gameobjects
+
 	}
 
     private void OnDrawGizmos()
@@ -27,18 +27,18 @@ public class Grid : MonoBehaviour {
 
         Rect viewport = Camera.current.pixelRect;
 
-        Rect rect = new Rect(-8 * size, -16 * size, 32 * size, 18 * size);
         
-        for (float i = rect.yMin; i <= rect.yMax; i += size)
+        
+        for (float i = dimensions.yMin; i <= dimensions.yMax; i += 1)
         {
-            float y = Mathf.Floor(i / size) * size;
-            Gizmos.DrawLine(new Vector3(rect.xMin, y, 0), new Vector3(rect.xMax, y, 0)); 
+            float y = i;
+            Gizmos.DrawLine(new Vector3(dimensions.xMin, y, 0) * size, new Vector3(dimensions.xMax, y, 0) * size); 
         }
 
-        for (float i = rect.xMin; i <= rect.xMax; i += size)
+        for (float i = dimensions.xMin; i <= dimensions.xMax; i += 1)
         {
-            float y = Mathf.Floor(i / size) * size;
-            Gizmos.DrawLine(new Vector3(y, rect.yMin, 0), new Vector3(y, rect.yMax, 0));
+            float y = i;
+            Gizmos.DrawLine(new Vector3(y, dimensions.yMin, 0) * size, new Vector3(y, dimensions.yMax, 0) * size);
         }
 
     }

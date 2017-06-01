@@ -17,17 +17,11 @@ public class SoilTerrainEditor : Editor {
     List<SoilBlock.BlockShape> shapeKeys;
     List<Soil.SoilType> matKeys;
 
-
-    GameObject[] tiles;
-    int gridWidth = 32, gridHeight = 32;
-
     void OnEnable()
     {
         grid = (Grid) target;
         shapeKeys = new List<SoilBlock.BlockShape>(TileSet.Shapes.Keys);
         matKeys = new List<Soil.SoilType>(TileSet.Materials.Keys);
-
-        tiles = new GameObject[gridWidth * gridHeight];
     }
 
     public override void OnInspectorGUI()
@@ -63,6 +57,9 @@ public class SoilTerrainEditor : Editor {
 
     private void OnSceneGUI()
     {
+        // Disable selection box etc.
+        HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive));
+
         // Modifying the grid here
         int controlid = GUIUtility.GetControlID(FocusType.Passive);
 
@@ -72,42 +69,61 @@ public class SoilTerrainEditor : Editor {
         Vector3 mousePos = ray.origin;
         if (e.isMouse && e.button == 0 && (e.type == EventType.MouseDown || e.type == EventType.MouseDrag))
         {
-            
-
             GameObject shapePrefab = TileSet.Shapes[shapeKeys[shape]];
             Material mat = TileSet.Materials[matKeys[soil]];
 
-
-            
-
             Vector3 aligned = new Vector3(alignToGrid(mousePos.x), alignToGrid(mousePos.y), 0.0f);
-            int idx = (int)(-aligned.y / grid.size * gridWidth + aligned.x / grid.size);
-            GameObject gameObject = tiles[idx];
+            int idxX = (int)(aligned.x / grid.size) - (int) Grid.dimensions.xMin;
+            int idxY = (int)(aligned.y / grid.size) - (int) Grid.dimensions.yMin;
 
+            if (idxX < 0 || idxX >= grid.blocks.GetLength(0) || idxY < 0 || idxY >= grid.blocks.GetLength(1))
+                return;
+            SoilBlock block = grid.blocks[idxX, idxY];
 
-            if (gameObject == null)
+            if (block == null)
             {
+                // Create new block
                 Undo.IncrementCurrentGroup();
                 GUIUtility.hotControl = controlid;
                 e.Use();
 
-                gameObject = (GameObject)PrefabUtility.InstantiatePrefab(shapePrefab);
-                
+                GameObject gameObject = (GameObject)PrefabUtility.InstantiatePrefab(shapePrefab);
+                block = gameObject.AddComponent<SoilBlock>();
+                grid.blocks[idxX, idxY] = block;
+                block.shape = shapeKeys[shape];
+                block.type = matKeys[soil];
+
                 gameObject.transform.position = aligned;
                 gameObject.transform.parent = grid.transform;
-                // gameObject.layer = Layer
 
-                gameObject.GetComponent<Renderer>().material = mat;
-
-                tiles[idx] = gameObject;
+                gameObject.GetComponentInChildren<Renderer>().material = mat;
 
                 Undo.RegisterCreatedObjectUndo(gameObject, "Create " + gameObject.name);
+            } else if (block.shape != shapeKeys[shape] || block.type != matKeys[soil])
+            {
+                // Change block properties
+                Undo.IncrementCurrentGroup();
+                GUIUtility.hotControl = controlid;
+                e.Use();
+
+                // Delete old go
+                GameObject oldGameObject = block.gameObject;
+                Undo.DestroyObjectImmediate(oldGameObject);
+
+                // Create new GO
+                GameObject gameObject = (GameObject)PrefabUtility.InstantiatePrefab(shapePrefab);
+                block = gameObject.AddComponent<SoilBlock>();
+                grid.blocks[idxX, idxY] = block;
+                block.shape = shapeKeys[shape];
+                block.type = matKeys[soil];
+
+                gameObject.transform.position = aligned;
+                gameObject.transform.parent = grid.transform;
+
+                gameObject.GetComponentInChildren<Renderer>().material = mat;
+
+                Undo.RegisterCreatedObjectUndo(gameObject, "Modify " + gameObject.name);
             }
-            
-
-            
-
-
         }
 
         // Reset focus
@@ -119,7 +135,7 @@ public class SoilTerrainEditor : Editor {
 
     float alignToGrid(float x)
     {
-        return Mathf.Ceil(x / grid.size) * grid.size;
+        return Mathf.Floor(x / grid.size) * grid.size;
     }
 
 }

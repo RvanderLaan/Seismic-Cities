@@ -16,7 +16,7 @@ public class Solutions : MonoBehaviour {
 		
 	}
 
-    public bool correctPlacement(BuildingPlatformController bpc) {
+    public bool correctPlacement(BuildingZone bpc) {
         foreach (SolutionItem si in solutions) {
             if (si.platform.Equals(bpc)) {
                 // If it is found, the correct type of building and upgrade should have been placed
@@ -61,7 +61,7 @@ public class Solutions : MonoBehaviour {
 [System.Serializable]
 public class SolutionItem {
 
-    public BuildingPlatformController platform;
+    public BuildingZone platform;
     public Building.BuildingType building;
     public Upgrade.UpgradeType upgrade;
 

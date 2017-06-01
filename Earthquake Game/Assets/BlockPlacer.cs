@@ -17,7 +17,6 @@ public class BlockPlacer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         centerPlane = new Plane(Vector3.back, Vector3.right);
-
         previewBlock = GameObject.Instantiate(soilBlocks[0]);
 	}
 

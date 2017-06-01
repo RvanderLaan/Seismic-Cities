@@ -8,19 +8,11 @@ public class SoilBlock : MonoBehaviour {
     public enum BlockShape { Square, TriangleLeftBottom, TriangleRightBottom, TriangleLeftTop, TriangleTopRight };
     
     public Soil.SoilType type = Soil.SoilType.Bedrock;
+    public BlockShape shape = BlockShape.Square;
 
-
-    private Mesh mesh;
-    private Material material;
-
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public SoilBlock(BlockShape shape, Soil.SoilType type)
+    {
+        this.type = type;
+        this.shape = shape;
+    }
 }
