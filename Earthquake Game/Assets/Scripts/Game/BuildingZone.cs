@@ -14,8 +14,6 @@ public class BuildingZone : MonoBehaviour
     public Building building;
     public Upgrade upgrade;
 
-    private float epicenterDistance;
-
     private Solutions solutions;
 
     private BuildingList buildingList;

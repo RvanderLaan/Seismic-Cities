@@ -42,4 +42,20 @@ public class Grid : MonoBehaviour {
         }
 
     }
+
+    public float getHeight(int gridPositionX)
+    {
+        int index = gridPositionX - (int) dimensions.xMin;
+        for (int i = blocks.GetLength(1) - 1; i >= 0; i--)
+        {
+            Debug.Log(index + ", "+  i);
+            if (blocks[index, i] != null)
+            {
+                Debug.Log("yeh");
+                return i - dimensions.yMin;
+            }
+        }
+
+        return 0;
+    }
 }

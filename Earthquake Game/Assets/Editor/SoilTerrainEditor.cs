@@ -53,6 +53,11 @@ public class SoilTerrainEditor : Editor {
         }
 
         soil = GUILayout.SelectionGrid(soil, matContent, 3);
+
+        if (GUILayout.Button("Reconstruct"))
+        {
+            reconstruct();
+        }
     }
 
     private void OnSceneGUI()
@@ -75,6 +80,8 @@ public class SoilTerrainEditor : Editor {
             Vector3 aligned = new Vector3(alignToGrid(mousePos.x), alignToGrid(mousePos.y), 0.0f);
             int idxX = (int)(aligned.x / grid.size) - (int) Grid.dimensions.xMin;
             int idxY = (int)(aligned.y / grid.size) - (int) Grid.dimensions.yMin;
+
+            Debug.Log(idxX + ", " + idxY);
 
             if (idxX < 0 || idxX >= grid.blocks.GetLength(0) || idxY < 0 || idxY >= grid.blocks.GetLength(1))
                 return;
@@ -130,6 +137,43 @@ public class SoilTerrainEditor : Editor {
         if (e.isMouse && e.type == EventType.MouseUp && e.button == 0)
         {
             GUIUtility.hotControl = 0;
+        }
+    }
+
+    void reconstruct()
+    {
+        // Reuse children
+        int lastChildIndex = 0;
+
+        for (int i = 0; i < grid.blocks.GetLength(0); i++)
+        {
+            for (int j = 0; j < grid.blocks.GetLength(1); j++)
+            {
+                Debug.Log(grid.blocks[i, j] == null);
+                if (grid.blocks[i, j] != null)
+                {
+                    Debug.Log(grid.blocks[i, j].type);
+                    GameObject gameObject;
+                    if (lastChildIndex < grid.transform.childCount)
+                    {
+                        lastChildIndex++;
+                        gameObject = grid.transform.GetChild(lastChildIndex).gameObject;
+                    }
+                    else
+                    {
+                        // gameObject = (GameObject)PrefabUtility.InstantiatePrefab(shapePrefab);
+                    }
+                } else
+                {
+                    
+                }
+            }
+        }
+
+        // Remove leftover gameobjects
+        for (int i = lastChildIndex; i < grid.transform.childCount; i++)
+        {
+            grid.transform.GetChild(lastChildIndex).gameObject.SetActive(false);
         }
     }
 

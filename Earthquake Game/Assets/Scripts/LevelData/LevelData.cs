@@ -5,18 +5,30 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "New Level", menuName = "SeismicCities/Level")]
 public class LevelData : ScriptableObject
 {
+    /// <summary>
+    /// Name of level, shown at start
+    /// </summary>
     [SerializeField]
     public string levelName = "New Level";
 
-    // Terrain / game objects
+    /// <summary>
+    /// Seed for random elements (e.g. tree generation)
+    /// </summary>
     [SerializeField]
-    public SoilBlock[][] blocks; // Contains soil layers (which are made up of blocks, preferably 1 collider per layer) and info on click/hover, also location of cracks 
+    public int seed = 0;
+
+    /// <summary>
+    /// Contains soil layers (which are made up of blocks, preferably 1 collider per layer) and info on click/hover, also location of cracks
+    /// </summary>
+    [SerializeField]
+    public Grid blocks;
+
+    // Type: SurfaceEntity? Contains x-position, allowed placements, (optional) pre-placed building -> scenery zone
+    [SerializeField]
+    public List<BuildingZoneData> buildingZones;        
 
     [SerializeField]
-    public List<BuildingZone> buildingZones;        // Type: SurfaceEntity? Contains x-position, allowed placements, (optional) pre-placed building -> scenery zone
-
-    [SerializeField]
-    public Earthquake earthquake;               // Magnitude, 2d position (depth + x-pos)
+    public EarthquakeData earthquake;
     // public List<Plate> plates;
 
     // public SceneryType sceneryType;             // Scenery? Random (based on seed, type contains which trees/plants can be used) or user created 
@@ -38,5 +50,9 @@ public class LevelData : ScriptableObject
     [SerializeField]
     public int seismographAmount = 0;
 
-    
+    public void OnValidate()
+    {
+        Debug.Log("Changed level: " + Time.time);
+    }
+
 }
