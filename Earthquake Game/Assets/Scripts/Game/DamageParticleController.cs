@@ -34,7 +34,7 @@ public class DamageParticleController : MonoBehaviour {
 
         if (collider.gameObject.CompareTag("BuildingPlatform") && collider.gameObject.GetInstanceID() == platformID)
         {
-            collider.gameObject.GetComponent<BuildingPlatformController>().startShaking();
+            collider.gameObject.GetComponent<BuildingZone>().startShaking();
             Destroy(gameObject);
         }
     }

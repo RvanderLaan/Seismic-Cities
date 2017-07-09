@@ -17,6 +17,8 @@ public class SoilInfoPanel : MonoBehaviour {
     }
 
     public void show(string title, string dutch, string description, string dutchDescription) {
+        EventManager.TriggerEvent("ShowSoilInfo");
+
         this.title.text = title;
         this.dutch.text = dutch;
         

@@ -14,6 +14,8 @@ public class LevelName : MonoBehaviour {
 	void Start () {
         startTime = Time.time;
         text = GetComponent<Text>();
+
+        text.text = GameObject.Find("_GM").GetComponent<LevelManager>().getLevelData().name;
 	}
 	
 	// Update is called once per frame

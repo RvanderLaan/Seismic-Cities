@@ -36,6 +36,7 @@ public class BuildingPlacer : MonoBehaviour {
     }
 
     public void startPreview(GameObject prefab, Text amountText) {
+        EventManager.TriggerEvent("BuildingSelect");
         controlInfo.SetActive(true);
         previewAmountText = amountText;
         
@@ -127,9 +128,11 @@ public class BuildingPlacer : MonoBehaviour {
     }
 
     void placeBuilding(Vector2 pos, RaycastHit2D hit) {
+        EventManager.TriggerEvent("BuildingPlace");
+
         GameObject instance = GameObject.Instantiate(previewPrefab, buildingContainer.transform);
         instance.tag = "Building";
-        BuildingPlatformController bpc = hit.collider.GetComponent<BuildingPlatformController>();
+        BuildingZone bpc = hit.collider.GetComponent<BuildingZone>();
 
         bpc.place(instance.GetComponent<Building>());               // Set the building
 
@@ -158,7 +161,7 @@ public class BuildingPlacer : MonoBehaviour {
             return false;
 
         // Only one building can be built for each platform
-        if (hit.collider.GetComponent<BuildingPlatformController>().isBuilt)
+        if (hit.collider.GetComponent<BuildingZone>().isBuilt)
             return false;
 
         return true;

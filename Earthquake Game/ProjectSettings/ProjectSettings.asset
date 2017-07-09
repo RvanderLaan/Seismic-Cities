@@ -650,12 +650,12 @@ PlayerSettings:
     Game_Performance: 0
     Hub: 0
     Purchasing: 0
-    UNet: 1
+    UNet: 0
     Unity_Ads: 0
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
-  cloudProjectId: 6855c6d9-c28d-405d-93fb-c6dde8008a15
-  projectName: Earthquake Game (1)
-  organizationId: plostyck
+  cloudProjectId: 16001264-be15-4d2f-adf8-247af39bc666
+  projectName: Seismic Cities
+  organizationId: tharemo
   cloudEnabled: 0
   enableNewInputSystem: 0
