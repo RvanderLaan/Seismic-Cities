@@ -31,23 +31,27 @@ public class LevelManager : MonoBehaviour {
         // Set random seed
         Random.InitState(levelData.seed != 0 ? levelData.seed : levelData.levelName.GetHashCode());
 
-        Grid grid = GameObject.Find("Terrain").GetComponentInChildren<Grid>();
 
         // Set level name, done internally
 
 
         // Set terrain blocks
-        
+
+        int levelScale = 8;
 
         // Create building zones
         GameObject bz = Resources.Load("Prefabs/BuildingZone") as GameObject;
+        BuildingZone bzComp = bz.GetComponent<BuildingZone>();
+        bzComp.buildingList = buildingList.GetComponent<BuildingList>();
+        bzComp.upgradeList = upgradeList.GetComponent<UpgradeList>();
         foreach (BuildingZoneData data in levelData.buildingZones)
         {
             GameObject instance = GameObject.Instantiate(bz, buildingZones);
+            
             // Vector3 pos = new Vector3(data.gridPosition, grid.getHeight(data.gridPosition), 1);
-            Vector2 origin = new Vector3(grid.size * data.gridPosition, grid.size * Grid.dimensions.yMax);
+            Vector2 origin = new Vector3(levelScale * data.gridPosition, levelScale * Grid.dimensions.yMax);
 
-            RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, Grid.dimensions.height * grid.size);
+            RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, Grid.dimensions.height * levelScale);
             Debug.Log("Origin: " + origin);
             if (hit.collider != null)
             {
@@ -68,6 +72,7 @@ public class LevelManager : MonoBehaviour {
         // Set lists
         BuildingList bList = buildingList.GetComponent<BuildingList>();
         bList.buildingItems = levelData.buildingItems;
+        Debug.Log(levelData.buildingItems.Count);
 
         UpgradeList uList = upgradeList.GetComponent<UpgradeList>();
         uList.upgradeItems = levelData.upgradeItems;

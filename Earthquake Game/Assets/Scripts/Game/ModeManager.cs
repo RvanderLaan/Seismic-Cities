@@ -70,8 +70,8 @@ public class ModeManager : MonoBehaviour {
                 if (b != null)
                     b.gameObject.SetActive(false);
             }
-                
 
+            targetController.gameObject.SetActive(true);
             earthquakeSimulator.simulateEarthquake();
 
             // Check if passed

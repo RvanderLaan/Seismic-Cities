@@ -34,15 +34,15 @@ public class SoilTerrainEditor : Editor {
         }
         else
         {
-            if (levelData.blocks == null || levelData.blocks.Length == 0)
-            {
-                Debug.Log("Creating new block array");
-                levelData.blocks = new SoilBlock[(int)Grid.dimensions.width * (int)Grid.dimensions.height];
+            //if (levelData.blocks == null || levelData.blocks.Length == 0)
+            //{
+            //    Debug.Log("Creating new block array");
+            //    levelData.blocks = new SoilBlock[(int)Grid.dimensions.width * (int)Grid.dimensions.height];
 
-                EditorUtility.SetDirty(levelData);
-                serializedObject.ApplyModifiedProperties();
-            }
-            blocks = levelData.blocks;
+            //    EditorUtility.SetDirty(levelData);
+            //    serializedObject.ApplyModifiedProperties();
+            //}
+            //blocks = levelData.blocks;
         }
     }
 

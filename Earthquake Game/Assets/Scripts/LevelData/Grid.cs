@@ -25,7 +25,8 @@ public class Grid : MonoBehaviour {
         //    // Todo: Loop through blocks and fill array?
         //    Debug.Log("START BLOCKS INIT");
         //}
-        blocks = levelData.blocks;
+
+        // blocks = levelData.blocks;
 	}
 
     private void OnDrawGizmos()

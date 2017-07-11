@@ -24,6 +24,7 @@ public class Earthquake : MonoBehaviour {
 
     public void simulateEarthquake()
     {
+
         EventManager.TriggerEvent("SimulateEarthquake");
         StartCoroutine("SpawnWaves");
 

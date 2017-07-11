@@ -16,8 +16,8 @@ public class BuildingZone : MonoBehaviour
 
     private Solutions solutions;
 
-    private BuildingList buildingList;
-    private UpgradeList upgradeList;
+    public BuildingList buildingList;
+    public UpgradeList upgradeList;
 
     public List<AllowedPlacement> allowedPlacements;
 
@@ -30,8 +30,6 @@ public class BuildingZone : MonoBehaviour
     {
         GameObject _GM = GameObject.Find("_GM");
         solutions = _GM.GetComponent<Solutions>();
-        buildingList = _GM.GetComponent<BuildingList>();
-        upgradeList = _GM.GetComponent<UpgradeList>();
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
 

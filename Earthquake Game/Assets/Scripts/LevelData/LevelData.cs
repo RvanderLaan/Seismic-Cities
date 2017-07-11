@@ -21,7 +21,7 @@ public class LevelData : ScriptableObject
     /// Contains soil layers (which are made up of blocks, preferably 1 collider per layer) and info on click/hover, also location of cracks
     /// </summary>
     [SerializeField]
-    public SoilBlock[] blocks;
+    public GameObject soilLayers;
 
     // Type: SurfaceEntity? Contains x-position, allowed placements, (optional) pre-placed building -> scenery zone
     [SerializeField]
