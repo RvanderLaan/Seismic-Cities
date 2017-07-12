@@ -8,13 +8,14 @@ using UnityEngine.EventSystems;
 
 public class ModeManager : MonoBehaviour {
 
-    public enum GameMode { Building, Upgrade, Simulation, Pass, Fail };
-    public List<GameObject> buildingObjects, upgradeObjects, simulationObjects, passObjects, failObjects;
+    public enum GameMode { Measuring, Building, Upgrade, Simulation, Pass, Fail };
+    public List<GameObject> measuringObjects, buildingObjects, upgradeObjects, simulationObjects, passObjects, failObjects;
 
     GameObject buildingContainer;
 
     public TargetController targetController;
     public Earthquake earthquakeSimulator;
+    public SeismographPlacer seismographPlacer;
     public BuildingList buildingList;
     public UpgradeList upgradeList;
 
@@ -36,7 +37,7 @@ public class ModeManager : MonoBehaviour {
     }
 
     void Start() {
-        Mode = GameMode.Building;
+        Mode = GameMode.Measuring;
         buildingContainer = GameObject.Find("BuildingContainer");
         solutions = GetComponent<Solutions>();
 
@@ -48,13 +49,21 @@ public class ModeManager : MonoBehaviour {
     public void setGameMode(GameMode newMode) {
         Debug.Log(mode + " -> " + newMode);
         // Exceptions
-        if (mode == GameMode.Building && newMode == GameMode.Upgrade) {
+        if (mode == GameMode.Measuring && newMode == GameMode.Building)
+        {
+            if (!seismographPlacer.finishedPlacing())
+            {
+                userFeedback.setText("You should place all seismographs before continuing");
+                return;
+            }
+        }
+        else if (mode == GameMode.Building && newMode == GameMode.Upgrade) {
             if (!buildingList.finishedPlacing()) {
                 userFeedback.setText("You should place all buildings before continuing");
                 return;
             }
         } else if ((mode == GameMode.Building || mode == GameMode.Upgrade) && newMode == GameMode.Simulation) {
-            // Todo: Check if all buildings have been set
+            // Check if all buildings have been set
             if (!buildingList.finishedPlacing()) {
                 userFeedback.setText("You should place all buildings before continuing");
                 return;
@@ -146,6 +155,8 @@ public class ModeManager : MonoBehaviour {
 
     private List<GameObject> getModeObjects(GameMode gm) {
         switch (gm) {
+            case GameMode.Measuring:
+                return measuringObjects;
             case GameMode.Building:
                 return buildingObjects;
             case GameMode.Upgrade:

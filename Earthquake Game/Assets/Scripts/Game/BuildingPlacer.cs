@@ -124,7 +124,6 @@ public class BuildingPlacer : MonoBehaviour {
             foreach (SpriteRenderer sr in previewSRs)
                 sr.color = newColor;
         }
-        
     }
 
     void placeBuilding(Vector2 pos, RaycastHit2D hit) {

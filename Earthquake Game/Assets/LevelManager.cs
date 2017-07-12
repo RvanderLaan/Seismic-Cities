@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour {
 
     public List<LevelData> levels;
 
-    public Transform buildingZones, terrain, buildingList, upgradeList;
+    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton;
 
 	// Use this for initialization
 	void Start () {

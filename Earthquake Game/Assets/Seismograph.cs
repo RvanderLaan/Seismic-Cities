@@ -26,6 +26,7 @@ public class Seismograph : MonoBehaviour {
      * - Squiggly sine wave (random)
      */
 
+    private Vector3 earthquakeOrigin;
 
     private Texture2D graphTexture;
     private float prevX, prevY;
@@ -34,6 +35,8 @@ public class Seismograph : MonoBehaviour {
     public Texture2D graphBackground;
 
     float[] signature = { .02f, .04f, .03f, 1f, .42f, .25f, .15f, .32f, .12f, .22f, .06f, .23f, .15f, .18f, .13f, .23f, .05f, .17f, .29f, 0.05f };
+
+    private float distanceIntensity = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -44,8 +47,6 @@ public class Seismograph : MonoBehaviour {
         GetComponent<RawImage>().texture = graphTexture;
         prevX = 0;
         prevY = graphTexture.height / 2;
-
-        
     }
 
     private void DrawLine(Texture2D tex, Vector2 p1, Vector2 p2, Color col)
@@ -84,13 +85,11 @@ public class Seismograph : MonoBehaviour {
     void Update () {
 		if (moving)
         {
-
             float d = (Time.time - startTime) / transitionTime;
-            Debug.Log(d);
             if (d < 1)
             {
                 float dT = 1 / (float)graphTexture.width;
-                drawSeismograph(d, 1, dT);
+                drawSeismograph(d, distanceIntensity, dT);
 
                 graphTexture.Apply();
             } else
@@ -103,6 +102,10 @@ public class Seismograph : MonoBehaviour {
 
     public void StartMoving()
     {
+        Debug.Log(Vector3.SqrMagnitude(transform.position - earthquakeOrigin));
+        earthquakeOrigin = GameObject.Find("EpicenterTarget").transform.position;
+        distanceIntensity = 1 - Mathf.Clamp(((Vector3.SqrMagnitude(transform.position - earthquakeOrigin) - 5000) / 15000f), 0, 0.9f);
+
         // wrapper.gameObject.SetActive(true);
         moving = true;
         startTime = Time.time;
