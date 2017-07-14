@@ -17,14 +17,16 @@ public class Earthquake : MonoBehaviour {
 
     private AudioSource audioSource;
 
+    private GameObject[] targets;
+
     // Use this for initialization
     void Start () {
         audioSource = GetComponent<AudioSource>();
 	}
 
-    public void simulateEarthquake()
+    public void simulateEarthquake(GameObject[] targets)
     {
-
+        this.targets = targets;
         EventManager.TriggerEvent("SimulateEarthquake");
         StartCoroutine("SpawnWaves");
 
@@ -41,7 +43,7 @@ public class Earthquake : MonoBehaviour {
         for (int i = 0; i < numberOfWaves; i++)
         {
             //spawn a wave
-            targetController.createWave(Random.Range(0.5f, 1f));
+            targetController.createWave(Random.Range(0.5f, 1f), targets);
             yield return new WaitForSeconds(intervalBetweenWaves);
         }
         yield return new WaitForSeconds(5);

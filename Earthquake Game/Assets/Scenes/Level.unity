@@ -1274,7 +1274,7 @@ RectTransform:
   m_Children:
   - {fileID: 355011934}
   m_Father: {fileID: 858748241}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1750,7 +1750,7 @@ GameObject:
   - component: {fileID: 375956871}
   - component: {fileID: 375956870}
   m_Layer: 5
-  m_Name: Build
+  m_Name: Ready
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1796,8 +1796,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1784929233}
-        m_MethodName: setGameMode
-        m_Mode: 5
+        m_MethodName: nextMode
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1820,7 +1820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.47241378, b: 0.47241378, a: 1}
+  m_Color: {r: 0.25713667, g: 0.4831315, b: 0.85294116, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1857,8 +1857,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -200, y: 0}
-  m_SizeDelta: {x: 100, y: 64}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 64}
   m_Pivot: {x: 1, y: 0}
 --- !u!4 &378609149 stripped
 Transform:
@@ -3549,8 +3549,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 375956873}
-  - {fileID: 299186956}
   - {fileID: 1005232354}
+  - {fileID: 299186956}
   - {fileID: 59782830}
   - {fileID: 485525501}
   - {fileID: 1875317318}
@@ -4062,12 +4062,12 @@ GameObject:
   - component: {fileID: 1005232356}
   - component: {fileID: 1005232355}
   m_Layer: 5
-  m_Name: DoneBuilding
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1005232354
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4080,11 +4080,11 @@ RectTransform:
   m_Children:
   - {fileID: 2067475558}
   m_Father: {fileID: 858748241}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -200, y: 0}
   m_SizeDelta: {x: 100, y: 64}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1005232355
@@ -4127,8 +4127,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1784929233}
-        m_MethodName: setGameMode
-        m_Mode: 5
+        m_MethodName: previousMode
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4151,7 +4151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8235294, g: 0.6978285, b: 0.21298175, a: 1}
+  m_Color: {r: 0.6838235, g: 0.3469399, b: 0.3469399, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5204,7 +5204,7 @@ GameObject:
   - component: {fileID: 1259965803}
   - component: {fileID: 1259965802}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Ready
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5260,7 +5260,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Build
+  m_Text: Ready
 --- !u!222 &1259965803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8092,10 +8092,8 @@ MonoBehaviour:
   - {fileID: 1347755766}
   buildingObjects:
   - {fileID: 2023216719}
-  - {fileID: 1005232353}
   upgradeObjects:
   - {fileID: 1376570284}
-  - {fileID: 1005232353}
   simulationObjects:
   - {fileID: 1370538535}
   passObjects:
@@ -9631,7 +9629,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Done
+  m_Text: Back
 --- !u!222 &2067475560
 CanvasRenderer:
   m_ObjectHideFlags: 0

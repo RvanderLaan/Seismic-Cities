@@ -36,7 +36,7 @@ public class TargetController : MonoBehaviour {
         }
 	}
 
-    public void createWave(float intensity) {
+    public void createWave(float intensity, GameObject[] targets) {
         WaveGenerator wg;
 
         // If the last wave generator is done, reuse it
@@ -48,7 +48,8 @@ public class TargetController : MonoBehaviour {
         }
         wg.intensity = intensity * 5000;
         waveGenerators.Enqueue(wg);
-        wg.startWave();
+        
+        wg.startWave(targets);
         wg.transform.position = transform.position;
 
         //audioSource.pitch = Random.Range(0.5f, 1f);

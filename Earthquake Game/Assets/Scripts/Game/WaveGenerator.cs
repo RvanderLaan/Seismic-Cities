@@ -16,7 +16,6 @@ public class WaveGenerator : MonoBehaviour {
     LineRenderer lr;
     public float lineWidth = 0.05f;
 
-    private GameObject[] platforms;
     public Wave damageParticle;
 
     public Color bestColor = Color.red, worstColor = Color.blue;
@@ -41,7 +40,7 @@ public class WaveGenerator : MonoBehaviour {
         }
 
         //get the buildings gameObjects
-        platforms = GameObject.FindGameObjectsWithTag("BuildingPlatform");
+        // platforms = GameObject.FindGameObjectsWithTag("BuildingPlatform");
 
         // Attempt at better distribution of wave objects
         // Generate more objects to the top left and top right, and very few to the bottom
@@ -90,28 +89,34 @@ public class WaveGenerator : MonoBehaviour {
         return Time.time > (startTime + lifeTime);
     }
 
-    public void startWave() {
+    public void startWave(GameObject[] targets) {
         startTime = Time.time;
 
         // Change color based on intensity
         Color col = Color.Lerp(worstColor, bestColor, intensity);
         GetComponent<Renderer>().material.color = col;
         renderColor = col;
-
         gameObject.SetActive(true);
-        //generate the damaging particles, one for each building
-        for (int i = 0; i < platforms.Length; i++) {
-            Wave particle = (Wave)GameObject.Instantiate(damageParticle, transform.position, Quaternion.identity);
+
+        shootHomingParticles(targets);
+    }
+
+    public void shootHomingParticles(GameObject[] targets)
+    {
+        //generate the damaging particles, one for each target
+        for (int i = 0; i < targets.Length; i++)
+        {
+            Wave particle = (Wave) GameObject.Instantiate(damageParticle, transform.position, Quaternion.identity);
             particle.transform.SetParent(transform);
-            particle.direction = (platforms[i].transform.position - transform.position).normalized;
+            particle.direction = (targets[i].transform.position - transform.position).normalized;
             particle.speed = startSpeed;
 
             DamageParticleController dpg = particle.GetComponent<DamageParticleController>();
-            dpg.platformID = platforms[i].GetInstanceID();
+            dpg.targetID = targets[i].GetInstanceID();
             //the cosineDegreeFactor is 1 if the direction of the damage particle is vertical (orthogonal to the ground)
             //and is 0 if the direction is horizontal
             dpg.cosineDegreeFactor = 1; //  Mathf.Pow(particle.direction.y, 0.5f);
-            dpg.distance = (platforms[i].transform.position - transform.position).magnitude;
+            dpg.distance = (targets[i].transform.position - transform.position).magnitude;
             dpg.intensity = intensity;
         }
     }

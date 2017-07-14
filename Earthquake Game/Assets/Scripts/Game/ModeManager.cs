@@ -27,6 +27,7 @@ public class ModeManager : MonoBehaviour {
 
     public int finishWaitTime = 15;
 
+    private int modeIndex = 0;
     private GameMode mode;
     public GameMode Mode {
         get { return mode; }
@@ -35,6 +36,8 @@ public class ModeManager : MonoBehaviour {
             mode = value;
         }
     }
+
+    GameMode[] modeOrder = { GameMode.Measuring, GameMode.Simulation, GameMode.Building, GameMode.Upgrade, GameMode.Simulation };
 
     void Start() {
         Mode = GameMode.Measuring;
@@ -49,18 +52,28 @@ public class ModeManager : MonoBehaviour {
     public void setGameMode(GameMode newMode) {
         Debug.Log(mode + " -> " + newMode);
         // Exceptions
-        if (mode == GameMode.Measuring && newMode == GameMode.Building)
+        if (mode == GameMode.Measuring && newMode == GameMode.Simulation)
         {
             if (!seismographPlacer.finishedPlacing())
             {
                 userFeedback.setText("You should place all seismographs before continuing");
                 return;
             }
+            targetController.gameObject.SetActive(true);
+
+            GameObject[] seismographs = GameObject.FindGameObjectsWithTag("Seismograph");
+            earthquakeSimulator.simulateEarthquake(seismographs);
+
+            StartCoroutine(setGameMode(GameMode.Building, finishWaitTime));
         }
         else if (mode == GameMode.Building && newMode == GameMode.Upgrade) {
             if (!buildingList.finishedPlacing()) {
                 userFeedback.setText("You should place all buildings before continuing");
                 return;
+            } else if (upgradeList.finishedPlacing())
+            {
+                // Skip upgrade mode if no upgrades are specified
+                nextMode();
             }
         } else if ((mode == GameMode.Building || mode == GameMode.Upgrade) && newMode == GameMode.Simulation) {
             // Check if all buildings have been set
@@ -81,7 +94,7 @@ public class ModeManager : MonoBehaviour {
             }
 
             targetController.gameObject.SetActive(true);
-            earthquakeSimulator.simulateEarthquake();
+            earthquakeSimulator.simulateEarthquake(platforms);
 
             // Check if passed
             bool passed = true;
@@ -114,7 +127,7 @@ public class ModeManager : MonoBehaviour {
         } else if (newMode == GameMode.Pass) {
             onPass.Invoke();
         } else if (newMode == GameMode.Fail) {
-             onFail.Invoke();
+            onFail.Invoke();
         }
 
         // In every case, switch all objects
@@ -151,6 +164,27 @@ public class ModeManager : MonoBehaviour {
         }
         if (!match)
             Debug.Log("Mode not recognized: " + newMode);
+    }
+
+    public void nextMode()
+    {
+        if (modeIndex + 1 < modeOrder.Length)
+        {
+            modeIndex++;
+            GameMode newMode = modeOrder[modeIndex];
+            setGameMode(newMode);
+        }
+
+        // Todo Disable previous button?
+    }
+
+    public void previousMode()
+    {
+        if (modeIndex - 1 >= 0) {
+            modeIndex--;
+            GameMode newMode = modeOrder[modeIndex];
+            setGameMode(newMode);
+        }
     }
 
     private List<GameObject> getModeObjects(GameMode gm) {

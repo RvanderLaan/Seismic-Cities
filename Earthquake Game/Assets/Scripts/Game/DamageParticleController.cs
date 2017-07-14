@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DamageParticleController : MonoBehaviour {
 
-    public int platformID;
+    public int targetID;
     //Factor used in the damage computation. The damage is maximum if the direction of the wave is vertical,
     //so orthogonal to the ground where the building is placed
     public float cosineDegreeFactor;
@@ -32,10 +32,16 @@ public class DamageParticleController : MonoBehaviour {
         }
         */
 
-        if (collider.gameObject.CompareTag("BuildingPlatform") && collider.gameObject.GetInstanceID() == platformID)
+        if (collider.gameObject.CompareTag("BuildingPlatform") && collider.gameObject.GetInstanceID() == targetID)
         {
             collider.gameObject.GetComponent<BuildingZone>().startShaking();
             Destroy(gameObject);
         }
+        else if (collider.gameObject.CompareTag("Seismograph") && collider.gameObject.GetInstanceID() == targetID)
+        {
+            collider.gameObject.GetComponentInChildren<Seismograph>().StartMoving();
+            Destroy(gameObject);
+        }
+
     }
 }

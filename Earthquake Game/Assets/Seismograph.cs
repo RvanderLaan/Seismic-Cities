@@ -34,16 +34,16 @@ public class Seismograph : MonoBehaviour {
     public Color lineColor = Color.black;
     public Texture2D graphBackground;
 
-    float[] signature = { .02f, .04f, .03f, 1f, .42f, .25f, .15f, .32f, .12f, .22f, .06f, .23f, .15f, .18f, .13f, .23f, .05f, .17f, .29f, 0.05f };
+    float[] signature = { .33f, 1f, .42f, .25f, .15f, .92f, .12f, .22f, .56f, .23f, .15f, .28f, .13f, .23f, .05f, .17f, .29f, 0.05f, .02f, .04f, };
 
     private float distanceIntensity = 1;
 
 	// Use this for initialization
 	void Start () {
-        EventManager.StartListening("SimulateEarthquake", StartMoving);
+        // EventManager.StartListening("SimulateEarthquake", StartMoving);
         // Todo: Init texture size, ~2000 x 500?
 
-        graphTexture = new Texture2D(1500, 500);
+        graphTexture = new Texture2D(800, 200);
         GetComponent<RawImage>().texture = graphTexture;
         prevX = 0;
         prevY = graphTexture.height / 2;
@@ -95,19 +95,21 @@ public class Seismograph : MonoBehaviour {
             } else
             {
                 moving = false;
-                // wrapper.gameObject.SetActive(false);
             }
         }
 	}
 
     public void StartMoving()
     {
-        Debug.Log(Vector3.SqrMagnitude(transform.position - earthquakeOrigin));
-        earthquakeOrigin = GameObject.Find("EpicenterTarget").transform.position;
-        distanceIntensity = 1 - Mathf.Clamp(((Vector3.SqrMagnitude(transform.position - earthquakeOrigin) - 5000) / 15000f), 0, 0.9f);
+        if (!moving)
+        {
+            // Debug.Log(Vector3.SqrMagnitude(transform.position - earthquakeOrigin));
+            earthquakeOrigin = GameObject.Find("EpicenterTarget").transform.position;
+            distanceIntensity = 1 - Mathf.Clamp(((Vector3.SqrMagnitude(transform.position - earthquakeOrigin) - 5000) / 15000f), 0, 0.9f);
 
-        // wrapper.gameObject.SetActive(true);
-        moving = true;
-        startTime = Time.time;
+            // wrapper.gameObject.SetActive(true);
+            moving = true;
+            startTime = Time.time;
+        }
     }
 }
