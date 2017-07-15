@@ -25,7 +25,7 @@ public class UpgradeList : MonoBehaviour {
             b.GetComponent<Image>().sprite = ui.image;
             b.GetComponentInChildren<Text>().text = ui.name;
 
-            Text amount = buttonInstance.transform.FindChild("Amount").GetComponentInChildren<Text>();
+            Text amount = buttonInstance.transform.Find("Amount").GetComponentInChildren<Text>();
             amountTexts.Add(amount);
             amount.text = ui.amount + "";
             // Add onclick listener. The amount is changed in the upgrade placer

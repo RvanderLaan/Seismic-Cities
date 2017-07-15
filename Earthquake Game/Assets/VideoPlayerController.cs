@@ -26,7 +26,7 @@ public class VideoPlayerController : MonoBehaviour {
         playPause.onClick.AddListener(togglePlaying);
         buttonText = playPause.GetComponentInChildren<Text>();
 
-        timeIndicator = transform.FindChild("TimeIndicator").GetComponent<RectTransform>();
+        timeIndicator = transform.Find("TimeIndicator").GetComponent<RectTransform>();
         panel = GetComponent<RectTransform>();
 
         music = MusicManager.instance.GetComponent<AudioSource>();

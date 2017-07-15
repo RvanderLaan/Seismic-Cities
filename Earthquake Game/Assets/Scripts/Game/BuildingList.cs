@@ -25,7 +25,7 @@ public class BuildingList : MonoBehaviour {
             b.GetComponent<Image>().sprite = bi.image;
             b.GetComponentInChildren<Text>().text = bi.name;
 
-            Text amount = buttonInstance.transform.FindChild("Amount").GetComponentInChildren<Text>();
+            Text amount = buttonInstance.transform.Find("Amount").GetComponentInChildren<Text>();
             amountTexts.Add(amount);
             amount.text = bi.amount + "";
             // Add onclick listener. The amount is changed in the building placer
