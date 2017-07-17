@@ -19,6 +19,8 @@ public class ModeManager : MonoBehaviour {
     public BuildingList buildingList;
     public UpgradeList upgradeList;
 
+    public Button[] guiButtons;
+
     public UserFeedback userFeedback;
 
     public UnityEvent onPass, onFail;
@@ -50,6 +52,15 @@ public class ModeManager : MonoBehaviour {
     // The idea is to put behaviours specific to a mode in a separate object, e.g. the wave simulator,
     // so that we don't need exceptions for every mode. The script starts in its Start method
     public void setGameMode(GameMode newMode) {
+        List<GameObject> oldObjs = getModeObjects(mode);
+        List<GameObject> newObjs = getModeObjects(newMode);
+
+        // Disable/Enable GUI
+        if (newMode == GameMode.Simulation || mode == GameMode.Simulation)
+            foreach (Button guiButton in guiButtons)
+                guiButton.enabled = newMode != GameMode.Simulation;
+        
+
         Debug.Log(mode + " -> " + newMode);
         // Exceptions
         if (mode == GameMode.Measuring && newMode == GameMode.Simulation)
@@ -73,7 +84,10 @@ public class ModeManager : MonoBehaviour {
             } else if (upgradeList.finishedPlacing())
             {
                 // Skip upgrade mode if no upgrades are specified
+                foreach (GameObject go in oldObjs)
+                    go.SetActive(false);
                 nextMode();
+                return;
             }
         } else if ((mode == GameMode.Building || mode == GameMode.Upgrade) && newMode == GameMode.Simulation) {
             // Check if all buildings have been set
@@ -92,7 +106,7 @@ public class ModeManager : MonoBehaviour {
                 if (b != null)
                     b.gameObject.SetActive(false);
             }
-            Debug.Log("Should work...");
+
             targetController.gameObject.SetActive(true);
             earthquakeSimulator.simulateEarthquake(platforms);
 
@@ -124,15 +138,11 @@ public class ModeManager : MonoBehaviour {
         }
 
         // In every case, switch all objects
-        List<GameObject> oldObjs = getModeObjects(mode);
-        List<GameObject> newObjs = getModeObjects(newMode);
-
-        foreach (GameObject go in oldObjs) {
+        foreach (GameObject go in oldObjs)
             go.SetActive(false);
-        }
-        foreach (GameObject go in newObjs) {
+        foreach (GameObject go in newObjs)
             go.SetActive(true);
-        }
+        
 
         mode = newMode;
 

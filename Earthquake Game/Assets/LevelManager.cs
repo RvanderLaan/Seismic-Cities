@@ -10,15 +10,15 @@ public class LevelManager : MonoBehaviour {
 
     public List<LevelData> levels;
 
-    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer;
+    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer, targetController;
+
+    public Transform[] objectContainers;
 
     public int levelScale = 8;
 
-    public Button nextLevel, restart;
-
     // Use this for initialization
     void Start () {
-        constructLevel(levels[levelIndex]);
+        ConstructLevel(levels[levelIndex]);
 	}
 
     public LevelData getLevelData()
@@ -26,10 +26,44 @@ public class LevelManager : MonoBehaviour {
         return levels[levelIndex];
     }
 
-    void constructLevel(LevelData levelData)
+    public void NextLevel()
+    {
+        // Todo: Loading screen/fade
+
+        // Destruct previous level
+        DestroyChildren(objectContainers);
+
+        // Disable nextlevel button etc.
+
+
+        // Construct new level
+        levelIndex++;
+        ConstructLevel(levels[levelIndex]);
+    }
+
+    public void Restart()
+    {
+        levelIndex--;
+        ConstructLevel(levels[levelIndex]);
+    }
+
+    void DestroyChildren(params Transform[] transforms)
+    {
+        foreach (Transform transform in transforms)
+        {
+            foreach (Transform child in transform)
+                GameObject.Destroy(child.gameObject);
+        }
+    }
+
+    void ConstructLevel(LevelData levelData)
     {
         // Set random seed
         Random.InitState(levelData.seed != 0 ? levelData.seed : levelData.levelName.GetHashCode());
+
+        // Set earthquake
+        targetController.position = levelData.earthquake.position;
+
 
         // Set level name, done internally
 
@@ -51,15 +85,6 @@ public class LevelManager : MonoBehaviour {
         uList.upgradeItems = levelData.upgradeItems;
 
         // Seismograph, done internally
-
-        // UI:
-        // Next level
-        nextLevel.onClick.RemoveAllListeners();
-        nextLevel.onClick.AddListener(() => constructLevel(levels[++levelIndex]));
-
-        // Restart
-        restart.onClick.RemoveAllListeners();
-        restart.onClick.AddListener(() => constructLevel(levelData));
     }
 
     void CreateBuildingZones(List<BuildingZoneData> list)

@@ -11,10 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92ca80e466ad9244af6d3397ec61acb, type: 3}
   m_Name: DemoLevel2
   m_EditorClassIdentifier: 
-  levelName: DemoLevel2
-  seed: 0
+  levelName: New Level
+  seed: 123
   soilLayers: {fileID: 0}
-  buildingZones: []
+  buildingZones:
+  - allowedPlacements:
+    - building: 1
+      upgrade: 0
+    gridPosition: 12
   earthquake:
     intervalBetweenWaves: 1
     numberOfWaves: 5
@@ -24,13 +28,18 @@ MonoBehaviour:
     shakeFadeIn: 3
     shakeFadeOut: 15
     position: {x: 128, y: -96}
-  scenery: {fileID: 0}
+  scenery: {fileID: 11400000, guid: 5e0c1e233a1261644a928a56e3d65c57, type: 2}
   other: []
-  cameraLimits: {x: 0, y: 20, z: -6, w: 6}
+  cameraLimits: {x: 0, y: 599, z: -150, w: 150}
   tutorial: {fileID: 0}
   start: {fileID: 0}
   pass: {fileID: 0}
   fail: {fileID: 0}
-  buildingItems: []
+  buildingItems:
+  - name: Wooden House
+    prefab: {fileID: 114745262537583544, guid: 583afffe9d04c0f41b5e7b2af9402426, type: 2}
+    amount: 1
+    image: {fileID: 21300000, guid: 9cea633ff8bcb6d47a3b8185662542a5, type: 3}
+    tooltipText: wood is good
   upgradeItems: []
-  seismographAmount: 0
+  seismographAmount: 2

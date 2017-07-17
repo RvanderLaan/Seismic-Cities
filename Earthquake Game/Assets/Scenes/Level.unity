@@ -1796,7 +1796,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.30147058, g: 0.30147058, b: 0.30147058, a: 0.853}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -6214,7 +6214,12 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1784929243}
+      objectReference: {fileID: 1784929234}
+    - target: {fileID: 114604679290156362, guid: e6bb64b7a4e2f1347b4238b7cb048fcc,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6bb64b7a4e2f1347b4238b7cb048fcc, type: 2}
   m_IsPrefabParent: 0
@@ -7784,7 +7789,17 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1784929243}
+      objectReference: {fileID: 1784929234}
+    - target: {fileID: 114166592084487166, guid: 6754e21390739f346a6d758b7c1b2675,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114166592084487166, guid: 6754e21390739f346a6d758b7c1b2675,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6754e21390739f346a6d758b7c1b2675, type: 2}
   m_IsPrefabParent: 0
@@ -8101,7 +8116,7 @@ MonoBehaviour:
   simulationObjects:
   - {fileID: 1370538535}
   passObjects:
-  - {fileID: 0}
+  - {fileID: 485525500}
   failObjects:
   - {fileID: 485525500}
   targetController: {fileID: 1370538538}
@@ -8109,6 +8124,9 @@ MonoBehaviour:
   seismographPlacer: {fileID: 1936264333}
   buildingList: {fileID: 2023216722}
   upgradeList: {fileID: 1376570287}
+  guiButtons:
+  - {fileID: 375956870}
+  - {fileID: 1005232355}
   userFeedback: {fileID: 1198579640}
   onPass:
     m_PersistentCalls:
@@ -8157,12 +8175,21 @@ MonoBehaviour:
   levelIndex: 0
   levels:
   - {fileID: 11400000, guid: e032c6b39b518784992ab7ff1fabf446, type: 2}
+  - {fileID: 11400000, guid: a6535ded829ba894981b658735db485a, type: 2}
   buildingZones: {fileID: 1179927356}
   terrain: {fileID: 381087477}
   buildingList: {fileID: 2023216720}
   upgradeList: {fileID: 1376570285}
   seismographButton: {fileID: 1938377769}
   sceneryContainer: {fileID: 1690916804}
+  targetController: {fileID: 1370538537}
+  objectContainers:
+  - {fileID: 2023216720}
+  - {fileID: 1376570285}
+  - {fileID: 1690916804}
+  - {fileID: 1938377769}
+  - {fileID: 1179927356}
+  - {fileID: 1193956743}
   levelScale: 8
 --- !u!82 &1784929235
 AudioSource:
@@ -8764,7 +8791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1862799240
 Transform:
   m_ObjectHideFlags: 0
