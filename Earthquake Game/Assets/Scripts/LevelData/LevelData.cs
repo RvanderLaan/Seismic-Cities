@@ -31,12 +31,12 @@ public class LevelData : ScriptableObject
     public EarthquakeData earthquake;
     // public List<Plate> plates;
 
-    // public SceneryType sceneryType;             // Scenery? Random (based on seed, type contains which trees/plants can be used) or user created 
-    // Tsunami?
-
+    public Scenery scenery;
+    public GameObject[] other; // E.g. tsunamis, will be instantiated at start of level
+    
     // Menu / UI
     [SerializeField]
-    public Vector4 cameraLimits = new Vector4(0, 20, -6, 6);
+    public Vector4 cameraLimits = new Vector4(0, 599, -150, 150);
     [SerializeField]
     public Tutorial tutorial;
     [SerializeField]
@@ -44,11 +44,11 @@ public class LevelData : ScriptableObject
 
     // Player items
     [SerializeField]
-    public List<BuildingItem> buildingItems;    // Building placement
+    public List<BuildingItem> buildingItems;
     [SerializeField]
-    public List<UpgradeItem> upgradeItems;      // Upgrade placement?
+    public List<UpgradeItem> upgradeItems;
     [SerializeField]
-    public int seismographAmount = 0;
+    public int seismographAmount = 2;
 
     public void OnValidate()
     {

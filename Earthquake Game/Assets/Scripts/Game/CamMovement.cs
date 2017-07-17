@@ -9,7 +9,7 @@ public class CamMovement : MonoBehaviour {
     private bool movedSinceMouseDown = false;
     public float keyMoveSpeed = 1f;
 
-    public Vector4 limits = new Vector4(0, 20, -6, 6);
+    public Vector4 limits = new Vector4(0, 500, -150, 150);
 
     // Zoom stuff
     public float minScale = 0.1f;

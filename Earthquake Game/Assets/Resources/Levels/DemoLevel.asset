@@ -16,15 +16,11 @@ MonoBehaviour:
   soilLayers: {fileID: 0}
   buildingZones:
   - allowedPlacements:
-    - building: 0
-      upgrade: 0
-    - building: 0
+    - building: 1
       upgrade: 0
     gridPosition: 4
   - allowedPlacements:
-    - building: 0
-      upgrade: 0
-    - building: 0
+    - building: 1
       upgrade: 0
     gridPosition: 12
   earthquake:
@@ -36,7 +32,9 @@ MonoBehaviour:
     shakeFadeIn: 3
     shakeFadeOut: 15
     position: {x: 128, y: -96}
-  cameraLimits: {x: 0, y: 20, z: -6, w: 6}
+  scenery: {fileID: 11400000, guid: 5e0c1e233a1261644a928a56e3d65c57, type: 2}
+  other: []
+  cameraLimits: {x: 0, y: 500, z: -150, w: 150}
   tutorial: {fileID: 0}
   start: {fileID: 0}
   pass: {fileID: 0}
@@ -47,15 +45,5 @@ MonoBehaviour:
     amount: 2
     image: {fileID: 21300000, guid: 614c1e5f1311fff4e837c531c8f1b291, type: 3}
     tooltipText: abc
-  upgradeItems:
-  - name: C
-    prefab: {fileID: 0}
-    amount: 0
-    image: {fileID: 0}
-    tooltipText: 
-  - name: D
-    prefab: {fileID: 0}
-    amount: 0
-    image: {fileID: 0}
-    tooltipText: 
+  upgradeItems: []
   seismographAmount: 2

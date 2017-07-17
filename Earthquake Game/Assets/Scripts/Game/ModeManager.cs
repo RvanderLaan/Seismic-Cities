@@ -64,7 +64,7 @@ public class ModeManager : MonoBehaviour {
             GameObject[] seismographs = GameObject.FindGameObjectsWithTag("Seismograph");
             earthquakeSimulator.simulateEarthquake(seismographs);
 
-            StartCoroutine(setGameMode(GameMode.Building, finishWaitTime));
+            StartCoroutine(nextMode(finishWaitTime));
         }
         else if (mode == GameMode.Building && newMode == GameMode.Upgrade) {
             if (!buildingList.finishedPlacing()) {
@@ -92,7 +92,7 @@ public class ModeManager : MonoBehaviour {
                 if (b != null)
                     b.gameObject.SetActive(false);
             }
-
+            Debug.Log("Should work...");
             targetController.gameObject.SetActive(true);
             earthquakeSimulator.simulateEarthquake(platforms);
 
@@ -103,7 +103,7 @@ public class ModeManager : MonoBehaviour {
                 if (bpc.building != null && bpc.building.type == Building.BuildingType.Thematic)
                     continue;
                 else if (!bpc.isCorrect()) {
-                    Debug.Log(bpc.building);
+                    Debug.Log("Incorrect placement: " + bpc.building);
                     passed = false;
                     break;
                 }
@@ -116,13 +116,6 @@ public class ModeManager : MonoBehaviour {
             }
         } else if (mode == GameMode.Upgrade && newMode == GameMode.Building) {
             // Todo: Remove/reset upgrades when going back?
-
-        } else if (mode == GameMode.Upgrade && newMode == GameMode.Simulation) {
-            // Check if all foundations have been set
-            if (!upgradeList.finishedPlacing()) {
-                userFeedback.setText("Place all upgrades before continuing");
-                return;
-            }
 
         } else if (newMode == GameMode.Pass) {
             onPass.Invoke();
@@ -166,6 +159,11 @@ public class ModeManager : MonoBehaviour {
             Debug.Log("Mode not recognized: " + newMode);
     }
 
+    IEnumerator nextMode(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        nextMode();
+    }
     public void nextMode()
     {
         if (modeIndex + 1 < modeOrder.Length)

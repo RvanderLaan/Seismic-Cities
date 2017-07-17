@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92ca80e466ad9244af6d3397ec61acb, type: 3}
+  m_Name: DemoLevel2
+  m_EditorClassIdentifier: 
+  levelName: DemoLevel2
+  seed: 0
+  soilLayers: {fileID: 0}
+  buildingZones: []
+  earthquake:
+    intervalBetweenWaves: 1
+    numberOfWaves: 5
+    intensityOfWaves: 1
+    shakeMagnitude: 0.8
+    shakeRoughness: 5
+    shakeFadeIn: 3
+    shakeFadeOut: 15
+    position: {x: 128, y: -96}
+  scenery: {fileID: 0}
+  other: []
+  cameraLimits: {x: 0, y: 20, z: -6, w: 6}
+  tutorial: {fileID: 0}
+  start: {fileID: 0}
+  pass: {fileID: 0}
+  fail: {fileID: 0}
+  buildingItems: []
+  upgradeItems: []
+  seismographAmount: 0

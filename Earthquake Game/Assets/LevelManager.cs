@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
@@ -9,16 +10,15 @@ public class LevelManager : MonoBehaviour {
 
     public List<LevelData> levels;
 
-    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton;
+    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer;
 
-	// Use this for initialization
-	void Start () {
+    public int levelScale = 8;
+
+    public Button nextLevel, restart;
+
+    // Use this for initialization
+    void Start () {
         constructLevel(levels[levelIndex]);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     public LevelData getLevelData()
@@ -31,43 +31,16 @@ public class LevelManager : MonoBehaviour {
         // Set random seed
         Random.InitState(levelData.seed != 0 ? levelData.seed : levelData.levelName.GetHashCode());
 
-
         // Set level name, done internally
-
 
         // Set terrain blocks
 
-        int levelScale = 8;
 
         // Create building zones
-        GameObject bz = Resources.Load("Prefabs/BuildingZone") as GameObject;
-        BuildingZone bzComp = bz.GetComponent<BuildingZone>();
-        bzComp.buildingList = buildingList.GetComponent<BuildingList>();
-        bzComp.upgradeList = upgradeList.GetComponent<UpgradeList>();
-        foreach (BuildingZoneData data in levelData.buildingZones)
-        {
-            GameObject instance = GameObject.Instantiate(bz, buildingZones);
-            
-            // Vector3 pos = new Vector3(data.gridPosition, grid.getHeight(data.gridPosition), 1);
-            Vector2 origin = new Vector3(levelScale * data.gridPosition, levelScale * Grid.dimensions.yMax);
+        CreateBuildingZones(levelData.buildingZones);
 
-            RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, Grid.dimensions.height * levelScale);
-            Debug.Log("Origin: " + origin);
-            if (hit.collider != null)
-            {
-                Debug.Log(hit.point);
-                instance.transform.position = hit.point;
-            }
-            else
-            {
-                Debug.Log("No no no");
-            }
-
-                
-        }
-
-        // Set trees
-
+        // Set scenery (trees, rocks, plants, etc.)
+        CreateScenery(levelData.cameraLimits, levelData.scenery);
 
         // Set lists
         BuildingList bList = buildingList.GetComponent<BuildingList>();
@@ -77,6 +50,72 @@ public class LevelManager : MonoBehaviour {
         UpgradeList uList = upgradeList.GetComponent<UpgradeList>();
         uList.upgradeItems = levelData.upgradeItems;
 
-        // Seismograph
+        // Seismograph, done internally
+
+        // UI:
+        // Next level
+        nextLevel.onClick.RemoveAllListeners();
+        nextLevel.onClick.AddListener(() => constructLevel(levels[++levelIndex]));
+
+        // Restart
+        restart.onClick.RemoveAllListeners();
+        restart.onClick.AddListener(() => constructLevel(levelData));
+    }
+
+    void CreateBuildingZones(List<BuildingZoneData> list)
+    {
+        // Raycast down onto terrain
+        GameObject bz = Resources.Load("Prefabs/BuildingZone") as GameObject;
+        BuildingZone bzComp = bz.GetComponent<BuildingZone>();
+        bzComp.buildingList = buildingList.GetComponent<BuildingList>();
+        bzComp.upgradeList = upgradeList.GetComponent<UpgradeList>();
+        foreach (BuildingZoneData data in list)
+        {
+            GameObject instance = GameObject.Instantiate(bz, buildingZones);
+            BuildingZone bzInstance = instance.GetComponent<BuildingZone>();
+            bzInstance.allowedPlacements = data.allowedPlacements;
+           
+            Vector2 origin = new Vector3(levelScale * data.gridPosition, levelScale * Grid.dimensions.yMax);
+
+            RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, Grid.dimensions.height * levelScale);
+            if (hit.collider != null)
+            {
+                instance.transform.position = hit.point;
+            }
+            else
+            {
+                Debug.LogError("Building zone cannot be placed (Gridposition: " + data.gridPosition + ")");
+            }
+        }
+    }
+
+    void CreateScenery(Vector4 limits, Scenery scenery)
+    {
+        Debug.Log(limits);
+        // Raycast down onto terrain
+        for (float i = limits.x; i < limits.y; i += levelScale)
+        {
+            bool spawn = Random.value < scenery.spawnChance;
+ 
+            if (spawn)
+            {
+                Vector2 origin = new Vector3(i, levelScale * Grid.dimensions.yMax);
+
+                RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, Grid.dimensions.height * levelScale);
+                if (hit.collider != null)
+                {
+                    // Todo: Check for building zone or other collider
+
+                    int randomIndex = Random.Range(0, scenery.prefabs.Length);
+                    GameObject prefab = scenery.prefabs[randomIndex];
+                    GameObject instance = GameObject.Instantiate(prefab, sceneryContainer);
+
+                    Vector3 pos = hit.point;
+                    pos.z -= 1;
+                    instance.transform.position = pos;
+                    instance.transform.localScale = instance.transform.localScale * Random.Range(1 - scenery.randomScale, 1 + scenery.randomScale);
+                }
+            }            
+        }
     }
 }
