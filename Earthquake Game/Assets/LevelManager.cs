@@ -11,13 +11,19 @@ public class LevelManager : MonoBehaviour {
     public List<LevelData> levels;
 
     public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer, targetController;
+    public LevelName levelName;
+    public ModeManager modeManager;
+    public SeismographPlacer seismographPlacer;
 
     public Transform[] objectContainers;
 
     public int levelScale = 8;
 
+    public static Rect dimensions = new Rect(-32, -48, 128, 64);
+
     // Use this for initialization
     void Start () {
+        Debug.Log("STARTING HERRRRRRRRRRRRRRRRRE!");
         ConstructLevel(levels[levelIndex]);
 	}
 
@@ -28,6 +34,16 @@ public class LevelManager : MonoBehaviour {
 
     public void NextLevel()
     {
+        if (levelIndex + 1 >= levels.Count)
+        {
+            Debug.Log("You won!");
+            levelIndex = -1;
+
+            if (levels.Count > 0)
+                NextLevel();
+            return;
+        }
+
         // Todo: Loading screen/fade
 
         // Destruct previous level
@@ -44,7 +60,7 @@ public class LevelManager : MonoBehaviour {
     public void Restart()
     {
         levelIndex--;
-        ConstructLevel(levels[levelIndex]);
+        NextLevel();
     }
 
     void DestroyChildren(params Transform[] transforms)
@@ -61,14 +77,18 @@ public class LevelManager : MonoBehaviour {
         // Set random seed
         Random.InitState(levelData.seed != 0 ? levelData.seed : levelData.levelName.GetHashCode());
 
-        // Set earthquake
-        targetController.position = levelData.earthquake.position;
+        Debug.Log("Randomized");
 
+        // Set earthquake
+        targetController.position = new Vector3(levelData.earthquake.position.x, levelData.earthquake.position.y, -2);
+
+        Debug.Log("Target");
 
         // Set level name, done internally
+        levelName.StartFade(levelData.levelName);
 
         // Set terrain blocks
-
+        // terrain.level.destroy(); instantiate new terrain prefab
 
         // Create building zones
         CreateBuildingZones(levelData.buildingZones);
@@ -76,15 +96,24 @@ public class LevelManager : MonoBehaviour {
         // Set scenery (trees, rocks, plants, etc.)
         CreateScenery(levelData.cameraLimits, levelData.scenery);
 
+        Debug.Log("Zones & scenery");
+
         // Set lists
         BuildingList bList = buildingList.GetComponent<BuildingList>();
-        bList.buildingItems = levelData.buildingItems;
-        Debug.Log(levelData.buildingItems.Count);
+        bList.Reset(levelData.buildingItems);
 
         UpgradeList uList = upgradeList.GetComponent<UpgradeList>();
-        uList.upgradeItems = levelData.upgradeItems;
+        uList.Reset(levelData.upgradeItems);
 
-        // Seismograph, done internally
+        // Seismograph
+        seismographPlacer.Reset(levelData.seismographAmount);
+
+        // Dialogue/tutorial
+
+        // Starting mode
+        modeManager.Reset();
+
+        Debug.Log("Done");
     }
 
     void CreateBuildingZones(List<BuildingZoneData> list)
@@ -100,9 +129,9 @@ public class LevelManager : MonoBehaviour {
             BuildingZone bzInstance = instance.GetComponent<BuildingZone>();
             bzInstance.allowedPlacements = data.allowedPlacements;
            
-            Vector2 origin = new Vector3(levelScale * data.gridPosition, levelScale * Grid.dimensions.yMax);
+            Vector2 origin = new Vector3(levelScale * data.gridPosition, levelScale * dimensions.yMax);
 
-            RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, Grid.dimensions.height * levelScale);
+            RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, dimensions.height * levelScale);
             if (hit.collider != null)
             {
                 instance.transform.position = hit.point;
@@ -116,7 +145,6 @@ public class LevelManager : MonoBehaviour {
 
     void CreateScenery(Vector4 limits, Scenery scenery)
     {
-        Debug.Log(limits);
         // Raycast down onto terrain
         for (float i = limits.x; i < limits.y; i += levelScale)
         {
@@ -124,9 +152,9 @@ public class LevelManager : MonoBehaviour {
  
             if (spawn)
             {
-                Vector2 origin = new Vector3(i, levelScale * Grid.dimensions.yMax);
+                Vector2 origin = new Vector3(i, levelScale * dimensions.yMax);
 
-                RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, Grid.dimensions.height * levelScale);
+                RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, dimensions.height * levelScale);
                 if (hit.collider != null)
                 {
                     // Todo: Check for building zone or other collider

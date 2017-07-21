@@ -9,14 +9,31 @@ public class LevelName : MonoBehaviour {
     private float startTime;
 
     private Text text;
+    private Image background;
+    private Color initialBackgroundColor;
 
 	// Use this for initialization
 	void Start () {
-        startTime = Time.time;
         text = GetComponent<Text>();
+        background = transform.parent.GetComponent<Image>();
+        initialBackgroundColor = background.color;
+    }
 
-        text.text = GameObject.Find("_GM").GetComponent<LevelManager>().getLevelData().name;
-	}
+    public void StartFade(string levelName)
+    {
+        if (text == null)
+            Start();
+
+        transform.parent.gameObject.SetActive(true);
+        text.text = levelName;
+        startTime = Time.time;
+
+        Color c = text.color;
+        c.a = 1;
+        text.color = c;
+
+        background.color = initialBackgroundColor;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,8 +43,12 @@ public class LevelName : MonoBehaviour {
             c.a = alpha;
             text.color = c;
 
+            Color bc = initialBackgroundColor;
+            bc.a = alpha * initialBackgroundColor.a;
+            background.color = bc;
+
             if (Time.time > startTime + waitTime + transTime)
-                gameObject.SetActive(false);
+                transform.parent.gameObject.SetActive(false);
         }
 	}
 }

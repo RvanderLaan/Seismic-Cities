@@ -15,7 +15,8 @@ public class UpgradeList : MonoBehaviour {
     private List<Text> amountTexts = new List<Text>();
 
     // Use this for initialization
-    void Start() {
+    public void Reset(List<UpgradeItem> items) {
+        upgradeItems = items;
         // Add buttons to GUI
         foreach (UpgradeItem ui in upgradeItems) {
             GameObject buttonInstance = GameObject.Instantiate(upgradeButton, upgradeItemContainer.transform);

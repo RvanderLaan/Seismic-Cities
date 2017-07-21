@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WaveGenerator : MonoBehaviour {
 
@@ -21,6 +22,8 @@ public class WaveGenerator : MonoBehaviour {
     public Color bestColor = Color.red, worstColor = Color.blue;
 
     private Color renderColor;
+
+    private List<DamageParticleController> damageParticles = new List<DamageParticleController>();
 
     // Use this for initialization
     void Awake() {
@@ -81,6 +84,12 @@ public class WaveGenerator : MonoBehaviour {
             lr.SetPosition(i, transform.position);
         }
         lr.SetPosition(waveAmount, waves[0].transform.position);
+
+        foreach (DamageParticleController dpg in damageParticles)
+            if (dpg != null && dpg.gameObject != null)
+                Destroy(dpg.gameObject);
+        damageParticles.Clear();
+
     }
 
     public bool isDone() {
@@ -108,7 +117,10 @@ public class WaveGenerator : MonoBehaviour {
         {
             Wave particle = (Wave) GameObject.Instantiate(damageParticle, transform.position, Quaternion.identity);
             particle.transform.SetParent(transform);
-            particle.direction = (targets[i].transform.position - transform.position).normalized;
+
+            Vector3 direction = (targets[i].transform.position - transform.position).normalized;
+            direction.z = 0;
+            particle.direction = direction;
             particle.speed = startSpeed;
 
             DamageParticleController dpg = particle.GetComponent<DamageParticleController>();
@@ -118,6 +130,9 @@ public class WaveGenerator : MonoBehaviour {
             dpg.cosineDegreeFactor = 1; //  Mathf.Pow(particle.direction.y, 0.5f);
             dpg.distance = (targets[i].transform.position - transform.position).magnitude;
             dpg.intensity = intensity;
+            dpg.target = targets[i].gameObject;
+
+            damageParticles.Add(dpg);
         }
     }
 	

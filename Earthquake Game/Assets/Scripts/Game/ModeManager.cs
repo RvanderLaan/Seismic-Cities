@@ -195,6 +195,12 @@ public class ModeManager : MonoBehaviour {
         }
     }
 
+    public void Reset()
+    {
+        modeIndex = -1;
+        nextMode();
+    }
+
     private List<GameObject> getModeObjects(GameMode gm) {
         switch (gm) {
             case GameMode.Measuring:

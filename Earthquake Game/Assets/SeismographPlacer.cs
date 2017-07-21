@@ -20,14 +20,18 @@ public class SeismographPlacer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GameObject GM = GameObject.Find("_GM");
-        currentCount = GM.GetComponent<LevelManager>().getLevelData().seismographAmount;
-        text = GetComponentInChildren<Text>();
-        text.text = currentCount + "";
-
         Button button = GetComponentInChildren<Button>();
         button.onClick.AddListener(StartPlacement);
         terrainLayer = LayerMask.GetMask("Terrain");
+        text = GetComponentInChildren<Text>();
+    }
+
+    public void Reset(int number)
+    {
+        if (text == null)
+            Start();
+        currentCount = number;
+        text.text = currentCount + "";
     }
 
     void StartPlacement()
@@ -39,6 +43,7 @@ public class SeismographPlacer : MonoBehaviour {
     void CancelPlacement()
     {
         currentCount++;
+        GameObject.Destroy(preview);
     }
 
     void CompletePlacement(Vector3 worldPos)
@@ -61,15 +66,14 @@ public class SeismographPlacer : MonoBehaviour {
 		if (preview != null)
         {
             // Move preview to cursor
-            if (Input.GetMouseButtonDown(1))
+            if (preview != null && Input.GetMouseButtonDown(1))
             {
                 CancelPlacement();
                 return;
             }
             if (Input.GetMouseButtonDown(0))
-            {
                 mouseDownPos = Input.mousePosition;
-            }
+            
 
             // Input mouse position to world space
             Vector3 mousePos = Input.mousePosition;

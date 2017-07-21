@@ -11,6 +11,8 @@ public class DamageParticleController : MonoBehaviour {
 
     public float intensity;
 
+    public GameObject target;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -31,7 +33,6 @@ public class DamageParticleController : MonoBehaviour {
             Destroy(gameObject);
         }
         */
-
         if (collider.gameObject.CompareTag("BuildingPlatform") && collider.gameObject.GetInstanceID() == targetID)
         {
             collider.gameObject.GetComponent<BuildingZone>().startShaking();

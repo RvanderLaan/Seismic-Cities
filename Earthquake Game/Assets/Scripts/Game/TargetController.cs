@@ -22,6 +22,8 @@ public class TargetController : MonoBehaviour {
 
     public float lifeTime = 10;
 
+    public Transform waveContainer;
+
 	// Use this for initialization
 	void Awake () {
         audioSource = GetComponent<AudioSource>();
@@ -29,7 +31,7 @@ public class TargetController : MonoBehaviour {
 
         // Create a few wave generators: More load time but smoother run time
         for (int i = 0; i < initialWaveGenerators; i++) {
-            WaveGenerator wg = (WaveGenerator)GameObject.Instantiate(instance, transform.position, Quaternion.identity);
+            WaveGenerator wg = (WaveGenerator)GameObject.Instantiate(instance, transform.position, Quaternion.identity, waveContainer);
             wg.lifeTime = lifeTime;
             wg.gameObject.SetActive(false);
             waveGenerators.Enqueue(wg);
@@ -44,13 +46,12 @@ public class TargetController : MonoBehaviour {
             wg = waveGenerators.Dequeue();
             wg.reset();
         } else {
-            wg = (WaveGenerator)GameObject.Instantiate(instance, transform.position, Quaternion.identity);
+            wg = (WaveGenerator)GameObject.Instantiate(instance, transform.position, Quaternion.identity, waveContainer);
         }
+        wg.transform.position = transform.position;
         wg.intensity = intensity * 5000;
         waveGenerators.Enqueue(wg);
-        
         wg.startWave(targets);
-        wg.transform.position = transform.position;
 
         //audioSource.pitch = Random.Range(0.5f, 1f);
         //audioSource.Play();
@@ -59,7 +60,11 @@ public class TargetController : MonoBehaviour {
     public void stopWaves() {
         if (waveGenerators != null)
             foreach (WaveGenerator wg in waveGenerators)
+            {
                 wg.gameObject.SetActive(false);
+
+            }
+                
     }
 
 }

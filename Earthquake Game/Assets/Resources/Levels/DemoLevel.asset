@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: DemoLevel
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelName: Demo Level
-  seed: 0
+  levelName: Level 1
+  seed: 1
   soilLayers: {fileID: 0}
   buildingZones:
   - allowedPlacements:

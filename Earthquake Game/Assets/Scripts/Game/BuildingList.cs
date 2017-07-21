@@ -13,13 +13,15 @@ public class BuildingList : MonoBehaviour {
     public GameObject tooltipPrefab;
 
     private List<Text> amountTexts = new List<Text>();
-    
-	// Use this for initialization
-	void Start () {
-		// Add buttons to GUI
-        foreach(BuildingItem bi in buildingItems) {
+
+    public void Reset(List<BuildingItem> items)
+    {
+        buildingItems = items;
+        // Add buttons to GUI
+        foreach (BuildingItem bi in buildingItems)
+        {
             GameObject buttonInstance = GameObject.Instantiate(buildingButton, buildingItemContainer.transform);
-            
+
             // Clicky stuff
             Button b = buttonInstance.GetComponentInChildren<Button>();
             b.GetComponent<Image>().sprite = bi.image;
@@ -54,7 +56,7 @@ public class BuildingList : MonoBehaviour {
             // Follow position of button
             tooltip.GetComponent<Follow2D>().target = buttonInstance.GetComponent<RectTransform>();
         }
-	}
+    }
 
     public bool finishedPlacing() {
         foreach (Text t in amountTexts) {
