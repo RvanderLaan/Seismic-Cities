@@ -35,9 +35,14 @@ public class Seismograph : MonoBehaviour {
     public Texture2D graphBackground;
     public float xOffset = 0.3f;
 
+    private bool[] lampStatus;
+    private Image[] lampImages, lampGlowImages;
+
     float[] signature = { .33f, 1f, .42f, .25f, .15f, .92f, .12f, .22f, .56f, .23f, .15f, .28f, .13f, .23f, .05f, .17f, .29f, 0.05f, .02f, .04f, };
 
     private float distanceIntensity = 1;
+
+    public float offSat = 0.2f, onSat = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -58,6 +63,31 @@ public class Seismograph : MonoBehaviour {
             for (int j = 0; j < graphTexture.height; j++)
                 graphTexture.SetPixel(i, j, gridColor);
         graphTexture.Apply();
+
+        // Set lamps off
+        Transform lampContainer = transform.parent.Find("Seismogram").Find("Lamps");
+        lampImages = new Image[lampContainer.childCount];
+        lampGlowImages = new Image[lampContainer.childCount];
+        lampStatus = new bool[lampContainer.childCount];
+        for (int i = 0; i < lampContainer.childCount; i++) {
+            lampImages[i] = lampContainer.GetChild(i).GetChild(0).GetComponent<Image>();
+            lampGlowImages[i] = lampContainer.GetChild(i).GetChild(1).GetComponent<Image>();
+        }
+        SetLamps(0);
+    }
+
+    private void SetLamps(float factor)
+    {
+        for (int i = 0; i < lampImages.Length; i++)
+        {
+            bool on = i < Mathf.Round(factor * lampImages.Length);
+            Image lamp = lampImages[i];
+            float H, S, V;
+            Color.RGBToHSV(lamp.color, out H, out S, out V);
+            lamp.color = Color.HSVToRGB(H, on ? onSat : offSat, V);
+            lampStatus[i] = on;
+            lampGlowImages[i].color = lamp.color;
+        }
     }
 
     private void DrawLine(Texture2D tex, Vector2 p1, Vector2 p2, Color col)
@@ -118,6 +148,12 @@ public class Seismograph : MonoBehaviour {
                 moving = false;
             }
         }
+        for (int i = 0; i < lampGlowImages.Length; i++)
+        {
+            Color col = lampGlowImages[i].color;
+            col.a = lampStatus[i] ? (Mathf.Sin(Time.time * Mathf.PI * 2 - i) / 2 + 1) * 0.3f : 0;
+            lampGlowImages[i].color = col;
+        }
 	}
 
     public void StartMoving()
@@ -131,6 +167,8 @@ public class Seismograph : MonoBehaviour {
             // wrapper.gameObject.SetActive(true);
             moving = true;
             startTime = Time.time;
+
+            SetLamps(distanceIntensity);
         }
     }
 }
