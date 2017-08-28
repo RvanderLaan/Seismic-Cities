@@ -8,21 +8,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: DemoLevel
-  m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelName: Level 1
-  seed: 1
-  soilLayers: {fileID: 100002, guid: d1ab3202b2e5d4b4daa19ec133d43f7f, type: 3}
+  m_Script: {fileID: 11500000, guid: fd79b67bd3908c64ab472281c0d7620d, type: 3}
+  m_Name: DemoFix
+  m_EditorClassIdentifier: 
+  levelName: Test
+  seed: 0
+  soilLayers: {fileID: 100000, guid: 96771e7c91ab6214a9984f9eded5874b, type: 3}
   buildingZones:
-  - allowedPlacements:
-    - building: 1
-      upgrade: 0
-    gridPosition: 4
-  - allowedPlacements:
-    - building: 1
-      upgrade: 0
-    gridPosition: 12
+  - allowedPlacements: []
+    gridPosition: 0
   earthquake:
     intervalBetweenWaves: 1
     numberOfWaves: 5
@@ -34,7 +28,7 @@ MonoBehaviour:
     position: {x: 128, y: -96}
   scenery: {fileID: 11400000, guid: 5e0c1e233a1261644a928a56e3d65c57, type: 2}
   other: []
-  cameraLimits: {x: 0, y: 500, z: -150, w: 150}
+  cameraLimits: {x: 0, y: 599, z: -150, w: 150}
   tutorial: {fileID: 0}
   start: {fileID: 0}
   pass: {fileID: 0}
@@ -42,8 +36,8 @@ MonoBehaviour:
   buildingItems:
   - name: Stone house
     prefab: {fileID: 114947300232902414, guid: d08a803ddb9a1bd4d80b52df5a88b998, type: 2}
-    amount: 2
-    image: {fileID: 21300000, guid: 614c1e5f1311fff4e837c531c8f1b291, type: 3}
-    tooltipText: abc
+    amount: 1
+    image: {fileID: 21300000, guid: ed896571b96cb5545884c3e5aac68def, type: 3}
+    tooltipText: ASDF
   upgradeItems: []
   seismographAmount: 2

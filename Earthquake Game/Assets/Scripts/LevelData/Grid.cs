@@ -1,9 +1,4 @@
-﻿#if UNITY_EDITOR 
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
+﻿using UnityEngine;
 
 [ExecuteInEditMode]
 public class Grid : MonoBehaviour {
@@ -17,7 +12,9 @@ public class Grid : MonoBehaviour {
 
     private SoilBlock[] blocks;
 
-	// Use this for initialization
+#if UNITY_EDITOR
+
+    // Use this for initialization
     void OnEnable() {
         levelData = GameObject.Find("_GM").GetComponent<LevelManager>().getLevelData();
         // Todo: Convert soil blocks to appropriate gameobjects
@@ -71,5 +68,5 @@ public class Grid : MonoBehaviour {
 
         return 0;
     }
-}
 #endif
+}

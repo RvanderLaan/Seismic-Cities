@@ -10,7 +10,7 @@ public class Soil : MonoBehaviour {
     private float speedCoefficient = 1f;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         switch (type) {
             case SoilType.Bedrock:
                 speedCoefficient = 1.5f;
@@ -29,20 +29,18 @@ public class Soil : MonoBehaviour {
                 break;
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     void OnTriggerEnter2D(Collider2D collider) {
+        Debug.Log("ENTER" + speedCoefficient + ", " + collider.gameObject.name);
         Wave wave = collider.gameObject.GetComponent<Wave>();
         if (wave != null) {
             wave.speed *= speedCoefficient;
         }
     }
 
-    void OnTriggerExit2D(Collider2D collider) {
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        Debug.Log("EXIT");
         Wave wave = collider.gameObject.GetComponent<Wave>();
         if (wave != null) {
             wave.speed /= speedCoefficient;

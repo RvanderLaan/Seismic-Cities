@@ -10,7 +10,7 @@ public class ColliderCreator : MonoBehaviour
     private Vector3[] vertices;
     public bool isTrigger = false;
 
-    void Start()
+    void Awake()
     {
         // Get the polygon collider (create one if necessary)
         polygonCollider = GetComponent<PolygonCollider2D>();

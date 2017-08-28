@@ -49,7 +49,7 @@ public class Seismograph : MonoBehaviour {
         // EventManager.StartListening("SimulateEarthquake", StartMoving);
         // Todo: Init texture size, ~2000 x 500?
 
-        graphTexture = new Texture2D(600, 150, TextureFormat.RGB24, true);
+        graphTexture = new Texture2D(1000, 300, TextureFormat.RGB24, true);
         rawImage = transform.parent.GetComponentInChildren<RawImage>();
         rawImage.texture = graphTexture;
         prevX = 0;

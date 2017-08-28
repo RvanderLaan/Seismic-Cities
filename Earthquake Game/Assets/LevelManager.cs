@@ -22,9 +22,14 @@ public class LevelManager : MonoBehaviour {
     public static Rect dimensions = new Rect(-32, -48, 128, 64);
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         Debug.Log("STARTING HERRRRRRRRRRRRRRRRRE!");
-        ConstructLevel(levels[levelIndex]);
+        Debug.Log("LevelIndex: " + levelIndex);
+        Debug.Log("Levels length: " + levels.Count);
+        LevelData ld = (LevelData) levels[levelIndex];
+        Debug.Log(ld);
+        Debug.Log(ld.name);
+        ConstructLevel(ld);
 	}
 
     public LevelData getLevelData()
@@ -87,8 +92,10 @@ public class LevelManager : MonoBehaviour {
         // Set level name, done internally
         levelName.StartFade(levelData.levelName);
 
-        // Set terrain blocks
-        // terrain.level.destroy(); instantiate new terrain prefab
+        // Add terrain
+        //for (int i = 0; i < terrain.transform.childCount; i++)
+        //    GameObject.Destroy(terrain.transform.GetChild(i);
+        SetupTerrain(levelData.soilLayers);
 
         // Create building zones
         CreateBuildingZones(levelData.buildingZones);
@@ -114,6 +121,68 @@ public class LevelManager : MonoBehaviour {
         modeManager.Reset();
 
         Debug.Log("Done");
+    }
+
+    void SetupTerrain(GameObject terrainPrefab)
+    {
+        for (int i = 0; i < terrainPrefab.transform.childCount; i++)
+        {
+            Debug.Log(terrainPrefab.transform.GetChild(i).name);
+        }
+        GameObject separatedPrefab = terrainPrefab.transform.Find("Separated").gameObject;
+        GameObject allPrefab = terrainPrefab.transform.Find("All_applied").gameObject;
+
+        GameObject separated = Instantiate(separatedPrefab, terrain);
+        //GameObject all = Instantiate(allPrefab, terrain);
+
+        for (int i = 0; i < separated.transform.childCount; i++)
+        {
+            // Add collision to separated layers
+            GameObject layer = separated.transform.GetChild(i).gameObject;
+            layer.SetActive(false);
+            layer.transform.localScale = new Vector3(-10, 10, -10);
+            ColliderCreator cc = layer.AddComponent<ColliderCreator>();
+            cc.isTrigger = true;
+            Rigidbody2D r2d = layer.AddComponent<Rigidbody2D>();
+            r2d.isKinematic = true;
+
+            layer.layer = LayerMask.NameToLayer("Terrain");
+            Soil soil = layer.AddComponent<Soil>();
+            Soil.SoilType soilType;
+            switch (layer.name)
+            {
+                case "Bedrock":
+                    soilType = Soil.SoilType.Bedrock;
+                    break;
+                case "Volcanic":
+                case "Marl":
+                    soilType = Soil.SoilType.Rock;
+                    break;
+                case "Limestone":
+                    soilType = Soil.SoilType.SoftRock;
+                    break;
+                case "Clay":
+                    soilType = Soil.SoilType.Clay;
+                    break;
+                case "Sand":
+                    soilType = Soil.SoilType.Sand;
+                    break;
+                default:
+                    Debug.LogWarning("No correct soil type found for material '" + layer.name + "'");
+                    soilType = Soil.SoilType.Bedrock;
+                    break;
+            }
+            soil.type = soilType;
+
+            layer.SetActive(true);
+        }
+
+        //ColliderCreator ccAll = all.AddComponent<ColliderCreator>();
+        //all.GetComponent<MeshRenderer>().enabled = true;
+        //all.transform.localScale = new Vector3(-10, 10, -10);
+        //all.layer = LayerMask.NameToLayer("Terrain");
+
+        // Todo: Start scripts?
     }
 
     void CreateBuildingZones(List<BuildingZoneData> list)
