@@ -23,9 +23,6 @@ public class LevelManager : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
-        Debug.Log("STARTING HERRRRRRRRRRRRRRRRRE!");
-        Debug.Log("LevelIndex: " + levelIndex);
-        Debug.Log("Levels length: " + levels.Count);
         LevelData ld = (LevelData) levels[levelIndex];
         Debug.Log(ld);
         Debug.Log(ld.name);
@@ -82,12 +79,8 @@ public class LevelManager : MonoBehaviour {
         // Set random seed
         Random.InitState(levelData.seed != 0 ? levelData.seed : levelData.levelName.GetHashCode());
 
-        Debug.Log("Randomized");
-
         // Set earthquake
         targetController.position = new Vector3(levelData.earthquake.position.x, levelData.earthquake.position.y, -2);
-
-        Debug.Log("Target");
 
         // Set level name, done internally
         levelName.StartFade(levelData.levelName);
@@ -103,8 +96,6 @@ public class LevelManager : MonoBehaviour {
         // Set scenery (trees, rocks, plants, etc.)
         CreateScenery(levelData.cameraLimits, levelData.scenery);
 
-        Debug.Log("Zones & scenery");
-
         // Set lists
         BuildingList bList = buildingList.GetComponent<BuildingList>();
         bList.Reset(levelData.buildingItems);
@@ -119,8 +110,6 @@ public class LevelManager : MonoBehaviour {
 
         // Starting mode
         modeManager.Reset();
-
-        Debug.Log("Done");
     }
 
     void SetupTerrain(GameObject terrainPrefab)
@@ -149,16 +138,18 @@ public class LevelManager : MonoBehaviour {
             layer.layer = LayerMask.NameToLayer("Terrain");
             Soil soil = layer.AddComponent<Soil>();
             Soil.SoilType soilType;
-            switch (layer.name)
+            switch (layer.GetComponent<MeshRenderer>().material.name)
             {
                 case "Bedrock":
                     soilType = Soil.SoilType.Bedrock;
                     break;
                 case "Volcanic":
                 case "Marl":
+                case "Sandstone":
                     soilType = Soil.SoilType.Rock;
                     break;
                 case "Limestone":
+                case "Saltstone":
                     soilType = Soil.SoilType.SoftRock;
                     break;
                 case "Clay":
@@ -169,7 +160,7 @@ public class LevelManager : MonoBehaviour {
                     break;
                 default:
                     Debug.LogWarning("No correct soil type found for material '" + layer.name + "'");
-                    soilType = Soil.SoilType.Bedrock;
+                    soilType = Soil.SoilType.Sand;
                     break;
             }
             soil.type = soilType;

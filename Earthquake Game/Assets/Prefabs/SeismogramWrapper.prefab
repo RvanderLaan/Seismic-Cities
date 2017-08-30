@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224420461116156958}
   - component: {fileID: 222231559649280714}
   - component: {fileID: 114977676100913286}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224383907425347726}
   - component: {fileID: 222166041724489298}
   - component: {fileID: 114744211890387260}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Lamp (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 61604951126251978}
   - component: {fileID: 50067255459632362}
   - component: {fileID: 114466626843280302}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Seismograph
   m_TagString: Seismograph
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 224323294302083800}
   - component: {fileID: 222180891422875506}
   - component: {fileID: 114199123905984010}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Lamps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 224242214506143914}
   - component: {fileID: 222680313202900140}
   - component: {fileID: 114180005681787040}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 224894468065849066}
   - component: {fileID: 222502178605255978}
   - component: {fileID: 114045684045549936}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 224511928868277568}
   - component: {fileID: 222443341909976328}
   - component: {fileID: 114054443108131662}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 224347226713618968}
   - component: {fileID: 222808859429204128}
   - component: {fileID: 114322766406025938}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 223071159694323068}
   - component: {fileID: 114991414083766430}
   - component: {fileID: 114160983408855896}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Seismogram
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 224382233544307494}
   - component: {fileID: 222809125138517624}
   - component: {fileID: 114956844722855828}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 224164584597887804}
   - component: {fileID: 222008858401762834}
   - component: {fileID: 114135705680927322}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4729221793885076}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SeismogramWrapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 224928412463201630}
   - component: {fileID: 222117159768680384}
   - component: {fileID: 114016738284393296}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 224265766821128640}
   - component: {fileID: 222955971509108520}
   - component: {fileID: 114312066544844912}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Lamp (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 224769242382754044}
   - component: {fileID: 222772613231752286}
   - component: {fileID: 114552524839905306}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 224143070398417866}
   - component: {fileID: 222726647324643470}
   - component: {fileID: 114916019461911406}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 224512507834297868}
   - component: {fileID: 222829792542585848}
   - component: {fileID: 114399832960807634}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 224486171264115572}
   - component: {fileID: 222806602621917810}
   - component: {fileID: 114874260530648644}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 224090557222283208}
   - component: {fileID: 222704982740510098}
   - component: {fileID: 114168425300140796}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 224780306310114004}
   - component: {fileID: 222884053856807178}
   - component: {fileID: 114447150047988724}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Lamp (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 4}

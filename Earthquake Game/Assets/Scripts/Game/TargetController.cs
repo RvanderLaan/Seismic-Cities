@@ -64,7 +64,5 @@ public class TargetController : MonoBehaviour {
                 wg.gameObject.SetActive(false);
 
             }
-                
     }
-
 }

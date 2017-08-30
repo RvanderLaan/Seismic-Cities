@@ -30,8 +30,8 @@ public class Soil : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider) {
-        Debug.Log("ENTER" + speedCoefficient + ", " + collider.gameObject.name);
+    void OnTriggerEnter2D(Collider2D collider)
+    {
         Wave wave = collider.gameObject.GetComponent<Wave>();
         if (wave != null) {
             wave.speed *= speedCoefficient;
@@ -40,7 +40,6 @@ public class Soil : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        Debug.Log("EXIT");
         Wave wave = collider.gameObject.GetComponent<Wave>();
         if (wave != null) {
             wave.speed /= speedCoefficient;

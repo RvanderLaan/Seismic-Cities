@@ -15,6 +15,10 @@ ModelImporter:
     100014: Sand
     100016: Sandstone
     100018: Separated
+    100020: Bedrock_001
+    100022: Clay_001
+    100024: Clay_002
+    100026: Sand_001
     400000: //RootNode
     400002: All_Applied
     400004: All_source
@@ -25,6 +29,10 @@ ModelImporter:
     400014: Sand
     400016: Sandstone
     400018: Separated
+    400020: Bedrock_001
+    400022: Clay_001
+    400024: Clay_002
+    400026: Sand_001
     2300000: //RootNode
     2300002: All_Applied
     2300004: All_source
@@ -34,6 +42,10 @@ ModelImporter:
     2300012: Saltstone
     2300014: Sand
     2300016: Sandstone
+    2300018: Bedrock_001
+    2300020: Clay_001
+    2300022: Clay_002
+    2300024: Sand_001
     3300000: //RootNode
     3300002: All_Applied
     3300004: All_source
@@ -43,6 +55,10 @@ ModelImporter:
     3300012: Saltstone
     3300014: Sand
     3300016: Sandstone
+    3300018: Bedrock_001
+    3300020: Clay_001
+    3300022: Clay_002
+    3300024: Sand_001
     4300000: Sand
     4300002: All_Applied
     4300004: All_source
@@ -51,6 +67,17 @@ ModelImporter:
     4300010: Saltstone
     4300012: Sandstone
     4300014: Clay
+    4300016: Clay_001
+    4300018: Sand_001
+    4300020: Clay_002
+    4300022: Bedrock_001
+    6400000: All_applied
+    6400002: All_source
+    6400004: Bedrock
+    6400006: Clay
+    6400008: Saltstone
+    6400010: Sand
+    6400012: Sandstone
     7400000: Default Take
     9500000: //RootNode
   materials:

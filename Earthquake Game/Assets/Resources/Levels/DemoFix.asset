@@ -15,8 +15,10 @@ MonoBehaviour:
   seed: 0
   soilLayers: {fileID: 100000, guid: 96771e7c91ab6214a9984f9eded5874b, type: 3}
   buildingZones:
-  - allowedPlacements: []
-    gridPosition: 0
+  - allowedPlacements:
+    - building: 6
+      upgrade: 3
+    gridPosition: 1
   earthquake:
     intervalBetweenWaves: 1
     numberOfWaves: 5

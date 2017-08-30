@@ -8,6 +8,7 @@ bl_info = {
 }
 
 import bpy
+import bmesh
 
 class TerrainExporter(bpy.types.Operator):
     bl_label = "SS Terain Exporter"
@@ -35,7 +36,6 @@ class TerrainExporter(bpy.types.Operator):
 
         bpy.ops.object.mode_set(mode = 'EDIT')
 
-
         # UV unwrap from front
         bpy.ops.view3d.viewnumpad(type='FRONT') # Front view
         bpy.ops.mesh.select_all(action = 'SELECT')
@@ -46,6 +46,31 @@ class TerrainExporter(bpy.types.Operator):
         bpy.ops.mesh.separate(type = 'MATERIAL')
         bpy.ops.mesh.select_all(action = 'DESELECT')
         bpy.ops.object.mode_set(mode = 'OBJECT')
+        
+        # Seperate loose objects and simplify mesh
+        bpy.ops.object.select_all(action='SELECT')
+        for obj in bpy.context.selected_objects:
+            bpy.context.scene.objects.active = obj
+            
+            if bpy.context.active_object.active_material is not None:
+                bpy.ops.object.mode_set(mode = 'EDIT')
+                
+                # Dissolve faces
+                bpy.ops.mesh.select_all(action='SELECT')
+                bpy.ops.mesh.dissolve_faces()
+                
+                # Triangluate
+                me = obj.data
+                bm = bmesh.from_edit_mesh(me)
+
+                bmesh.ops.triangulate(bm, faces=bm.faces[:], quad_method=0, ngon_method=0)
+                # Show the updates in the viewport and recalculate n-gon tessellation.
+                bmesh.update_edit_mesh(me, True)
+                
+                # Seperate layers by loose parts
+                bpy.ops.mesh.separate(type='LOOSE')
+                bpy.ops.mesh.select_all(action = 'DESELECT')
+                bpy.ops.object.mode_set(mode = 'OBJECT')
 
         # Rename layers based on material name
         bpy.ops.object.select_all(action='SELECT')
