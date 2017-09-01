@@ -24,6 +24,8 @@ public class Tutorial : MonoBehaviour {
 
     private bool cameraIsMoving = false;
 
+    public bool startAtStart = true;
+
     public void Start()
     {
         camMovementScript = cameraContainer.GetComponent<CamMovement>();
@@ -44,6 +46,9 @@ public class Tutorial : MonoBehaviour {
         arrows = instructionObj.transform.Find("Arrows").gameObject;
 
         instructionObj.SetActive(false);
+
+        if (startAtStart)
+            startTutorial();
     }
 
     public void Update()

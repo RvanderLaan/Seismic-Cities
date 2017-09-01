@@ -31,7 +31,7 @@ public class TargetController : MonoBehaviour {
 
         // Create a few wave generators: More load time but smoother run time
         for (int i = 0; i < initialWaveGenerators; i++) {
-            WaveGenerator wg = (WaveGenerator)GameObject.Instantiate(instance, transform.position, Quaternion.identity, waveContainer);
+            WaveGenerator wg = Instantiate(instance, transform.position, Quaternion.identity, waveContainer);
             wg.lifeTime = lifeTime;
             wg.gameObject.SetActive(false);
             waveGenerators.Enqueue(wg);
@@ -46,7 +46,7 @@ public class TargetController : MonoBehaviour {
             wg = waveGenerators.Dequeue();
             wg.reset();
         } else {
-            wg = (WaveGenerator)GameObject.Instantiate(instance, transform.position, Quaternion.identity, waveContainer);
+            wg = Instantiate(instance, transform.position, Quaternion.identity, waveContainer);
         }
         wg.transform.position = transform.position;
         wg.intensity = intensity * 5000;

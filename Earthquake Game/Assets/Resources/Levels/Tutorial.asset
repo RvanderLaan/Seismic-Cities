@@ -9,33 +9,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd79b67bd3908c64ab472281c0d7620d, type: 3}
-  m_Name: DemoFix
+  m_Name: Tutorial
   m_EditorClassIdentifier: 
-  levelName: Netherlands
-  seed: 0
-  soilLayers: {fileID: 100000, guid: 96771e7c91ab6214a9984f9eded5874b, type: 3}
+  levelName: Tutorial
+  seed: 123
+  soilLayers: {fileID: 100010, guid: c4c6695393817944dbd521353cb662ca, type: 3}
   buildingZones:
-  - allowedPlacements:
-    - building: 6
-      upgrade: 3
-    gridPosition: 6
   - allowedPlacements:
     - building: 0
       upgrade: 0
-    gridPosition: 14
+    gridPosition: 15
   - allowedPlacements:
     - building: 6
       upgrade: 3
-    gridPosition: 28
+    gridPosition: 26
   earthquake:
     intervalBetweenWaves: 1
-    numberOfWaves: 6
+    numberOfWaves: 3
     intensityOfWaves: 1
     shakeMagnitude: 0.8
-    shakeRoughness: 8
+    shakeRoughness: 5
     shakeFadeIn: 3
     shakeFadeOut: 15
-    position: {x: 107.1, y: -106.42}
+    position: {x: 128, y: -96}
   scenery: {fileID: 11400000, guid: 5e0c1e233a1261644a928a56e3d65c57, type: 2}
   underground: {fileID: 11400000, guid: f7cc5c1e821d0e646812eecfc904745b, type: 2}
   other: []
@@ -45,15 +41,10 @@ MonoBehaviour:
   pass: {fileID: 0}
   fail: {fileID: 0}
   buildingItems:
-  - name: Village
+  - name: Dutch village
     prefab: {fileID: 114947300232902414, guid: d08a803ddb9a1bd4d80b52df5a88b998, type: 2}
     amount: 1
     image: {fileID: 21300000, guid: 138046790f60ed9489541fe654e6fccb, type: 3}
-    tooltipText: A small Dutch village
-  - name: City
-    prefab: {fileID: 114947300232902414, guid: d08a803ddb9a1bd4d80b52df5a88b998, type: 2}
-    amount: 1
-    image: {fileID: 21300000, guid: 87a84a9c9b9e52140872e18ad9f85208, type: 3}
     tooltipText: A small Dutch village
   upgradeItems: []
   seismographAmount: 2

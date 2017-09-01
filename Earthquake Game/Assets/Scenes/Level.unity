@@ -4792,12 +4792,12 @@ Prefab:
     - target: {fileID: 224135517519949306, guid: 6a468b40251953d49a6d2385905aaea7,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 654
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 224135517519949306, guid: 6a468b40251953d49a6d2385905aaea7,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 369.38
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 224135517519949306, guid: 6a468b40251953d49a6d2385905aaea7,
         type: 2}
@@ -4832,6 +4832,26 @@ Prefab:
     - target: {fileID: 1200888201486118, guid: 6a468b40251953d49a6d2385905aaea7, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224032048492290304, guid: 6a468b40251953d49a6d2385905aaea7,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 224032048492290304, guid: 6a468b40251953d49a6d2385905aaea7,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 224135517519949306, guid: 6a468b40251953d49a6d2385905aaea7,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224135517519949306, guid: 6a468b40251953d49a6d2385905aaea7,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a468b40251953d49a6d2385905aaea7, type: 2}
@@ -5981,13 +6001,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf9a050b6f6c044e80eba0b08f6775f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervalBetweenWaves: 1
-  numberOfWaves: 4
-  intensityOfWaves: 1
-  shakeMagnitude: 0.8
-  shakeRoughness: 5
-  shakeFadeIn: 3
-  shakeFadeOut: 15
+  earthquakeData:
+    intervalBetweenWaves: 1
+    numberOfWaves: 5
+    intensityOfWaves: 1
+    shakeMagnitude: 0.8
+    shakeRoughness: 5
+    shakeFadeIn: 3
+    shakeFadeOut: 15
+    position: {x: 128, y: -96}
   earthquakeSound: {fileID: 8300000, guid: 72732f9651b1faf4f9b3f366a3eb39d4, type: 3}
   targetController: {fileID: 1370538538}
 --- !u!1 &1376570284 stripped
@@ -7762,6 +7784,10 @@ Prefab:
       propertyPath: instructions.Array.data[5].nextEventTrigger
       value: SimulateEarthquake
       objectReference: {fileID: 0}
+    - target: {fileID: 1579010109231300, guid: 634761828ae80f2499cf4e484f17df30, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 634761828ae80f2499cf4e484f17df30, type: 2}
   m_IsPrefabParent: 0
@@ -8263,7 +8289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelIndex: 0
   levels:
-  - {fileID: 11400000, guid: f1be92c0829410b44921c1d269ec89eb, type: 2}
+  - {fileID: 11400000, guid: c7aa70e69075dc448a2a7785d187e121, type: 2}
   - {fileID: 11400000, guid: f1be92c0829410b44921c1d269ec89eb, type: 2}
   buildingZones: {fileID: 1179927356}
   terrain: {fileID: 381087477}
@@ -9882,6 +9908,10 @@ Prefab:
       propertyPath: levelPassedList.Array.data[1].leaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 485525500}
+    - target: {fileID: 1139510046251642, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf17b335720dbb47989a2b008e3823d, type: 2}
   m_IsPrefabParent: 0

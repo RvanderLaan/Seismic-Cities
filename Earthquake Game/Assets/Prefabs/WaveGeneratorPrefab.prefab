@@ -140,6 +140,7 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!1001 &100100000

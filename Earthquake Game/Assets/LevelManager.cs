@@ -81,6 +81,7 @@ public class LevelManager : MonoBehaviour {
 
         // Set earthquake
         targetController.position = new Vector3(levelData.earthquake.position.x, levelData.earthquake.position.y, -2);
+        targetController.GetComponent<Earthquake>().earthquakeData = levelData.earthquake;
 
         // Set level name, done internally
         levelName.StartFade(levelData.levelName);
@@ -95,6 +96,7 @@ public class LevelManager : MonoBehaviour {
 
         // Set scenery (trees, rocks, plants, etc.)
         CreateScenery(levelData.cameraLimits, levelData.scenery);
+        CreateUndergroundScenery(levelData.cameraLimits, levelData.underground);
 
         // Set lists
         BuildingList bList = buildingList.GetComponent<BuildingList>();
@@ -114,12 +116,8 @@ public class LevelManager : MonoBehaviour {
 
     void SetupTerrain(GameObject terrainPrefab)
     {
-        for (int i = 0; i < terrainPrefab.transform.childCount; i++)
-        {
-            Debug.Log(terrainPrefab.transform.GetChild(i).name);
-        }
         GameObject separatedPrefab = terrainPrefab.transform.Find("Separated").gameObject;
-        GameObject allPrefab = terrainPrefab.transform.Find("All_applied").gameObject;
+        // GameObject allPrefab = terrainPrefab.transform.Find("All_applied").gameObject;
 
         GameObject separated = Instantiate(separatedPrefab, terrain);
         //GameObject all = Instantiate(allPrefab, terrain);
@@ -138,7 +136,12 @@ public class LevelManager : MonoBehaviour {
             layer.layer = LayerMask.NameToLayer("Terrain");
             Soil soil = layer.AddComponent<Soil>();
             Soil.SoilType soilType;
-            switch (layer.GetComponent<MeshRenderer>().material.name)
+            string materialName = layer.GetComponent<MeshRenderer>().material.name;
+            string[] split = materialName.Split(' ');
+            if (split.Length > 1)
+                materialName = materialName.Substring(0, materialName.Length - split[split.Length - 1].Length - 1);
+
+            switch (materialName)
             {
                 case "Bedrock":
                     soilType = Soil.SoilType.Bedrock;
@@ -159,7 +162,7 @@ public class LevelManager : MonoBehaviour {
                     soilType = Soil.SoilType.Sand;
                     break;
                 default:
-                    Debug.LogWarning("No correct soil type found for material '" + layer.name + "'");
+                    Debug.LogWarning("No correct soil type found for material '" + materialName + "' (object: '" + layer.name + "')");
                     soilType = Soil.SoilType.Sand;
                     break;
             }
@@ -172,8 +175,6 @@ public class LevelManager : MonoBehaviour {
         //all.GetComponent<MeshRenderer>().enabled = true;
         //all.transform.localScale = new Vector3(-10, 10, -10);
         //all.layer = LayerMask.NameToLayer("Terrain");
-
-        // Todo: Start scripts?
     }
 
     void CreateBuildingZones(List<BuildingZoneData> list)
@@ -205,8 +206,9 @@ public class LevelManager : MonoBehaviour {
 
     void CreateScenery(Vector4 limits, Scenery scenery)
     {
+        if (scenery == null) return;
         // Raycast down onto terrain
-        for (float i = limits.x; i < limits.y; i += levelScale)
+        for (float i = dimensions.xMin * levelScale; i < dimensions.xMax * levelScale; i += levelScale)
         {
             bool spawn = Random.value < scenery.spawnChance;
  
@@ -229,6 +231,38 @@ public class LevelManager : MonoBehaviour {
                     instance.transform.localScale = instance.transform.localScale * Random.Range(1 - scenery.randomScale, 1 + scenery.randomScale);
                 }
             }            
+        }
+    }
+
+    void CreateUndergroundScenery(Vector4 limits, Scenery scenery)
+    {
+        if (scenery == null) return;
+        float bottom = levelScale * dimensions.yMin;
+        // Raycast down onto terrain
+        for (float i = dimensions.xMin * levelScale; i < dimensions.xMax * levelScale; i += levelScale)
+        {
+            bool spawn = Random.value < scenery.spawnChance;
+
+            if (spawn)
+            {
+                Vector2 origin = new Vector3(i, levelScale * dimensions.yMax);
+
+                RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, dimensions.height * levelScale);
+                if (hit.collider != null)
+                {
+                    int randomIndex = Random.Range(0, scenery.prefabs.Length);
+                    GameObject prefab = scenery.prefabs[randomIndex];
+                    GameObject instance = Instantiate(prefab, sceneryContainer);
+
+                    Vector3 pos = hit.point;
+                    pos.y = Random.Range(bottom, pos.y);
+                    pos.z -= 1;
+                    instance.transform.position = pos;
+                    instance.transform.localScale = instance.transform.localScale * Random.Range(1 - scenery.randomScale, 1 + scenery.randomScale);
+                    if (scenery.randomRotation)
+                        instance.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360)));
+                }
+            }
         }
     }
 }

@@ -15,7 +15,6 @@ public class DamageParticleController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(collider.gameObject.name);
         /*
         if (collider.gameObject.tag == "Building" && collider.gameObject.GetInstanceID() == buildingID)
         {

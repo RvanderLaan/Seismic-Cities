@@ -34,7 +34,7 @@ public class LevelDataScript : ScriptableObject
     // public List<Plate> plates;
 
     [SerializeField]
-    public Scenery scenery;
+    public Scenery scenery, underground;
     [SerializeField]
     public GameObject[] other; // E.g. tsunamis, will be instantiated at start of level
     

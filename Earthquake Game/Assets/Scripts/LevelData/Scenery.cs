@@ -8,4 +8,5 @@ public class Scenery : ScriptableObject {
     public GameObject[] prefabs;
     public float spawnChance = 0.5f;
     public float randomScale = 0.2f;
+    public bool randomRotation = false;
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7524bc2c1f47f4a89d55b83cdfd583, type: 3}
+  m_Name: UndergroundFossils
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 1672540177758860, guid: 7e75034a516998e4ca1fe7b9a87c8edd, type: 2}
+  - {fileID: 1893940638244226, guid: 2dcf7efabc67cc744ab924f56ab87b7a, type: 2}
+  - {fileID: 1495695089111882, guid: 6aefcaa680da76b40b4b057deef7f8fd, type: 2}
+  - {fileID: 1177801385230134, guid: d23210458cf3ded4c9482173b11731f6, type: 2}
+  - {fileID: 1887974022804716, guid: fe531985b4a36ae4185a41b07f3c40e0, type: 2}
+  spawnChance: 0.1
+  randomScale: 0.3
+  randomRotation: 1

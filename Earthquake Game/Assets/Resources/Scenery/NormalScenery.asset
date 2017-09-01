@@ -15,3 +15,4 @@ MonoBehaviour:
   - {fileID: 1617833691876896, guid: c4dff09ac6f7ac74fae857158487b197, type: 2}
   spawnChance: 0.3
   randomScale: 0.3
+  randomRotation: 0

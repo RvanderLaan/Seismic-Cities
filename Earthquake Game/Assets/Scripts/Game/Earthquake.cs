@@ -5,11 +5,7 @@ using EZCameraShake;
 
 public class Earthquake : MonoBehaviour {
 
-    public float intervalBetweenWaves;
-    public int numberOfWaves;
-    public float intensityOfWaves;
-
-    public float shakeMagnitude = 0.8f, shakeRoughness = 5, shakeFadeIn = 3, shakeFadeOut = 15;
+    public EarthquakeData earthquakeData;
 
     public AudioClip earthquakeSound;
 
@@ -38,16 +34,16 @@ public class Earthquake : MonoBehaviour {
 
     IEnumerator SpawnWaves()
     {
-        CameraShakeInstance c = CameraShaker.Instance.StartShake(shakeMagnitude, shakeRoughness, shakeFadeIn);
+        CameraShakeInstance c = CameraShaker.Instance.StartShake(earthquakeData.shakeMagnitude, earthquakeData.shakeRoughness, earthquakeData.shakeFadeIn);
 
-        for (int i = 0; i < numberOfWaves; i++)
+        for (int i = 0; i < earthquakeData.numberOfWaves; i++)
         {
             //spawn a wave
             targetController.createWave(Random.Range(0.5f, 1f), targets);
-            yield return new WaitForSeconds(intervalBetweenWaves);
+            yield return new WaitForSeconds(earthquakeData.intervalBetweenWaves);
         }
         yield return new WaitForSeconds(5);
 
-        c.StartFadeOut(shakeFadeOut);
+        c.StartFadeOut(earthquakeData.shakeFadeOut);
     }
 }
