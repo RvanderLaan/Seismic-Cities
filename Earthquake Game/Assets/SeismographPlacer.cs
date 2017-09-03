@@ -18,12 +18,24 @@ public class SeismographPlacer : MonoBehaviour {
 
     Vector3 mouseDownPos;
 
-	// Use this for initialization
-	void Start () {
+    CamMovement camMovement;
+
+    public float camScrollBorderSize = 64;
+    public float scrollSpeed = 64;
+
+    // Use this for initialization
+    void Start () {
         Button button = GetComponentInChildren<Button>();
-        button.onClick.AddListener(StartPlacement);
+        EventTrigger trigger = button.gameObject.AddComponent<EventTrigger>();
+        var pointerDown = new EventTrigger.Entry();
+        pointerDown.eventID = EventTriggerType.PointerDown;
+        pointerDown.callback.AddListener((e) => StartPlacement());
+        trigger.triggers.Add(pointerDown);
+
         terrainLayer = LayerMask.GetMask("Terrain");
         text = GetComponentInChildren<Text>();
+
+        camMovement = Camera.main.transform.parent.GetComponent<CamMovement>();
     }
 
     public void Reset(int number)
@@ -37,13 +49,16 @@ public class SeismographPlacer : MonoBehaviour {
     void StartPlacement()
     {
         if (preview == null && !finishedPlacing())
+        {
             preview = GameObject.Instantiate(seismogramPrefab, seismogramContainer.transform);
+            camMovement.detectClicks = false;
+        }
     }
 
     void CancelPlacement()
     {
-        currentCount++;
-        GameObject.Destroy(preview);
+        Destroy(preview);
+        camMovement.detectClicks = false;
     }
 
     void CompletePlacement(Vector3 worldPos)
@@ -54,26 +69,15 @@ public class SeismographPlacer : MonoBehaviour {
         GameObject instance = GameObject.Instantiate(seismogramPrefab, seismogramContainer.transform);
         instance.transform.position = worldPos;
 
-        if (finishedPlacing())
-            GameObject.Destroy(preview);
-        else
-            StartPlacement();
-
+        Destroy(preview);
+        camMovement.detectClicks = true;
     }
 
 	// Update is called once per frame
 	void Update () {
 		if (preview != null)
         {
-            // Move preview to cursor
-            if (preview != null && Input.GetMouseButtonDown(1))
-            {
-                CancelPlacement();
-                return;
-            }
-            if (Input.GetMouseButtonDown(0))
-                mouseDownPos = Input.mousePosition;
-            
+             mouseDownPos = Input.mousePosition;
 
             // Input mouse position to world space
             Vector3 mousePos = Input.mousePosition;
@@ -90,15 +94,24 @@ public class SeismographPlacer : MonoBehaviour {
                 preview.transform.position = hitPoint;
             }
 
-            RaycastHit2D placementHit = Physics2D.Raycast(worldPos, -Vector2.up, float.MaxValue, terrainLayer);
-            if (placementHit.collider != null)
+            if (Input.GetMouseButtonUp(0))
             {
-                // Place prefab when release
-                if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject() && (Input.mousePosition - mouseDownPos).sqrMagnitude < 4)
-                {
+                if (terrainHit.collider != null && !EventSystem.current.IsPointerOverGameObject() && (Input.mousePosition - mouseDownPos).sqrMagnitude < 4)
                     CompletePlacement(terrainHit.point);
-                }
+                else
+                    CancelPlacement();
             }
+
+
+            // Scroll screen if at border
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                if (mouseDownPos.x < camScrollBorderSize)
+                    camMovement.transform.Translate(scrollSpeed * Vector3.left * Time.deltaTime);
+                else if (mouseDownPos.x > Screen.width - camScrollBorderSize)
+                    camMovement.transform.Translate(scrollSpeed * Vector3.right * Time.deltaTime);
+            }
+
         }
 	}
 

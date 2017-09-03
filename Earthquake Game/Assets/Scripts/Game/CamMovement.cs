@@ -9,6 +9,8 @@ public class CamMovement : MonoBehaviour {
     private bool movedSinceMouseDown = false;
     public float keyMoveSpeed = 1f;
 
+    public bool detectClicks = true;
+
     public Vector4 limits = new Vector4(0, 500, -150, 150);
 
     // Zoom stuff
@@ -52,7 +54,7 @@ public class CamMovement : MonoBehaviour {
         Vector3 pos = transform.position;
 
         // When not using the GUI
-        if (!EventSystem.current.IsPointerOverGameObject()) {
+        if (detectClicks && !EventSystem.current.IsPointerOverGameObject()) {
             // Pan using mouse
             if (Input.GetMouseButton(0)) {
                 Vector3 dMouse = previousMousePosition - Input.mousePosition;
