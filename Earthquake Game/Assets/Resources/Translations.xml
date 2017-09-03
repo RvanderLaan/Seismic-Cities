@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:schema xmlns:ns1="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Row>
+		<ID>newGame</ID>
+		<English>New game</English>
+		<Nederlands>Nieuw spel</Nederlands>
+	</Row>
+	<Row>
+		<ID>learn</ID>
+		<English>Learn</English>
+		<Nederlands>Kennis</Nederlands>
+	</Row>
+	<Row>
+		<ID>options</ID>
+		<English>Options</English>
+		<Nederlands>Opties</Nederlands>
+	</Row>
+	<Row>
+		<ID>credits</ID>
+		<English>Credits</English>
+		<Nederlands>Over</Nederlands>
+	</Row>
+	<Row>
+		<ID>startTutorial</ID>
+		<English>Do you want to play the tutorial?</English>
+		<Nederlands>Wil je uitleg krijgen?</Nederlands>
+	</Row>
+	<Row/>
+	<Row>
+		<ID>netherlands</ID>
+		<English>Netherlands</English>
+		<Nederlands>Nederland</Nederlands>
+	</Row>
+	<Row>
+		<ID>italy</ID>
+		<English>Italy</English>
+		<Nederlands>Italië</Nederlands>
+	</Row>
+	<Row>
+		<ID>japan</ID>
+		<English>Japan</English>
+		<Nederlands>Japan</Nederlands>
+	</Row>
+	<Row>
+		<ID>indonesia</ID>
+		<English>Indonesia</English>
+		<Nederlands>Indonesië</Nederlands>
+	</Row>
+</ns1:schema>

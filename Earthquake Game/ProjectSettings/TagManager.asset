@@ -11,7 +11,7 @@ TagManager:
   - Wave
   - BuildingPlatform
   - Canvas
-  - Seismograph
+  - _GM
   layers:
   - Default
   - TransparentFX
@@ -24,7 +24,7 @@ TagManager:
   - Physics
   - Placement
   - Terrain
-  - Wave
+  - 
   - 
   - 
   - 
