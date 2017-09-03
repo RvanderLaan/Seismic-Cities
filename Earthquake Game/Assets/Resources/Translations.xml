@@ -25,6 +25,28 @@
 		<English>Do you want to play the tutorial?</English>
 		<Nederlands>Wil je uitleg krijgen?</Nederlands>
 	</Row>
+	<Row>
+		<ID>back</ID>
+		<English>Back</English>
+		<Nederlands>Terug</Nederlands>
+	</Row>
+	<Row>
+		<ID>ready</ID>
+		<English>Ready</English>
+		<Nederlands>Klaar</Nederlands>
+	</Row>
+	<Row>
+		<ID>restart</ID>
+		<English>Restart</English>
+		<Nederlands>Herstart</Nederlands>
+	</Row>
+	<Row>
+		<ID>levelSelection</ID>
+		<English>Level selection</English>
+		<Nederlands>Level selecteren</Nederlands>
+	</Row>
+	<Row/>
+	<Row/>
 	<Row/>
 	<Row>
 		<ID>netherlands</ID>
@@ -45,5 +67,27 @@
 		<ID>indonesia</ID>
 		<English>Indonesia</English>
 		<Nederlands>Indonesië</Nederlands>
+	</Row>
+	<Row/>
+	<Row>
+		<ID>seismograph</ID>
+		<English>Seismograph</English>
+		<Nederlands>Seismograaf</Nederlands>
+	</Row>
+	<Row>
+		<ID>seismographDescription</ID>
+		<English>A seismograph is a device that can measure the amount of shaking, or seismic activity, on the surface of the earth.</English>
+		<Nederlands>Een seismograaf is een apparaat dat de hoeveelheid trillen kan meten, ook wel seismische activiteit, op de oppervlakte van de aarde.</Nederlands>
+	</Row>
+	<Row/>
+	<Row>
+		<ID>dutchVillage</ID>
+		<English>Dutch village</English>
+		<Nederlands>Nederlands dorp</Nederlands>
+	</Row>
+	<Row>
+		<ID>dutchCity</ID>
+		<English>Dutch city</English>
+		<Nederlands>Nederlandse stad</Nederlands>
 	</Row>
 </ns1:schema>

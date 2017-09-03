@@ -19,7 +19,7 @@ public class ModeManager : MonoBehaviour {
     public BuildingList buildingList;
     public UpgradeList upgradeList;
 
-    public Button[] guiButtons;
+    public Button backButton, readyButton;
 
     public UserFeedback userFeedback;
 
@@ -55,10 +55,6 @@ public class ModeManager : MonoBehaviour {
         List<GameObject> oldObjs = getModeObjects(mode);
         List<GameObject> newObjs = getModeObjects(newMode);
 
-        // Disable/Enable GUI
-        if (newMode == GameMode.Simulation || mode == GameMode.Simulation)
-            foreach (Button guiButton in guiButtons)
-                guiButton.enabled = newMode != GameMode.Simulation;
         
 
         Debug.Log(mode + " -> " + newMode);
@@ -123,6 +119,9 @@ public class ModeManager : MonoBehaviour {
                 }
             }
 
+            backButton.interactable = false;
+            readyButton.interactable = false;
+
             if (passed) {
                 StartCoroutine(setGameMode(GameMode.Pass, finishWaitTime));
             } else {
@@ -136,6 +135,11 @@ public class ModeManager : MonoBehaviour {
         } else if (newMode == GameMode.Fail) {
             onFail.Invoke();
         }
+
+        // Disable/Enable GUI
+        if (newMode == modeOrder[0]) backButton.interactable = false;
+        else backButton.interactable = newMode != GameMode.Simulation;
+        readyButton.interactable = newMode != GameMode.Simulation;
 
         // In every case, switch all objects
         foreach (GameObject go in oldObjs)
@@ -197,6 +201,7 @@ public class ModeManager : MonoBehaviour {
 
     public void Reset()
     {
+        StopAllCoroutines();
         modeIndex = -1;
         nextMode();
     }

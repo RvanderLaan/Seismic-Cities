@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using EZCameraShake;
 
 public class LevelManager : MonoBehaviour {
 
@@ -10,10 +11,11 @@ public class LevelManager : MonoBehaviour {
 
     public List<LevelData> levels;
 
-    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer, targetController;
+    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer, targetController, menu;
     public LevelName levelName;
     public ModeManager modeManager;
     public SeismographPlacer seismographPlacer;
+
 
     public Transform[] objectContainers;
 
@@ -21,8 +23,12 @@ public class LevelManager : MonoBehaviour {
 
     public static Rect dimensions = new Rect(-32, -48, 128, 64);
 
+    private Fader fader;
+
     // Use this for initialization
     void Awake () {
+        fader = GetComponent<Fader>();
+
         LevelData ld = (LevelData) levels[levelIndex];
         Debug.Log(ld);
         Debug.Log(ld.name);
@@ -34,6 +40,15 @@ public class LevelManager : MonoBehaviour {
         return levels[levelIndex];
     }
 
+    public void PrepNextLevel()
+    {
+        if (CameraShaker.Instance.ShakeInstances.Count >= 1)
+            CameraShaker.Instance.ShakeInstances[0].StartFadeOut(fader.getFadeInTime());
+        menu.gameObject.SetActive(false);
+        fader.BeginFade();
+        Debug.Log(fader.getFadeInTime());
+        Invoke("NextLevel", fader.getFadeInTime());
+    }
     public void NextLevel()
     {
         if (levelIndex + 1 >= levels.Count)
@@ -42,7 +57,7 @@ public class LevelManager : MonoBehaviour {
             levelIndex = -1;
 
             if (levels.Count > 0)
-                NextLevel();
+                PrepNextLevel();
             return;
         }
 
@@ -57,12 +72,14 @@ public class LevelManager : MonoBehaviour {
         // Construct new level
         levelIndex++;
         ConstructLevel(levels[levelIndex]);
+        fader.EndFade();
     }
 
     public void Restart()
     {
+        
         levelIndex--;
-        NextLevel();
+        PrepNextLevel();
     }
 
     void DestroyChildren(params Transform[] transforms)
