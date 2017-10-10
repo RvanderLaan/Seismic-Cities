@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour {
 
     public List<LevelData> levels;
 
-    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer, targetController, menu;
+    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer, targetController, menu, levelSpecific;
     public LevelName levelName;
     public ModeManager modeManager;
     public SeismographPlacer seismographPlacer;
@@ -77,7 +77,6 @@ public class LevelManager : MonoBehaviour {
 
     public void Restart()
     {
-        
         levelIndex--;
         PrepNextLevel();
     }
@@ -114,6 +113,10 @@ public class LevelManager : MonoBehaviour {
         // Set scenery (trees, rocks, plants, etc.)
         CreateScenery(levelData.cameraLimits, levelData.scenery);
         CreateUndergroundScenery(levelData.cameraLimits, levelData.underground);
+
+        // Level specifics
+        foreach (GameObject go in levelData.other)
+            Instantiate(go, go.transform.position, Quaternion.identity, levelSpecific);
 
         // Set lists
         BuildingList bList = buildingList.GetComponent<BuildingList>();

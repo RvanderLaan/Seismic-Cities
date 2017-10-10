@@ -12,7 +12,7 @@ public class BuildingList : MonoBehaviour {
     public List<BuildingItem> buildingItems;
     public GameObject tooltipPrefab;
 
-    private List<Text> amountTexts = new List<Text>();
+    private List<Text> amountTexts;
 
     public void Reset(List<BuildingItem> items)
     {
@@ -20,6 +20,7 @@ public class BuildingList : MonoBehaviour {
         // Add buttons to GUI
         foreach (BuildingItem bi in buildingItems)
         {
+            amountTexts = new List<Text>();
             GameObject buttonInstance = GameObject.Instantiate(buildingButton, buildingItemContainer.transform);
 
             // Clicky stuff
@@ -60,6 +61,7 @@ public class BuildingList : MonoBehaviour {
 
     public bool finishedPlacing() {
         foreach (Text t in amountTexts) {
+            Debug.Log(t.text);
             if (t.text != "0")
                 return false;
         }

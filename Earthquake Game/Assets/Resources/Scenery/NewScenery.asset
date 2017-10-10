@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7524bc2c1f47f4a89d55b83cdfd583, type: 3}
+  m_Name: NewScenery
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 1144787457888548, guid: 2db7e46a9adebcc4ea09821789207a1c, type: 2}
+  - {fileID: 1858305778388352, guid: 30a96ce33fb976242911dc1d3468bf78, type: 2}
+  - {fileID: 1066337002527916, guid: 8a75565c45c940b4faffaa70a035bcc8, type: 2}
+  - {fileID: 1291366866621956, guid: 6af7b56ea1fb1bd48bfe89afcaaf0e6f, type: 2}
+  - {fileID: 1323512055646660, guid: 1df22fb79b5e97e45b0ea006ad743f4a, type: 2}
+  - {fileID: 1628509530121508, guid: 566978ebe1e6d9645a9000c7202a3075, type: 2}
+  - {fileID: 1981174326898500, guid: 5465c67be4042894d8d43f7f769b2b3e, type: 2}
+  spawnChance: 0.3
+  randomScale: 0.2
+  randomRotation: 0
