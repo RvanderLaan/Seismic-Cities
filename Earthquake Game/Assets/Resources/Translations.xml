@@ -45,7 +45,11 @@
 		<English>Level selection</English>
 		<Nederlands>Level selecteren</Nederlands>
 	</Row>
-	<Row/>
+	<Row>
+		<ID>introduction</ID>
+		<English>Seismic Cities is a game developed by students of the TU Delft. Its goal is to make you familiar with a variety of soil types and the impact these soil types have on the destruction caused by earthquakes. This will be learned through a set of interactive scenarios on different places on earth, each based on real world situations.</English>
+		<Nederlands>Seismic Cities is een game ontwikkeld door studenten van de TU Delft. Het doel is om jou bekend te maken met verschillende bodemsoorten en de gevolgen van deze bodemsoorten op de schade die aardbevingen kunnen aanrichten. Hiervoor kun je verschillende scenario's spelen die op verschillende plekken op aarde afspelen. De scenario's zijn ontwikkeld aan hand van echte situaties.</Nederlands>
+	</Row>
 	<Row/>
 	<Row/>
 	<Row>
@@ -89,5 +93,52 @@
 		<ID>dutchCity</ID>
 		<English>Dutch city</English>
 		<Nederlands>Nederlandse stad</Nederlands>
+	</Row>
+	<Row/>
+	<Row/>
+	<Row>
+		<ID>s1-l1-1</ID>
+		<English>What you can see here is the ground consists of two soil types, sand and clay. The earthquake originates from a central spot deep into the earth, the &lt;b&gt;hypocenter&lt;/b&gt;. In this case, it is XX kilometers deep.</English>
+		<Nederlands>Je ziet hier dat de bodem uit twee soorten bestaat, zand en klei. De aardbeving ontstaat op een centrale plek diep in de aarde, het &lt;b&gt;hypocentrum&lt;/b&gt;. In dit geval XX kilometer.</Nederlands>
+	</Row>
+	<Row>
+		<ID>s1-l1-2</ID>
+		<English>You can see that the waves that arise at different speeds go through the soil types and come to the surface. The faster the wave, the more damage it does.</English>
+		<Nederlands>Je ziet dat de golven die ontstaan met verschillende snelheden door de bodemsoorten gaan en aan het opppervlak komen. Hoe sneller de golf hoe meer schade hij aanricht.</Nederlands>
+	</Row>
+	<Row>
+		<ID>s1-l2-1</ID>
+		<English>On the right you see a city that needs to be placed somewhere.</English>
+		<Nederlands>Rechts in beeld zie je de mogelijkheden om een stad te plaatsen.</Nederlands>
+	</Row>
+	<Row>
+		<ID>s1-l2-2</ID>
+		<English>Drag the city to one of the two green spots to place it there.</English>
+		<Nederlands>Sleep de stad naar een van de twee groene plekken om hem daar te plaatsen.</Nederlands>
+	</Row>
+	<Row>
+		<ID>s1-l2-3</ID>
+		<English>If you are satisfied with your choice, press the &lt;b&gt;Start earthquake&lt;/b&gt; button.</English>
+		<Nederlands>Als je tevreden bent met je keuze, druk dan op de &lt;b&gt;Start aardbeving&lt;/b&gt; knop.</Nederlands>
+	</Row>
+	<Row>
+		<ID>s1-l2-fail-1</ID>
+		<English>let's try again</English>
+		<Nederlands>Je ziet dat je stad kapot gegaan is aan de krachten die ontstaan in de bodem door middel van de aardbeving. Laten we het opnieuw proberen!</Nederlands>
+	</Row>
+	<Row>
+		<ID>s1-l2-pass-1</ID>
+		<English>gj</English>
+		<Nederlands>Je hebt de stad op de juiste plek geplaatst en hij is niet stuk gegaan. Hoera!</Nederlands>
+	</Row>
+	<Row>
+		<ID>s1-l2-pass-2</ID>
+		<English>show alternative choice result here</English>
+		<Nederlands>Klei heeft namelijk een elastich effect wat de kracht van de golven versterkt. Je ziet dat je stad hier wel kapot gaat door de krachten die ontstaan in de bodem door middel van de aardbeving.</Nederlands>
+	</Row>
+	<Row/>
+	<Row>
+		<ID>s1-l2-1</ID>
+		<Nederlands>Zodat de steden op de juiste locatie geplaatst worden en niet vernietigd worden moet je goed kijken naar de bodemsoorten en de bodemsamenstelling goed lezen. Omdat dit niet altijd even eenvoudig is, bestaat er de mogelijkheid om 1 seismograaf te plaatsen.</Nederlands>
 	</Row>
 </ns1:schema>

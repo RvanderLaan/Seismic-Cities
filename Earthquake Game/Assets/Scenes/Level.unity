@@ -6996,6 +6996,30 @@ MonoBehaviour:
   maxScale: 80
   scrollSpeed: 7.5
   zoomSmoothness: 0.1
+  autoTransformCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.6582807
+      value: 1.1133616
+      inSlope: 0.7022954
+      outSlope: 0.7022954
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!4 &1305973378
 Transform:
   m_ObjectHideFlags: 0
@@ -10064,6 +10088,7 @@ MonoBehaviour:
   - {fileID: 1252131750}
   failObjects:
   - {fileID: 1379263666}
+  levelManager: {fileID: 0}
   targetController: {fileID: 1370538538}
   earthquakeSimulator: {fileID: 1370538541}
   seismographPlacer: {fileID: 1936264334}
@@ -10118,6 +10143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelIndex: 0
   levels:
+  - {fileID: 11400000, guid: 81ee22ec741339345b69f7781d66aa4e, type: 2}
   - {fileID: 11400000, guid: 80a9c170d02a5084d97e1c97d9c70aa6, type: 2}
   - {fileID: 11400000, guid: f1be92c0829410b44921c1d269ec89eb, type: 2}
   - {fileID: 11400000, guid: c7aa70e69075dc448a2a7785d187e121, type: 2}

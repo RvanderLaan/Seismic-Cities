@@ -13,11 +13,13 @@ public class ModeManager : MonoBehaviour {
 
     GameObject buildingContainer;
 
+    public LevelManager levelManager;
     public TargetController targetController;
     public Earthquake earthquakeSimulator;
     public SeismographPlacer seismographPlacer;
     public BuildingList buildingList;
     public UpgradeList upgradeList;
+    CamMovement cameraMovement;
 
     public Button backButton, readyButton;
 
@@ -27,7 +29,7 @@ public class ModeManager : MonoBehaviour {
 
     private Solutions solutions;
 
-    public int finishWaitTime = 15;
+    public int finishWaitTime = 10;
 
     private int modeIndex = 0;
     private GameMode mode;
@@ -41,11 +43,16 @@ public class ModeManager : MonoBehaviour {
 
     GameMode[] modeOrder = { GameMode.Measuring, GameMode.Simulation, GameMode.Building, GameMode.Upgrade, GameMode.Simulation };
 
-    void Start() {
-        Mode = GameMode.Measuring;
+    private void Awake()
+    {
         buildingContainer = GameObject.Find("BuildingContainer");
         solutions = GetComponent<Solutions>();
+        levelManager = GetComponent<LevelManager>();
+        cameraMovement = Camera.main.transform.parent.GetComponent<CamMovement>();
+    }
 
+    void Start() {
+        Mode = GameMode.Measuring;
         targetController.gameObject.SetActive(false);
     }
 
@@ -54,8 +61,8 @@ public class ModeManager : MonoBehaviour {
     public void setGameMode(GameMode newMode) {
         List<GameObject> oldObjs = getModeObjects(mode);
         List<GameObject> newObjs = getModeObjects(newMode);
-
-        
+        if (cameraMovement != null)
+            cameraMovement.detectClicks = true;
 
         Debug.Log(mode + " -> " + newMode);
         // Exceptions
@@ -67,6 +74,12 @@ public class ModeManager : MonoBehaviour {
                 return;
             }
             targetController.gameObject.SetActive(true);
+
+            // Move camera
+
+            cameraMovement.detectClicks = false;
+            cameraMovement.moveTo((Vector2)targetController.transform.position + new Vector2(0, 64));
+            cameraMovement.zoomTo(cameraMovement.maxScale);
 
             GameObject[] seismographs = GameObject.FindGameObjectsWithTag("Seismograph");
             earthquakeSimulator.simulateEarthquake(seismographs);
@@ -146,7 +159,14 @@ public class ModeManager : MonoBehaviour {
             go.SetActive(false);
         foreach (GameObject go in newObjs)
             go.SetActive(true);
-        
+
+        // Hide UI if not necessary
+        if (newMode == GameMode.Measuring && levelManager != null && levelManager.getLevelData() != null && levelManager.getLevelData().seismographAmount == 0)
+        {
+            foreach (GameObject go in measuringObjects)
+                go.SetActive(false);
+        }
+
 
         mode = newMode;
 

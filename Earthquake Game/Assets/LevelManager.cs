@@ -84,10 +84,8 @@ public class LevelManager : MonoBehaviour {
     void DestroyChildren(params Transform[] transforms)
     {
         foreach (Transform transform in transforms)
-        {
             foreach (Transform child in transform)
-                GameObject.Destroy(child.gameObject);
-        }
+                Destroy(child.gameObject);
     }
 
     void ConstructLevel(LevelData levelData)
