@@ -15,6 +15,8 @@ public class Earthquake : MonoBehaviour {
 
     private GameObject[] targets;
 
+    private CameraShakeInstance c;
+
     // Use this for initialization
     void Start () {
         audioSource = GetComponent<AudioSource>();
@@ -32,17 +34,24 @@ public class Earthquake : MonoBehaviour {
         audioSource.Play();
     }
 
+    public void stopShaking()
+    {
+        if (c != null)
+            c.StartFadeOut(earthquakeData.shakeFadeOut);
+    }
+
     IEnumerator SpawnWaves()
     {
-        CameraShakeInstance c = CameraShaker.Instance.StartShake(earthquakeData.shakeMagnitude, earthquakeData.shakeRoughness, earthquakeData.shakeFadeIn);
+        c = CameraShaker.Instance.StartShake(earthquakeData.shakeMagnitude, earthquakeData.shakeRoughness, earthquakeData.shakeFadeIn);
 
         for (int i = 0; i < earthquakeData.numberOfWaves; i++)
         {
+            Debug.Log("Spawn");
             //spawn a wave
             targetController.createWave(Random.Range(0.5f, 1f), targets);
             yield return new WaitForSeconds(earthquakeData.intervalBetweenWaves);
         }
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(earthquakeData.intervalBetweenWaves);
 
         c.StartFadeOut(earthquakeData.shakeFadeOut);
     }

@@ -30,5 +30,8 @@ public class Utils : MonoBehaviour {
         TextInserter[] textInserters = Object.FindObjectsOfType<TextInserter>();
         foreach (TextInserter ti in textInserters)
             ti.updateText();
+        TextInserterPro[] textInsertersPro = Object.FindObjectsOfType<TextInserterPro>();
+        foreach (TextInserterPro ti in textInsertersPro)
+            ti.updateText();
     }
 }

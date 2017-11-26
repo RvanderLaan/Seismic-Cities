@@ -49,6 +49,8 @@ public class ModeManager : MonoBehaviour {
         solutions = GetComponent<Solutions>();
         levelManager = GetComponent<LevelManager>();
         cameraMovement = Camera.main.transform.parent.GetComponent<CamMovement>();
+
+        EventManager.StartListening("NextMode", () => nextMode());
     }
 
     void Start() {
@@ -167,11 +169,15 @@ public class ModeManager : MonoBehaviour {
                 go.SetActive(false);
         }
 
+        if (mode == GameMode.Simulation)
+            earthquakeSimulator.stopShaking();
 
         mode = newMode;
+        EventManager.TriggerEvent("Mode:" + newMode);
 
         // Stop wave propogation when modes change
-        targetController.stopWaves();
+        //targetController.stopWaves();
+        
     }
 
     IEnumerator setGameMode(GameMode newMode, int seconds) {

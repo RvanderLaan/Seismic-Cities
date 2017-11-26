@@ -14,38 +14,46 @@ MonoBehaviour:
   levelName: The Netherlands - Level 1
   seed: 1234
   soilLayers: {fileID: 100010, guid: 093b85ab8d8fcf04ea23027fd78c1211, type: 3}
-  buildingZones:
-  - allowedPlacements:
-    - building: 0
-      upgrade: 0
-    gridPosition: 15
-  - allowedPlacements:
-    - building: 6
-      upgrade: 3
-    gridPosition: 26
+  buildingZones: []
   earthquake:
-    intervalBetweenWaves: 1
-    numberOfWaves: 3
+    intervalBetweenWaves: 1.5
+    numberOfWaves: 6
     intensityOfWaves: 1
     shakeMagnitude: 0.8
     shakeRoughness: 5
     shakeFadeIn: 3
     shakeFadeOut: 15
-    position: {x: 128, y: -96}
+    position: {x: 35, y: -75}
   scenery: {fileID: 11400000, guid: a788076f5afdaff4a88f1154819e7659, type: 2}
   underground: {fileID: 11400000, guid: f7cc5c1e821d0e646812eecfc904745b, type: 2}
   other:
   - {fileID: 1747740224174948, guid: 7c63368c516d7b544beb3fbc7c694149, type: 2}
   cameraLimits: {x: 0, y: 599, z: -150, w: 150}
-  tutorial: {fileID: 0}
+  tutorial:
+  - zoom: 0.581
+    focusGameObjectName: LevelCenter
+    screenPosition: {x: 0.47, y: 0.4}
+    arrow: 2
+    text: s1-l1-1
+    emitOnExit: 
+    nextEventTrigger: 
+  - zoom: 1
+    focusGameObjectName: EpicenterTarget
+    screenPosition: {x: 0, y: 0}
+    arrow: 3
+    text: s1-l1-2
+    emitOnExit: NextMode
+    nextEventTrigger: 
+  - zoom: 1
+    focusGameObjectName: LevelCenter
+    screenPosition: {x: 0.5, y: 0.7}
+    arrow: 2
+    text: s1-l1-3
+    emitOnExit: NextLevel
+    nextEventTrigger: 
   start: {fileID: 0}
   pass: {fileID: 0}
   fail: {fileID: 0}
-  buildingItems:
-  - name: Dutch City
-    prefab: {fileID: 114996581293983684, guid: 8ec28266275e27f4091e002875b6cdf6, type: 2}
-    amount: 1
-    image: {fileID: 21300000, guid: a4f5bc1c3cd29ee4591a6b32fcccef87, type: 3}
-    tooltipText: A small Dutch village
+  buildingItems: []
   upgradeItems: []
   seismographAmount: 0

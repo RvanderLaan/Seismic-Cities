@@ -6,21 +6,19 @@ using UnityEngine.UI;
 public class Tutorial : MonoBehaviour {
 
     public Transform cameraContainer;
+    public TextProvider textProvider;
     public GameObject background;
     public float cameraMovementSpeed = 2;
-    public List<Instruction> instructions;
+    public Instruction[] instructions;
 
     public GameObject instructionPrefab;
     private GameObject instructionObj;
-    private Text instrText;
+    private TextInserterPro instrText;
     private Button skipButton, nextButton;
     private GameObject arrows;
 
     private int currentInstruction = 0;
     private CamMovement camMovementScript;
-
-    private Vector3 initialCameraPosition;
-    private Vector3 newCameraPosition;
 
     private bool cameraIsMoving = false;
 
@@ -29,10 +27,11 @@ public class Tutorial : MonoBehaviour {
     public void Start()
     {
         camMovementScript = cameraContainer.GetComponent<CamMovement>();
-        initialCameraPosition = cameraContainer.position;
 
-        instructionObj = GameObject.Instantiate(instructionPrefab, transform);
-        instrText = instructionObj.GetComponentInChildren<Text>();
+        instructionObj = Instantiate(instructionPrefab, transform);
+        instrText = instructionObj.GetComponentInChildren<TextInserterPro>();
+        Debug.Log("instrText");
+        Debug.Log(instrText);
 
         Button[] buttons = instructionObj.GetComponentsInChildren<Button>();
         skipButton = buttons[0];
@@ -50,14 +49,6 @@ public class Tutorial : MonoBehaviour {
         if (startAtStart)
             startTutorial();
     }
-
-    public void Update()
-    {
-        if (cameraIsMoving && newCameraPosition != null)
-        {
-            cameraContainer.position = Vector3.Lerp(cameraContainer.position, newCameraPosition, Time.deltaTime * cameraMovementSpeed);
-        }
-    }
 	
     public void startTutorial()
     {
@@ -72,17 +63,17 @@ public class Tutorial : MonoBehaviour {
     public void nextInstruction()
     {
         if (instructions[currentInstruction].nextEventTrigger != null && instructions[currentInstruction].nextEventTrigger != "")
-        {
             EventManager.StopListening(instructions[currentInstruction].nextEventTrigger, nextInstruction);
-        }
 
-        if (currentInstruction < instructions.Count - 1 && currentInstruction >= 0) {
+        if (currentInstruction >= 0 && instructions[currentInstruction].emitOnExit != null && instructions[currentInstruction].emitOnExit != "")
+            EventManager.TriggerEvent(instructions[currentInstruction].emitOnExit);
+
+        if (currentInstruction < instructions.Length - 1 && currentInstruction >= 0) {
             currentInstruction++;
             showInstruction(instructions[currentInstruction]);
         }
         else {
             camMovementScript.enabled = true;
-            cameraIsMoving = false;
             deactivateUI();
             EventManager.TriggerEvent("TutorialSkip");
         }
@@ -90,7 +81,7 @@ public class Tutorial : MonoBehaviour {
 
     public void skipTutorial() {
         EventManager.TriggerEvent("TutorialSkip");
-        currentInstruction = instructions.Count-1;
+        currentInstruction = instructions.Length-1;
         nextInstruction();
     }
 
@@ -107,32 +98,58 @@ public class Tutorial : MonoBehaviour {
 
             EventManager.StartListening(instruction.nextEventTrigger, nextInstruction);
         }
-        nextButton.GetComponentInChildren<Text>().text = "Next " + (currentInstruction + 1) + "/" + instructions.Count ;
-        instrText.text = instruction.text;
+        nextButton.GetComponentInChildren<Text>().text = "Next " + (currentInstruction + 1) + "/" + instructions.Length;
+        instrText.reset(instruction.text);
         for (int i = 0; i < 4; i++)
             arrows.transform.GetChild(i).gameObject.SetActive(false);
-        arrows.transform.GetChild(instruction.arrow).gameObject.SetActive(true);
+        if (instruction.arrow != -1)
+            arrows.transform.GetChild(instruction.arrow).gameObject.SetActive(true);
 
-        
 
-        //instructionObj.GetComponent<RectTransform>()
-
-        if (instruction.focus != null)
-        {
-            RectTransform focus = instruction.focus.GetComponent<RectTransform>();
-            if (focus != null)
-            {
-                cameraIsMoving = true;
-                newCameraPosition = new Vector3(instruction.focus.position.x,
-                                                instruction.focus.position.y,
-                                                cameraContainer.position.z);
-            }
+        // Move instruction
+        if (instruction.screenPosition != null && instruction.screenPosition != Vector2.zero) {
+            RectTransform rect = instructionObj.GetComponent<RectTransform>();
+            Vector2 newPos = new Vector2(Screen.width * instruction.screenPosition.x - rect.rect.width / 2, Screen.height * instruction.screenPosition.y - rect.rect.height / 2);
+            if (instruction.arrow != -1)
+                newPos += new Vector2(((instruction.arrow - 2) % 2) * rect.rect.width / 2, ((instruction.arrow - 1) % 2) * rect.rect.height / 2);
+            rect.position = newPos;
         }
 
+        // Move camera
+        if (instruction.focusGameObjectName != null && instruction.focusGameObjectName != "")
+        {
+            GameObject focusGo = GameObject.Find(instruction.focusGameObjectName);
 
-        if (currentInstruction == instructions.Count) {
-            cameraIsMoving = true;
-            newCameraPosition = initialCameraPosition;
+            if (focusGo == null)
+            {
+                GameObject[] rootObjs = UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects();
+                foreach (GameObject go in rootObjs)
+                    if (go.name == instruction.focusGameObjectName)
+                    {
+                        focusGo = go;
+                        break;
+                    }
+            }
+            if (focusGo == null)
+                Debug.LogWarning("Focus GameObject from instruction is null. (" + instruction.focusGameObjectName + ")");
+            else
+            {
+                RectTransform rect = focusGo.GetComponent<RectTransform>();
+                if (rect != null)
+                {
+                    
+                } else
+                {
+                    camMovementScript.moveTo(new Vector2(focusGo.transform.position.x, focusGo.transform.position.y));
+                    camMovementScript.zoomTo(instruction.zoom, true);
+
+                    RectTransform instRect = instructionObj.GetComponent<RectTransform>();
+                    Vector2 newPos = new Vector2(Screen.width / 2 - instRect.rect.width / 2, Screen.height / 2 - instRect.rect.height / 2);
+                    if (instruction.arrow != -1)
+                        newPos += new Vector2(((instruction.arrow - 2) % 2) * instRect.rect.width / 2, ((instruction.arrow - 1) % 2) * instRect.rect.height / 2);
+                    instRect.position = newPos;
+                }
+            }
         }
     }
 }

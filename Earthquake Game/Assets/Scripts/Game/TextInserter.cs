@@ -12,12 +12,16 @@ public class TextInserter : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        text = GetComponent<Text>();
-        id = text.text;
-
         textProvider = GameObject.FindGameObjectWithTag("_GM").GetComponent<TextProvider>();
-        updateText();
+        text = GetComponent<Text>();
+        reset(text.text);
 	}
+
+    public void reset(string newText)
+    {
+        id = newText;
+        updateText();
+    }
 
     public void updateText() {
         text.text = textProvider.getText(id);

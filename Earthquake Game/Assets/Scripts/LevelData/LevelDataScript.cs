@@ -42,7 +42,7 @@ public class LevelDataScript : ScriptableObject
     [SerializeField]
     public Vector4 cameraLimits = new Vector4(0, 599, -150, 150);
     [SerializeField]
-    public Tutorial tutorial;
+    public Instruction[] tutorial;
     [SerializeField]
     public Dialog start, pass, fail;            // Fail is dynamic?
 

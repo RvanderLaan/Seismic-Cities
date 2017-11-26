@@ -95,8 +95,10 @@ public class CamMovement : MonoBehaviour {
         StartCoroutine("moveToRoutine");
     }
 
-    public void zoomTo(float zoom)
+    public void zoomTo(float zoom, bool normalize = false)
     {
+        if (normalize)
+            zoom = zoom * (maxScale - minScale) + minScale;
         zoomTarget = zoom;
         StartCoroutine("zoomToRoutine");
     }
