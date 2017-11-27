@@ -67,6 +67,8 @@ public class LevelManager : MonoBehaviour {
 
         // Disable nextlevel button etc.
 
+        // Stop wave propogation when modes change
+        targetController.GetComponent<TargetController>().stopWaves();
 
         // Construct new level
         levelIndex++;
