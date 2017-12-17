@@ -7,7 +7,7 @@ public class Building : MonoBehaviour {
     public float intensity = 200;
 
     public BuildingType type;
-    public enum BuildingType { None, StoneHouse, WoodenHouse, Flat, Skyscraper, Thematic, Any }
+    public enum BuildingType { None, StoneHouse, WoodenHouse, Flat, Skyscraper, Thematic, NormalCity, Any }
 
     Rigidbody2D[] children;
 

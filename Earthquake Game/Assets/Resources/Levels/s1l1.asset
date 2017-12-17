@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Name: s1l1
   m_EditorClassIdentifier: 
   levelName: The Netherlands - Level 1
-  seed: 1234
+  seed: 13243
   soilLayers: {fileID: 100010, guid: 093b85ab8d8fcf04ea23027fd78c1211, type: 3}
-  buildingZones: []
+  buildingZones:
+  - allowedPlacements: []
+    gridPosition: 11
+  - allowedPlacements:
+    - building: 7
+      upgrade: 0
+    gridPosition: 15
   earthquake:
     intervalBetweenWaves: 1.5
     numberOfWaves: 6
@@ -33,13 +39,15 @@ MonoBehaviour:
   - zoom: 0.581
     focusGameObjectName: LevelCenter
     screenPosition: {x: 0.47, y: 0.4}
+    flipSprite: 0
     arrow: 2
     text: s1-l1-1
     emitOnExit: 
     nextEventTrigger: 
   - zoom: 1
     focusGameObjectName: EpicenterTarget
-    screenPosition: {x: 0, y: 0}
+    screenPosition: {x: 0.5, y: 0.5}
+    flipSprite: 0
     arrow: 3
     text: s1-l1-2
     emitOnExit: NextMode
@@ -47,13 +55,43 @@ MonoBehaviour:
   - zoom: 1
     focusGameObjectName: LevelCenter
     screenPosition: {x: 0.5, y: 0.7}
+    flipSprite: 1
     arrow: 2
     text: s1-l1-3
-    emitOnExit: NextLevel
+    emitOnExit: 
+    nextEventTrigger: 
+  - zoom: 1
+    focusGameObjectName: 
+    screenPosition: {x: 0.8, y: 0.8}
+    flipSprite: 0
+    arrow: 1
+    text: s1-l2-1
+    emitOnExit: 
+    nextEventTrigger: 
+  - zoom: 0.535
+    focusGameObjectName: LevelCenter
+    screenPosition: {x: 0.5, y: 0.3}
+    flipSprite: 0
+    arrow: 0
+    text: s1-l2-2
+    emitOnExit: 
+    nextEventTrigger: BuildingPlace
+  - zoom: 1
+    focusGameObjectName: 
+    screenPosition: {x: 0.8, y: 0.3}
+    flipSprite: 0
+    arrow: 1
+    text: s1-l2-3
+    emitOnExit: 
     nextEventTrigger: 
   start: {fileID: 0}
   pass: {fileID: 0}
   fail: {fileID: 0}
-  buildingItems: []
+  buildingItems:
+  - name: city
+    prefab: {fileID: 114616065183123648, guid: 5215e2e949f492f42a25fa80fdbc186f, type: 2}
+    amount: 1
+    image: {fileID: 21300000, guid: a4f5bc1c3cd29ee4591a6b32fcccef87, type: 3}
+    tooltipText: cityTooltip
   upgradeItems: []
   seismographAmount: 0

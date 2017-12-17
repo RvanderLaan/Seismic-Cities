@@ -50,8 +50,6 @@
 		<English>Seismic Cities is a game developed by students of the TU Delft. Its goal is to make you familiar with a variety of soil types and the impact these soil types have on the destruction caused by earthquakes. This will be learned through a set of interactive scenarios on different places on earth, each based on real world situations.</English>
 		<Nederlands>Seismic Cities is een game ontwikkeld door studenten van de TU Delft. Het doel is om jou bekend te maken met verschillende bodemsoorten en de gevolgen van deze bodemsoorten op de schade die aardbevingen kunnen aanrichten. Hiervoor kun je verschillende scenario's spelen die op verschillende plekken op aarde afspelen. De scenario's zijn ontwikkeld aan hand van echte situaties.</Nederlands>
 	</Row>
-	<Row/>
-	<Row/>
 	<Row>
 		<ID>netherlands</ID>
 		<English>Netherlands</English>
@@ -72,7 +70,6 @@
 		<English>Indonesia</English>
 		<Nederlands>Indonesië</Nederlands>
 	</Row>
-	<Row/>
 	<Row>
 		<ID>seismograph</ID>
 		<English>Seismograph</English>
@@ -83,7 +80,6 @@
 		<English>A seismograph is a device that can measure the amount of shaking, or seismic activity, on the surface of the earth.</English>
 		<Nederlands>Een seismograaf is een apparaat dat de hoeveelheid trillen kan meten, ook wel seismische activiteit, op de oppervlakte van de aarde.</Nederlands>
 	</Row>
-	<Row/>
 	<Row>
 		<ID>dutchVillage</ID>
 		<English>Dutch village</English>
@@ -94,8 +90,6 @@
 		<English>Dutch city</English>
 		<Nederlands>Nederlandse stad</Nederlands>
 	</Row>
-	<Row/>
-	<Row/>
 	<Row>
 		<ID>s1-l1-1</ID>
 		<English>What you can see here is the ground consists of two soil types, sand and clay.</English>
@@ -103,7 +97,7 @@
 	</Row>
 	<Row>
 		<ID>s1-l1-2</ID>
-		<English> The earthquake originates from a central spot deep into the earth, the &lt;b&gt;hypocenter&lt;/b&gt;. In this case, it is 10 kilometers deep.</English>
+		<English>The earthquake originates from a central spot deep into the earth, the &lt;b&gt;hypocenter&lt;/b&gt;. In this case, it is 10 kilometers deep.</English>
 		<Nederlands>De aardbeving ontstaat op een centrale plek diep in de aarde, het &lt;b&gt;hypocentrum&lt;/b&gt;. In dit geval 10 kilometer.</Nederlands>
 	</Row>
 	<Row>
@@ -111,7 +105,6 @@
 		<English>You can see that the waves that arise at different speeds go through the soil types and come to the surface. The faster the wave, the more damage it does.</English>
 		<Nederlands>Je ziet dat de golven die ontstaan met verschillende snelheden door de bodemsoorten gaan en aan het opppervlak komen. Hoe sneller de golf hoe meer schade hij aanricht.</Nederlands>
 	</Row>
-	<Row/>
 	<Row>
 		<ID>s1-l2-1</ID>
 		<English>On the right you see a city that needs to be placed somewhere.</English>
@@ -142,10 +135,64 @@
 		<English>show alternative choice result here</English>
 		<Nederlands>Klei heeft namelijk een elastich effect wat de kracht van de golven versterkt. Je ziet dat je stad hier wel kapot gaat door de krachten die ontstaan in de bodem door middel van de aardbeving.</Nederlands>
 	</Row>
-	<Row/>
 	<Row>
 		<ID>s1-l3-1</ID>
 		<English>yeah</English>
 		<Nederlands>Zodat de steden op de juiste locatie geplaatst worden en niet vernietigd worden moet je goed kijken naar de bodemsoorten en de bodemsamenstelling goed lezen. Omdat dit niet altijd even eenvoudig is, bestaat er de mogelijkheid om 1 seismograaf te plaatsen.</Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-description</ID>
+		<English>placeholder</English>
+		<Nederlands>In Groningen wordt aardgas gewonnen welk in meerdere zandsteenlagen gevangen zit. Door de samenstelling van het zand te veranderen storten deze lagen in elkaar en veroorzaken aardbevingen. Omdat het aardgas redelijk ondiep gewonnen wordt zijn de schokgolven aan het aardoppervlak heftig en destructief.</Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-l1-1</ID>
+		<English>placeholder</English>
+		<Nederlands>Welkom! Je komt net op tijd om te helpen. </Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-l1-2</ID>
+		<English>placeholder</English>
+		<Nederlands>lk was net onderzoek aan het doen in Groningen toen de bodem begon te trillen.</Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-l1-3</ID>
+		<English>placeholder</English>
+		<Nederlands>Mensen! Tussen deze zandkorrels zit aardgas! Laten we gelijk gaan boren en het aardgas verkopen. </Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-l1-4</ID>
+		<English>placeholder</English>
+		<Nederlands>Nee! Als ze hier gaan boren storten de zandlagen in elkaar en ontstaan er aardbevingen, help mij de steden op een veilige plek te plaatsen. </Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-l1-5</ID>
+		<English>placeholder</English>
+		<Nederlands>Kijk eerst goed naar de verschillende bodemsoorten en lagen en kijk waar de golven het snelste zijn.</Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-l1-6</ID>
+		<English>placeholder</English>
+		<Nederlands>Plaats daarna onze seismograaf. lk heb er maar eentje dus je moet goed nadenken. </Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-l1-fail1</ID>
+		<English>placeholder</English>
+		<Nederlands>Oh nee! Deze stad heeft het niet overleefd.</Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-l1-fail2</ID>
+		<English>placeholder</English>
+		<Nederlands>Als je goed kijkt zie je dat de laag een kom vorm heeft en uit klei bestaat. Deze specifieke combinatie van vorm en bodemsoort zorgt ervoor dat de golven versterkt worden </Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-l1-fail3</ID>
+		<English>placeholder</English>
+		<Nederlands>Ook deze stad heeft het niet overleefd. Weet je ook waarom? </Nederlands>
+	</Row>
+	<Row>
+		<ID>s2-l1-fail4</ID>
+		<English>placeholder</English>
+		<Nederlands>Het epicentrum is de plek waar de aardbeving zijn oorsprong heeft. Omdat de stad direct boven het epicentrum geplaatst is gaat hij stuk.</Nederlands>
 	</Row>
 </ns1:schema>

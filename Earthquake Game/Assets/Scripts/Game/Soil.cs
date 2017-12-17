@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Soil : MonoBehaviour {
 
-    public enum SoilType { Bedrock, Rock, SoftRock, Clay, Sand };
+    public enum SoilType { Bedrock, Rock, SoftRock, Clay, Sand, Other };
 
     public SoilType type = SoilType.Bedrock;
 

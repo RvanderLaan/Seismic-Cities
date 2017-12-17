@@ -28,6 +28,12 @@ public class TextInserterPro : MonoBehaviour
 
     public void updateText()
     {
+        if (text == null || textProvider == null)
+        {
+            text = GetComponent<TextMeshProUGUI>();
+            textProvider = GameObject.FindGameObjectWithTag("_GM").GetComponent<TextProvider>();
+        }
+
         text.text = textProvider.getText(id);
     }
 }

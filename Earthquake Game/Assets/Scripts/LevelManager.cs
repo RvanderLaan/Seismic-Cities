@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour {
 
     public List<LevelData> levels;
 
-    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer, targetController, menu, levelSpecific, tutorial;
+    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer, targetController, menu, levelSpecific, tutorial, soilGlossary;
     public LevelName levelName;
     public ModeManager modeManager;
     public SeismographPlacer seismographPlacer;
@@ -104,7 +104,7 @@ public class LevelManager : MonoBehaviour {
         // Add terrain
         //for (int i = 0; i < terrain.transform.childCount; i++)
         //    GameObject.Destroy(terrain.transform.GetChild(i);
-        SetupTerrain(levelData.soilLayers);
+        List<SoilGlossaryItem> soilItems = SetupTerrain(levelData.soilLayers);
 
         // Create building zones
         CreateBuildingZones(levelData.buildingZones);
@@ -129,18 +129,24 @@ public class LevelManager : MonoBehaviour {
 
         // Dialogue/tutorial
         tutorial.GetComponent<Tutorial>().instructions = levelData.tutorial;
+        tutorial.GetComponent<Tutorial>().startTutorial();
+
+        // Soil glossary
+        soilGlossary.GetComponent<SoilGlossary>().init(soilItems);
 
         // Starting mode
         modeManager.Reset();
     }
 
-    void SetupTerrain(GameObject terrainPrefab)
+    List<SoilGlossaryItem> SetupTerrain(GameObject terrainPrefab)
     {
         GameObject separatedPrefab = terrainPrefab.transform.Find("Separated").gameObject;
         // GameObject allPrefab = terrainPrefab.transform.Find("All_applied").gameObject;
 
         GameObject separated = Instantiate(separatedPrefab, terrain);
         //GameObject all = Instantiate(allPrefab, terrain);
+
+        List<SoilGlossaryItem> soilItems = new List<SoilGlossaryItem>();
 
         for (int i = 0; i < separated.transform.childCount; i++)
         {
@@ -156,7 +162,8 @@ public class LevelManager : MonoBehaviour {
             layer.layer = LayerMask.NameToLayer("Terrain");
             Soil soil = layer.AddComponent<Soil>();
             Soil.SoilType soilType;
-            string materialName = layer.GetComponent<MeshRenderer>().material.name;
+            Material material = layer.GetComponent<MeshRenderer>().material;
+            string materialName = material.name;
             string[] split = materialName.Split(' ');
             if (split.Length > 1)
                 materialName = materialName.Substring(0, materialName.Length - split[split.Length - 1].Length - 1);
@@ -183,18 +190,27 @@ public class LevelManager : MonoBehaviour {
                     break;
                 default:
                     Debug.LogWarning("No correct soil type found for material '" + materialName + "' (object: '" + layer.name + "')");
-                    soilType = Soil.SoilType.Sand;
+                    soilType = Soil.SoilType.Other;
                     break;
             }
             soil.type = soilType;
 
+            // Add every type only once
+            if (soilType != Soil.SoilType.Other && soilItems.Find((x) => x.type == soilType) == null)
+            {
+                Texture2D tex = (Texture2D) material.mainTexture;
+                Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
+                soilItems.Add(new SoilGlossaryItem(soilType, false, sprite));
+            }
+
             layer.SetActive(true);
         }
-
         //ColliderCreator ccAll = all.AddComponent<ColliderCreator>();
         //all.GetComponent<MeshRenderer>().enabled = true;
         //all.transform.localScale = new Vector3(-10, 10, -10);
         //all.layer = LayerMask.NameToLayer("Terrain");
+
+        return soilItems;
     }
 
     void CreateBuildingZones(List<BuildingZoneData> list)

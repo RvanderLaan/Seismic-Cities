@@ -24,14 +24,23 @@ public class Tutorial : MonoBehaviour {
 
     public bool startAtStart = true;
 
-    public void Start()
+    public Sprite[] dialogImageOptions;
+    public RectTransform spriteTransform;
+    public Image[] sprites;
+
+    bool awoken = false;
+
+    public void Awake()
+    {
+        init();
+    }
+
+    private void init()
     {
         camMovementScript = cameraContainer.GetComponent<CamMovement>();
 
         instructionObj = Instantiate(instructionPrefab, transform);
         instrText = instructionObj.GetComponentInChildren<TextInserterPro>();
-        Debug.Log("instrText");
-        Debug.Log(instrText);
 
         Button[] buttons = instructionObj.GetComponentsInChildren<Button>();
         skipButton = buttons[0];
@@ -48,13 +57,16 @@ public class Tutorial : MonoBehaviour {
 
         if (startAtStart)
             startTutorial();
+
+        awoken = true;
     }
-	
+
     public void startTutorial()
     {
         EventManager.TriggerEvent("TutorialStart");
         instructionObj.SetActive(true);
         camMovementScript.enabled = false;
+        spriteTransform.gameObject.SetActive(true);
         // background.SetActive(true);
         currentInstruction = 0;
         showInstruction(instructions[currentInstruction]);
@@ -88,10 +100,23 @@ public class Tutorial : MonoBehaviour {
     private void deactivateUI() {
         background.SetActive(false);
         instructionObj.SetActive(false);
+        spriteTransform.gameObject.SetActive(false);
     }
 
     private void showInstruction(Instruction instruction)
     {
+        // Change sprites & flip
+        Sprite sprite = dialogImageOptions[Mathf.FloorToInt(Random.value * dialogImageOptions.Length)];
+        foreach (Image spriteComp in sprites)
+            spriteComp.sprite = sprite;
+        bool flip = instruction.flipSprite;
+        sprites[0].transform.position = new Vector2(Mathf.Abs(sprites[0].transform.position.x) * (flip ? 1 : -1), sprites[0].transform.position.y);
+        spriteTransform.localScale = new Vector3(flip ? -1 : 1, 1, 1);
+        spriteTransform.anchorMin = new Vector2(flip ? 1 : 0, 0.5f);
+        spriteTransform.anchorMax = spriteTransform.anchorMin;
+        spriteTransform.anchoredPosition = Vector2.zero;
+
+
         nextButton.interactable = true;
         if (instruction.nextEventTrigger != null && instruction.nextEventTrigger != "") {
             nextButton.interactable = false;
@@ -114,6 +139,7 @@ public class Tutorial : MonoBehaviour {
                 newPos += new Vector2(((instruction.arrow - 2) % 2) * rect.rect.width / 2, ((instruction.arrow - 1) % 2) * rect.rect.height / 2);
             rect.position = newPos;
         }
+        
 
         // Move camera
         if (instruction.focusGameObjectName != null && instruction.focusGameObjectName != "")
@@ -143,11 +169,11 @@ public class Tutorial : MonoBehaviour {
                     camMovementScript.moveTo(new Vector2(focusGo.transform.position.x, focusGo.transform.position.y));
                     camMovementScript.zoomTo(instruction.zoom, true);
 
-                    RectTransform instRect = instructionObj.GetComponent<RectTransform>();
-                    Vector2 newPos = new Vector2(Screen.width / 2 - instRect.rect.width / 2, Screen.height / 2 - instRect.rect.height / 2);
-                    if (instruction.arrow != -1)
-                        newPos += new Vector2(((instruction.arrow - 2) % 2) * instRect.rect.width / 2, ((instruction.arrow - 1) % 2) * instRect.rect.height / 2);
-                    instRect.position = newPos;
+                    //RectTransform instRect = instructionObj.GetComponent<RectTransform>();
+                    //Vector2 newPos = new Vector2(Screen.width / 2 - instRect.rect.width / 2, Screen.height / 2 - instRect.rect.height / 2);
+                    //if (instruction.arrow != -1)
+                    //    newPos += new Vector2(((instruction.arrow - 2) % 2) * instRect.rect.width / 2, ((instruction.arrow - 1) % 2) * instRect.rect.height / 2);
+                    //instRect.position = newPos;
                 }
             }
         }

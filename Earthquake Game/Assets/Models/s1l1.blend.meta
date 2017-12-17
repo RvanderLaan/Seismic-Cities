@@ -12,6 +12,7 @@ ModelImporter:
     100008: Quicksand
     100010: //RootNode
     100012: Separated
+    100014: Sand
     400000: All
     400002: Bedrock
     400004: Clay
@@ -19,21 +20,25 @@ ModelImporter:
     400008: Quicksand
     400010: //RootNode
     400012: Separated
+    400014: Sand
     2300000: All
     2300002: Bedrock
     2300004: Clay
     2300006: Grass
     2300008: Quicksand
+    2300010: Sand
     3300000: All
     3300002: Bedrock
     3300004: Clay
     3300006: Grass
     3300008: Quicksand
+    3300010: Sand
     4300000: All
     4300002: Bedrock
     4300004: Clay
     4300006: Grass
     4300008: Quicksand
+    4300010: Sand
     7400000: Default Take
     9500000: //RootNode
   materials:

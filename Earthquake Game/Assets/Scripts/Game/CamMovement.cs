@@ -8,7 +8,7 @@ public class CamMovement : MonoBehaviour {
     private Vector3 moveTarget;
     private float moveLength = 1.0f;
 
-    private Vector3 previousMousePosition;
+    private Vector3 previousMousePosition, dragOrigin, dragOriginWorldPosition;
     private bool movedSinceMouseDown = false;
     public float keyMoveSpeed = 1f;
 
@@ -19,7 +19,7 @@ public class CamMovement : MonoBehaviour {
     // Zoom stuff
     public float minScale = 0.1f;
     public float maxScale = 10f;
-    public float scrollSpeed = 0.05f;
+    public float scrollSpeed = 0.05f, pinchSpeed = 1f;
     // Smooth zoom stuff
     private float zoomTarget;
     public float zoomSmoothness = 0.1f;
@@ -27,10 +27,13 @@ public class CamMovement : MonoBehaviour {
 
     public AnimationCurve autoTransformCurve;
 
+    private Vector3 screenVector;
+
     // Use this for initialization
     void Start () {
-        previousMousePosition = Input.mousePosition;
+        //previousMousePosition = Input.mousePosition;
         zoomTarget = Camera.main.orthographicSize;
+        screenVector = new Vector2(1f / Screen.width, 1f / Screen.width);
 	}
 
     public void OnGUI() {
@@ -49,25 +52,61 @@ public class CamMovement : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
-    void Update () {
-        // Reset mouse position after clicking when coming outside of the screen, else it jumps when panning the first time
-        if (Input.GetMouseButtonDown(0) && (previousMousePosition.x < 0 || previousMousePosition.x > Screen.width || previousMousePosition.y < 0 || previousMousePosition.y > Screen.height))
-            previousMousePosition = Input.mousePosition;
+    private bool pinchZoom()
+    {
+        // If there are two touches on the device...
+        if (Input.touchCount == 2)
+        {
+            // Store both touches.
+            Touch touchZero = Input.GetTouch(0);
+            Touch touchOne = Input.GetTouch(1);
 
-       
+            // Find the position in the previous frame of each touch.
+            Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+            Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+
+            // Find the magnitude of the vector (the distance) between the touches in each frame.
+            float prevTouchDeltaMag = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+            float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
+
+            // Find the difference in the distances between each frame.
+            float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
+
+            float scale = Camera.main.orthographicSize + deltaMagnitudeDiff * pinchSpeed;
+            zoomTarget = Mathf.Clamp(scale, minScale, maxScale);
+
+            dragOriginWorldPosition = transform.position; // Don't jump to previous position when releasing one finger
+            dragOrigin = (touchZero.position + touchOne.position) / 2f;
+            return true;
+        }
+        return false;
+    }
+
+    private Vector3 pan()
+    {
         Vector3 pos = transform.position;
+        // Pan using mouse
+        if (Input.GetMouseButtonDown(0))
+        {
+            dragOrigin = Input.mousePosition;
+            dragOriginWorldPosition = transform.position;
+        }
 
-        // When not using the GUI
-        if (detectClicks && !EventSystem.current.IsPointerOverGameObject()) {
-            // Pan using mouse
-            if (Input.GetMouseButton(0)) {
-                Vector3 dMouse = previousMousePosition - Input.mousePosition;
-                dMouse.x *= Camera.main.orthographicSize * 2 * Camera.main.aspect / Screen.width;
-                dMouse.y *= Camera.main.orthographicSize * 2 / Screen.height;
-                pos += dMouse;
-            }
+        if (Input.GetMouseButton(0))
+        {
+            //Vector3 dMouse = previousMousePosition - Input.mousePosition;
+            //dMouse.x *= Camera.main.orthographicSize * 2 * Camera.main.aspect / Screen.width;
+            //dMouse.y *= Camera.main.orthographicSize * 2 / Screen.height;
+            //pos += dMouse;
 
+            Debug.Log(dragOrigin);
+            Vector3 diff = (Input.mousePosition - dragOrigin);
+            diff.Scale(screenVector);
+            diff.Scale(new Vector3(Camera.main.orthographicSize * 2 * Camera.main.aspect, Camera.main.orthographicSize * 4));
+            pos = dragOriginWorldPosition - diff;
+        }
+        else
+        {
             // Pan using keys
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
                 pos.x -= Time.deltaTime * keyMoveSpeed;
@@ -77,16 +116,29 @@ public class CamMovement : MonoBehaviour {
                 pos.y -= Time.deltaTime * keyMoveSpeed;
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
                 pos.y += Time.deltaTime * keyMoveSpeed;
-
-            pos.x = Mathf.Clamp(pos.x, limits.x, limits.y);
-            pos.y = Mathf.Clamp(pos.y, limits.z, limits.w);
-
-            Camera.main.orthographicSize = Mathf.SmoothStep(Camera.main.orthographicSize, zoomTarget, 0.3f);
         }
- 
-        transform.position = pos;
+        pos.x = Mathf.Clamp(pos.x, limits.x, limits.y);
+        pos.y = Mathf.Clamp(pos.y, limits.z, limits.w);
+        return pos;
+    }
 
-        previousMousePosition = Input.mousePosition;
+    // Update is called once per frame
+    void Update () {
+        // Reset mouse position after clicking when coming outside of the screen, else it jumps when panning the first time
+        //if (Input.GetMouseButtonDown(0) && (previousMousePosition.x < 0 || previousMousePosition.x > Screen.width || previousMousePosition.y < 0 || previousMousePosition.y > Screen.height))
+        //    previousMousePosition = Input.mousePosition;
+
+       
+        Vector3 pos = transform.position;
+
+        // When not using the GUI
+        if (detectClicks && !EventSystem.current.IsPointerOverGameObject()) {
+            bool pinchZoomed = pinchZoom();
+            if (!pinchZoomed)
+                transform.position = pan();
+        }
+        Camera.main.orthographicSize = Mathf.SmoothStep(Camera.main.orthographicSize, zoomTarget, 0.3f);
+        //previousMousePosition = Input.mousePosition;
     }
 
     public void moveTo(Vector2 pos)

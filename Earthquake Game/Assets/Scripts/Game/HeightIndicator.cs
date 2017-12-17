@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class HeightIndicator : MonoBehaviour {
-
     private Text[] texts;
     public Text textInstance;
 
@@ -20,11 +19,12 @@ public class HeightIndicator : MonoBehaviour {
         rectTransform = GetComponent<RectTransform>();
         texts = new Text[entries.Length];
         for (int i = 0; i < texts.Length; i++) {
-            texts[i] = GameObject.Instantiate(textInstance);
+            texts[i] = Instantiate(textInstance);
             texts[i].transform.SetParent(gameObject.transform);
             texts[i].text = entries[i];
             texts[i].rectTransform.localPosition = new Vector2(rectTransform.sizeDelta.x / 2 + 4, 0);
             texts[i].rectTransform.position = getRelativePosition(i);
+            texts[i].transform.localScale = Vector3.one;
         }
             
 	}

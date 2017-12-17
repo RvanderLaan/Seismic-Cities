@@ -10,6 +10,7 @@ public class Instruction {
     public float zoom = 1;
     public string focusGameObjectName;
     public Vector2 screenPosition = new Vector2(0.5f, 0.5f);
+    public bool flipSprite = false;
 
     [Range(-1, 3)]
     public int arrow = -1;

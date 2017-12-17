@@ -46,7 +46,6 @@ public class Earthquake : MonoBehaviour {
 
         for (int i = 0; i < earthquakeData.numberOfWaves; i++)
         {
-            Debug.Log("Spawn");
             //spawn a wave
             targetController.createWave(Random.Range(0.5f, 1f), targets);
             yield return new WaitForSeconds(earthquakeData.intervalBetweenWaves);
