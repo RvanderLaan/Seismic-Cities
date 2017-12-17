@@ -128,8 +128,11 @@ public class LevelManager : MonoBehaviour {
         seismographPlacer.Reset(levelData.seismographAmount);
 
         // Dialogue/tutorial
-        tutorial.GetComponent<Tutorial>().instructions = levelData.tutorial;
-        tutorial.GetComponent<Tutorial>().startTutorial();
+        if (levelData.tutorial.Length > 0)
+        {
+            tutorial.GetComponent<Tutorial>().instructions = levelData.tutorial;
+            tutorial.GetComponent<Tutorial>().startTutorial();
+        }
 
         // Soil glossary
         soilGlossary.GetComponent<SoilGlossary>().init(soilItems);
@@ -259,10 +262,10 @@ public class LevelManager : MonoBehaviour {
 
                     int randomIndex = Random.Range(0, scenery.prefabs.Length);
                     GameObject prefab = scenery.prefabs[randomIndex];
-                    GameObject instance = GameObject.Instantiate(prefab, sceneryContainer);
+                    GameObject instance = Instantiate(prefab, sceneryContainer);
 
                     Vector3 pos = hit.point;
-                    pos.z -= 1;
+                    pos.z += 1;
                     instance.transform.position = pos;
                     instance.transform.localScale = instance.transform.localScale * Random.Range(1 - scenery.randomScale, 1 + scenery.randomScale);
                 }
