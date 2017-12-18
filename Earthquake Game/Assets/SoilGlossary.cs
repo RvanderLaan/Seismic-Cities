@@ -25,7 +25,9 @@ public class SoilGlossary : MonoBehaviour {
             {
                 soilInfoWindow.SetActive(false);
                 soilInfoWindow.SetActive(true);
-                soilInfoWindow.GetComponentInChildren<TextInserterPro>().reset(item.type + "-description");
+                string descriptionId = item.type + "Description";
+                descriptionId = char.ToLowerInvariant(descriptionId[0]) + descriptionId.Substring(1);
+                soilInfoWindow.GetComponentInChildren<TextInserterPro>().reset(descriptionId);
                 
             });
         }

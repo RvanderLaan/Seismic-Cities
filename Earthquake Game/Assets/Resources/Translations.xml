@@ -148,7 +148,7 @@
 	<Row>
 		<ID>s2-l1-1</ID>
 		<English>placeholder</English>
-		<Nederlands>Welkom! Je komt net op tijd om te helpen. </Nederlands>
+		<Nederlands>Welkom! Je komt net op tijd om te helpen.</Nederlands>
 	</Row>
 	<Row>
 		<ID>s2-l1-2</ID>
@@ -158,12 +158,12 @@
 	<Row>
 		<ID>s2-l1-3</ID>
 		<English>placeholder</English>
-		<Nederlands>Mensen! Tussen deze zandkorrels zit aardgas! Laten we gelijk gaan boren en het aardgas verkopen. </Nederlands>
+		<Nederlands>Mensen! Tussen deze zandkorrels zit aardgas! Laten we gelijk gaan boren en het aardgas verkopen.</Nederlands>
 	</Row>
 	<Row>
 		<ID>s2-l1-4</ID>
 		<English>placeholder</English>
-		<Nederlands>Nee! Als ze hier gaan boren storten de zandlagen in elkaar en ontstaan er aardbevingen, help mij de steden op een veilige plek te plaatsen. </Nederlands>
+		<Nederlands>Nee! Als ze hier gaan boren storten de zandlagen in elkaar en ontstaan er aardbevingen, help mij de steden op een veilige plek te plaatsen.</Nederlands>
 	</Row>
 	<Row>
 		<ID>s2-l1-5</ID>
@@ -173,7 +173,7 @@
 	<Row>
 		<ID>s2-l1-6</ID>
 		<English>placeholder</English>
-		<Nederlands>Plaats daarna onze seismograaf. lk heb er maar eentje dus je moet goed nadenken. </Nederlands>
+		<Nederlands>Plaats daarna onze seismograaf. lk heb er maar eentje dus je moet goed nadenken.</Nederlands>
 	</Row>
 	<Row>
 		<ID>s2-l1-fail1</ID>
@@ -183,16 +183,36 @@
 	<Row>
 		<ID>s2-l1-fail2</ID>
 		<English>placeholder</English>
-		<Nederlands>Als je goed kijkt zie je dat de laag een kom vorm heeft en uit klei bestaat. Deze specifieke combinatie van vorm en bodemsoort zorgt ervoor dat de golven versterkt worden </Nederlands>
+		<Nederlands>Als je goed kijkt zie je dat de laag een kom vorm heeft en uit klei bestaat. Deze specifieke combinatie van vorm en bodemsoort zorgt ervoor dat de golven versterkt worden</Nederlands>
 	</Row>
 	<Row>
 		<ID>s2-l1-fail3</ID>
 		<English>placeholder</English>
-		<Nederlands>Ook deze stad heeft het niet overleefd. Weet je ook waarom? </Nederlands>
+		<Nederlands>Ook deze stad heeft het niet overleefd. Weet je ook waarom?</Nederlands>
 	</Row>
 	<Row>
 		<ID>s2-l1-fail4</ID>
 		<English>placeholder</English>
 		<Nederlands>Het epicentrum is de plek waar de aardbeving zijn oorsprong heeft. Omdat de stad direct boven het epicentrum geplaatst is gaat hij stuk.</Nederlands>
+	</Row>
+	<Row>
+		<ID>groundDescription</ID>
+		<English>placeholder</English>
+		<Nederlands>De ondergrond bestaat uit meerdere lagen van verschillende soorten materiaal. Zo kan de ondergrond bestaan uit veen, klei en zand. Hoe dieper je in de grond gaat graven, hoe steviger de ondergrond is die je tegenkomt! Dit komt omdat de korreltjes diep in de grond tegen elkaar aan worden geduwd.</Nederlands>
+	</Row>
+	<Row>
+		<ID>peatDescription</ID>
+		<English>placeholder</English>
+		<Nederlands>Veen is een grondsoort die vooral bestaat uit plantenresten. Dit wordt ‘organisch’ genoemd. Het is licht materiaal dat gemakkelijk samen te drukken is. Het is dus niet stevig, maar veert juist mee als er gewicht op komt. Bouwen op veen is daarom geen goed plan!</Nederlands>
+	</Row>
+	<Row>
+		<ID>clayDescription</ID>
+		<English>placeholder</English>
+		<Nederlands>Klei heeft korreltjes die kleiner zijn dan 0,002 millimeter. Dat is ongeveer 500 keer zo klein als de dikte van je nagel! Omdat de korreltjes van klei zo klein zijn, blijft het water er goed tussen zitten. Hierdoor is klei is samendrukbaar. De kleilaag geeft de trilling in de grond door en dat is dus niet goed bij een aardbeving. De trilling wordt namelijk niet gedempt!</Nederlands>
+	</Row>
+	<Row>
+		<ID>sandDescription</ID>
+		<English>placeholder</English>
+		<Nederlands>Een korreltje zand is veel groter dan een korreltje klei, en kan wel 2 millimeter groot zijn! Een pak zand laat zich niet zo snel samendrukken, en daarom kan je er stevig op bouwen. Een zandlaag dempt trillingen, maar alleen als er niet te veel water tussen de korreltjes zit. Anders kan de laag gaan ‘vloeien’. Heb je wel eens naast de zee op het zand gestampt? Door de trillingen die jij maakt wordt de bodem een vloeibaar papje! Op zand wil je dus alleen bouwen als er niet te veel water in de grond zit.’’</Nederlands>
 	</Row>
 </ns1:schema>
