@@ -4848,7 +4848,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: New Text sdfsdfsdfsdfkahsdfjashdjksfhaksdf sdfsd f f f f f f f f
+  m_text: descriptionId
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
   m_sharedMaterial: {fileID: 2050143678}
@@ -4875,12 +4875,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 30
+  m_fontSize: 32
   m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 32
   m_fontStyle: 0
   m_textAlignment: 264
   m_isAlignmentEnumConverted: 1
@@ -4915,12 +4915,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 56.836014}
   m_textInfo:
     textComponent: {fileID: 895339857}
-    characterCount: 64
+    characterCount: 13
     spriteCount: 0
-    spaceCount: 11
-    wordCount: 12
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 1
@@ -9623,7 +9623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f82e8350875345a6cff42ca437d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 1
+  levelIndex: 0
   levels:
   - {fileID: 11400000, guid: 81ee22ec741339345b69f7781d66aa4e, type: 2}
   - {fileID: 11400000, guid: 796e83783d24ff34bb38b73a30d92e4f, type: 2}
@@ -10881,7 +10881,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
