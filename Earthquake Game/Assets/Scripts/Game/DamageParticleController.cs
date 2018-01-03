@@ -33,6 +33,5 @@ public class DamageParticleController : MonoBehaviour {
             collider.gameObject.GetComponentInChildren<Seismograph>().StartMoving();
             Destroy(gameObject);
         }
-
     }
 }

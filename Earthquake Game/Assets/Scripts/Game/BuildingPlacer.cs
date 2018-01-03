@@ -133,7 +133,7 @@ public class BuildingPlacer : MonoBehaviour {
         instance.tag = "Building";
         BuildingZone bpc = hit.collider.GetComponent<BuildingZone>();
 
-        bpc.place(instance.GetComponent<Building>());               // Set the building
+        bpc.place(instance.GetComponent<Building>());
 
         // Play the audio
         audioSource.pitch = Random.Range(0.5f, 1.5f);

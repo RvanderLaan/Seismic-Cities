@@ -21,6 +21,4 @@ public class SoilInfoWindow : MonoBehaviour {
         text.reset(type.ToString());
         
     }
-
-
 }

@@ -45,8 +45,8 @@ public class Seismograph : MonoBehaviour {
     public float offSat = 0.2f, onSat = 1;
 
 	// Use this for initialization
-	void Start () {
-        // EventManager.StartListening("SimulateEarthquake", StartMoving);
+	void Awake () {
+        EventManager.StartListening("SimulateEarthquake", EnableGraph);
         // Todo: Init texture size, ~2000 x 500?
 
         graphTexture = new Texture2D(1000, 300, TextureFormat.RGB24, true);
@@ -170,5 +170,11 @@ public class Seismograph : MonoBehaviour {
 
             SetLamps(distanceIntensity);
         }
+    }
+
+    public void EnableGraph()
+    {
+        transform.parent.Find("Seismogram").gameObject.SetActive(true);
+        transform.parent.Find("Undo").gameObject.SetActive(false);
     }
 }

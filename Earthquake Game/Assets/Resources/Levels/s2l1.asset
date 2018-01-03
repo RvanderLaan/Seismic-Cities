@@ -45,7 +45,7 @@ MonoBehaviour:
   scenery: {fileID: 11400000, guid: a788076f5afdaff4a88f1154819e7659, type: 2}
   underground: {fileID: 11400000, guid: f7cc5c1e821d0e646812eecfc904745b, type: 2}
   other:
-  - {fileID: 1747740224174948, guid: 7c63368c516d7b544beb3fbc7c694149, type: 2}
+  - {fileID: 1747740224174948, guid: 857642fa40e540746b1ad61315658b8d, type: 2}
   cameraLimits: {x: 0, y: 599, z: -150, w: 150}
   tutorial:
   - zoom: 0.6
@@ -80,9 +80,8 @@ MonoBehaviour:
     text: s2-l1-6
     emitOnExit: 
     nextEventTrigger: 
-  start: {fileID: 0}
-  pass: {fileID: 0}
-  fail: {fileID: 0}
+  start: []
+  pass: []
   buildingItems:
   - name: city
     prefab: {fileID: 114616065183123648, guid: 5215e2e949f492f42a25fa80fdbc186f, type: 2}

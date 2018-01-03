@@ -44,7 +44,7 @@ public class LevelDataScript : ScriptableObject
     [SerializeField]
     public Instruction[] tutorial;
     [SerializeField]
-    public Dialog start, pass, fail;            // Fail is dynamic?
+    public DialogItem[] start, pass;
 
     // Player items
     [SerializeField]

@@ -45,9 +45,9 @@ public class BuildingZone : MonoBehaviour
 
     public void place(Building b) {
         building = b;
-        undoButton.SetActive(true);
+        //undoButton.SetActive(true);
 
-        isBuilt = true;                                         // Set the platform as unavailable
+        isBuilt = true;                     // Set the platform as unavailable
         sprite.gameObject.SetActive(false); // Hide green sprite
         building.transform.position = transform.position + Vector3.forward;       // Snap building to position of this platform
     }
@@ -60,6 +60,7 @@ public class BuildingZone : MonoBehaviour
         upgrade.transform.position = transform.position + Vector3.back * 2;       // Snap building to position of this platform
     }
 
+    /*
     public void undoPlacement() {
         // Remove building and upgrade
         buildingList.undo(building.type);
@@ -74,6 +75,7 @@ public class BuildingZone : MonoBehaviour
         sprite.gameObject.SetActive(true);
         undoButton.SetActive(false);
     }
+    */
 
     /// <summary>
     /// Whether the building/upgrade placed here are allowed

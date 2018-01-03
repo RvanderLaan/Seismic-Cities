@@ -53,7 +53,6 @@ public class Solutions : MonoBehaviour {
             if (!(si.upgrade == uType && si.building == bType))
                 return false;
         }
-
         return true;
     }
 }

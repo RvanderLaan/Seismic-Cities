@@ -110,7 +110,7 @@ public class LevelManager : MonoBehaviour {
         CreateBuildingZones(levelData.buildingZones);
 
         // Set scenery (trees, rocks, plants, etc.)
-        CreateScenery(levelData.cameraLimits, levelData.scenery);
+        CreateScenery(levelData.cameraLimits, levelData);
         CreateUndergroundScenery(levelData.cameraLimits, levelData.underground);
 
         // Level specifics
@@ -191,6 +191,9 @@ public class LevelManager : MonoBehaviour {
                 case "Sand":
                     soilType = Soil.SoilType.Sand;
                     break;
+                case "Grass":
+                    soilType = Soil.SoilType.Other;
+                    break;
                 default:
                     Debug.LogWarning("No correct soil type found for material '" + materialName + "' (object: '" + layer.name + "')");
                     soilType = Soil.SoilType.Other;
@@ -243,8 +246,9 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
-    void CreateScenery(Vector4 limits, Scenery scenery)
+    void CreateScenery(Vector4 limits, LevelData levelData)
     {
+        Scenery scenery = levelData.scenery;
         if (scenery == null) return;
         // Raycast down onto terrain
         for (float i = dimensions.xMin * levelScale; i < dimensions.xMax * levelScale; i += levelScale)
@@ -254,6 +258,17 @@ public class LevelManager : MonoBehaviour {
             if (spawn)
             {
                 Vector2 origin = new Vector3(i, levelScale * dimensions.yMax);
+
+                // Do not spawn on building zones
+                foreach (BuildingZoneData bzd in levelData.buildingZones)
+                {
+                    int bzdX = levelScale * bzd.gridPosition;
+                    float padding = 1;
+                    if (origin.x < bzdX + levelScale * padding && origin.x > bzdX - levelScale * padding)
+                        spawn = false;
+                }
+                if (!spawn)
+                    continue;
 
                 RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, dimensions.height * levelScale);
                 if (hit.collider != null)

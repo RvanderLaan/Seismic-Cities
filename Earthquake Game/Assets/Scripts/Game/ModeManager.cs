@@ -60,7 +60,7 @@ public class ModeManager : MonoBehaviour {
 
     // The idea is to put behaviours specific to a mode in a separate object, e.g. the wave simulator,
     // so that we don't need exceptions for every mode. The script starts in its Start method
-    public void setGameMode(GameMode newMode) {
+    public bool setGameMode(GameMode newMode) {
         List<GameObject> oldObjs = getModeObjects(mode);
         List<GameObject> newObjs = getModeObjects(newMode);
         if (cameraMovement != null)
@@ -70,10 +70,11 @@ public class ModeManager : MonoBehaviour {
         // Exceptions
         if (mode == GameMode.Measuring && newMode == GameMode.Simulation)
         {
+            Debug.Log(seismographPlacer.finishedPlacing());
             if (!seismographPlacer.finishedPlacing())
             {
-                userFeedback.setText("You should place all seismographs before continuing");
-                return;
+                userFeedback.setText("placeAllSeismographs");
+                return false;
             }
             targetController.gameObject.SetActive(true);
 
@@ -90,24 +91,24 @@ public class ModeManager : MonoBehaviour {
         }
         else if (mode == GameMode.Building && newMode == GameMode.Upgrade) {
             if (!buildingList.finishedPlacing()) {
-                userFeedback.setText("You should place all buildings before continuing");
-                return;
+                userFeedback.setText("placeAllCities");
+                return false;
             } else if (upgradeList.finishedPlacing())
             {
                 // Skip upgrade mode if no upgrades are specified
                 foreach (GameObject go in oldObjs)
                     go.SetActive(false);
                 nextMode();
-                return;
+                return false;
             }
         } else if ((mode == GameMode.Building || mode == GameMode.Upgrade) && newMode == GameMode.Simulation) {
             // Check if all buildings have been set
             if (!buildingList.finishedPlacing()) {
-                userFeedback.setText("You should place all buildings before continuing");
-                return;
+                userFeedback.setText("placeAllCities");
+                return false;
             } else if (!upgradeList.finishedPlacing()) {
                 userFeedback.setText("You should place all upgrades before continuing");
-                return;
+                return false;
             }
 
             // Disable all undo buttons
@@ -177,7 +178,8 @@ public class ModeManager : MonoBehaviour {
 
         // Stop wave propogation when modes change
         //targetController.stopWaves();
-        
+
+        return true;
     }
 
     IEnumerator setGameMode(GameMode newMode, int seconds) {
@@ -210,7 +212,9 @@ public class ModeManager : MonoBehaviour {
         {
             modeIndex++;
             GameMode newMode = modeOrder[modeIndex];
-            setGameMode(newMode);
+            bool allowed = setGameMode(newMode);
+            if (!allowed)
+                modeIndex--;
         }
 
         // Todo Disable previous button?

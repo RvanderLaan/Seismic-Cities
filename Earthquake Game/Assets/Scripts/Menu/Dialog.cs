@@ -88,7 +88,7 @@ public class Dialog : MonoBehaviour {
     private void fillDialog(DialogItem item)
     {
         //TODO: make the images come in from the sides with an animation
-        if (item.characterName == DialogItem.CharacterName.Poseidon)
+        if (item.characterName == CharacterName.Poseidon)
         {
             poseidonImage.SetActive(true);
             aphroditeImage.SetActive(false);

@@ -25,7 +25,7 @@ public class Soil : MonoBehaviour {
                 speedCoefficient = 0.8f;
                 break;
             case SoilType.Sand:
-                speedCoefficient = 0.45f;
+                speedCoefficient = 0.6f;
                 break;
         }
     }

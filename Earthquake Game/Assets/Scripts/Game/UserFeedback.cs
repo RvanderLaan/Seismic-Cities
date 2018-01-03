@@ -12,9 +12,12 @@ public class UserFeedback : MonoBehaviour {
 
     private float startTime = float.MinValue;
 
+    private TextInserter textInserter;
+
 	// Use this for initialization
 	void Awake () {
         text = GetComponentInChildren<Text>();
+        textInserter = GetComponentInChildren<TextInserter>();
 	}
 	
 	// Update is called once per frame
@@ -30,7 +33,8 @@ public class UserFeedback : MonoBehaviour {
     public void setText(string text) {
         gameObject.SetActive(true);
         startTime = Time.time;
-        this.text.text = text;
+
+        textInserter.reset(text);
 
         isVisible = true;
     }

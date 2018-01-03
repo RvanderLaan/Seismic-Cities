@@ -99,7 +99,6 @@ public class CamMovement : MonoBehaviour {
             //dMouse.y *= Camera.main.orthographicSize * 2 / Screen.height;
             //pos += dMouse;
 
-            Debug.Log(dragOrigin);
             Vector3 diff = (Input.mousePosition - dragOrigin);
             diff.Scale(screenVector);
             diff.Scale(new Vector3(Camera.main.orthographicSize * 2 * Camera.main.aspect, Camera.main.orthographicSize * 4));

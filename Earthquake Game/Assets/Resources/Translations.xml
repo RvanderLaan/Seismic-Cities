@@ -32,7 +32,7 @@
 	</Row>
 	<Row>
 		<ID>ready</ID>
-		<English>Ready</English>
+		<English>Done</English>
 		<Nederlands>Klaar</Nederlands>
 	</Row>
 	<Row>
@@ -214,5 +214,40 @@
 		<ID>sandDescription</ID>
 		<English>placeholder</English>
 		<Nederlands>Een korreltje zand is veel groter dan een korreltje klei, en kan wel 2 millimeter groot zijn! Een pak zand laat zich niet zo snel samendrukken, en daarom kan je er stevig op bouwen. Een zandlaag dempt trillingen, maar alleen als er niet te veel water tussen de korreltjes zit. Anders kan de laag gaan ‘vloeien’. Heb je wel eens naast de zee op het zand gestampt? Door de trillingen die jij maakt wordt de bodem een vloeibaar papje! Op zand wil je dus alleen bouwen als er niet te veel water in de grond zit.’’</Nederlands>
+	</Row>
+	<Row>
+		<ID>failIntro1</ID>
+		<English>Oops, that did not go as expected!</English>
+		<Nederlands>Oeps, dat ging niet als verwacht!</Nederlands>
+	</Row>
+	<Row>
+		<ID>failIntro2</ID>
+		<English>Unfortunately something went wrong.</English>
+		<Nederlands>Helaas, er ging iets mis.</Nederlands>
+	</Row>
+	<Row>
+		<ID>failIntro3</ID>
+		<English>I am sure of it that you will get it next time!</English>
+		<Nederlands>Ik ben er zeker van dat het je de volgende keer zal lukken!</Nederlands>
+	</Row>
+	<Row>
+		<ID>failClay</ID>
+		<English>That clay seems to amplify the vibrations of the earthqake, it starts to act like waves at sea.</English>
+		<Nederlands>Die klei lijkt de bevingen te versterken, het lijkt wel op golven in de zee.</Nederlands>
+	</Row>
+	<Row>
+		<ID>failDistance</ID>
+		<English>I think you're building too close to the epicenter, try to build further away.</English>
+		<Nederlands>Ik denk dat je te dicht bij het epicentrum bouwt, probeer eens iets verder weg te bouwen.</Nederlands>
+	</Row>
+	<Row>
+		<ID>placeAllSeismographs</ID>
+		<English>You should place all seismographs before continuing</English>
+		<Nederlands>Je moet alle seismografen plaatsen om door te gaan</Nederlands>
+	</Row>
+	<Row>
+		<ID>placeAllCities</ID>
+		<English>You should place all cities before continuing</English>
+		<Nederlands>Je moet alle steden plaatsen om door te gaan</Nederlands>
 	</Row>
 </ns1:schema>
