@@ -22,6 +22,9 @@ public class DragButton : MonoBehaviour
 
     private BuildingZone lastBuildingZone;
 
+    private SpriteRenderer[] previewSRs;
+    public Color goodColor, badColor;
+
     // Use this for initialization
     void Start()
     {
@@ -55,6 +58,7 @@ public class DragButton : MonoBehaviour
         if (preview == null && !finishedPlacing())
         {
             preview = Instantiate(previewPrefab, placementContainer.transform);
+            previewSRs = preview.GetComponentsInChildren<SpriteRenderer>();
             // Disable seimograph and disable button
             //preview.transform.GetChild(1).gameObject.SetActive(false);
             //preview.transform.GetChild(2).gameObject.SetActive(false);
@@ -73,15 +77,13 @@ public class DragButton : MonoBehaviour
         currentCount--;
         text.text = currentCount + "";
 
-        Debug.Log(currentCount);
-
         GameObject instance;
         if (onlyPlaceInZones)
         {
             EventManager.TriggerEvent("BuildingPlace");
             instance = Instantiate(prefab, placementContainer.transform, true);
             instance.tag = "Building";
-            lastBuildingZone.place(prefab.GetComponent<Building>());
+            lastBuildingZone.place(instance.GetComponent<Building>());
             instance.transform.position = worldPos;
         }
         else
@@ -99,9 +101,10 @@ public class DragButton : MonoBehaviour
         //instance.transform.GetChild(1).gameObject.SetActive(false);
 
         // Add undo logic
-        Vector3 undoPosition = instance.transform.position + new Vector3(0, -4, -3);
+        Vector3 undoPosition = instance.transform.position + new Vector3(0, -5, -3);
         GameObject undoButton = Instantiate(undoButtonPrefab, instance.transform);
         undoButton.transform.position = undoPosition;
+        SetGlobalScale(undoButton.transform, Vector3.one * .3f);
         undoButton.GetComponentInChildren<Button>().onClick.AddListener(() => {
             Destroy(instance);
             currentCount += 1;
@@ -109,9 +112,18 @@ public class DragButton : MonoBehaviour
             if (lastBuildingZone != null)
                 lastBuildingZone.undoPlacement();
         });
+        EventManager.StartListening("Mode:Simulation", () => {
+            if (undoButton != null) Destroy(undoButton.gameObject);
+        });
 
         Destroy(preview);
         camMovement.detectClicks = true;
+    }
+
+    public static void SetGlobalScale(Transform transform, Vector3 globalScale)
+    {
+        transform.localScale = Vector3.one;
+        transform.localScale = new Vector3(globalScale.x / transform.lossyScale.x, globalScale.y / transform.lossyScale.y, globalScale.z / transform.lossyScale.z);
     }
 
     bool isOnBuildingZone(Vector3 worldPos)
@@ -156,6 +168,14 @@ public class DragButton : MonoBehaviour
 
                 if (onlyPlaceInZones && !isOnBuildingZone(hitPoint))
                     allowPlacement = false;
+            }
+
+            if (onlyPlaceInZones)
+            {
+                // Change preview color
+                Color newColor = allowPlacement ? goodColor : badColor;
+                foreach (SpriteRenderer sr in previewSRs)
+                    sr.color = newColor;
             }
 
             if (Input.GetMouseButtonUp(0))

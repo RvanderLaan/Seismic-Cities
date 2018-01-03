@@ -34,12 +34,11 @@ public class BuildingZone : MonoBehaviour
     }
 
     public void startShaking() {
+        Debug.Log(isCorrect());
+        Debug.Log(building);
         if (!isCorrect()) {
             if (building != null)
-                if (soilType == Soil.SoilType.Sand)
-                    building.Sink();
-                else
-                    building.Collapse();
+                building.Collapse(this);
         }
     }
 
@@ -50,6 +49,8 @@ public class BuildingZone : MonoBehaviour
         isBuilt = true;                     // Set the platform as unavailable
         sprite.gameObject.SetActive(false); // Hide green sprite
         building.transform.position = transform.position + Vector3.forward;       // Snap building to position of this platform
+
+        Debug.Log(building);
     }
 
     public void placeUpgrade(Upgrade u) {

@@ -18,10 +18,11 @@ public class BuildingList : MonoBehaviour {
     public void Reset(List<BuildingItem> items)
     {
         buildingItems = items;
+        buttons = new List<DragButton>();
         // Add buttons to GUI
         foreach (BuildingItem bi in buildingItems)
         {
-            buttons = new List<DragButton>();
+            
             GameObject buttonInstance = Instantiate(buildingButton, buildingItemContainer.transform);
 
             DragButton dragButton = buttonInstance.GetComponent<DragButton>();
@@ -32,6 +33,7 @@ public class BuildingList : MonoBehaviour {
             dragButton.image = bi.image;
             dragButton.onlyPlaceInZones = true;
 
+            buttons.Add(dragButton);
 
             // Clicky stuff
 

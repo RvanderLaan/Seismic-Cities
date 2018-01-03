@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolutionChecker
+public static class SolutionChecker
 {
-    public static string getFeedback(DamageParticleController wave, BuildingZone bpc)
+    public static string getFeedback(BuildingZone bpc)
     {
         Building building = bpc.building;
         Upgrade upgrade = bpc.upgrade;

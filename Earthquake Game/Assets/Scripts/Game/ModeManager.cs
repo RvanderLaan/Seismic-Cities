@@ -70,7 +70,6 @@ public class ModeManager : MonoBehaviour {
         // Exceptions
         if (mode == GameMode.Measuring && newMode == GameMode.Simulation)
         {
-            Debug.Log(seismographPlacer.finishedPlacing());
             if (!seismographPlacer.finishedPlacing())
             {
                 userFeedback.setText("placeAllSeismographs");

@@ -25,33 +25,45 @@ public class Building : MonoBehaviour {
 
 	}
 
-    public void Collapse() {
-        Debug.Log("Collapsing " + gameObject.name);
+    public void Collapse(BuildingZone zone) {
         if (!collapsing) {
-            AudioSource audio = GetComponent<AudioSource>();
-            audio.clip = collapseSounds[Random.Range(0, collapseSounds.Length)];
-            audio.pitch = Random.Range(0.9f, 1.1f);
-            audio.Play();
             collapsing = true;
-        }        
-
-        for (int i = 0; i < children.Length; i++) {
-            children[i].bodyType = RigidbodyType2D.Dynamic;
-            children[i].AddForce(new Vector2((Random.Range(1, 3) * 2 - 3), 1) * intensity);
+            gameObject.AddComponent<CityDestroyer>();
         }
+        //    AudioSource audio = GetComponent<AudioSource>();
+        //    if (audio != null)
+        //    {
+        //        audio.clip = collapseSounds[Random.Range(0, collapseSounds.Length)];
+        //        audio.pitch = Random.Range(0.9f, 1.1f);
+        //        audio.Play();
+        //    }
+        //    
+        //}        
+
+        //for (int i = 0; i < children.Length; i++) {
+        //    children[i].bodyType = RigidbodyType2D.Dynamic;
+        //    children[i].AddForce(new Vector2((Random.Range(1, 3) * 2 - 3), 1) * intensity);
+        //}
+        
     }
 
+    /*
     public void Sink() {
-        if (!sinking) {
+        if (!sinking)
+        {
             sinking = true;
-            StartCoroutine(SinkMovement(transform, transform.position + Vector3.down * 2, Quaternion.AngleAxis(Random.Range(-20, 20), Vector3.forward), 10));
-
-            AudioSource audio = GetComponent<AudioSource>();
-            audio.clip = sinkingSounds[Random.Range(0, sinkingSounds.Length)];
-            audio.pitch = Random.Range(0.9f, 1.1f);
-            audio.Play();
+            gameObject.AddComponent<CityDestroyer>();
         }
+        //    StartCoroutine(SinkMovement(transform, transform.position + Vector3.down * 2, Quaternion.AngleAxis(Random.Range(-20, 20), Vector3.forward), 10));
+
+        //    AudioSource audio = GetComponent<AudioSource>();
+        //    audio.clip = sinkingSounds[Random.Range(0, sinkingSounds.Length)];
+        //    audio.pitch = Random.Range(0.9f, 1.1f);
+        //    audio.Play();
+        //}
+
     }
+    */
 
     public IEnumerator SinkMovement(Transform transform, Vector3 position, Quaternion rotation, float timeToMove) {
         Vector3 currentPos = transform.position;
