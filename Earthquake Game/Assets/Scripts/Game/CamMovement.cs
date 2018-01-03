@@ -118,6 +118,14 @@ public class CamMovement : MonoBehaviour {
         }
         pos.x = Mathf.Clamp(pos.x, limits.x, limits.y);
         pos.y = Mathf.Clamp(pos.y, limits.z, limits.w);
+        pos.z = -25;
+        return pos;
+    }
+
+    public Vector3 clampToLimits(Vector3 pos)
+    {
+        pos.x = Mathf.Clamp(pos.x, limits.x, limits.y);
+        pos.y = Mathf.Clamp(pos.y, limits.z, limits.w);
         return pos;
     }
 

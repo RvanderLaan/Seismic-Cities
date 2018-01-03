@@ -73,33 +73,41 @@ public class DragButton : MonoBehaviour
         currentCount--;
         text.text = currentCount + "";
 
+        Debug.Log(currentCount);
+
         GameObject instance;
         if (onlyPlaceInZones)
         {
-            instance = Instantiate(prefab, lastBuildingZone.transform, true);
+            EventManager.TriggerEvent("BuildingPlace");
+            instance = Instantiate(prefab, placementContainer.transform, true);
             instance.tag = "Building";
             lastBuildingZone.place(prefab.GetComponent<Building>());
             instance.transform.position = worldPos;
         }
         else
         {
+            EventManager.TriggerEvent("SeismographPlace");
             instance = Instantiate(prefab, placementContainer.transform);
             instance.transform.position = worldPos;
         }
 
-
+        /**
+         * Todo: 
+         */
 
         // Disable seismogram
         //instance.transform.GetChild(1).gameObject.SetActive(false);
 
         // Add undo logic
-        Vector3 undoPosition = instance.transform.position + new Vector3(0, -1, -1);
+        Vector3 undoPosition = instance.transform.position + new Vector3(0, -4, -3);
         GameObject undoButton = Instantiate(undoButtonPrefab, instance.transform);
         undoButton.transform.position = undoPosition;
         undoButton.GetComponentInChildren<Button>().onClick.AddListener(() => {
             Destroy(instance);
             currentCount += 1;
             text.text = currentCount + "";
+            if (lastBuildingZone != null)
+                lastBuildingZone.undoPlacement();
         });
 
         Destroy(preview);
@@ -161,10 +169,13 @@ public class DragButton : MonoBehaviour
             // Scroll screen if at border
             if (!EventSystem.current.IsPointerOverGameObject())
             {
+                Vector3 dir = Vector2.zero;
                 if (mouseDownPos.x < camScrollBorderSize)
-                    camMovement.transform.Translate(scrollSpeed * Vector3.left * Time.deltaTime);
+                    dir = Vector3.left;
                 else if (mouseDownPos.x > Screen.width - camScrollBorderSize)
-                    camMovement.transform.Translate(scrollSpeed * Vector3.right * Time.deltaTime);
+                    dir = Vector3.right;
+
+                camMovement.transform.position = camMovement.clampToLimits(camMovement.transform.position + Time.deltaTime * scrollSpeed * dir);
             }
         }
     }
