@@ -234,15 +234,33 @@ public class LevelManager : MonoBehaviour {
            
             Vector2 origin = new Vector3(levelScale * data.gridPosition, levelScale * dimensions.yMax);
 
-            RaycastHit2D hit = Physics2D.Raycast(origin, -Vector2.up, dimensions.height * levelScale);
-            if (hit.collider != null)
+            bool placed = false, positioned = false;
+            RaycastHit2D[] hits = Physics2D.RaycastAll(origin, -Vector2.up, dimensions.height * levelScale);
+            foreach (RaycastHit2D hit in hits)
             {
-                instance.transform.position = hit.point;
+                if (hit.collider != null)
+                {
+                    Soil soil = hit.collider.GetComponent<Soil>();
+                    if (soil != null)
+                    {
+                        if (!positioned)
+                        {
+                            instance.transform.position = hit.point;
+                            positioned = true;
+                        }
+                        if (soil.type != Soil.SoilType.Other)
+                        {
+                            bzInstance.soilType = soil.type;
+                            placed = true;
+                            break;
+                        }
+                    }
+                }
             }
-            else
-            {
+            
+            if (!placed)
                 Debug.LogError("Building zone cannot be placed (Gridposition: " + data.gridPosition + ")");
-            }
+            
         }
     }
 

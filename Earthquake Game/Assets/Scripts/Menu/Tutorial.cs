@@ -49,8 +49,6 @@ public class Tutorial : MonoBehaviour {
         skipButton.onClick.AddListener(skipTutorial);
         nextButton.onClick.AddListener(nextInstruction);
 
-        Debug.Log(skipButton.name + ", " + nextButton.name);
-
         arrows = instructionObj.transform.Find("Arrows").gameObject;
 
         instructionObj.SetActive(false);

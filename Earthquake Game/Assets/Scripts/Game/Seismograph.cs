@@ -169,6 +169,8 @@ public class Seismograph : MonoBehaviour {
             startTime = Time.time;
 
             SetLamps(distanceIntensity);
+
+            EventManager.TriggerEvent("SeismographActivated");
         }
     }
 

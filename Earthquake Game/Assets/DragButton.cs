@@ -43,6 +43,8 @@ public class DragButton : MonoBehaviour
         placementLayer = LayerMask.GetMask("Placement");
 
         camMovement = Camera.main.transform.parent.GetComponent<CamMovement>();
+
+        text.text = currentCount + "";
     }
 
     public void Reset(int number)

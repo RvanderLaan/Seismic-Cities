@@ -19,6 +19,7 @@ public class ModeManager : MonoBehaviour {
     public SeismographPlacer seismographPlacer;
     public BuildingList buildingList;
     public UpgradeList upgradeList;
+    public DamageInspection damageInspection;
     CamMovement cameraMovement;
 
     public Button backButton, readyButton;
@@ -121,34 +122,45 @@ public class ModeManager : MonoBehaviour {
             targetController.gameObject.SetActive(true);
             earthquakeSimulator.simulateEarthquake(platforms);
 
+            List<Transform> dmgInspTargets = new List<Transform>();
+
             // Check if passed
             bool passed = true;
             foreach (GameObject go in platforms) {
                 BuildingZone bpc = go.GetComponent<BuildingZone>();
                 if (bpc.building != null && bpc.building.type == Building.BuildingType.Thematic)
                     continue;
-                else if (!bpc.isCorrect()) {
+                if (bpc.building != null)
+                    dmgInspTargets.Add(bpc.transform);
+                if (!bpc.isCorrect()) {
                     Debug.Log("Incorrect placement: " + bpc.building);
                     passed = false;
-                    break;
                 }
             }
 
             backButton.interactable = false;
             readyButton.interactable = false;
 
+            damageInspection.Reset();
+            damageInspection.targets = dmgInspTargets.ToArray();
+
+            damageInspection.onFinish = new UnityEvent();
             if (passed) {
                 StartCoroutine(setGameMode(GameMode.Pass, finishWaitTime));
+                damageInspection.onFinish.AddListener(levelManager.NextLevel);
             } else {
                 StartCoroutine(setGameMode(GameMode.Fail, finishWaitTime));
+                damageInspection.onFinish.AddListener(levelManager.Restart);
             }
         } else if (mode == GameMode.Upgrade && newMode == GameMode.Building) {
             // Todo: Remove/reset upgrades when going back?
 
         } else if (newMode == GameMode.Pass) {
             onPass.Invoke();
+            damageInspection.gameObject.SetActive(true);
         } else if (newMode == GameMode.Fail) {
             onFail.Invoke();
+            damageInspection.gameObject.SetActive(true);
         }
 
         // Disable/Enable GUI

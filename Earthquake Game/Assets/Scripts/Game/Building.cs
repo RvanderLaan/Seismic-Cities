@@ -29,6 +29,8 @@ public class Building : MonoBehaviour {
         if (!collapsing) {
             collapsing = true;
             gameObject.AddComponent<CityDestroyer>();
+
+            EventManager.TriggerEvent("BuildingCollapsing");
         }
         //    AudioSource audio = GetComponent<AudioSource>();
         //    if (audio != null)
