@@ -119,6 +119,10 @@ public class ModeManager : MonoBehaviour {
                     b.gameObject.SetActive(false);
             }
 
+            // Move camera
+            cameraMovement.moveTo((Vector2)targetController.transform.position + new Vector2(0, 64));
+            cameraMovement.zoomTo(cameraMovement.maxScale);
+
             targetController.gameObject.SetActive(true);
             earthquakeSimulator.simulateEarthquake(platforms);
 

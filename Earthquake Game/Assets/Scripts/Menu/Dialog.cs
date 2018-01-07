@@ -9,8 +9,7 @@ public class Dialog : MonoBehaviour {
 
     public GameObject background;
     public GameObject skipButton;
-    public GameObject poseidonImage;
-    public GameObject aphroditeImage;
+    public GameObject imageLeft, imageRight;
     public GameObject dialogPanel;
     public Text characterName, dialogText;
     //public GameObject levelFailedPrefab;
@@ -18,10 +17,7 @@ public class Dialog : MonoBehaviour {
 
     private int currentDialogItem = 0;
 
-    private List<DialogItem> currentList;
     public List<DialogItem> dialogList;
-    public List<DialogItem> levelFailedList;
-    public List<DialogItem> levelPassedList;
 
     private CamMovement camMovementScript;
 
@@ -29,84 +25,70 @@ public class Dialog : MonoBehaviour {
     // Use this for initialization
     void Start () {
         camMovementScript = Camera.main.GetComponentInParent<CamMovement>();
-        camMovementScript.enabled = false;
-        currentList = dialogList;
-        showDialog();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
     }
 
     public void showDialog()
     {
-        if (currentDialogItem < currentList.Count)
+        Debug.Log("ShowDialog");
+        if (currentDialogItem < dialogList.Count)
         {
-            currentList[currentDialogItem].enterEvent.Invoke();
+            camMovementScript.enabled = false;
+            dialogList[currentDialogItem].enterEvent.Invoke();
             background.SetActive(true);
             skipButton.SetActive(true);
             dialogPanel.SetActive(true);
-            fillDialog(currentList[currentDialogItem]);
+            fillDialog(dialogList[currentDialogItem]);
         } else
         {
             deactivateUI();
             camMovementScript.enabled = true;
             
             //if (showTutorialAfterDialog)
-            //{
-            //    GetComponent<TutorialManager>().startTutorial();
-            //}
+            //    GetComponent<Tutorial>().startTutorial();
         }
         if (currentDialogItem - 1 >= 0)
-            currentList[currentDialogItem - 1].leaveEvent.Invoke();
+            dialogList[currentDialogItem - 1].leaveEvent.Invoke();
 
         currentDialogItem++;
     }
 
-    public void levelSuccessfull()
-    {
-        currentList = levelPassedList;
-        currentDialogItem = 0;
-        showDialog();
-    }
-
-    public void levelFailed()
-    {
-        currentList = levelFailedList;
-        currentDialogItem = 0;
-        showDialog();
-    }
-
     public void skipDialog()
     {
-        currentDialogItem = currentList.Count;
+        currentDialogItem = dialogList.Count;
         showDialog();
     }
 
 
     private void fillDialog(DialogItem item)
     {
-        //TODO: make the images come in from the sides with an animation
-        if (item.characterName == CharacterName.Poseidon)
+        if (item.characterName == CharacterName.AdmiraalMineraal)
         {
-            poseidonImage.SetActive(true);
-            aphroditeImage.SetActive(false);
+            imageLeft.SetActive(true);
+            imageRight.SetActive(false);
         } else
         {
-            poseidonImage.SetActive(false);
-            aphroditeImage.SetActive(true);
+            imageLeft.SetActive(false);
+            imageRight.SetActive(true);
         }
-        characterName.text = item.characterName.ToString();
-        dialogText.text = item.dialogText;
+        characterName.text = AddSpacesToSentence(item.characterName.ToString());
+        dialogText.GetComponent<TextInserter>().reset(item.dialogText);
     }
 
-    private void deactivateUI()
+    public void deactivateUI()
     {
         background.SetActive(false);
         skipButton.SetActive(false);
         dialogPanel.SetActive(false);
-        poseidonImage.SetActive(false);
-        aphroditeImage.SetActive(false);
+        imageLeft.SetActive(false);
+        imageRight.SetActive(false);
+        currentDialogItem = 0;
+    }
+
+    string AddSpacesToSentence(string text)
+    {
+        string res = "";
+        foreach (char x in text)
+            res += char.IsUpper(x) ? " " + x : x.ToString();
+        return res.TrimStart(' '); ;
     }
 }

@@ -44,7 +44,7 @@ public class LevelDataScript : ScriptableObject
     [SerializeField]
     public Instruction[] tutorial;
     [SerializeField]
-    public DialogItem[] start, pass;
+    public DialogItem[] startingDialog;
 
     // Player items
     [SerializeField]

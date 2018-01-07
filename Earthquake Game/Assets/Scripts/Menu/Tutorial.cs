@@ -64,7 +64,7 @@ public class Tutorial : MonoBehaviour {
         EventManager.TriggerEvent("TutorialStart");
         instructionObj.SetActive(true);
         camMovementScript.enabled = false;
-        spriteTransform.gameObject.SetActive(true);
+        //spriteTransform.gameObject.SetActive(true);
         // background.SetActive(true);
         currentInstruction = 0;
         showInstruction(instructions[currentInstruction]);

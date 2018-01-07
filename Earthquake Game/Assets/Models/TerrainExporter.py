@@ -33,8 +33,16 @@ class TerrainExporter(bpy.types.Operator):
         # Duplicate selected object
         dupe = bpy.ops.object.duplicate()
         obj.hide = True # Hide original object
+        
+        # Apply modifiers
+        for modifier in obj.modifiers:
+            bpy.ops.object.modifier_apply(modifier=modifier.name)
 
         bpy.ops.object.mode_set(mode = 'EDIT')
+        
+        # Apply modifiers
+        for modifier in obj.modifiers:
+            bpy.ops.object.modifier_apply(modifier=modifier.name)
 
         # UV unwrap from front
         bpy.ops.view3d.viewnumpad(type='FRONT') # Front view

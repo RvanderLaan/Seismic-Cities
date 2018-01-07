@@ -808,6 +808,30 @@ MonoBehaviour:
   gridColor: {r: 0.43382353, g: 0.5314402, b: 1, a: 1}
   graphBackground: {fileID: 0}
   xOffset: 0.21
+  distanceIntensityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: -0.030833889
+      outSlope: -0.030833889
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1.259131
+      value: 0.31424952
+      inSlope: -0.2197165
+      outSlope: -0.2197165
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 4
+      value: 0
+      inSlope: -0.009386911
+      outSlope: -0.009386911
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   offSat: 0.1
   onSat: 1
 --- !u!114 &114513244168405450

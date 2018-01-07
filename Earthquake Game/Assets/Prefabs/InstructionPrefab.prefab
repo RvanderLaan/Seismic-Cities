@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224005632038178712}
   - component: {fileID: 222154499810801188}
   - component: {fileID: 114149462719525308}
+  - component: {fileID: 114620430347781990}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -161,6 +162,7 @@ GameObject:
   - component: {fileID: 224341298237891236}
   - component: {fileID: 222899229857113710}
   - component: {fileID: 114904113151191230}
+  - component: {fileID: 114767977787149112}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -289,7 +291,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next 1/5
+  m_Text: next
 --- !u!114 &114172364849204808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -552,7 +554,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.16435987, g: 0.58823526, b: 0.46545756, a: 1}
-    m_HighlightedColor: {r: 0.8377878, g: 0.9117647, b: 0.5765571, a: 1}
+    m_HighlightedColor: {r: 0.48356402, g: 0.7647059, b: 0.613471, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -767,6 +769,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114620430347781990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035782070661464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d82552097b7f0842a1bbdc59ab0e105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114640482914827040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -814,7 +827,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.11791177, g: 0.33391926, b: 0.422, a: 1}
-    m_HighlightedColor: {r: 0.8377878, g: 0.9117647, b: 0.5765571, a: 1}
+    m_HighlightedColor: {r: 0.40451992, g: 0.5618512, b: 0.6397059, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -835,6 +848,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114767977787149112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477631157723402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d82552097b7f0842a1bbdc59ab0e105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114841464632849936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -861,7 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8602941, g: 0.8602941, b: 0.8602941, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -881,7 +905,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Skip
+  m_Text: skip
 --- !u!114 &114982004191599640
 MonoBehaviour:
   m_ObjectHideFlags: 1

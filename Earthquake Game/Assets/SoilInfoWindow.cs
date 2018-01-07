@@ -19,6 +19,5 @@ public class SoilInfoWindow : MonoBehaviour {
     {
         gameObject.SetActive(true);
         text.reset(type.ToString());
-        
     }
 }

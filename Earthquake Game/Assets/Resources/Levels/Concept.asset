@@ -37,10 +37,21 @@ MonoBehaviour:
   other:
   - {fileID: 1747740224174948, guid: 7c63368c516d7b544beb3fbc7c694149, type: 2}
   cameraLimits: {x: 0, y: 599, z: -150, w: 150}
-  tutorial: {fileID: 0}
-  start: {fileID: 0}
-  pass: {fileID: 0}
-  fail: {fileID: 0}
+  tutorial: []
+  startingDialog:
+  - characterName: 0
+    dialogText: 'Bedankt voor het spelen! Deze en de volgende levels zijn nog in testfase
+      of concepten. Er zullen dus waarschijnlijk een aantal dingen niet kloppen. '
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
   buildingItems:
   - name: Dutch City
     prefab: {fileID: 114996581293983684, guid: 8ec28266275e27f4091e002875b6cdf6, type: 2}
@@ -48,4 +59,4 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: a4f5bc1c3cd29ee4591a6b32fcccef87, type: 3}
     tooltipText: A small Dutch village
   upgradeItems: []
-  seismographAmount: 2
+  seismographAmount: 3

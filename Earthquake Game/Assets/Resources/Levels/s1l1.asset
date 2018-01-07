@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd79b67bd3908c64ab472281c0d7620d, type: 3}
   m_Name: s1l1
   m_EditorClassIdentifier: 
-  levelName: The Netherlands - Level 1
+  levelName: s1-name
   seed: 1323
   soilLayers: {fileID: 100010, guid: 093b85ab8d8fcf04ea23027fd78c1211, type: 3}
   buildingZones:
@@ -62,7 +62,7 @@ MonoBehaviour:
     nextEventTrigger: 
   - zoom: 1
     focusGameObjectName: 
-    screenPosition: {x: 0.8, y: 0.8}
+    screenPosition: {x: 0.8, y: 0.6}
     flipSprite: 0
     arrow: 1
     text: s1-l2-1
@@ -80,12 +80,11 @@ MonoBehaviour:
     focusGameObjectName: 
     screenPosition: {x: 0.8, y: 0.3}
     flipSprite: 0
-    arrow: 1
+    arrow: -1
     text: s1-l2-3
     emitOnExit: 
     nextEventTrigger: 
-  start: []
-  pass: []
+  startingDialog: []
   buildingItems:
   - name: city
     prefab: {fileID: 114616065183123648, guid: 5215e2e949f492f42a25fa80fdbc186f, type: 2}

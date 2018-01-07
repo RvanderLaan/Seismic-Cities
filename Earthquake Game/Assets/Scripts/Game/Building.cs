@@ -28,7 +28,12 @@ public class Building : MonoBehaviour {
     public void Collapse(BuildingZone zone) {
         if (!collapsing) {
             collapsing = true;
-            gameObject.AddComponent<CityDestroyer>();
+            gameObject.GetComponent<CityDestroyer>().enabled = true;
+
+            ParticleSystem ps = gameObject.GetComponentInChildren<ParticleSystem>();
+            if (ps != null)
+                ps.Play();
+            
 
             EventManager.TriggerEvent("BuildingCollapsing");
         }

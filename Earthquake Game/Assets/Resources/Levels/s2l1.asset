@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd79b67bd3908c64ab472281c0d7620d, type: 3}
   m_Name: s2l1
   m_EditorClassIdentifier: 
-  levelName: s1-l2
+  levelName: s2-name
   seed: 1234
-  soilLayers: {fileID: 100000, guid: 204d473091e5f964a81bc6ef82d55a9f, type: 3}
+  soilLayers: {fileID: 100010, guid: add0755a4227ba0458a100cc130de71f, type: 3}
   buildingZones:
   - allowedPlacements:
     - building: 7
@@ -47,41 +47,80 @@ MonoBehaviour:
   other:
   - {fileID: 1747740224174948, guid: 857642fa40e540746b1ad61315658b8d, type: 2}
   cameraLimits: {x: 0, y: 599, z: -150, w: 150}
-  tutorial:
-  - zoom: 0.6
-    focusGameObjectName: LevelCenter
-    screenPosition: {x: 0.5, y: 0.5}
-    flipSprite: 0
-    arrow: -1
-    text: s2-l1-1
-    emitOnExit: 
-    nextEventTrigger: 
-  - zoom: 0.6
-    focusGameObjectName: LevelCenter
-    screenPosition: {x: 0.5, y: 0.5}
-    flipSprite: 0
-    arrow: -1
-    text: s2-l1-2
-    emitOnExit: 
-    nextEventTrigger: 
-  - zoom: 1
-    focusGameObjectName: LevelCenter
-    screenPosition: {x: 0.5, y: 0.5}
-    flipSprite: 0
-    arrow: 2
-    text: s2-l1-5
-    emitOnExit: 
-    nextEventTrigger: 
-  - zoom: 1
-    focusGameObjectName: 
-    screenPosition: {x: 0.8, y: 0.5}
-    flipSprite: 0
-    arrow: 1
-    text: s2-l1-6
-    emitOnExit: 
-    nextEventTrigger: 
-  start: []
-  pass: []
+  tutorial: []
+  startingDialog:
+  - characterName: 0
+    dialogText: s2-l1-1
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 0
+    dialogText: s2-l1-2
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 1
+    dialogText: s2-l1-3
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 0
+    dialogText: s2-l1-4
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 0
+    dialogText: s2-l1-5
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - characterName: 0
+    dialogText: s2-l1-6
+    enterEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    leaveEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
   buildingItems:
   - name: city
     prefab: {fileID: 114616065183123648, guid: 5215e2e949f492f42a25fa80fdbc186f, type: 2}

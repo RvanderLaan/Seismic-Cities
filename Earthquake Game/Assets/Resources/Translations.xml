@@ -91,6 +91,93 @@
 		<Nederlands>Nederlandse stad</Nederlands>
 	</Row>
 	<Row>
+		<ID>placeAllSeismographs</ID>
+		<English>You should place all seismographs before continuing</English>
+		<Nederlands>Je moet alle seismografen plaatsen om door te gaan</Nederlands>
+	</Row>
+	<Row>
+		<ID>placeAllCities</ID>
+		<English>You should place all cities before continuing</English>
+		<Nederlands>Je moet alle steden plaatsen om door te gaan</Nederlands>
+	</Row>
+	<Row>
+		<ID>skip</ID>
+		<English>Skip</English>
+		<Nederlands>Overslaan</Nederlands>
+	</Row>
+	<Row>
+		<ID>next</ID>
+		<English>Next</English>
+		<Nederlands>Volgende</Nederlands>
+	</Row>
+	<Row/>
+	<Row>
+		<ID>ground</ID>
+		<English>Ground</English>
+		<Nederlands>Grond</Nederlands>
+	</Row>
+	<Row>
+		<ID>groundDescription</ID>
+		<English>placeholder</English>
+		<Nederlands>De ondergrond bestaat uit meerdere lagen van verschillende soorten materiaal. Zo kan de ondergrond bestaan uit veen, klei en zand. Hoe dieper je in de grond gaat graven, hoe steviger de ondergrond is die je tegenkomt! Dit komt omdat de korreltjes diep in de grond tegen elkaar aan worden geduwd.</Nederlands>
+	</Row>
+	<Row>
+		<ID>bedrock</ID>
+		<English>Bedrock</English>
+		<Nederlands>Grondgesteente</Nederlands>
+	</Row>
+	<Row>
+		<ID>bedrockDescription</ID>
+		<English>placeholder</English>
+		<Nederlands>placeholder</Nederlands>
+	</Row>
+	<Row>
+		<ID>clay</ID>
+		<English>Clay</English>
+		<Nederlands>Klei</Nederlands>
+	</Row>
+	<Row>
+		<ID>clayDescription</ID>
+		<English>placeholder</English>
+		<Nederlands>Klei heeft korreltjes die kleiner zijn dan 0,002 millimeter. Dat is ongeveer 500 keer zo klein als de dikte van je nagel! Omdat de korreltjes van klei zo klein zijn, blijft het water er goed tussen zitten. Hierdoor is klei is samendrukbaar. De kleilaag geeft de trilling in de grond door en dat is dus niet goed bij een aardbeving. De trilling wordt namelijk niet gedempt!</Nederlands>
+	</Row>
+	<Row>
+		<ID>sand</ID>
+		<English>Sand</English>
+		<Nederlands>Zand</Nederlands>
+	</Row>
+	<Row>
+		<ID>sandDescription</ID>
+		<English>placeholder</English>
+		<Nederlands>Een korreltje zand is veel groter dan een korreltje klei, en kan wel 2 millimeter groot zijn! Een pak zand laat zich niet zo snel samendrukken, en daarom kan je er stevig op bouwen. Een zandlaag dempt trillingen, maar alleen als er niet te veel water tussen de korreltjes zit. Anders kan de laag gaan ‘vloeien’. Heb je wel eens naast de zee op het zand gestampt? Door de trillingen die jij maakt wordt de bodem een vloeibaar papje! Op zand wil je dus alleen bouwen als er niet te veel water in de grond zit.’’</Nederlands>
+	</Row>
+	<Row>
+		<ID>saltStone</ID>
+		<English>Salt stone</English>
+		<Nederlands>Zandsteen</Nederlands>
+	</Row>
+	<Row>
+		<ID>saltStoneDescription</ID>
+		<English>placeholder</English>
+		<Nederlands>placeholder</Nederlands>
+	</Row>
+	<Row>
+		<ID>peat</ID>
+		<English>Peat</English>
+		<Nederlands>Veen</Nederlands>
+	</Row>
+	<Row>
+		<ID>peatDescription</ID>
+		<English>placeholder</English>
+		<Nederlands>Veen is een grondsoort die vooral bestaat uit plantenresten. Dit wordt ‘organisch’ genoemd. Het is licht materiaal dat gemakkelijk samen te drukken is. Het is dus niet stevig, maar veert juist mee als er gewicht op komt. Bouwen op veen is daarom geen goed plan!</Nederlands>
+	</Row>
+	<Row/>
+	<Row>
+		<ID>s1-name</ID>
+		<English>Tutorial</English>
+		<Nederlands>Tutorial</Nederlands>
+	</Row>
+	<Row>
 		<ID>s1-l1-1</ID>
 		<English>What you can see here is the ground consists of two soil types, sand and clay.</English>
 		<Nederlands>Je ziet hier dat de bodem uit twee soorten bestaat, zand en klei.</Nederlands>
@@ -122,12 +209,12 @@
 	</Row>
 	<Row>
 		<ID>s1-l2-fail-1</ID>
-		<English>let's try again</English>
+		<English>The city fell apart due to the forces from the earthquake. Let's try again!</English>
 		<Nederlands>Je ziet dat je stad kapot gegaan is aan de krachten die ontstaan in de bodem door middel van de aardbeving. Laten we het opnieuw proberen!</Nederlands>
 	</Row>
 	<Row>
 		<ID>s1-l2-pass-1</ID>
-		<English>gj</English>
+		<English>You placed the city on the right spot, hooray!</English>
 		<Nederlands>Je hebt de stad op de juiste plek geplaatst en hij is niet stuk gegaan. Hoera!</Nederlands>
 	</Row>
 	<Row>
@@ -137,8 +224,14 @@
 	</Row>
 	<Row>
 		<ID>s1-l3-1</ID>
-		<English>yeah</English>
+		<English>placeholder</English>
 		<Nederlands>Zodat de steden op de juiste locatie geplaatst worden en niet vernietigd worden moet je goed kijken naar de bodemsoorten en de bodemsamenstelling goed lezen. Omdat dit niet altijd even eenvoudig is, bestaat er de mogelijkheid om 1 seismograaf te plaatsen.</Nederlands>
+	</Row>
+	<Row/>
+	<Row>
+		<ID>s2-name</ID>
+		<English>Natural Gas in Groningen</English>
+		<Nederlands>Aardgas in Groningen</Nederlands>
 	</Row>
 	<Row>
 		<ID>s2-description</ID>
@@ -196,24 +289,9 @@
 		<Nederlands>Het epicentrum is de plek waar de aardbeving zijn oorsprong heeft. Omdat de stad direct boven het epicentrum geplaatst is gaat hij stuk.</Nederlands>
 	</Row>
 	<Row>
-		<ID>groundDescription</ID>
-		<English>placeholder</English>
-		<Nederlands>De ondergrond bestaat uit meerdere lagen van verschillende soorten materiaal. Zo kan de ondergrond bestaan uit veen, klei en zand. Hoe dieper je in de grond gaat graven, hoe steviger de ondergrond is die je tegenkomt! Dit komt omdat de korreltjes diep in de grond tegen elkaar aan worden geduwd.</Nederlands>
-	</Row>
-	<Row>
-		<ID>peatDescription</ID>
-		<English>placeholder</English>
-		<Nederlands>Veen is een grondsoort die vooral bestaat uit plantenresten. Dit wordt ‘organisch’ genoemd. Het is licht materiaal dat gemakkelijk samen te drukken is. Het is dus niet stevig, maar veert juist mee als er gewicht op komt. Bouwen op veen is daarom geen goed plan!</Nederlands>
-	</Row>
-	<Row>
-		<ID>clayDescription</ID>
-		<English>placeholder</English>
-		<Nederlands>Klei heeft korreltjes die kleiner zijn dan 0,002 millimeter. Dat is ongeveer 500 keer zo klein als de dikte van je nagel! Omdat de korreltjes van klei zo klein zijn, blijft het water er goed tussen zitten. Hierdoor is klei is samendrukbaar. De kleilaag geeft de trilling in de grond door en dat is dus niet goed bij een aardbeving. De trilling wordt namelijk niet gedempt!</Nederlands>
-	</Row>
-	<Row>
-		<ID>sandDescription</ID>
-		<English>placeholder</English>
-		<Nederlands>Een korreltje zand is veel groter dan een korreltje klei, en kan wel 2 millimeter groot zijn! Een pak zand laat zich niet zo snel samendrukken, en daarom kan je er stevig op bouwen. Een zandlaag dempt trillingen, maar alleen als er niet te veel water tussen de korreltjes zit. Anders kan de laag gaan ‘vloeien’. Heb je wel eens naast de zee op het zand gestampt? Door de trillingen die jij maakt wordt de bodem een vloeibaar papje! Op zand wil je dus alleen bouwen als er niet te veel water in de grond zit.’’</Nederlands>
+		<ID>correctPlacement</ID>
+		<English>Well done, this city was placed correctly!</English>
+		<Nederlands>Goed gedaan, deze stad was goed geplaatst!</Nederlands>
 	</Row>
 	<Row>
 		<ID>failIntro1</ID>
@@ -232,22 +310,16 @@
 	</Row>
 	<Row>
 		<ID>failClay</ID>
-		<English>That clay seems to amplify the vibrations of the earthqake, it starts to act like waves at sea.</English>
-		<Nederlands>Die klei lijkt de bevingen te versterken, het lijkt wel op golven in de zee.</Nederlands>
+		<English>That clay seems to amplify the vibrations of the earthqake, causing buildings to tilt.</English>
+		<Nederlands>Die klei lijkt de bevingen te versterken, waardoor gebouwen kunnen kantelen.</Nederlands>
 	</Row>
 	<Row>
 		<ID>failDistance</ID>
 		<English>I think you're building too close to the epicenter, try to build further away.</English>
 		<Nederlands>Ik denk dat je te dicht bij het epicentrum bouwt, probeer eens iets verder weg te bouwen.</Nederlands>
 	</Row>
-	<Row>
-		<ID>placeAllSeismographs</ID>
-		<English>You should place all seismographs before continuing</English>
-		<Nederlands>Je moet alle seismografen plaatsen om door te gaan</Nederlands>
-	</Row>
-	<Row>
-		<ID>placeAllCities</ID>
-		<English>You should place all cities before continuing</English>
-		<Nederlands>Je moet alle steden plaatsen om door te gaan</Nederlands>
-	</Row>
+	<Row/>
+	<Row/>
+	<Row/>
+	<Row/>
 </ns1:schema>

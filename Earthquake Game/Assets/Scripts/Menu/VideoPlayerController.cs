@@ -82,6 +82,4 @@ public class VideoPlayerController : MonoBehaviour {
         this.movie = clip;
         setPlaying(true);
     }
-
-
 }

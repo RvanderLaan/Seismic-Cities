@@ -12,20 +12,20 @@ public class LevelName : MonoBehaviour {
     private Image background;
     private Color initialBackgroundColor;
 
+    private string levelName;
+
 	// Use this for initialization
 	void Start () {
         text = GetComponent<Text>();
         background = transform.parent.GetComponent<Image>();
         initialBackgroundColor = background.color;
+        Init();
     }
 
-    public void StartFade(string levelName)
+    void Init()
     {
-        if (text == null)
-            Start();
-
         transform.parent.gameObject.SetActive(true);
-        text.text = levelName;
+        GetComponent<TextInserter>().reset(levelName);
         startTime = Time.time;
 
         Color c = text.color;
@@ -33,6 +33,11 @@ public class LevelName : MonoBehaviour {
         text.color = c;
 
         background.color = initialBackgroundColor;
+    }
+
+    public void StartFade(string levelName)
+    {
+        this.levelName = levelName;
     }
 	
 	// Update is called once per frame

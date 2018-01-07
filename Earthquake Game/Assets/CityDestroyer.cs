@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CityDestroyer : MonoBehaviour {
 
-    public float maxRotation = 6;
-    public float baseTime = 4;
-    public float randomTime = 6;
+    public float maxRotation = 12;
+    public float baseTime = 3;
+    public float randomTime = 4;
 
     void Start () {
         for (int i = 0; i < transform.childCount; i++)
@@ -20,7 +20,7 @@ public class CityDestroyer : MonoBehaviour {
         float moveStart = Time.time;
         float moveLength = baseTime + Random.value * randomTime;
 
-        Vector3 rotTarget = new Vector3(0, 0, Random.Range(-4, 4));
+        Vector3 rotTarget = new Vector3(0, 0, Random.Range(-maxRotation, maxRotation));
 
         float t = (Time.time - moveStart) / moveLength;
         while (t < 1)

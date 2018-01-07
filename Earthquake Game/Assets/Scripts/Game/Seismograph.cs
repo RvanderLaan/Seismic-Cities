@@ -38,6 +38,8 @@ public class Seismograph : MonoBehaviour {
     private bool[] lampStatus;
     private Image[] lampImages, lampGlowImages;
 
+    public AnimationCurve distanceIntensityCurve;
+    public float curveDistanceScale = 50;
     float[] signature = { .33f, 1f, .42f, .25f, .15f, .92f, .12f, .22f, .56f, .23f, .15f, .28f, .13f, .23f, .05f, .17f, .29f, 0.05f, .02f, .04f, };
 
     private float distanceIntensity = 1;
@@ -161,8 +163,10 @@ public class Seismograph : MonoBehaviour {
         if (!moving)
         {
             // Debug.Log(Vector3.SqrMagnitude(transform.position - earthquakeOrigin));
-            earthquakeOrigin = GameObject.Find("EpicenterTarget").transform.position;
-            distanceIntensity = 1 - Mathf.Clamp(((Vector3.SqrMagnitude(transform.position - earthquakeOrigin) - 5000) / 15000f), 0, 0.9f);
+            
+            //distanceIntensity = 1 - Mathf.Clamp(((Vector3.SqrMagnitude(transform.position - earthquakeOrigin) - 5000) / 15000f), 0, 0.9f);
+
+            distanceIntensity = distanceIntensityCurve.Evaluate((Vector3.Magnitude(transform.position - earthquakeOrigin) - 100) / curveDistanceScale);
 
             // wrapper.gameObject.SetActive(true);
             moving = true;
@@ -178,5 +182,7 @@ public class Seismograph : MonoBehaviour {
     {
         transform.parent.Find("Seismogram").gameObject.SetActive(true);
         transform.parent.Find("Undo").gameObject.SetActive(false);
+
+        earthquakeOrigin = GameObject.Find("EpicenterTarget").transform.position;
     }
 }

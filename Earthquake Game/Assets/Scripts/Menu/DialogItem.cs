@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public enum CharacterName
 {
-    AdmiraalMineraal, Poseidon, Athena
+    AdmiraalMineraal, KapiteinKapitaal, Poseidon, Athena
 }
 
 //public static class CharacterNameExtensions
@@ -31,7 +31,6 @@ public enum CharacterName
 public class DialogItem
 {
     public CharacterName characterName;
-    [TextArea(3, 10)]
     public string dialogText;
     public UnityEvent enterEvent;
     public UnityEvent leaveEvent;

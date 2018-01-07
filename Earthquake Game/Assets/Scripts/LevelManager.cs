@@ -6,12 +6,12 @@ using EZCameraShake;
 
 public class LevelManager : MonoBehaviour {
 
-    [Range(0, 100)]
+    [Range(0, 10)]
     public int levelIndex;
 
     public List<LevelData> levels;
 
-    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer, targetController, menu, levelSpecific, tutorial, soilGlossary;
+    public Transform buildingZones, terrain, buildingList, upgradeList, seismographButton, sceneryContainer, targetController, menu, levelSpecific, levelCenter, tutorial, soilGlossary, dialog;
     public LevelName levelName;
     public ModeManager modeManager;
     public SeismographPlacer seismographPlacer;
@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour {
     public static Rect dimensions = new Rect(-32, -48, 128, 64);
 
     private Fader fader;
+    private CamMovement camMovement;
 
     // Use this for initialization
     void Awake () {
@@ -33,7 +34,9 @@ public class LevelManager : MonoBehaviour {
         ConstructLevel(ld);
 
         EventManager.StartListening("NextLevel", () => PrepNextLevel());
-	}
+
+        camMovement = Camera.main.transform.parent.GetComponent<CamMovement>();
+    }
 
     public LevelData getLevelData()
     {
@@ -74,6 +77,10 @@ public class LevelManager : MonoBehaviour {
         levelIndex++;
         ConstructLevel(levels[levelIndex]);
         fader.EndFade();
+
+
+        camMovement.moveTo(levelCenter.transform.position);
+        camMovement.zoomTo(camMovement.maxScale);
     }
 
     public void Restart()
@@ -127,12 +134,26 @@ public class LevelManager : MonoBehaviour {
         // Seismograph
         seismographPlacer.Reset(levelData.seismographAmount);
 
-        // Dialogue/tutorial
+        // Tutorial
         if (levelData.tutorial.Length > 0)
         {
             tutorial.GetComponent<Tutorial>().instructions = levelData.tutorial;
             tutorial.GetComponent<Tutorial>().startTutorial();
+        } else
+        {
+            tutorial.gameObject.SetActive(false);
         }
+
+        // Dialogue
+        Dialog dialogComp = dialog.GetComponent<Dialog>();
+        if (levelData.startingDialog.Length > 0)
+        {
+            dialogComp.deactivateUI();
+            dialogComp.dialogList = new List<DialogItem>(levelData.startingDialog);
+            dialogComp.showDialog();
+        } else
+            dialogComp.deactivateUI();
+        
 
         // Soil glossary
         soilGlossary.GetComponent<SoilGlossary>().init(soilItems);
