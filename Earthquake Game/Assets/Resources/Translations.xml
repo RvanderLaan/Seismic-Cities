@@ -2,8 +2,8 @@
 <ns1:schema xmlns:ns1="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Row>
 		<ID>newGame</ID>
-		<English>New game</English>
-		<Nederlands>Nieuw spel</Nederlands>
+		<English>New Game</English>
+		<Nederlands>Nieuw Spel</Nederlands>
 	</Row>
 	<Row>
 		<ID>learn</ID>
@@ -16,9 +16,14 @@
 		<Nederlands>Opties</Nederlands>
 	</Row>
 	<Row>
+		<ID>about</ID>
+		<English>About</English>
+		<Nederlands>Over</Nederlands>
+	</Row>
+	<Row>
 		<ID>credits</ID>
 		<English>Credits</English>
-		<Nederlands>Over</Nederlands>
+		<Nederlands>Credits</Nederlands>
 	</Row>
 	<Row>
 		<ID>startTutorial</ID>
@@ -46,9 +51,48 @@
 		<Nederlands>Level selecteren</Nederlands>
 	</Row>
 	<Row>
-		<ID>introduction</ID>
-		<English>Seismic Cities is a game developed by students of the TU Delft. Its goal is to make you familiar with a variety of soil types and the impact these soil types have on the destruction caused by earthquakes. This will be learned through a set of interactive scenarios on different places on earth, each based on real world situations.</English>
-		<Nederlands>Seismic Cities is een game ontwikkeld door studenten van de TU Delft. Het doel is om jou bekend te maken met verschillende bodemsoorten en de gevolgen van deze bodemsoorten op de schade die aardbevingen kunnen aanrichten. Hiervoor kun je verschillende scenario's spelen die op verschillende plekken op aarde afspelen. De scenario's zijn ontwikkeld aan hand van echte situaties.</Nederlands>
+		<ID>aboutContent</ID>
+		<English>Seismic Cities is a game developed by students of the TU Delft. Its goal is to make you familiar with a variety of soil types and the impact these soil types have on the destruction caused by earthquakes.
+
+This will be learned through a set of interactive scenarios on different places on earth, each based on real world situations.</English>
+		<Nederlands>Seismic Cities is een game ontwikkeld door studenten van de TU Delft. Het doel is om jou bekend te maken met verschillende bodemsoorten en de gevolgen van deze bodemsoorten op de schade die aardbevingen kunnen aanrichten.
+
+Hiervoor kun je verschillende scenario's spelen die op verschillende plekken op aarde afspelen. De scenario's zijn ontwikkeld aan hand van echte situaties.</Nederlands>
+	</Row>
+	<Row>
+		<ID>creditsContent</ID>
+		<English>Seismic Cities started out as a project for the Building Serious Games MSc course at the Technical University of Delft. It was made in a period of 10 weeks under guidance of the project manager Jules Dadok, professor R. Bidarra and his assistant Nestor Salamon.
+
+Development continued afterwards to expand upon the original game concept to make it into the game it is today.
+
+Thank you for playing,
+
+Jules Dudok (Lead Designer)
+Sylvia Strijk (Lead Artist)
+Remi van der Laan (Lead Developer)
+
+- The Original Seismic Cities Team
+     Andrea Donati            
+     Fabian van Gent       
+     Joris Bouwens             
+     Remi van der Laan      
+     Sander Kats   </English>
+		<Nederlands>Seismic Cities begon als een project voor het Building Serious Games MSc vak van de Technische Universiteit Delft. Het was gemaakt in een periode van 10 weken onder begeleiding van de  projectmanager Jules Dadok, professor R. Bidarra en zijn assistant Nestor Salamon.
+
+De ontwikkeling ging daarna door om het originele game-concept uit te breiden naar de game zoals het is nu is.
+
+Bedankt voor het spelen,
+
+Jules Dudok (Lead Designer)
+Sylvia Strijk (Lead Artist)
+Remi van der Laan (Lead Developer)
+
+- Het Originele Seismic Cities Team
+     Andrea Donati            
+     Fabian van Gent       
+     Joris Bouwens             
+     Remi van der Laan      
+     Sander Kats   </Nederlands>
 	</Row>
 	<Row>
 		<ID>netherlands</ID>
@@ -109,6 +153,23 @@
 		<ID>next</ID>
 		<English>Next</English>
 		<Nederlands>Volgende</Nederlands>
+	</Row>
+	<Row>
+		<ID>timeout</ID>
+		<English>Are you still there?
+The game will restart automatically if the 'Continue' button is not pressed.</English>
+		<Nederlands>Is daar nog iemand?
+Het spel begint automatisch opnieuw als er niet op 'Doorgaan' wordt gedrukt.</Nederlands>
+	</Row>
+	<Row>
+		<ID>fromTheStart</ID>
+		<English>From the start</English>
+		<Nederlands>Vanaf het begin</Nederlands>
+	</Row>
+	<Row>
+		<ID>continue</ID>
+		<English>Continue</English>
+		<Nederlands>Doorgaan</Nederlands>
 	</Row>
 	<Row/>
 	<Row>

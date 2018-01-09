@@ -37,6 +37,6 @@ public class AutoRotate : MonoBehaviour {
     }
 
     private void StartGame() {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level");
     }
 }

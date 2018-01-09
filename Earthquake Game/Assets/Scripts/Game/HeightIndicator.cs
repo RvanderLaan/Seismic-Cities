@@ -12,9 +12,11 @@ public class HeightIndicator : MonoBehaviour {
     public int heightScale = 20;
 
     private RectTransform rectTransform;
+    private Canvas canvas;
 
 	// Use this for initialization
 	void Start () {
+        canvas = transform.parent.GetComponent<Canvas>();
         // Initialize text components with the right value and position
         rectTransform = GetComponent<RectTransform>();
         texts = new Text[entries.Length];
@@ -26,12 +28,6 @@ public class HeightIndicator : MonoBehaviour {
             texts[i].rectTransform.position = getRelativePosition(i);
             texts[i].transform.localScale = Vector3.one;
         }
-            
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
     void OnGUI() {
@@ -50,7 +46,8 @@ public class HeightIndicator : MonoBehaviour {
     private Vector2 getRelativePosition(int i) {
         Vector2 pos = texts[i].rectTransform.position;
         float absoluteHeight = (i - startIndex) * heightScale + Camera.main.transform.position.y - Camera.main.orthographicSize;
-        pos.y = absoluteHeight / (Camera.main.orthographicSize) * rectTransform.rect.y;
+        pos.y = absoluteHeight / (Camera.main.orthographicSize) * rectTransform.rect.y * canvas.scaleFactor;
+        
         return pos;
     }
 }

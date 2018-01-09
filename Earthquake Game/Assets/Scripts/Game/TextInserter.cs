@@ -17,6 +17,11 @@ public class TextInserter : MonoBehaviour {
         reset(text.text);
 	}
 
+    private void Start()
+    {
+        updateText();
+    }
+
     public void reset(string newText)
     {
         id = newText;

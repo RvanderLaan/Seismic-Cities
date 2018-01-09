@@ -263,7 +263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &57845925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -262}
+  m_AnchoredPosition: {x: 0, y: -57}
   m_SizeDelta: {x: 285, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57845926
@@ -554,7 +554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &215753634
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4366,7 +4366,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -16, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &357881692
 MonoBehaviour:
@@ -4388,7 +4388,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d1e6f26e499cb52479acde99684904d5, type: 3}
+    m_Font: {fileID: 12800000, guid: 84c2d1cec78ba5a4e8b6300a1b7b5d66, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 1
@@ -5333,7 +5333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &780254349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5931,7 +5931,7 @@ RectTransform:
   m_GameObject: {fileID: 918359953}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 0, z: 1}
   m_Children:
   - {fileID: 646998126}
   - {fileID: 1888487575}
@@ -6418,7 +6418,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -137}
-  m_SizeDelta: {x: 285, y: 40}
+  m_SizeDelta: {x: 285, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &976067553
 MonoBehaviour:
@@ -6874,6 +6874,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4706791}
+    - target: {fileID: 224397386369888438, guid: 2463ea9840d55cb42b803cea8df3558a,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224397386369888438, guid: 2463ea9840d55cb42b803cea8df3558a,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2463ea9840d55cb42b803cea8df3558a, type: 2}
   m_IsPrefabParent: 0
@@ -6914,7 +6924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 37}
   m_SizeDelta: {x: 400, y: 600}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1185578462
@@ -7133,10 +7143,10 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d1e6f26e499cb52479acde99684904d5, type: 3}
-    m_FontSize: 24
+    m_Font: {fileID: 12800000, guid: 84c2d1cec78ba5a4e8b6300a1b7b5d66, type: 3}
+    m_FontSize: 32
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
@@ -7513,6 +7523,7 @@ GameObject:
   - component: {fileID: 1224009852}
   - component: {fileID: 1224009854}
   - component: {fileID: 1224009853}
+  - component: {fileID: 1224009855}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -7561,30 +7572,33 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 16
+    m_MaxSize: 24
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'In Seismic Cities you will learn about different types of earthquakes,
-    soil types and their effect on the destruction of buildings.
-
-
-    The Greek goddess Athena will guide you through 6 levels in order to defeat Poseidon,
-    who is causing earthquakes all over the world.
-
-
-    Do you think you can defeat Poseidon? Only one way to find out...'
+  m_Text: aboutContent
 --- !u!222 &1224009854
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1224009851}
+--- !u!114 &1224009855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1224009851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d82552097b7f0842a1bbdc59ab0e105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1248076969
 GameObject:
   m_ObjectHideFlags: 0
@@ -8169,7 +8183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 138}
+  m_AnchoredPosition: {x: 0, y: 45}
   m_SizeDelta: {x: 285, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1664417835
@@ -8863,6 +8877,7 @@ GameObject:
   - component: {fileID: 1888487575}
   - component: {fileID: 1888487577}
   - component: {fileID: 1888487576}
+  - component: {fileID: 1888487578}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -8911,30 +8926,33 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 16
+    m_MaxSize: 24
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Seismic Cities was made for the Building Serious Games MSc course at the
-    Technical University of Delft in a period of 10 weeks.\r\n\r\nWe would like to
-    thank our commissioner, Jules Dadok, for always helping us to find the right direction
-    and for his honest feedback, without which this game would never have seen the
-    light of day.\r\n\r\nAdditionally our thanks goes out to our professor R. Bidarra
-    and his assistant Nestor Salamon, for their useful guidance and feedback during
-    the whole project.\n\nThank you for playing,\r\n\r\n- The Seismic Cities Team\r\n
-    \    Andrea Donati            \r\n     Fabian van Gent       \r\n     Joris Bouwens
-    \            \r\n     Remi van der Laan      \r\n     Sander Kats   "
+  m_Text: creditsContent
 --- !u!222 &1888487577
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1888487574}
+--- !u!114 &1888487578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1888487574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d82552097b7f0842a1bbdc59ab0e105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1949346560
 GameObject:
   m_ObjectHideFlags: 0
@@ -8945,6 +8963,7 @@ GameObject:
   - component: {fileID: 1949346561}
   - component: {fileID: 1949346563}
   - component: {fileID: 1949346562}
+  - component: {fileID: 1949346564}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -8990,7 +9009,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d1e6f26e499cb52479acde99684904d5, type: 3}
+    m_Font: {fileID: 12800000, guid: 84c2d1cec78ba5a4e8b6300a1b7b5d66, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -9009,6 +9028,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1949346560}
+--- !u!114 &1949346564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1949346560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d82552097b7f0842a1bbdc59ab0e105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2056086756
 GameObject:
   m_ObjectHideFlags: 0

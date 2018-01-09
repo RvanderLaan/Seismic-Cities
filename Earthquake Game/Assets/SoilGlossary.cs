@@ -18,17 +18,16 @@ public class SoilGlossary : MonoBehaviour {
         // Add list elements
         foreach (SoilGlossaryItem item in items)
         {
+            string soilId = item.type + "";
+            soilId = char.ToLowerInvariant(soilId[0]) + soilId.Substring(1);
             GameObject go = Instantiate(prefab, transform);
             go.GetComponentsInChildren<Image>()[1].sprite = item.sprite;
-            go.GetComponentInChildren<Text>().text = item.type + "";
+            go.GetComponentInChildren<TextInserter>().reset(soilId);
             go.GetComponentInChildren<Button>().onClick.AddListener(() =>
             {
                 soilInfoWindow.SetActive(false);
                 soilInfoWindow.SetActive(true);
-                string descriptionId = item.type + "Description";
-                descriptionId = char.ToLowerInvariant(descriptionId[0]) + descriptionId.Substring(1);
-                soilInfoWindow.GetComponentInChildren<TextInserterPro>().reset(descriptionId);
-                
+                soilInfoWindow.GetComponentInChildren<TextInserterPro>().reset(soilId + "Description");
             });
         }
 
